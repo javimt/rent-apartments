@@ -22,12 +22,15 @@ header {
 }
 .link {
   cursor: pointer;
+  text-decoration: none;
+  color: rgb(221, 216, 216);
 }
 .link:hover {
   color: rgb(8, 8, 8);
 }
 .login {
   cursor: pointer;
+  color: rgb(221, 216, 216);
 }
 .login:hover {
   color: rgb(8, 8, 8);

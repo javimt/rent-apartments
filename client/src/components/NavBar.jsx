@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-scroll";
+import { Link } from "react-router-dom";
 import { GiHamburgerMenu, GiCrossedBones } from "react-icons/gi";
 import image from "../assets/rent apt.jpeg";
 import styles from "../styles/Navbar.module.css";
