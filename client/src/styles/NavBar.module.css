@@ -1,0 +1,72 @@
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(74, 128, 160)/* rgb(216, 169, 108) */;
+  top: 0;
+  z-index: 1000;
+  position: sticky;
+  padding: 5px;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-weight: 600;
+  font-size: 28px;
+  width: 100%;
+}
+.image {
+  width: 70px;
+  border-radius: 10px;
+}
+.link {
+  cursor: pointer;
+}
+.link:hover {
+  color: rgb(8, 8, 8);
+}
+.login {
+  cursor: pointer;
+}
+.login:hover {
+  color: rgb(8, 8, 8);
+}
+#menuContainer {
+  display: flex;
+  align-items: center;
+}
+.menuIcon {
+  cursor: pointer;
+}
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: rgb(74, 128, 160);
+  padding: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.showMenu {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (min-width: 768px) {
+  .menuIcon {
+    display: none;
+  }
+  .links {
+    position: static;
+    background-color: transparent;
+    opacity: 1;
+    visibility: visible;
+    flex-direction: row;
+  }
+}

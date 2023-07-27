@@ -5,12 +5,20 @@ import { Home, About, Apartaments, Details, Landing } from "../pages/index";
 const RoutesApp = () => {
   return (
     <div>
-      <Landing />
+      {/* <Landing /> */}
       <NavBar />
-      <Home />
-      <About />
-      <Apartaments />
-      <Details />
+      <div id="/">
+        <Home />
+      </div>
+      <div id="about">
+        <About />
+      </div>
+      <div id="apartaments">
+        <Apartaments />
+      </div>
+      <div id="details">
+        <Details />
+      </div>
       <Footer />
     </div>
   );
