@@ -1,12 +1,12 @@
-import RoutesApp from "./routes/RoutesApp"
+import RoutesApp from "./routes/RoutesApp";
+import ThemeProvider from "./components/ThemeProvider";
 
 function App() {
 
   return (
-    <>
-    <h1>WAAAA ESTOY VIVOOO!!!!</h1>
+    <ThemeProvider>
       <RoutesApp />
-    </>
+    </ThemeProvider>
   )
 }
 

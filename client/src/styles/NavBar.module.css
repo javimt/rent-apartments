@@ -1,0 +1,30 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  justify-items: center;
+  top: 0;
+  z-index: 1000;
+  position: sticky;
+  padding: 5px;
+  background-color: rgb(216, 169, 108);
+  font-weight: 700;
+  font-size: 28px;
+}
+.image {
+  width: 70px;
+  border-radius: 10px;
+}
+.link {
+  cursor: pointer;
+}
+.link:hover {
+  color: rgb(74, 160, 160);
+}
+.login {
+  cursor: pointer;
+  color: var(--color-text-light);
+}
+.login:hover {
+  color: rgb(74, 160, 160);
+}
