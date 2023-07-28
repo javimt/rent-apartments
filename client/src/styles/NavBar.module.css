@@ -1,32 +1,36 @@
 header {
   display: block;
-  background-color: rgb(74, 128, 160)/* rgb(216, 169, 108) */;
+  background-color: rgb(74, 128, 160);
   top: 0;
   z-index: 1000;
   position: sticky;
-  padding: 5px;
+  /* padding: 5px; */
 }
 .navbar {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 2px;
   position: relative;
 }
 .img {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 30px;
+  width: 100%;
+  margin: 0;
+  background-color: black;
 }
 .image {
   width: 20%;
   border-radius: 10px;
+  padding: 10px;
 }
 .links {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .links a {
   display: flex;
@@ -37,20 +41,18 @@ header {
   font-weight: 600;
 }
 .links a:hover {
-  color: rgb(8, 8, 8);
+  color: black;
 }
 .menuIcon {
   display: none;
   cursor: pointer;
   position: absolute;
-  right: 10px;
-  transform: translateY(-110%);
+  transform: translateY(-120%);
 }
 .closeIcon {
   font-size: 40px;
   position: absolute;
-  right: 10px;
-  transform: translateY(-96%);
+  transform: translateY(-106%);
 }
 .show {
   display: flex;
@@ -76,14 +78,14 @@ header {
   }
   .links a {
     border-radius: 10px;
-    margin-bottom: 30px;
-    margin-right: 15px;
+    margin-bottom: 15px;
+    margin-right: 10px;
     align-content: center;
     justify-content: center;
     width: 120px;
     color: rgb(255, 255, 255);
     font-weight: 600;
-    font-size: 22px;
+    font-size: 24px;
   }
   .links a:hover {
     color: rgb(74, 128, 160);
@@ -95,18 +97,21 @@ header {
   }
   .closeIcon {
     font-size: 50px;
-    right: 15px;
+    right: 17px;
   }
   .img {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding-left: 35px;
+    padding-left: 23px;
     padding-top: 5px;
     margin: 0;
     margin-bottom: 0;
+    background-color: transparent;
+    border-radius: 10px;
   }
   .image {
+    border-radius: 10px;
     width: 80px;
   }
   .show {
