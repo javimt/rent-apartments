@@ -8,7 +8,6 @@ header {
 }
 .navbar {
   display: flex;
-  justify-content: space-around;
   align-items: center;
   position: relative;
 }
@@ -28,13 +27,14 @@ header {
 .links {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  flex-grow: 1;
   margin-top: 10px;
   margin-bottom: 10px;
+  padding: 0 80px;
 }
 .links a {
   display: flex;
-  margin-right: 70px;
   text-decoration: none;
   color: white;
   font-size: 28px;
@@ -72,7 +72,7 @@ header {
   padding: 10px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 680px) {
   .links {
     display: none;
   }
@@ -81,7 +81,6 @@ header {
     margin-bottom: 15px;
     margin-right: 10px;
     align-content: center;
-    justify-content: center;
     width: 120px;
     color: rgb(255, 255, 255);
     font-weight: 600;
@@ -104,7 +103,6 @@ header {
     align-items: center;
     justify-content: flex-start;
     padding-left: 23px;
-    padding-top: 5px;
     margin: 0;
     margin-bottom: 0;
     background-color: transparent;
@@ -119,7 +117,7 @@ header {
     flex-direction: column;
     right: 0;
     background-color: transparent;
-    padding-top: 30px;
+    padding-top: 10px;
     border-top: none;
     z-index: 1000;
   }
