@@ -1,11 +1,15 @@
+import styles from "../styles/Card.module.css";
 
-
-const Card = () => {
+const Card = ({image, description, price}) => {
   return (
-    <div>
-      
-    </div>
+    <article className={styles.card}>
+      <img src={image} alt="apartament furnished" className={styles.image} />
+      <div className={styles.details}>
+        <p className={styles.price}>{price}</p>
+        <p className={styles.description}>{description}</p>
+      </div>
+    </article>
   )
 }
 
-export default Card
+export default Card;
