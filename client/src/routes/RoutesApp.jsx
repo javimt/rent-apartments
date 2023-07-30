@@ -7,18 +7,10 @@ const RoutesApp = () => {
     <div>
       {/* <Landing /> */}
       <NavBar />
-      <div id="/">
-        <Home />
-      </div>
-      <div id="about">
-        <About />
-      </div>
-      <div id="apartaments">
-        <Apartaments />
-      </div>
-      <div id="details">
-        <Details />
-      </div>
+      <Home />
+      <About />
+      <Apartaments />
+      <Details />
       <Footer />
     </div>
   );

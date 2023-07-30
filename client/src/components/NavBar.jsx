@@ -1,35 +1,59 @@
-import { useState } from "react";
-import { Link } from "react-scroll";
-import { GiHamburgerMenu, GiCrossedBones } from "react-icons/gi";
+import { useState, useEffect, useCallback } from "react";
+import { Link } from "react-router-dom";
+import { BsBuildings } from "react-icons/bs";
 import image from "../assets/rent apt.jpeg";
 import styles from "../styles/Navbar.module.css";
 
 const NavBar = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const [scrollPos, setScrollPos] = useState(0);
 
-  const handleMenu = () => {
-    setShowMenu(!showMenu);
-  };
+  const onScroll = useCallback(() => {
+    setScrollPos(window.scrollY);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", onScroll);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, [onScroll]);
 
   return (
     <header className={styles.header}>
-      <nav className={`${styles.nav} ${showMenu ? styles.showMenu : ""}`}>
-        <img src={image} alt="amoblados" className={styles.image} />
+      <div className={`${styles.img} ${scrollPos > 50 ? styles.hide : ""}`}>
+        <img
+          src={image}
+          alt="apartamentos amoblados"
+          className={styles.image}
+        />
+      </div>
+
+      <nav className={styles.navbar}>
+        <div className={`${styles.links} ${showMenu && styles.show}`}>
           <Link to="/" className={styles.link}>
             Home
           </Link>
-          <Link to="apartaments" className={styles.link}>
-            Apartaments
-          </Link>
           <Link to="about" className={styles.link}>
-            About Us
+            About me
           </Link>
-          <div className={styles.login}>Login</div>
+          <Link to="apartaments" className={styles.link}>
+            Aparaments
+          </Link>
+          <Link to="login" className={styles.link}>
+            Login
+          </Link>
+        </div>
+        <div className={styles.menuIcon}>
           {showMenu ? (
-          <GiCrossedBones className={styles.closeIcon} onClick={handleMenu} />
-        ) : (
-          <GiHamburgerMenu className={styles.menuIcon} onClick={handleMenu} />
-        )}
+            <h1 className={styles.closeIcon} onClick={() => setShowMenu(false)}>
+              X
+            </h1>
+          ) : (
+            <BsBuildings onClick={() => setShowMenu(true)} />
+          )}
+        </div>
       </nav>
     </header>
   );
