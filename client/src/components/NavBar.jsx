@@ -38,10 +38,10 @@ const NavBar = () => {
             Home
           </Link>
           <Link to="about" className={styles.link}>
-            About us
+            About Us
           </Link>
           <Link to="apartaments" className={styles.link}>
-            Aparaments
+            For Rent
           </Link>
           <Link to="login" className={styles.link}>
             Login <LuLogIn className={styles.login}/>
