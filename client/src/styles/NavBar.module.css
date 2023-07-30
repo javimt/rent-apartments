@@ -1,11 +1,11 @@
 header {
   display: block;
-  background: linear-gradient(to top, black, rgb(74, 128, 160));
+  background: linear-gradient(to bottom, black, rgb(74, 128, 160), black);
   top: 0;
   z-index: 1000;
   position: fixed;
   width: 100%;
-  border-bottom: 1px solid rgb(218, 190, 102);
+  border-bottom: 1px solid rgb(240, 211, 177) /* rgb(218, 190, 102 )*/;
 }
 .navbar {
   display: flex;
@@ -50,17 +50,21 @@ header {
 .links a:hover {
   color: rgb(74, 128, 160);
 }
+.login {
+  margin-left: 10px;
+  margin-top: 10px;
+}
 .menuIcon {
   display: none;
   cursor: pointer;
   position: absolute;
-  transform: translateY(-70%);
+  transform: translateY(-70.5%);
   color: white;
 }
 .closeIcon {
   font-size: 40px;
   position: absolute;
-  transform: translateY(-106%);
+  transform: translateY(-114%);
   color: white;
 }
 .show {
@@ -94,7 +98,7 @@ header {
     margin-right: 10px;
     align-content: center;
     width: 120px;
-    color: rgb(240, 211, 177);
+    color: white;
     font-weight: 600;
     font-size: 24px;
   }
@@ -108,7 +112,7 @@ header {
   }
   .closeIcon {
     font-size: 50px;
-    right: 3px;
+    right: 0;
   }
   .img {
     display: flex;
