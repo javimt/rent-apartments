@@ -1,6 +1,8 @@
 import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
-import { BsBuildings } from "react-icons/bs";
+import { BsFillBuildingsFill } from "react-icons/bs";
+import { LuLogIn } from "react-icons/lu";
+import { AiFillCloseCircle } from "react-icons/ai";
 import image from "../assets/rent apt.jpeg";
 import styles from "../styles/Navbar.module.css";
 
@@ -36,23 +38,21 @@ const NavBar = () => {
             Home
           </Link>
           <Link to="about" className={styles.link}>
-            About me
+            About us
           </Link>
           <Link to="apartaments" className={styles.link}>
             Aparaments
           </Link>
           <Link to="login" className={styles.link}>
-            Login
+            Login <LuLogIn className={styles.login}/>
           </Link>
         </div>
 
         <div className={styles.menuIcon}>
           {showMenu ? (
-            <h1 className={styles.closeIcon} onClick={() => setShowMenu(false)}>
-              X
-            </h1>
+            <AiFillCloseCircle className={styles.closeIcon} onClick={() => setShowMenu(false)}/>
           ) : (
-            <BsBuildings onClick={() => setShowMenu(true)} />
+            <BsFillBuildingsFill onClick={() => setShowMenu(true)} />
           )}
         </div>
       </nav>

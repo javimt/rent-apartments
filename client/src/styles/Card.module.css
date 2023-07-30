@@ -2,12 +2,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 80%;
   border-radius: 10px;
   background: linear-gradient(
     to right,
     black,
-    rgb(218, 190, 102),
     rgb(74, 128, 160),
     black
   );
@@ -17,6 +17,9 @@
   margin-top: 20px;
 }
 .image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 60%;
   height: auto;
   object-fit: cover;
