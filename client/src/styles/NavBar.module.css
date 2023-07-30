@@ -1,10 +1,11 @@
 header {
   display: block;
-  background-color: rgb(74, 128, 160);
+  background: linear-gradient(to top, black, rgb(74, 128, 160));
   top: 0;
   z-index: 1000;
   position: fixed;
   width: 100%;
+  border-bottom: 1px solid rgb(218, 190, 102);
 }
 .navbar {
   display: flex;
@@ -17,11 +18,14 @@ header {
   align-items: center;
   width: 100%;
   margin: 0;
-  background-color: black;
+  background-image: url("../assets/panoramica.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .image {
+  border-radius: 50%;
   width: 20%;
-  border-radius: 10px;
   padding: 10px;
 }
 .hide {
@@ -39,23 +43,25 @@ header {
 .links a {
   display: flex;
   text-decoration: none;
-  color: white;
   font-size: 28px;
+  color: rgb(240, 211, 177);
   font-weight: 600;
 }
 .links a:hover {
-  color: black;
+  color: rgb(74, 128, 160);
 }
 .menuIcon {
   display: none;
   cursor: pointer;
   position: absolute;
   transform: translateY(-70%);
+  color: white;
 }
 .closeIcon {
   font-size: 40px;
   position: absolute;
   transform: translateY(-106%);
+  color: white;
 }
 .show {
   display: flex;
@@ -76,6 +82,9 @@ header {
 }
 
 @media (max-width: 680px) {
+  .header {
+    border-bottom: 1px solid rgb(240, 211, 177);
+  }
   .links {
     display: none;
   }
@@ -85,7 +94,7 @@ header {
     margin-right: 10px;
     align-content: center;
     width: 120px;
-    color: rgb(255, 255, 255);
+    color: rgb(240, 211, 177);
     font-weight: 600;
     font-size: 24px;
   }
@@ -108,11 +117,13 @@ header {
     padding-left: 23px;
     margin: 0;
     margin-bottom: 0;
-    background-color: transparent;
-    border-radius: 10px;
+    background-image: url("../assets/panoramica.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
   .image {
-    border-radius: 10px;
+    border-radius: 50%;
     width: 80px;
   }
   .show {

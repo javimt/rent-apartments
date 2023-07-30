@@ -22,14 +22,14 @@ const NavBar = () => {
 
   return (
     <header className={styles.header}>
-      <div className={`${styles.img} ${scrollPos > 50 ? styles.hide : ""}`}>
-        <img
-          src={image}
-          alt="apartamentos amoblados"
-          className={styles.image}
-        />
-      </div>
-
+    <div className={`${styles.img} ${scrollPos > 50 ? styles.hide : ""}`}>
+      <img
+        src={image}
+        alt="furnished apartament"
+        className={styles.image}
+      />
+    </div>
+    
       <nav className={styles.navbar}>
         <div className={`${styles.links} ${showMenu && styles.show}`}>
           <Link to="/" className={styles.link}>
@@ -45,6 +45,7 @@ const NavBar = () => {
             Login
           </Link>
         </div>
+
         <div className={styles.menuIcon}>
           {showMenu ? (
             <h1 className={styles.closeIcon} onClick={() => setShowMenu(false)}>
