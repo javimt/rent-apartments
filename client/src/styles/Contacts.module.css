@@ -1,0 +1,36 @@
+.container {
+  position: fixed;
+  right: 20px;
+  top: 73vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1000;
+}
+.icon {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: rgb(10, 158, 22);
+  z-index: 1000;
+  animation: bounce 0.5s infinite;
+}
+.icon:hover {
+  color: rgb(0, 255, 21);
+  cursor: pointer;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@media (max-width: 680px) {
+  .container {
+    top: 80vh;
+  }
+}

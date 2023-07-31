@@ -2,5 +2,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 50vh;
+  flex-direction: column;
+  margin-top: 2rem;
+  width: 80vw;
+  height: 100vh;
 }

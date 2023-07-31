@@ -45,5 +45,6 @@
 @media (max-width: 680px) {
   .card {
     background: linear-gradient(to right, black, rgb(74, 128, 160), black);
+    margin-bottom: 0;
   }
 }

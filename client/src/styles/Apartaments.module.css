@@ -1,16 +1,18 @@
 .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 50vh;
-    margin-left: 20px;
-    margin-right: 20px;
-    flex-wrap: wrap;
-    overflow-x: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50vh;
+  margin-left: 20px;
+  margin-right: 20px;
+  flex-wrap: wrap;
+  overflow-x: hidden;
+  height: 100%;
 }
 
 @media (max-width: 680px) {
-    .container {
-        margin-top: 12vh;
-    }
+  .container {
+    margin-top: 2rem;
+    height: 100vh;
+  }
 }

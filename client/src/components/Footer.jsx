@@ -1,11 +1,14 @@
-
+import styles from "../styles/Footer.module.css";
 
 const Footer = () => {
   return (
-    <div>
-      
+    <div className={styles.footer}>
+      <div className={styles.by}>
+        <p className={styles.p}> Copyright © 2023. </p>
+        <p className={styles.p}> by www.furnishedapartamentmedellin.com.  All right reserved</p>
+      </div>
     </div>
   )
 }
 
-export default Footer
+export default Footer;
