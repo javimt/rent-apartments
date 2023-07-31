@@ -1,0 +1,38 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  margin-bottom: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgb(74, 128, 160), black);
+  overflow-x: hidden;
+}
+.by {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: rgb(240, 211, 177);
+  margin: 20px;
+}
+.p {
+  color: rgb(240, 211, 177);
+  margin-left: 10px;
+  font-size: 3vw;
+  gap: 5px;
+}
+
+@media (max-width: 680px) {
+  .footer {
+    flex-wrap: wrap;
+  }
+  .by {
+    flex-direction: column;
+    text-align: center;
+  }
+  .p {
+    margin-top: 10px;
+    color: rgb(240, 211, 177);
+  }
+}
