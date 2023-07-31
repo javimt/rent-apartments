@@ -24,4 +24,4 @@ const Apartaments = () => {
   )
 }
 
-export default Apartaments
+export default Apartaments;
