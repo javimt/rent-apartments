@@ -8,9 +8,9 @@ import styles from "../styles/Navbar.module.css";
 
 const NavBar = () => {
   const [showMenu, setShowMenu] = useState(false);
-  const [scrollPos, setScrollPos] = useState(0);
+  //const [scrollPos, setScrollPos] = useState(0);
 
-  const onScroll = useCallback(() => {
+  /* const onScroll = useCallback(() => {
     setScrollPos(window.scrollY);
   }, []);
 
@@ -20,11 +20,11 @@ const NavBar = () => {
     return () => {
       window.removeEventListener("scroll", onScroll);
     };
-  }, [onScroll]);
+  }, [onScroll]); */
 
   return (
     <header className={styles.header}>
-    <div className={`${styles.img} ${scrollPos > 50 ? styles.hide : ""}`}>
+    <div className={styles.img}/* {`${styles.img} ${scrollPos > 50 ? styles.hide : ""}`} */>
       <img
         src={image}
         alt="furnished apartament"
