@@ -7,6 +7,9 @@
   width: 100%;
   background: linear-gradient(to top, rgb(74, 128, 160), black);
   overflow-x: hidden;
+  font-size: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .by {
   display: flex;
@@ -18,21 +21,11 @@
 }
 .p {
   color: rgb(240, 211, 177);
-  margin-left: 10px;
-  font-size: 2vw;
   gap: 5px;
 }
 
 @media (max-width: 680px) {
   .footer {
-    flex-wrap: wrap;
-  }
-  .by {
-    flex-direction: column;
-    text-align: center;
-  }
-  .p {
-    margin-top: 10px;
-    color: rgb(240, 211, 177);
+    font-size: 90%;
   }
 }

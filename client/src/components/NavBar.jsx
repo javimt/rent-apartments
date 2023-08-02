@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { BsFillBuildingsFill } from "react-icons/bs";
 import { LuLogIn } from "react-icons/lu";
@@ -8,30 +8,30 @@ import styles from "../styles/Navbar.module.css";
 
 const NavBar = () => {
   const [showMenu, setShowMenu] = useState(false);
-  //const [scrollPos, setScrollPos] = useState(0);
-
-  /* const onScroll = useCallback(() => {
-    setScrollPos(window.scrollY);
-  }, []);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    window.addEventListener("scroll", onScroll);
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
-  }, [onScroll]); */
+  }, []);
 
   return (
-    <header className={styles.header}>
-    <div className={styles.img}/* {`${styles.img} ${scrollPos > 50 ? styles.hide : ""}`} */>
-      <img
-        src={image}
-        alt="furnished apartament"
-        className={styles.image}
-      />
-    </div>
-    
+    <header className={`${styles.header} ${isScrolled && styles.scrolled}`}>
+      <div className={styles.img}>
+        <img src={image} alt="furnished apartament" className={styles.image} />
+      </div>
+
       <nav className={styles.navbar}>
         <div className={`${styles.links} ${showMenu && styles.show}`}>
           <Link to="/" className={styles.link}>
@@ -44,13 +44,16 @@ const NavBar = () => {
             For Rent
           </Link>
           <Link to="login" className={styles.link}>
-            Login <LuLogIn className={styles.login}/>
+            Login <LuLogIn className={styles.login} />
           </Link>
         </div>
 
         <div className={styles.menuIcon}>
           {showMenu ? (
-            <AiFillCloseCircle className={styles.closeIcon} onClick={() => setShowMenu(false)}/>
+            <AiFillCloseCircle
+              className={styles.closeIcon}
+              onClick={() => setShowMenu(false)}
+            />
           ) : (
             <BsFillBuildingsFill onClick={() => setShowMenu(true)} />
           )}
