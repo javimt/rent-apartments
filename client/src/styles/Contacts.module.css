@@ -1,7 +1,7 @@
 .container {
   position: fixed;
-  right: 20px;
-  top: 70vh;
+  right: 10px;
+  top: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,6 +31,6 @@
 
 @media (max-width: 680px) {
   .container {
-    top: 80vh;
+    top: 82vh;
   }
 }

@@ -8,17 +8,38 @@ const Apartaments = () => {
       <Card 
         image={image}
         price="$1000us"
-        description="beautiful furnished apartament ubicated in the center of the city"
+        ubication="Medellin"
+        description="2 people max"
       />
       <Card 
         image={image}
         price="$1000us"
-        description="beautiful furnished apartament ubicated in the center of the city"
+        ubication="Laureles"
+        description="4 people max"
       />
       <Card 
         image={image}
         price="$1000us"
-        description="beautiful furnished apartament ubicated in the center of the city"
+        ubication="Envigado"
+        description="7 people max"
+      />
+      <Card 
+        image={image}
+        price="$1000us"
+        ubication="Medellin"
+        description="2 people max"
+      />
+      <Card 
+        image={image}
+        price="$1000us"
+        ubication="Laureles"
+        description="4 people max"
+      />
+      <Card 
+        image={image}
+        price="$1000us"
+        ubication="Envigado"
+        description="7 people max"
       />
     </section>
   )
