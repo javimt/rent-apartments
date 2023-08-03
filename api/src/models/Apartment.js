@@ -1,8 +1,12 @@
 const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
-  sequelize.define("Apartament", {
+  sequelize.define("Apartment", {
 
+    id: {
+      type: DataTypes.STRING,
+      primaryKey: true,
+    },
     image: {
       type: DataTypes.TEXT
     },
