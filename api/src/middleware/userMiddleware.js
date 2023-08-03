@@ -53,7 +53,6 @@ const userMiddleware = {
   },
 
   authenticateUser: (req, res, next) => {
-    // Por ejemplo, puedes verificar si el usuario tiene una sesión válida o un token de autenticación válido
     if (!req.user) {
       return res.status(401).json({
         error: {
