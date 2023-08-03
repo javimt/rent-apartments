@@ -1,16 +1,16 @@
 const { Router } = require('express');
-const apartamentRoute = require('./apartamentRoute');
+const apartmentRoute = require('./apartmentRoute');
 const messageRoute = require('./messageRoute');
 const reviewRoute = require('./reviewRoute');
-const rentApartamentRoute = require('./rentApartamentRoute');
+const rentRoute = require('./rentRoute');
 const userRoute = require('./userRoute');
 
 const router = Router();
 
-router.use('/apartament', apartamentRoute);
+router.use('/apartment', apartmentRoute);
 router.use('/message', messageRoute);
 router.use('/review', reviewRoute);
-router.use('/rentApartament', rentApartamentRoute);
+router.use('/rent', rentRoute);
 router.use('/user', userRoute);
 
 module.exports = router
