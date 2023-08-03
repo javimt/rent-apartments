@@ -11,8 +11,8 @@
     black,
     black,
     rgb(74, 128, 160)
-  );
-  cursor: pointer;
+  );/* 
+  cursor: pointer; */
   position: relative;
   overflow-x: hidden;
   margin-top: 20px;
@@ -82,10 +82,14 @@
   justify-content: center;
   font-weight: 650;
   color: black;
+  border-bottom: 1px solid;
 }
 
-/* @media (max-width: 680px) {
-  .price {
-    padding-left: 80%;
+@media (max-width: 820px) and (min-width: 540px) {
+  .card {
+    width: 32rem;
   }
-} */
+  .image {
+    width: 32rem;
+  }
+}

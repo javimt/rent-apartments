@@ -23,6 +23,9 @@
   color: rgb(240, 211, 177);
   gap: 5px;
 }
+.a {
+  text-decoration: none;
+}
 
 @media (max-width: 680px) {
   .footer {
