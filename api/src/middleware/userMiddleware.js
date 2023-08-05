@@ -45,7 +45,7 @@ const userMiddleware = {
       return res.status(400).json({
           error: {
             code: 400,
-            message: "Password must be at least 8 characters long",
+            message: "Password must be at least 4 characters long",
           },
         });
     }

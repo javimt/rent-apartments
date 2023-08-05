@@ -1,16 +1,15 @@
 import { useState } from "react";
 import axios from "axios";
 import styles from "../styles/Card.module.css";
-import { Details } from "../pages";
+//import { Details } from "../pages";
 
-const Card = ({ image, description, price, ubication, availability, rent }) => {
+const Card = ({ image, description, price, ubication, availability, rent, id }) => {
   const [isRenting, setIsRenting] = useState(false);
   const [isAvailable, setIsAvailable] = useState(availability);
 
-  const handleRent = async () => {
+  const handleRent = async (id) => {
     if (!isRenting) {
       try {
-        // Realizar solicitud POST al backend para rentar el apartamento
         const response = await axios.post(`http://localhost:3001/apartment/${id}/rent`);
         setIsRenting(true);
         setIsAvailable(!isAvailable);
@@ -33,8 +32,8 @@ const Card = ({ image, description, price, ubication, availability, rent }) => {
         </button>
         <button
           className={styles.rent}
-          onClick={handleRent}
-          disabled={isRenting}
+          onClick={() => handleRent(id)}
+          disabled={isRenting || !isAvailable}
         >
           {isRenting ? "Renting..." : rent}
         </button>
