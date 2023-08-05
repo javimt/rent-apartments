@@ -1,14 +1,14 @@
 const { User, Apartment, Rent } = require("../../db");
 
 const checkAvailability = (apartment) => {
-  return apartment.availability ? "Disponible" : "No Disponible";
+  return apartment.availability ? "Available" : "Not Available";
 };
 
 module.exports = {
   getAllApartments: async (req, res) => {
     try {
       const apartments = await Apartment.findAll({
-        include: { model: User },
+        include: [{ model: User }, { model: Rent }],
         attributes: { exclude: ["createdAt", "updatedAt"] },
       });
       res.status(200).json(apartments);
@@ -39,11 +39,9 @@ module.exports = {
     try {
       const { userId } = req.body;
       const user = await User.findByPk(userId);
-
       if (!user) {
         return res.status(404).send({ error: "User not found" });
       }
-
       const newApartment = await Apartment.create(req.body);
       await newApartment.setUser(user);
       res.status(201).json(newApartment);
@@ -58,7 +56,6 @@ module.exports = {
       const updatedApartment = await Apartment.update(req.body, {
         where: { id },
       });
-
       if (updatedApartment[0] === 0) {
         return res.status(404).send({ error: "Apartment not found" });
       }
@@ -85,20 +82,20 @@ module.exports = {
     const { id } = req.params;
     try {
       const apartment = await Apartment.findByPk(id);
-
       if (!apartment) {
         return res.status(404).send({ error: "Apartment not found" });
       }
-
       if (!apartment.availability) {
         return res.status(400).send({ error: "Apartment is not available for rent" });
       }
-
       apartment.availability = false;
       await apartment.save();
       const rent = await Rent.create({
         apartmentId: apartment.id,
         startDate: new Date(),
+        endDate: new Date(req.body.endDate),
+        totalPrice: req.body.totalPrice,
+        status: true,
       });
       res.status(200).json({ message: "Apartment rented successfully", rent });
     } catch (error) {

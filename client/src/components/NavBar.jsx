@@ -1,16 +1,14 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { BsFillBuildingsFill } from "react-icons/bs";
 import { LuLogIn } from "react-icons/lu";
 import { AiFillCloseCircle } from "react-icons/ai";
 import image from "../assets/rent apt.jpeg";
 import styles from "../styles/Navbar.module.css";
-//import { AuthContext } from "../context/AuthContext";
 
 const NavBar = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  //const { isAuthenticated } = useContext(AuthContext);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,9 +18,7 @@ const NavBar = () => {
         setIsScrolled(false);
       }
     };
-
     window.addEventListener("scroll", handleScroll);
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -45,11 +41,9 @@ const NavBar = () => {
           <Link to="apartaments" className={styles.link}>
             For Rent
           </Link>
-          {/* {!isAuthenticated && ( )} */}
-            <Link to="login" className={styles.link}>
-              Login <LuLogIn className={styles.login} />
-            </Link>
-           
+          <Link to="login" className={styles.link}>
+            Login <LuLogIn className={styles.login} />
+          </Link>
         </div>
 
         <div className={styles.menuIcon}>
