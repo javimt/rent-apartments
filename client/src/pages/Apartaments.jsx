@@ -1,60 +1,41 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
 import Card from "../components/Card";
 import image from "../assets/apartament.jpg";
 import styles from "../styles/Apartaments.module.css";
 
 const Apartaments = () => {
+  const [apartments, setApartments] = useState([]);
+
+  useEffect(() => {
+    const fetchApartments = async () => {
+      try {
+        const response = await axios.get("http://localhost:3001/apartment");
+        setApartments(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchApartments();
+  }, []);
+
   return (
     <section className={styles.container}>
-      <Card 
-        image={image}
-        rent="Rent"
-        availability="Availability"
-        price="$200us"
-        ubication="Medellin"
-        description="2 people max"
-      />
-      <Card 
-        image={image}
-        rent="Rent"
-        availability="Availability"
-        price="$250us"
-        ubication="Laureles"
-        description="4 people max"
-      />
-      <Card 
-        image={image}
-        rent="Rent"
-        availability="Availability"
-        price="$300us"
-        ubication="Envigado"
-        description="7 people max"
-      />
-      <Card 
-        image={image}
-        rent="Rent"
-        availability="Availability"
-        price="$500us"
-        ubication="Poblado"
-        description="2 people max"
-      />
-      <Card 
-        image={image}
-        rent="Rent"
-        availability="Availability"
-        price="$200us"
-        ubication="Laureles"
-        description="4 people max"
-      />
-      <Card 
-        image={image}
-        rent="Rent"
-        availability="Availability"
-        price="$350us"
-        ubication="Envigado"
-        description="7 people max"
-      />
+      {apartments.map((apartment) => (
+        <Card
+          key={apartment.id}
+          id={apartment.id}
+          image={apartment.image}
+          rent="Rent"
+          availability={apartment.availability}
+          price={apartment.price}
+          ubication={apartment.ubication}
+          description={apartment.description}
+        />
+      ))}
     </section>
-  )
-}
+  );
+};
 
 export default Apartaments;

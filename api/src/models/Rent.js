@@ -17,12 +17,13 @@ module.exports = (sequelize) => {
     totalPrice: {
       type: DataTypes.FLOAT,
       allowNull: false,
-    },
+    },/* 
+    rent: {
+      type: DataTypes.STRING
+    }, */
     status: {
       type: DataTypes.BOOLEAN,
       defaultValue: true,
     },
-  },
-  { timestamps: false }
-  );
+  },{ timestamps: false } );
 };

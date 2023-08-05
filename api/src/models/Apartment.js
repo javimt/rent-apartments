@@ -2,30 +2,29 @@ const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
   sequelize.define("Apartment", {
-
     id: {
       type: DataTypes.STRING,
       primaryKey: true,
     },
     image: {
-      type: DataTypes.TEXT
+      type: DataTypes.TEXT,
     },
-    name: {
-      type: DataTypes.STRING
+    rent: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
     },
     ubication: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
     },
-    available: {
-      type: DataTypes.BOOLEAN
+    availability: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
     },
     price: {
-      type: DataTypes.FLOAT
+      type: DataTypes.FLOAT,
     },
-    status: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: true
+    description: {
+      type: DataTypes.STRING,
     },
-    
   });
 };

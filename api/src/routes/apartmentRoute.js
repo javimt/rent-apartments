@@ -5,6 +5,7 @@ const {
   updateApartment,
   deleteApartment,
   getApartmentById,
+  rentApartment,
 } = require("../controllers/apartmentController");
 
 const router = Router();
@@ -14,5 +15,6 @@ router.post("/", createApartment);
 router.get("/:id", getApartmentById);
 router.put("/:id", updateApartment);
 router.delete("/:id", deleteApartment);
+router.post("/:id/rent", rentApartment);
 
 module.exports = router;
