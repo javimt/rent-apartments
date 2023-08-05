@@ -1,11 +1,19 @@
-const {Router} = require('express');
-const {} = require('../controllers/rentController');
+const { Router } = require("express");
+const {
+  getAllRents,
+  createRent,
+  updateRent,
+  deleteRent,
+  getRentById,
+} = require("../controllers/rentController");
+const formatDateMiddleware = require("../middleware/rentMiddleware");
 
 const router = Router();
 
-router.get('/', );
-router.post('/', );
-router.put('/:id', );
-router.delete('/:id', );
+router.get("/", getAllRents);
+router.get("/:id", getRentById);
+router.post("/", formatDateMiddleware, createRent);
+router.put("/:id", formatDateMiddleware, updateRent);
+router.delete("/:id", deleteRent);
 
 module.exports = router;
