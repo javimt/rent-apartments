@@ -22,7 +22,7 @@ server.use((err, req, res, next) => {
 server.listen(
   PORT,
   connection
-    .sync({ force: true })
+    .sync({ force: false })
     .then(() =>
       console.info(
         `the server is listen in port ${PORT}`

@@ -53,13 +53,12 @@ module.exports = {
   updateApartment: async (req, res) => {
     const { id } = req.params;
     try {
-      const updatedApartment = await Apartment.update(req.body, {
-        where: { id },
-      });
-      if (updatedApartment[0] === 0) {
+      const apartment = await Apartment.findByPk(id);
+      if (!apartment) {
         return res.status(404).send({ error: "Apartment not found" });
       }
-      res.status(200).json(updatedApartment);
+      const updatedApartment = await apartment.update(req.body);
+      res.status(200).json({ message: "Apartment updated successfully", updatedApartment });
     } catch (error) {
       res.status(500).send({ error: error.message });
     }
@@ -68,11 +67,12 @@ module.exports = {
   deleteApartment: async (req, res) => {
     const { id } = req.params;
     try {
-      const deletedApartment = await Apartment.destroy({ where: { id } });
-      if (deletedApartment === 0) {
+      const apartment = await Apartment.findByPk(id);
+      if (!apartment) {
         return res.status(404).send({ error: "Apartment not found" });
       }
-      res.status(200).send({ message: "Apartment deleted" });
+      await apartment.destroy();
+      res.status(200).send({ message: "Apartment deleted successfully" });
     } catch (error) {
       res.status(500).send({ error: error.message });
     }
@@ -92,10 +92,10 @@ module.exports = {
       await apartment.save();
       const rent = await Rent.create({
         apartmentId: apartment.id,
-        startDate: new Date(),
-        endDate: new Date(req.body.endDate),
+        startDate: req.body.startDate,
+        endDate: req.body.endDate,
         totalPrice: req.body.totalPrice,
-        status: true,
+        status: req.body.status,
       });
       res.status(200).json({ message: "Apartment rented successfully", rent });
     } catch (error) {
