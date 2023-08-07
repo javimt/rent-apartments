@@ -31,12 +31,16 @@ module.exports = {
       status,
       is_admin,
       image,
-      addres,
+      address,
       phone,
       city,
       country,
     } = req.body;
     try {
+      const existingUser = await User.findOne({ where: { email } });
+      if (existingUser) {
+        return res.status(400).json({ error: "Email already exists" });
+      }
       const users = await User.findOrCreate({
         where: {
           email: email,
@@ -47,7 +51,7 @@ module.exports = {
           is_admin,
           status,
           image,
-          addres,
+          address,
           phone,
           country,
           city,
@@ -66,7 +70,7 @@ module.exports = {
       if (!user) {
         return res.status(404).send({ error: "User not found" });
       }
-      const updateUser = await putUser.update(req.body);
+      const updateUser = await user.update(req.body);
       res.status(200).json({message: "User updated succesfully", updateUser});
     } catch (error) {
       res.status(500).send({error: error.message});
@@ -80,7 +84,7 @@ module.exports = {
       if (!user) {
         return res.status(404).send({ error: "User not found" });
       }
-      await user.destroy({where: {id:id}});
+      await user.destroy();
       res.status(200).send({ message: "User deleted" });
     } catch (error) {
       res.status(500).send({error: error.message})

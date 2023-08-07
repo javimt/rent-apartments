@@ -7,7 +7,7 @@ const Card = ({ image, description, price, ubication, availability, rent, id }) 
   const [isRenting, setIsRenting] = useState(false);
   const [isAvailable, setIsAvailable] = useState(availability);
 
-  const handleRent = async (id) => {
+  const handleRent = async () => {
     if (!isRenting) {
       try {
         const response = await axios.post(`http://localhost:3001/apartment/${id}/rent`);
@@ -32,7 +32,7 @@ const Card = ({ image, description, price, ubication, availability, rent, id }) 
         </button>
         <button
           className={styles.rent}
-          onClick={() => handleRent(id)}
+          onClick={handleRent}
           disabled={isRenting || !isAvailable}
         >
           {isRenting ? "Renting..." : rent}
