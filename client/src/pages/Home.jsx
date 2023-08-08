@@ -1,10 +1,10 @@
 import styles from "../styles/Home.module.css";
-import Formulario from "../components/Formulario";
+//import Formulario from "../components/Formulario";
 
 const Home = () => {
   return (
     <div className={styles.home}>
-      <Formulario />
+      <h1>waaa estoy vivoo !!</h1>
     </div>
   )
 }

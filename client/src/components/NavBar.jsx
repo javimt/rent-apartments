@@ -5,10 +5,8 @@ import { LuLogIn } from "react-icons/lu";
 import { AiFillCloseCircle } from "react-icons/ai";
 import image from "../assets/rent apt.jpeg";
 import styles from "../styles/Navbar.module.css";
-import LoginButton from "./LoginButton";
-import LogOutButton from "./LogOutButton";
-import Profile from "./Profile";
 import { useAuth0 } from "@auth0/auth0-react";
+import LoginButton from "./LoginButton";
 
 const NavBar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -43,16 +41,19 @@ const NavBar = () => {
           <Link to="about" className={styles.link}>
             About Us
           </Link>
-          <Link to="apartments" className={styles.link}>
+          <Link to="apartaments" className={styles.link}>
             For Rent
           </Link>
           {isAuthenticated ? (
-            <>
-              <LogOutButton />
-              <Profile />
-            </>
+            <button onClick={() => logout()}>Logout</button>
           ) : (
             <LoginButton />
+          )}
+          {isAuthenticated && (
+            <div>
+              <p>hi, {user.name}!</p>
+              <img src={user.picture} alt="Profile" />
+            </div>
           )}
         </div>
 
