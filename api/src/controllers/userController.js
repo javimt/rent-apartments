@@ -1,4 +1,9 @@
 const { User } = require("../../db");
+const { AuthenticationClient } = require("auth0");
+const auth0 = new AuthenticationClient({
+  domain: process.env.AUTH0_DOMAIN,
+  clientId: process.env.AUTH0_CLIENT_ID,
+});
 
 module.exports = {
   getAllUsers: async (req, res) => {
@@ -41,6 +46,12 @@ module.exports = {
       if (existingUser) {
         return res.status(400).json({ error: "Email already exists" });
       }
+
+      const auth0User = await auth0.createUser({
+        email,
+        password,
+      });
+
       const users = await User.findOrCreate({
         where: {
           email: email,
@@ -57,7 +68,7 @@ module.exports = {
           city,
         },
       });
-      res.status(200).json(users);
+      res.status(200).json(users, auth0User);
     } catch (error) {
       res.status(500).send({ error: error.message });
     }
