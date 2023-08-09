@@ -1,3 +1,6 @@
+const jwt = require('jsonwebtoken');
+const { User } = require('../../db');
+
 const userMiddleware = {
   validateUserInput: (req, res, next) => {
     const {
@@ -52,16 +55,26 @@ const userMiddleware = {
     next();
   },
 
-  authenticateUser: (req, res, next) => {
-    if (!req.user) {
-      return res.status(401).json({
-        error: {
-          code: 401,
-          message: "Unauthorized",
-        },
-      });
+  authenticateUser: async (req, res, next) => {
+    const token = req.headers.authorization;
+
+    if (!token) {
+      return res.status(401).json({ error: 'Unauthorized' });
     }
-    next();
+
+    try {
+      const decodedToken = jwt.verify(token, process.env.JWT_SECRET); // Utiliza process.env para acceder a la clave secreta
+      const user = await User.findByPk(decodedToken.userId);
+
+      if (!user) {
+        return res.status(401).json({ error: 'Unauthorized' });
+      }
+
+      req.user = user;
+      next();
+    } catch (error) {
+      res.status(401).json({ error: 'Unauthorized' });
+    }
   },
 };
 

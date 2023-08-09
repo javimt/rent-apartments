@@ -2,20 +2,12 @@ const { Router } = require('express');
 const { getAllUsers, postUser, putUser, getUserById, deleteUser } = require('../controllers/userController');
 const userMiddleware = require('../middleware/userMiddleware');
 
-/* const errorHandler = (err, req, res, next) => {
-  console.error(err);
-  res.status(500).json({ error: 'Internal Server Error' });
-}; */
-
 const router = Router();
 
-//router.use(userMiddleware.authenticateUser);
-//router.use(errorHandler); 
-
-router.get('/', getAllUsers);
+router.get('/', userMiddleware.authenticateUser, getAllUsers); // Proteger ruta con autenticación
 router.post('/', userMiddleware.validateUserInput, postUser);
-router.put('/:id', userMiddleware.validateUserInput, putUser);
-router.get('/:id', getUserById);
-router.delete('/:id', deleteUser);
+router.put('/:id', userMiddleware.authenticateUser, userMiddleware.validateUserInput, putUser); // Proteger ruta con autenticación
+router.get('/:id', userMiddleware.authenticateUser, getUserById); // Proteger ruta con autenticación
+router.delete('/:id', userMiddleware.authenticateUser, deleteUser); // Proteger ruta con autenticación
 
 module.exports = router;
