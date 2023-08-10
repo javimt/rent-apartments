@@ -45,11 +45,9 @@ module.exports = {
 
       const hashedPassword = bcrypt.hashSync(password, 10);
 
-      const users = await User.findOrCreate({
-        where: {
-          email: email,
-        },
-        defaults: {
+      const users = await User.create({
+        
+          email,
           full_name,
           password: hashedPassword,
           is_admin,
@@ -59,8 +57,9 @@ module.exports = {
           phone,
           country,
           city,
-        },
+        
       });
+ //console.log(users)
       res.status(200).json(users);
     } catch (error) {
       res.status(500).send({ error: error.message });

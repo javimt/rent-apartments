@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
-import { Home, About, Apartaments, Landing } from "../pages/index";
+import { Home, About, Apartaments, Form } from "../pages/index";
 import Contacts from "../components/Contacts";
 
 const RoutesApp = () => {
@@ -13,6 +13,7 @@ const RoutesApp = () => {
         <Route exact path="/" element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="apartments" element={<Apartaments />} />
+        <Route path="login" element={<Form />} />
       </Routes>
       <Footer />
     </div>

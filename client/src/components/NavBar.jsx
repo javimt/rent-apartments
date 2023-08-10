@@ -5,13 +5,11 @@ import { LuLogIn } from "react-icons/lu";
 import { AiFillCloseCircle } from "react-icons/ai";
 import image from "../assets/rent apt.jpeg";
 import styles from "../styles/Navbar.module.css";
-import { useAuth0 } from "@auth0/auth0-react";
-import LoginButton from "./LoginButton";
 
 const NavBar = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const { isAuthenticated, logout, user } = useAuth0();
+  
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,17 +42,9 @@ const NavBar = () => {
           <Link to="apartaments" className={styles.link}>
             For Rent
           </Link>
-          {isAuthenticated ? (
-            <button onClick={() => logout()}>Logout</button>
-          ) : (
-            <LoginButton />
-          )}
-          {isAuthenticated && (
-            <div>
-              <p>hi, {user.name}!</p>
-              <img src={user.picture} alt="Profile" />
-            </div>
-          )}
+          <Link to="login" className={styles.link}>
+            Login <LuLogIn className={styles.login} />
+          </Link>
         </div>
 
         <div className={styles.menuIcon}>
