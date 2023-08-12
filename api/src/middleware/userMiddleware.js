@@ -1,4 +1,4 @@
-const userMiddleware = {
+module.exports = {
   validateUserInput: (req, res, next) => {
     if (req.method === "POST" || req.method === "PUT") {
       const {
@@ -53,8 +53,5 @@ const userMiddleware = {
     }
     next();
   },
-
- 
 };
 
-module.exports = userMiddleware;

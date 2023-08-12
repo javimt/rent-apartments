@@ -1,0 +1,100 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 10px;
+  margin-top: 15rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: linear-gradient(to bottom, black, rgb(74, 128, 160), black);
+  height: 100%;
+  margin-bottom: 5rem;
+}
+.loginForm {
+  display: flex;
+  flex-direction: column;
+}
+h2 {
+  color: rgb(240, 211, 177);
+}
+.formGroup {
+  margin-bottom: 15px;
+}
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: rgb(240, 211, 177);
+}
+input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+button {
+  padding: 10px;
+  background-color: rgb(240, 211, 177);
+  color: rgb(74, 128, 160);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+button:hover {
+  color: rgb(240, 211, 177);
+  background-color: rgb(74, 128, 160);
+  font-weight: 550;
+}
+.errorMsg {
+  color: red;
+  margin-top: 10px;
+}
+.toggleButton {
+  background-color: transparent;
+  border: none;
+  color: rgb(74, 128, 160);
+  cursor: pointer;
+  font-size: 14px;
+}
+.toggleButton:hover {
+  text-decoration: underline;
+  background-color: transparent;
+}
+.authOptions {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(240, 211, 177);
+}
+.authOptions p {
+  margin-bottom: 10px;
+}
+.authOptions a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  color: rgb(74, 128, 160);
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  width: 5rem;
+  transition: color 0.3s;
+  background-color: rgb(240, 211, 177);
+}
+.authOptions a:hover {
+  color: rgb(240, 211, 177);
+  background-color: rgb(74, 128, 160);
+}
+p {
+  font-weight: 550;
+}

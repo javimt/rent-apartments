@@ -13,7 +13,8 @@ const RoutesApp = () => {
         <Route exact path="/" element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="apartments" element={<Apartaments />} />
-        <Route path="login" element={<Form />} />
+        <Route path="login" element={<Form isRegisterMode={false} />} />
+        <Route path="register" element={<Form isRegisterMode={true} />} />
       </Routes>
       <Footer />
     </div>

@@ -1,9 +1,8 @@
 .about {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  flex-direction: column;
-  margin-top: 2rem;
+  margin-top: 5rem;
   width: 80vw;
   height: 100vh;
 }

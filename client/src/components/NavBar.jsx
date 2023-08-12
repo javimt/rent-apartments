@@ -39,7 +39,7 @@ const NavBar = () => {
           <Link to="about" className={styles.link}>
             About Us
           </Link>
-          <Link to="apartaments" className={styles.link}>
+          <Link to="apartments" className={styles.link}>
             For Rent
           </Link>
           <Link to="login" className={styles.link}>
