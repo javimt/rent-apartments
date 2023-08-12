@@ -1,7 +1,7 @@
 .home {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  margin-top: 12rem;
-  height: 100%;
+  margin-top: 5rem;
+  height: 100vh;
 }

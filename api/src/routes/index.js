@@ -4,8 +4,9 @@ const messageRoute = require('./messageRoute');
 const reviewRoute = require('./reviewRoute');
 const rentRoute = require('./rentRoute');
 const userRoute = require('./userRoute');
-const loginRoute = require('./authRoute');
+const loginRoute = require('./loginRoute');
 const registerRoute = require("./registerRoute");
+const authRoute = require("./authRouter");
 
 const router = Router();
 
@@ -16,5 +17,8 @@ router.use('/rent', rentRoute);
 router.use('/user', userRoute);
 router.use('/login', loginRoute);
 router.use('/register', registerRoute);
+router.use('/auth', authRoute);
+/* router.use('/auth/facebook', authRouter); */
 
-module.exports = router;
+
+module.exports = router; 

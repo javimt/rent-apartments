@@ -29,6 +29,7 @@
   height: 10rem;
   object-fit: cover;
   border-bottom: 1px solid white;
+  background-color: white;
 }
 .details {
   position: absolute;
@@ -42,7 +43,7 @@
   color: rgb(74, 128, 160);
   background-color: rgb(240, 211, 177);
   font-weight: 550;
-  transform: translateY(-11%);
+  transform: translateY(-8%);
 }
 .ava {
   cursor: pointer;
@@ -50,7 +51,7 @@
   color: rgb(240, 211, 177);
   width: auto;
   font-weight: 550;
-  transform: translateY(-11%);
+  transform: translateY(-8%);
 }
 .ava:hover {
   color: black;
