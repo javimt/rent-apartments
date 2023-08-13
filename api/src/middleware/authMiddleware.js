@@ -11,7 +11,7 @@ module.exports = {
 
     try {
       const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
-console.log("funciona", decodedToken)
+//console.log("funciona", decodedToken)
       const user = await User.findByPk(decodedToken.userId);
 
       if (!user) {

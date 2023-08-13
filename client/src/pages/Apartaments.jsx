@@ -26,7 +26,7 @@ const Apartaments = () => {
         <Card
           key={apartment.id}
           id={apartment.id}
-          image={apartment.image}
+          image={image}
           rent="Rent"
           availability={apartment.availability}
           price={apartment.price}

@@ -1,5 +1,5 @@
 const { User } = require("../../db");
-const bcrypt = require('bcrypt');
+const bcrypt = require("bcrypt");
 
 module.exports = {
   getAllUsers: async (req, res) => {
@@ -12,7 +12,7 @@ module.exports = {
   },
 
   getUserById: async (req, res) => {
-    const {id} = req.params;
+    const { id } = req.params;
     try {
       const user = await User.findByPk(id);
       if (!user) {
@@ -46,20 +46,18 @@ module.exports = {
       const hashedPassword = bcrypt.hashSync(password, 10);
 
       const users = await User.create({
-        
-          email,
-          full_name,
-          password: hashedPassword,
-          is_admin,
-          status,
-          image,
-          address,
-          phone,
-          country,
-          city,
-        
+        email,
+        full_name,
+        password: hashedPassword,
+        is_admin,
+        status,
+        image,
+        address,
+        phone,
+        country,
+        city,
       });
- //console.log(users)
+      //console.log(users)
       res.status(200).json(users);
     } catch (error) {
       res.status(500).send({ error: error.message });
@@ -67,21 +65,21 @@ module.exports = {
   },
 
   putUser: async (req, res) => {
-    const {id} = req.params;
+    const { id } = req.params;
     try {
       const user = await User.findByPk(id);
       if (!user) {
         return res.status(404).send({ error: "User not found" });
       }
       const updateUser = await user.update(req.body);
-      res.status(200).json({message: "User updated succesfully", updateUser});
+      res.status(200).json({ message: "User updated succesfully", updateUser });
     } catch (error) {
-      res.status(500).send({error: error.message});
+      res.status(500).send({ error: error.message });
     }
   },
 
   deleteUser: async (req, res) => {
-    const {id} = req.params;
+    const { id } = req.params;
     try {
       const user = await User.findByPk(id);
       if (!user) {
@@ -90,7 +88,7 @@ module.exports = {
       await user.destroy();
       res.status(200).send({ message: "User deleted" });
     } catch (error) {
-      res.status(500).send({error: error.message})
+      res.status(500).send({ error: error.message });
     }
   },
 };

@@ -43,7 +43,12 @@
   color: rgb(74, 128, 160);
   background-color: rgb(240, 211, 177);
   font-weight: 550;
-  transform: translateY(-8%);
+  transform: translateY(-4.5%);
+  border-radius: 0;
+  border-left: 0;
+  border-top: 2px inset grey;
+  border-right: 2px inset grey;
+  border-bottom: 2px inset grey;
 }
 .ava {
   cursor: pointer;
@@ -51,7 +56,9 @@
   color: rgb(240, 211, 177);
   width: auto;
   font-weight: 550;
-  transform: translateY(-8%);
+  transform: translateY(-4.5%);
+  border-radius: 0;
+  border: 2px inset rgb(102, 100, 100);
 }
 .ava:hover {
   color: black;

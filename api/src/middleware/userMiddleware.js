@@ -4,14 +4,7 @@ module.exports = {
       const {
         full_name,
         email,
-        password,
-        status,
-        is_admin,
-        image,
-        address,
-        phone,
-        city,
-        country,
+        password
       } = req.body;
 
       if (!full_name || !email || !password) {

@@ -18,7 +18,5 @@ router.use('/user', userRoute);
 router.use('/login', loginRoute);
 router.use('/register', registerRoute);
 router.use('/auth', authRoute);
-/* router.use('/auth/facebook', authRouter); */
-
 
 module.exports = router; 
