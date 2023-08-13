@@ -1,6 +1,8 @@
 import { useState } from "react";
 import styles from "../styles/Form.module.css";
 import { useNavigate } from "react-router-dom";
+import { FaFacebook, FaGoogle } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 import image from "../assets/logo rent.png";
 
 const Form = ({ isRegisterMode }) => {
@@ -204,12 +206,20 @@ const Form = ({ isRegisterMode }) => {
 
       <div className={styles.authOptions}>
         <p>Or sign in with:</p>
-        <a className={styles.authButton} href="http://localhost:3001/auth/google">
-          Google
-        </a>
-        <a className={styles.authButton} href="http://localhost:3001/auth/facebook">
-          Facebook
-        </a>
+        <div className={styles.icons}>
+          <FcGoogle
+            className={styles.authButton}
+            onClick={() => {
+              window.location.href = "http://localhost:3001/auth/google";
+            }}
+          />
+          <FaFacebook
+            className={styles.authButton}
+            onClick={() => {
+              window.location.href = "http://localhost:3001/auth/facebook";
+            }}
+          />
+        </div>
       </div>
     </section>
   );

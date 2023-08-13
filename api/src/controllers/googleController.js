@@ -31,7 +31,6 @@ passport.use(
   )
 );
 
-// Exportar la estrategia de autenticación para usar en rutas
 module.exports = passport.authenticate("google", {
   scope: ["email", "profile"],
 });
