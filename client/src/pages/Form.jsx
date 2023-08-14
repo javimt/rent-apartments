@@ -4,16 +4,55 @@ import { useNavigate } from "react-router-dom";
 import { FaFacebook, FaGoogle } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import image from "../assets/logo rent.png";
+import LoginButton from "../components/LoginButton";
+import { useAuth0 } from "@auth0/auth0-react";
 
-const Form = ({ isRegisterMode }) => {
+const Form = ({ isRegisterMode, setIsAuthenticated }) => {
+  const {  loginWithPopup, user, isAuthenticated } = useAuth0();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
     full_name: "",
+    addres: "",
+    image: "",
+    city: "",
+    country: "",
+    phone: "",
     loginError: "",
     isRegisterMode: isRegisterMode || false,
   });
+
+  const handleGoogleLogin = async () => {
+    try {
+      await loginWithPopup();
+      if (isAuthenticated) {
+        // Here you can access the user object and save it to your local database
+        const { email, name, picture } = user;
+        // Now you can make a request to your backend to save the user data
+        const response = await fetch("http://localhost:3001/save-user", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email,
+            full_name: name,
+            image: picture,
+            // ... (other user data)
+          }),
+        });
+
+        if (response.ok) {
+          console.log("User data saved successfully");
+        } else {
+          console.error("Error saving user data");
+        }
+      }
+    } catch (error) {
+      console.error("Error during Google login:", error);
+    }
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -26,7 +65,6 @@ const Form = ({ isRegisterMode }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       let response;
       if (formData.isRegisterMode) {
@@ -61,11 +99,11 @@ const Form = ({ isRegisterMode }) => {
 
       if (response.ok) {
         const responseData = await response.json();
-
         if (formData.isRegisterMode) {
           navigate("/apartments");
         } else {
           localStorage.setItem("token", responseData.token);
+          setIsAuthenticated(true);
           navigate("/apartments");
         }
       } else {
@@ -203,24 +241,9 @@ const Form = ({ isRegisterMode }) => {
           ? "Already have an account? Login now!"
           : "New here? Register now!"}
       </button>
-
-      <div className={styles.authOptions}>
-        <p>Or sign in with:</p>
-        <div className={styles.icons}>
-          <FcGoogle
-            className={styles.authButton}
-            onClick={() => {
-              window.location.href = "http://localhost:3001/auth/google";
-            }}
-          />
-          <FaFacebook
-            className={styles.authButton}
-            onClick={() => {
-              window.location.href = "http://localhost:3001/auth/facebook";
-            }}
-          />
-        </div>
-      </div>
+          <LoginButton onClick={handleGoogleLogin}/>
+      
+      
     </section>
   );
 };

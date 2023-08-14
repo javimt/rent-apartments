@@ -11,13 +11,11 @@ module.exports = {
 
     try {
       const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
-//console.log("funciona", decodedToken)
+console.log("funciona", decodedToken)
       const user = await User.findByPk(decodedToken.userId);
-
       if (!user) {
         return res.status(401).json({ error: "Unauthorized" });
       }
-
       req.user = user;
       next(); 
     } catch (error) {

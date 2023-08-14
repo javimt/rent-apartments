@@ -26,6 +26,7 @@ module.exports = {
 
   postUser: async (req, res) => {
     const {
+      auth0_sub,
       full_name,
       email,
       password,
@@ -38,14 +39,15 @@ module.exports = {
       country,
     } = req.body;
     try {
-      const existingUser = await User.findOne({ where: { email } });
-      if (existingUser) {
-        return res.status(400).json({ error: "Email already exists" });
+      const existingEmailUser = await User.findOne({ where: { email } });
+      const existingAuth0SubUser = await User.findOne({ where: { auth0_sub } });
+
+      if (existingEmailUser || existingAuth0SubUser) {
+        return res.status(400).json({ error: "Email or auth0_sub already exists" });
       }
-
       const hashedPassword = bcrypt.hashSync(password, 10);
-
       const users = await User.create({
+        auth0_sub,
         email,
         full_name,
         password: hashedPassword,
@@ -57,7 +59,7 @@ module.exports = {
         country,
         city,
       });
-      //console.log(users)
+console.log(users)
       res.status(200).json(users);
     } catch (error) {
       res.status(500).send({ error: error.message });
@@ -86,6 +88,7 @@ module.exports = {
         return res.status(404).send({ error: "User not found" });
       }
       await user.destroy();
+      req.logout();
       res.status(200).send({ message: "User deleted" });
     } catch (error) {
       res.status(500).send({ error: error.message });

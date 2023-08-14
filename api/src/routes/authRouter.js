@@ -6,6 +6,13 @@ const facebookAuthController = require("../controllers/facebookController");
 const router = Router();
 
 router.get("/google", googleAuthController);
+router.get(
+  "/google/callback",
+  passport.authenticate("google", {
+    successRedirect: "/apartments",
+    failureRedirect: "/login",
+  })
+);
 router.get("/facebook", facebookAuthController);
 router.get(
   "/facebook/callback",

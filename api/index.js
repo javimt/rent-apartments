@@ -15,7 +15,16 @@ server.use(express.json());
 server.use(cors());
 
 server.use(
-  session({ secret: JWT_SECRET, resave: true, saveUninitialized: true })
+  session({
+    secret: JWT_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      sameSite: "none",
+      secure: true,
+      httpOnly: true,
+    },
+  })
 );
 server.use(passport.initialize());
 server.use(passport.session());
