@@ -6,7 +6,7 @@ module.exports = {
     try {
       const allUsers = await User.findAll();
       res.status(200).json(allUsers);
-    } catch (error) {
+    } catch (error) { 
       res.status(500).send({ error: error.message });
     }
   },
@@ -26,7 +26,6 @@ module.exports = {
 
   postUser: async (req, res) => {
     const {
-      auth0_sub,
       full_name,
       email,
       password,
@@ -40,14 +39,11 @@ module.exports = {
     } = req.body;
     try {
       const existingEmailUser = await User.findOne({ where: { email } });
-      const existingAuth0SubUser = await User.findOne({ where: { auth0_sub } });
-
-      if (existingEmailUser || existingAuth0SubUser) {
+      if (existingEmailUser) {
         return res.status(400).json({ error: "Email or auth0_sub already exists" });
       }
       const hashedPassword = bcrypt.hashSync(password, 10);
       const users = await User.create({
-        auth0_sub,
         email,
         full_name,
         password: hashedPassword,

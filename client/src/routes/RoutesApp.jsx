@@ -27,7 +27,7 @@ const RoutesApp = () => {
         <Route path="apartments" element={<Apartaments />} />
         <Route path="login" element={<Form isRegisterMode={false} setIsAuthenticated={setIsAuthenticated} />} />
         <Route path="register" element={<Form isRegisterMode={true} setIsAuthenticated={setIsAuthenticated} />} />
-        {/* <Route path="auth/google/callback" element={<Apartaments />}/> */}
+        
       </Routes>
       <Footer />
     </div>

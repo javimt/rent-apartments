@@ -8,11 +8,6 @@ module.exports = (sequelize) => {
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
     },
-    auth0_sub: { // Nuevo campo para el identificador de Auth0
-      type: DataTypes.STRING,
-      allowNull: true, // Permitir null para registros manuales
-      unique: true, // Cada usuario de Auth0 debe tener un auth0_sub único
-    },
     password: {
       type: DataTypes.STRING,
       allowNull:false
@@ -44,9 +39,5 @@ module.exports = (sequelize) => {
       type: DataTypes.BOOLEAN,
       defaultValue: false
     },
-    status: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false
-    }
   });
 }

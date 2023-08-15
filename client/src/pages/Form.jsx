@@ -8,7 +8,7 @@ import LoginButton from "../components/LoginButton";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Form = ({ isRegisterMode, setIsAuthenticated }) => {
-  const {  loginWithPopup, user, isAuthenticated } = useAuth0();
+  const { loginWithPopup, user, isAuthenticated, logout } = useAuth0();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
@@ -27,24 +27,26 @@ const Form = ({ isRegisterMode, setIsAuthenticated }) => {
     try {
       await loginWithPopup();
       if (isAuthenticated) {
-        // Here you can access the user object and save it to your local database
-        const { email, name, picture } = user;
-        // Now you can make a request to your backend to save the user data
-        const response = await fetch("http://localhost:3001/save-user", {
+        const { name, picture, sub, given_name, family_name, nickname } = user;
+        const response = await fetch("http://localhost:3001/auth0", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            email,
-            full_name: name,
-            image: picture,
-            // ... (other user data)
+            sub: sub,
+            given_name: given_name,
+            family_name: family_name,
+            nickname: nickname,
+            name: name,
+            picture: picture,
           }),
         });
 
         if (response.ok) {
           console.log("User data saved successfully");
+          setIsAuthenticated(true); // Set the authentication state to true
+          navigate("/apartments");
         } else {
           console.error("Error saving user data");
         }
@@ -241,9 +243,7 @@ const Form = ({ isRegisterMode, setIsAuthenticated }) => {
           ? "Already have an account? Login now!"
           : "New here? Register now!"}
       </button>
-          <LoginButton onClick={handleGoogleLogin}/>
-      
-      
+      <LoginButton onClick={handleGoogleLogin} />
     </section>
   );
 };

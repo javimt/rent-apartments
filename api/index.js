@@ -1,41 +1,15 @@
 const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
-const session = require("express-session");
-const passport = require("passport");
 const { connection } = require("./db");
 const router = require("./src/routes/index");
 
-const JWT_SECRET = process.env.JWT_SECRET;
 const PORT = process.env.PORT;
 
 const server = express();
 server.use(morgan("dev"));
 server.use(express.json());
 server.use(cors());
-
-server.use(
-  session({
-    secret: JWT_SECRET,
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-      sameSite: "none",
-      secure: true,
-      httpOnly: true,
-    },
-  })
-);
-server.use(passport.initialize());
-server.use(passport.session());
-
-passport.serializeUser((user, done) => {
-  done(null, user);
-});
-
-passport.deserializeUser((user, done) => {
-  done(null, user);
-});
 
 server.use("/", router);
 

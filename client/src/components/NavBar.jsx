@@ -36,7 +36,6 @@ const NavBar = ({ isAuthenticated, setIsAuthenticated  }) => {
       <div className={styles.img}>
         <img src={image} alt="furnished apartament" className={styles.image} />
       </div>
-
       <nav className={styles.navbar}>
         <div className={`${styles.links} ${showMenu && styles.show}`}>
           <Link to="/" className={styles.link}>
