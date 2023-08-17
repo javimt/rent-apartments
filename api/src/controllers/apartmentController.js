@@ -8,8 +8,8 @@ module.exports = {
   getAllApartments: async (req, res) => {
     try {
       const apartments = await Apartment.findAll({
-        include: [{ model: User }, { model: Rent }],
-        attributes: { exclude: ["createdAt", "updatedAt"] },
+        include: { model: User }
+        //attributes: { exclude: ["createdAt", "updatedAt"] },
       });
       res.status(200).json(apartments);
     } catch (error) {
@@ -23,7 +23,7 @@ module.exports = {
       const apartment = await Apartment.findOne({
         where: { id },
         include: { model: User },
-        attributes: { exclude: ["createdAt", "updatedAt"] },
+        //attributes: { exclude: ["createdAt", "updatedAt"] },
       });
       if (!apartment) {
         return res.status(404).json({ error: "Apartment not found" });
@@ -83,16 +83,11 @@ module.exports = {
         return res.status(400).send({ error: "Apartment is not available for rent" });
       }
 
-      const user = req.user; // Usuario autenticado
-      if (!user) {
-        return res.status(401).send({ error: "Unauthorized" });
-      }
-
       apartment.availability = false;
       await apartment.save();
       const rent = await Rent.create({
         apartmentId: apartment.id,
-        userId: user.id,
+        userId: req.user_sub,
         startDate: req.body.startDate,
         endDate: req.body.endDate,
         totalPrice: req.body.totalPrice,

@@ -5,11 +5,36 @@ import { LuLogIn, LuLogOut } from "react-icons/lu";
 import { AiFillCloseCircle } from "react-icons/ai";
 import image from "../assets/rent apt.jpeg";
 import styles from "../styles/Navbar.module.css";
+import LoginButton from "./LoginButton";
+import { useAuth0 } from "@auth0/auth0-react";
 
-const NavBar = ({ isAuthenticated, setIsAuthenticated  }) => {
+const NavBar = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const { isAuthenticated, user, logout } = useAuth0();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [infoUser, setInfoUser] = useState({});
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user && isAuthenticated) {
+      axios.get("/users").then((element) => {
+        const userDb = element.data.find(
+          (element) => element.email === user.email
+        );
+        if (!userDb) {
+          const newUser = {
+            name: user.name,
+            lastname: user.family_name,
+            email: user.email,
+          };
+          dispatch(createUser(newUser));
+        } else {
+          setInfoUser(userDb);
+          return false;
+        }
+      });
+    }
+  }, [user]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,7 +52,6 @@ const NavBar = ({ isAuthenticated, setIsAuthenticated  }) => {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    setIsAuthenticated(false);
     navigate("apartments");
   };
 
@@ -47,7 +71,7 @@ const NavBar = ({ isAuthenticated, setIsAuthenticated  }) => {
           <Link to="apartments" className={styles.link}>
             For Rent
           </Link>
-          {isAuthenticated ? (
+          {isAuthenticated && user ? (
             <button className={styles.link} onClick={handleLogout}>
               Logout <LuLogOut className={styles.login} />
             </button>

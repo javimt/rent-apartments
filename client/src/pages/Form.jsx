@@ -5,7 +5,7 @@ import { FaFacebook, FaGoogle } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import image from "../assets/logo rent.png";
 
-const Form = ({ isRegisterMode, setIsAuthenticated }) => {
+const Form = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
@@ -17,12 +17,12 @@ const Form = ({ isRegisterMode, setIsAuthenticated }) => {
     country: "",
     phone: "",
     loginError: "",
-    isRegisterMode: isRegisterMode || false,
     isAdmin: false,
   });
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
+    //const inputValue = type === 'checkbox' ? checked : value;
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
@@ -35,7 +35,7 @@ const Form = ({ isRegisterMode, setIsAuthenticated }) => {
     try {
       let response;
       if (formData.isRegisterMode) {
-        response = await fetch("http://localhost:3001/register", {
+        response = await fetch("http://localhost:3001/user", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -71,7 +71,6 @@ const Form = ({ isRegisterMode, setIsAuthenticated }) => {
           navigate("/apartments");
         } else {
           localStorage.setItem("token", responseData.token);
-          setIsAuthenticated(true);
           navigate("/apartments");
         }
       } else {

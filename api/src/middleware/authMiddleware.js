@@ -4,13 +4,14 @@ const { User } = require("../../db");
 module.exports = {
   authenticateUser: async (req, res, next) => {
     const token = req.headers.authorization;
+console.log(token)
     if (!token) {
       return res.status(401).json({ error: "Unauthorized" });
     }
     try {
       const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
 console.log("funciona", decodedToken)
-      const user = await User.findByPk(decodedToken.userId);
+      const user = await User.findByPk(decodedToken.id);
       if (!user) {
         return res.status(401).json({ error: "Unauthorized" });
       }

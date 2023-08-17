@@ -1,16 +1,17 @@
 import { useState } from "react";
 import axios from "axios";
 import styles from "../styles/Card.module.css";
-//import { Details } from "../pages";
+//import { useAuth0 } from "@auth0/auth0-react";
 
-const Card = ({ image, description, price, ubication, availability, rent, id }) => {
+const Card = ({ image, description, price, ubication, availability, rent, user_sub }) => {
+  //const {user} = useAuth0;
   const [isRenting, setIsRenting] = useState(false);
   const [isAvailable, setIsAvailable] = useState(availability);
 
   const handleRent = async () => {
     if (!isRenting) {
       try {
-        const response = await axios.post(`http://localhost:3001/apartment/${id}/rent`);
+        const response = await axios.post(`http://localhost:3001/apartment/${user_sub}/rent`);
         setIsRenting(true);
         setIsAvailable(!isAvailable);
       } catch (error) {

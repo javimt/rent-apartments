@@ -19,27 +19,18 @@ fs.readdirSync(path.join(__dirname, "src", "models"))
 
 models.forEach((model) => model(sequelize));
 
-const {Apartment, Message, Rent, Review, User} = sequelize.models;
+const {Apartment, Rent, User} = sequelize.models;
 
 // relaciones
 
 User.hasMany(Apartment, { foreignKey: 'userId' });
 Apartment.belongsTo(User, { foreignKey: 'userId' });
 
-User.hasMany(Message, { foreignKey: 'userId' });
-Message.belongsTo(User, { foreignKey: 'userId' });
-
 User.hasMany(Rent, { foreignKey: 'userId' });
 Rent.belongsTo(User, { foreignKey: 'userId' });
 
 Apartment.hasMany(Rent, { foreignKey: 'apartmentId' });
 Rent.belongsTo(Apartment, { foreignKey: 'apartmentId' });
-
-User.hasMany(Review, { foreignKey: 'userId' });
-Review.belongsTo(User, { foreignKey: 'userId' });
-
-Apartment.hasMany(Review, { foreignKey: 'apartmentId' });
-Review.belongsTo(Apartment, { foreignKey: 'apartmentId' });
 
 module.exports = {
   ...sequelize.models,

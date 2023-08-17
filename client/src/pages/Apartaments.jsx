@@ -12,11 +12,13 @@ const Apartaments = () => {
       try {
         const response = await axios.get("http://localhost:3001/apartment");
         setApartments(response.data);
+        if(response.data.length === 0) {
+          return "apartments not found"
+        }
       } catch (error) {
         console.error(error);
       }
     };
-
     fetchApartments();
   }, []);
 

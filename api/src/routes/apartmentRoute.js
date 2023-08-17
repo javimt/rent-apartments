@@ -7,15 +7,15 @@ const {
   getApartmentById,
   rentApartment,
 } = require("../controllers/apartmentController");
-const { authenticateUser } = require("../middleware/authMiddleware");
+//const { authenticateUser } = require("../middleware/authMiddleware");
 
 const router = Router();
 
 router.get("/", getAllApartments);
 router.get("/:id", getApartmentById);
-router.post("/", authenticateUser, createApartment);
-router.put("/:id", authenticateUser, updateApartment);
-router.delete("/:id", authenticateUser, deleteApartment);
-router.post("/:id/rent", authenticateUser, rentApartment);
+router.post("/", createApartment);
+router.put("/:id", updateApartment);
+router.delete("/:id", deleteApartment);
+router.post("/:id/rent", rentApartment);
 
 module.exports = router;
