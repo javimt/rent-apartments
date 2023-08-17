@@ -62,6 +62,25 @@ console.log(users)
     }
   },
 
+  assignAdminRole: async (req, res) => {
+    const { id } = req.params;
+    try {
+      const user = await User.findByPk(id);
+      if (!user) {
+        return res.status(404).send({ error: "User not found" });
+      }
+      if (!req.user.is_admin) {
+        return res.status(403).json({ error: "Access denied. Only administrators can assign roles." });
+      }
+      user.is_admin = true;
+      await user.save();
+
+      res.status(200).json({ message: "User role updated to administrator", user });
+    } catch (error) {
+      res.status(500).send({ error: error.message });
+    }
+  },
+
   putUser: async (req, res) => {
     const { id } = req.params;
     try {

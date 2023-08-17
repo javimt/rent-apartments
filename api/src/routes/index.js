@@ -8,7 +8,6 @@ const loginRoute = require('./loginRoute');
 const logoutRoute = require('./logoutRoute');
 const registerRoute = require("./registerRoute");
 const auth0UserRoute = require('./auth0UserRoute');
-//const authRoute = require("./authRouter");
 
 const router = Router();
 
@@ -21,6 +20,5 @@ router.use('/login', loginRoute);
 router.use('/logout', logoutRoute);
 router.use('/register', registerRoute);
 router.use('/auth0', auth0UserRoute);
-//router.use('/auth', authRoute);
 
 module.exports = router; 

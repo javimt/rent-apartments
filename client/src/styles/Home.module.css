@@ -5,14 +5,20 @@
   align-items: center;
   justify-content: center;
   height: 100%;
-  background-image: url("../assets/panoramica.jpg");
+  background-image: url("../assets/panoramica5.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: bottom;
   background-repeat: no-repeat;
-  color: rgb(240, 211, 177);
+  font-weight: 650;
   text-align: center;
   overflow-x: hidden;
-  margin-top: 10rem;
+  margin-top: 8rem;
+}
+h1 {
+  color: aliceblue;
+}
+p {
+  color: black;
 }
 .imageContainer {
   display: flex;
@@ -47,6 +53,12 @@
   width: 100%;
   margin: 2rem auto;
   font-size: 0.8rem;
-  margin-top: 5rem;
+  margin-top: 7rem;
   overflow-x: hidden;
+}
+
+@media (max-width:720px) {
+  .homeContainer {
+    margin-top: auto;
+  }
 }

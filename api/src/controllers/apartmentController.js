@@ -37,13 +37,7 @@ module.exports = {
 
   createApartment: async (req, res) => {
     try {
-      const { userId } = req.body;
-      const user = await User.findByPk(userId);
-      if (!user) {
-        return res.status(404).send({ error: "User not found" });
-      }
       const newApartment = await Apartment.create(req.body);
-      await newApartment.setUser(user);
       res.status(201).json(newApartment);
     } catch (error) {
       res.status(500).send({ error: error.message });
@@ -88,10 +82,17 @@ module.exports = {
       if (!apartment.availability) {
         return res.status(400).send({ error: "Apartment is not available for rent" });
       }
+
+      const user = req.user; // Usuario autenticado
+      if (!user) {
+        return res.status(401).send({ error: "Unauthorized" });
+      }
+
       apartment.availability = false;
       await apartment.save();
       const rent = await Rent.create({
         apartmentId: apartment.id,
+        userId: user.id,
         startDate: req.body.startDate,
         endDate: req.body.endDate,
         totalPrice: req.body.totalPrice,

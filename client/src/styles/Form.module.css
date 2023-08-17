@@ -1,3 +1,14 @@
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../assets/panoramica2.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: auto;
+  padding: 20px;
+}
 .formContainer {
   display: flex;
   flex-direction: column;
@@ -6,12 +17,11 @@
   max-width: 400px;
   margin: 0 auto;
   padding: 10px;
-  margin-top: 15rem;
+  margin-top: 13rem;
   border: 1px solid #ccc;
   border-radius: 10px;
   background: linear-gradient(to bottom, black, rgb(74, 128, 160), black);
-  height: 100%;
-  margin-bottom: 5rem;
+  margin-bottom: 1rem;
 }
 .loginForm {
   display: flex;
@@ -92,8 +102,11 @@ button:hover {
 
 
 @media (max-width: 680px) {
+  .form {
+    padding-top: 0;
+    height: auto;
+  }
   .formContainer {
-    margin-top: 9rem;
-    height: 100vh;
+    margin-top: 5rem;
   }
 }

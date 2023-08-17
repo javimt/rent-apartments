@@ -10,10 +10,6 @@ module.exports = (sequelize) => {
     image: {
       type: DataTypes.TEXT,
     },
-    rent: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false
-    },
     ubication: {
       type: DataTypes.STRING,
     },
