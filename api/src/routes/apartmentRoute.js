@@ -7,7 +7,6 @@ const {
   getApartmentById,
   rentApartment,
 } = require("../controllers/apartmentController");
-//const { authenticateUser } = require("../middleware/authMiddleware");
 
 const router = Router();
 

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { BsFillBuildingsFill } from "react-icons/bs";
 import { LuLogIn, LuLogOut } from "react-icons/lu";
@@ -7,6 +7,8 @@ import image from "../assets/rent apt.jpeg";
 import styles from "../styles/Navbar.module.css";
 import LoginButton from "./LoginButton";
 import { useAuth0 } from "@auth0/auth0-react";
+import axios from "axios";
+import LogoutButton from "./LogoutButton";
 
 const NavBar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -17,24 +19,32 @@ const NavBar = () => {
 
   useEffect(() => {
     if (user && isAuthenticated) {
-      axios.get("/users").then((element) => {
+      axios.get("http://localhost:3001/user").then((element) => {
         const userDb = element.data.find(
           (element) => element.email === user.email
         );
         if (!userDb) {
           const newUser = {
-            name: user.name,
-            lastname: user.family_name,
+            name: user.given_name,
+            lastName: user.family_name,
             email: user.email,
+            image: user.image
           };
-          dispatch(createUser(newUser));
+          axios.post("http://localhost:3001/user", newUser)
+          .then((response) => {
+    console.log("User saved to the database:", response.data);
+            setInfoUser(newUser);
+          })
+          .catch((error) => {
+            console.error("Error saving user to the database:", error.message);
+          });
         } else {
           setInfoUser(userDb);
           return false;
         }
       });
     }
-  }, [user]);
+  }, [user, isAuthenticated, infoUser]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -52,6 +62,7 @@ const NavBar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
+    logout(); // Llamar a la función logout al hacer clic en el botón de cierre de sesión
     navigate("apartments");
   };
 
@@ -72,13 +83,10 @@ const NavBar = () => {
             For Rent
           </Link>
           {isAuthenticated && user ? (
-            <button className={styles.link} onClick={handleLogout}>
-              Logout <LuLogOut className={styles.login} />
-            </button>
+            
+              <LogoutButton />
           ) : (
-            <Link to="login" className={styles.link}>
-              Login <LuLogIn className={styles.login} />
-            </Link>
+            <LoginButton />
           )}
         </div>
 

@@ -25,44 +25,23 @@ module.exports = {
   },
 
   postUser: async (req, res) => {
-    const {
-      full_name,
-      email,
-      password,
-      status,
-      is_admin,
-      image,
-      address,
-      phone,
-      city,
-      country,
-    } = req.body;
+    const {name, lastName, email, password, role, image} = req.body;
     try {
-      const existingEmailUser = await User.findOne({ where: { email } });
-      if (existingEmailUser) {
-        return res.status(400).json({ error: "Email or auth0_sub already exists" });
-      }
+      let user = await User.findOne({ where: { email } });
+  console.log("este es el usuario de la base de datos", user)
+      if (user) {
+        return res.status(400).json({ error: "Email already exists" });
+      }else if(!user){
       const hashedPassword = bcrypt.hashSync(password, 10);
-      const users = await User.create({
-        email,
-        full_name,
-        password: hashedPassword,
-        is_admin,
-        status,
-        image,
-        address,
-        phone,
-        country,
-        city,
-      });
-console.log(users)
-      res.status(200).json(users);
+      user = await User.create({email, name, lastName, password: hashedPassword, image, role});
+console.log("este es el usuario creado",user)
+      res.status(200).json(user);}
     } catch (error) {
       res.status(500).send({ error: error.message });
     }
   },
 
-  assignAdminRole: async (req, res) => {
+ /*  assignAdminRole: async (req, res) => {
     const { id } = req.params;
     try {
       const user = await User.findByPk(id);
@@ -79,7 +58,7 @@ console.log(users)
     } catch (error) {
       res.status(500).send({ error: error.message });
     }
-  },
+  }, */
 
   putUser: async (req, res) => {
     const { id } = req.params;
@@ -103,7 +82,6 @@ console.log(users)
         return res.status(404).send({ error: "User not found" });
       }
       await user.destroy();
-      req.logout();
       res.status(200).send({ message: "User deleted" });
     } catch (error) {
       res.status(500).send({ error: error.message });

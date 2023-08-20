@@ -3,41 +3,27 @@ const { DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
   sequelize.define("User", {
 
-    id: {
-      type: DataTypes.UUID, 
-      defaultValue: DataTypes.UUIDV4,
-      primaryKey: true,
-    },
     password: {
       type: DataTypes.STRING,
       allowNull:false
     },
-    full_name: {
+    name: {
       type: DataTypes.STRING,
       allowNull:false
     },
-    image: {
+    lastname: {
       type: DataTypes.STRING
     },
-    addres: {
+    image: {
       type: DataTypes.STRING
     },
     email: {
       type: DataTypes.STRING,
       allowNull:false
     },
-    phone: {
-      type: DataTypes.INTEGER,
-    },
-    country: {
-      type: DataTypes.STRING
-    },
-    city: {
-      type: DataTypes.STRING
-    },
-    is_admin: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false
-    },
+    role: {
+      type: DataTypes.ENUM("user", "admin", "superAdmin"),
+      defaultValue: "user"
+    }
   });
 }

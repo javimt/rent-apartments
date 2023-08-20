@@ -17,14 +17,10 @@ module.exports = (sequelize) => {
     },
     totalPrice: {
       type: DataTypes.FLOAT,
-      allowNull: false,
     },
     status: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: true,
+      type: DataTypes.STRING,
+      enum: ["available", "not available"]
     },
-    user_sub: {
-      type: DataTypes.STRING
-    }
-  });
+  }, {timestamps: false});
 };

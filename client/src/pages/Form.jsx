@@ -11,12 +11,7 @@ const Form = () => {
     email: "",
     password: "",
     full_name: "",
-    addres: "",
     image: "",
-    city: "",
-    country: "",
-    phone: "",
-    loginError: "",
     isAdmin: false,
   });
 
@@ -46,9 +41,6 @@ const Form = () => {
             full_name: formData.full_name,
             addres: formData.addres,
             image: formData.image,
-            city: formData.city,
-            country: formData.country,
-            phone: formData.phone,
             isAdmin: formData.isAdmin,
           }),
         });
@@ -117,61 +109,15 @@ const Form = () => {
           </div>
           {formData.isRegisterMode && (
             <div className={styles.formGroup}>
-              <label htmlFor="full_name">Full Name</label>
-              <input
-                type="text"
-                id="full_name"
-                name="full_name"
-                value={formData.full_name}
-                onChange={handleInputChange}
-                placeholder="Enter your full name"
-                required
-              />
               <div className={styles.formGroup}>
-                <label htmlFor="addres">Address</label>
+                <label htmlFor="full_name">Full Name</label>
                 <input
                   type="text"
-                  id="addres"
-                  name="addres"
-                  value={formData.addres}
+                  id="full_name"
+                  name="full_name"
+                  value={formData.full_name}
                   onChange={handleInputChange}
-                  placeholder="Enter your address"
-                  required
-                />
-              </div>
-              <div className={styles.formGroup}>
-                <label htmlFor="country">Country</label>
-                <input
-                  type="text"
-                  id="country"
-                  name="country"
-                  value={formData.country}
-                  onChange={handleInputChange}
-                  placeholder="Enter your country"
-                  required
-                />
-              </div>
-              <div className={styles.formGroup}>
-                <label htmlFor="city">City</label>
-                <input
-                  type="text"
-                  id="city"
-                  name="city"
-                  value={formData.city}
-                  onChange={handleInputChange}
-                  placeholder="Enter your city"
-                  required
-                />
-              </div>
-              <div className={styles.formGroup}>
-                <label htmlFor="phone">Phone</label>
-                <input
-                  type="text"
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  placeholder="Enter your phone"
+                  placeholder="Enter your full name"
                   required
                 />
               </div>
@@ -189,7 +135,7 @@ const Form = () => {
               </div>
             </div>
           )}
-          <button type="submit">
+          <button type="submit" className={styles.submit}>
             {formData.isRegisterMode ? "Register" : "Login"}
           </button>
         </form>

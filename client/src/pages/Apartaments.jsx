@@ -29,7 +29,6 @@ const Apartaments = () => {
           key={apartment.id}
           id={apartment.id}
           image={image}
-          rent="Rent"
           availability={apartment.availability}
           price={apartment.price}
           ubication={apartment.ubication}
