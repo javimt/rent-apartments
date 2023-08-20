@@ -10,7 +10,7 @@
   padding-right: 0;
   flex-wrap: wrap;
   overflow: hidden;
-  height: 100vh;
+  height: 100%;
   width: auto;
   background: radial-gradient(white,black);
 }

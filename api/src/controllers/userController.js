@@ -1,5 +1,5 @@
 const { User } = require("../../db");
-const bcrypt = require("bcrypt");
+//const bcrypt = require("bcrypt");
 
 module.exports = {
   getAllUsers: async (req, res) => {
@@ -25,17 +25,17 @@ module.exports = {
   },
 
   postUser: async (req, res) => {
-    const {name, lastName, email, password, role, image} = req.body;
+    const {name, lastName, email, role, image} = req.body;
     try {
-      let user = await User.findOne({ where: { email } });
-  console.log("este es el usuario de la base de datos", user)
+      const user = await User.findOne({ where: { email } });
       if (user) {
         return res.status(400).json({ error: "Email already exists" });
-      }else if(!user){
-      const hashedPassword = bcrypt.hashSync(password, 10);
-      user = await User.create({email, name, lastName, password: hashedPassword, image, role});
-console.log("este es el usuario creado",user)
-      res.status(200).json(user);}
+      } 
+  console.log("este es el usuario de la base de datos", user)
+      //const hashedPassword = bcrypt.hashSync(password, 10);
+      user = await User.create({email, name, lastName, image, role});
+  console.log("este es el usuario creado", user)
+      return res.status(200).json(user);
     } catch (error) {
       res.status(500).send({ error: error.message });
     }

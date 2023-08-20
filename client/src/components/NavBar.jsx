@@ -6,41 +6,40 @@ import { AiFillCloseCircle } from "react-icons/ai";
 import image from "../assets/rent apt.jpeg";
 import styles from "../styles/Navbar.module.css";
 import LoginButton from "./LoginButton";
+import LogoutButton from "./LogoutButton";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
-import LogoutButton from "./LogoutButton";
 
 const NavBar = () => {
   const [showMenu, setShowMenu] = useState(false);
-  const { isAuthenticated, user, logout } = useAuth0();
+  const { isAuthenticated, user } = useAuth0();
   const [isScrolled, setIsScrolled] = useState(false);
   const [infoUser, setInfoUser] = useState({});
   const navigate = useNavigate();
 
   useEffect(() => {
     if (user && isAuthenticated) {
-      axios.get("http://localhost:3001/user").then((element) => {
-        const userDb = element.data.find(
-          (element) => element.email === user.email
-        );
+  //console.log(user, isAuthenticated)
+      axios.get("http://localhost:3001/user").then((e) => {
+        const userDb = e.data.find((e) => e.email === user.email);
         if (!userDb) {
           const newUser = {
             name: user.given_name,
             lastName: user.family_name,
             email: user.email,
-            image: user.image
+            image: user.picture
           };
+    console.log(newUser, isAuthenticated)
           axios.post("http://localhost:3001/user", newUser)
           .then((response) => {
     console.log("User saved to the database:", response.data);
             setInfoUser(newUser);
           })
           .catch((error) => {
-            console.error("Error saving user to the database:", error.message);
+            console.error("Error saving user to the database:", error);
           });
         } else {
           setInfoUser(userDb);
-          return false;
         }
       });
     }
@@ -60,12 +59,6 @@ const NavBar = () => {
     };
   }, []);
 
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    logout(); // Llamar a la función logout al hacer clic en el botón de cierre de sesión
-    navigate("apartments");
-  };
-
   return (
     <header className={`${styles.header} ${isScrolled && styles.scrolled}`}>
       <div className={styles.img}>
@@ -82,9 +75,8 @@ const NavBar = () => {
           <Link to="apartments" className={styles.link}>
             For Rent
           </Link>
-          {isAuthenticated && user ? (
-            
-              <LogoutButton />
+          {user && isAuthenticated ? (
+            <LogoutButton />
           ) : (
             <LoginButton />
           )}

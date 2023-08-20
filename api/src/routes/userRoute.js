@@ -7,7 +7,7 @@ const router = Router();
 router.get('/', getAllUsers); 
 router.get('/:id', getUserById); 
 router.post('/', postUser);
-router.put('/:id', validateUserInput, putUser); 
+router.put('/:id', putUser); 
 router.delete('/:id', deleteUser); 
 //router.put('/:id/admin', assignAdminRole);
 

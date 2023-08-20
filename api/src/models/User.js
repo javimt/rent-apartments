@@ -3,23 +3,19 @@ const { DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
   sequelize.define("User", {
 
-    password: {
+    email: {
       type: DataTypes.STRING,
-      allowNull:false
+      primaryKey: true,
+      allowNull: false
     },
     name: {
       type: DataTypes.STRING,
-      allowNull:false
     },
-    lastname: {
+    lastName: {
       type: DataTypes.STRING
     },
     image: {
       type: DataTypes.STRING
-    },
-    email: {
-      type: DataTypes.STRING,
-      allowNull:false
     },
     role: {
       type: DataTypes.ENUM("user", "admin", "superAdmin"),
