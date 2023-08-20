@@ -40,10 +40,11 @@ const NavBar = () => {
           });
         } else {
           setInfoUser(userDb);
+          return false;
         }
       });
     }
-  }, [user, isAuthenticated, infoUser]);
+  }, [user, isAuthenticated]);
 
   useEffect(() => {
     const handleScroll = () => {

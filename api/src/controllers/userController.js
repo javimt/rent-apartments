@@ -27,15 +27,15 @@ module.exports = {
   postUser: async (req, res) => {
     const {name, lastName, email, role, image} = req.body;
     try {
-      const user = await User.findOne({ where: { email } });
+      let user = await User.findOne({ where: { email } });
       if (user) {
         return res.status(400).json({ error: "Email already exists" });
       } 
-  console.log("este es el usuario de la base de datos", user)
+  //console.log("este es el usuario de la base de datos", user)
       //const hashedPassword = bcrypt.hashSync(password, 10);
       user = await User.create({email, name, lastName, image, role});
   console.log("este es el usuario creado", user)
-      return res.status(200).json(user);
+      res.status(200).json(user);
     } catch (error) {
       res.status(500).send({ error: error.message });
     }

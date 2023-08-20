@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const { getAllUsers, postUser, putUser, getUserById, deleteUser } = require('../controllers/userController');
-const {validateUserInput} = require('../middleware/userMiddleware');
+//const {validateUserInput} = require('../middleware/userMiddleware');
 
 const router = Router();
 
