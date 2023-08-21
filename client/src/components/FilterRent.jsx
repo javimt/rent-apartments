@@ -3,7 +3,7 @@ import axios from "axios";
 import styles from "../styles/FilterRent.module.css";
 import { useAuth0 } from "@auth0/auth0-react";
 
-const FilterRent = ({ apartmentId }) => {
+const FilterRent = ({ apartmentId, onClose }) => {
   const [rentalData, setRentalData] = useState({
     startDate: "",
     endDate: "",
@@ -11,8 +11,8 @@ const FilterRent = ({ apartmentId }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [apartmentPrice, setApartmentPrice] = useState(0);
   const [isAvailable, setIsAvailable] = useState(true);
-  const { getIdTokenClaims } = useAuth0();
-
+  const { getIdTokenClaims, user } = useAuth0();
+  
   useEffect(() => {
     const fetchApartment = async () => {
       try {
@@ -36,6 +36,7 @@ const FilterRent = ({ apartmentId }) => {
         const response = await axios.post(`http://localhost:3001/apartment/${apartmentId}/rent`, {
           startDate: rentalData.startDate,
           endDate: rentalData.endDate,
+          userId: user.email,
           status: "not available", 
           },
           {
@@ -50,8 +51,9 @@ const FilterRent = ({ apartmentId }) => {
           endDate: "",
         });
         setIsAvailable(false);
+        onClose();
       } catch (error) {
-        console.error({error: error.message}); 
+        console.error(error); 
       } finally {
         setIsSubmitting(false);
       }

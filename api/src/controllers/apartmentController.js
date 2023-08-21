@@ -75,37 +75,31 @@ module.exports = {
   rentApartment: async (req, res) => {
     const { id } = req.params;
     try {
+      if (!req.body.userId) {
+        return res.status(400).send({ error: "User ID is missing in the request body" });
+      }
       const apartment = await Apartment.findByPk(id);
       if (!apartment) {
         return res.status(404).send({ error: "Apartment not found" });
       }
       if (!apartment.availability) {
-        return res
-          .status(400)
-          .send({ error: "Apartment is not available for rent" });
+        return res.status(400).send({ error: "Apartment is not available for rent" });
       }
-      const auth0User = req.user;
-      if (!auth0User) {
-        return res.status(401).send({ error: "Unauthorized" });
-      }
-      const userId = req.user.id;
+  console.log("este es el user id por body", req.body.userId)
       try {
         apartment.availability = false;
         await apartment.save();
         const rent = await Rent.create({
           apartmentId: apartment.id,
-          userId: userId,
+          userId: req.body.userId,
           startDate: req.body.startDate,
           endDate: req.body.endDate,
           totalPrice: req.body.totalPrice,
           status: req.body.status,
         });
-        res
-          .status(200)
-          .json({ message: "Apartment rented successfully", rent });
+        res.status(200).json({ message: "Apartment rented successfully", rent });
       } catch (error) {
-    console.error("Error creating rent or updating apartment:", error);
-        res.status(500).send({ error: "An error occurred while renting the apartment" });
+        res.status(500).send({ error: error.message });
       }
     } catch (error) {
       res.status(500).send({ error: error.message });

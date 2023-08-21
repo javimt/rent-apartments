@@ -40,7 +40,6 @@ module.exports = {
         totalPrice,
         status,
       });
-
       apartment.availability = false;
       await apartment.save();
       res.status(201).json(newRent);

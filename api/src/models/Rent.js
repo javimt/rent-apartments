@@ -19,8 +19,8 @@ module.exports = (sequelize) => {
       type: DataTypes.FLOAT,
     },
     status: {
-      type: DataTypes.STRING,
-      enum: ["available", "not available"]
+      type: DataTypes.ENUM("available", "not available"),
+      defaultValue: "available"
     },
   }, {timestamps: false});
 };

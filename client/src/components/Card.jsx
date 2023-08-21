@@ -3,14 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import FilterRent from "./FilterRent";
 import styles from "../styles/Card.module.css";
 
-const Card = ({
-  image,
-  description,
-  price,
-  ubication,
-  availability,
-  id,
-}) => {
+const Card = ({image, description, price, ubication, availability, id}) => {
   const [showFilterRent, setShowFilterRent] = useState(false);
   const { isAuthenticated } = useAuth0();
 
@@ -32,7 +25,7 @@ const Card = ({
           <button className={styles.ava}>
             {availability ? "Available" : "Not available"}
           </button>
-          {showFilterRent && <FilterRent apartmentId={id} />}
+          {showFilterRent && <FilterRent apartmentId={id} onClose={() => setShowFilterRent()}/>}
           {!showFilterRent && (
             <button
               className={styles.rent}

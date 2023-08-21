@@ -12,8 +12,8 @@ const router = Router();
 
 router.get("/", getAllRents);
 router.get("/:id", getRentById);
-router.post("/", formatDateMiddleware, createRent);
-router.put("/:id", formatDateMiddleware, updateRent);
+router.post("/", createRent);
+router.put("/:id", updateRent);
 router.delete("/:id", deleteRent);
 
 module.exports = router;
