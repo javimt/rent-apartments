@@ -87,8 +87,6 @@ module.exports = {
       }
   console.log("este es el user id por body", req.body.userId)
       try {
-        apartment.availability = false;
-        await apartment.save();
         const rent = await Rent.create({
           apartmentId: apartment.id,
           userId: req.body.userId,
@@ -97,6 +95,8 @@ module.exports = {
           totalPrice: req.body.totalPrice,
           status: req.body.status,
         });
+        apartment.availability = false;
+        await apartment.save();
         res.status(200).json({ message: "Apartment rented successfully", rent });
       } catch (error) {
         res.status(500).send({ error: error.message });

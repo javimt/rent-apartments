@@ -3,7 +3,7 @@ import axios from "axios";
 import styles from "../styles/FilterRent.module.css";
 import { useAuth0 } from "@auth0/auth0-react";
 
-const FilterRent = ({ apartmentId, onClose }) => {
+const FilterRent = ({ apartmentId, onClose, updateApartmentAvailability }) => {
   const [rentalData, setRentalData] = useState({
     startDate: "",
     endDate: "",
@@ -52,6 +52,7 @@ const FilterRent = ({ apartmentId, onClose }) => {
         });
         setIsAvailable(false);
         onClose();
+        updateApartmentAvailability(apartmentId);
       } catch (error) {
         console.error(error); 
       } finally {

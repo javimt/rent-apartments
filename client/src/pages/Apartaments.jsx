@@ -7,20 +7,31 @@ import styles from "../styles/Apartaments.module.css";
 const Apartaments = () => {
   const [apartments, setApartments] = useState([]);
 
-  useEffect(() => {
-    const fetchApartments = async () => {
-      try {
-        const response = await axios.get("http://localhost:3001/apartment");
-        setApartments(response.data);
-        if(response.data.length === 0) {
-          return "apartments not found"
-        }
-      } catch (error) {
-        console.error(error);
+  const fetchApartments = async () => {
+    try {
+      const response = await axios.get("http://localhost:3001/apartment");
+      setApartments(response.data);
+      if(response.data.length === 0) {
+        return "apartments not found"
       }
-    };
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
     fetchApartments();
   }, []);
+
+  const updateApartmentAvailability = (apartmentId) => {
+    setApartments((prevApartments) =>
+      prevApartments.map((apartment) =>
+        apartment.id === apartmentId
+          ? { ...apartment, availability: false }
+          : apartment
+      )
+    );
+  };
 
   return (
     <section className={styles.container}>
@@ -33,6 +44,7 @@ const Apartaments = () => {
           price={apartment.price}
           ubication={apartment.ubication}
           description={apartment.description}
+          updateApartmentAvailability={updateApartmentAvailability}
         />
       ))}
     </section>
