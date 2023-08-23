@@ -3,8 +3,18 @@ const morgan = require("morgan");
 const cors = require("cors");
 const { connection } = require("./db");
 const router = require("./src/routes/index");
+const cron = require("node-cron");
+const {checkExpiredRents} = require("./src/controllers/rentExpiration");
 
 const PORT = process.env.PORT;
+
+console.log("Ejecutando verificación de alquileres vencidos...");
+checkExpiredRents();
+
+cron.schedule("0 0 * * *", () => {
+  console.log("Verificando alquileres vencidos...");
+  checkExpiredRents();
+});
 
 const server = express();
 server.use(morgan("dev"));

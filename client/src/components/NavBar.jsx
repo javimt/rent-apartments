@@ -1,7 +1,6 @@
-import { useState, useEffect} from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useState, useEffect, useRef} from "react";
+import { Link } from "react-router-dom";
 import { BsFillBuildingsFill } from "react-icons/bs";
-import { LuLogIn, LuLogOut } from "react-icons/lu";
 import { AiFillCloseCircle } from "react-icons/ai";
 import image from "../assets/rent apt.jpeg";
 import styles from "../styles/Navbar.module.css";
@@ -15,7 +14,7 @@ const NavBar = () => {
   const { isAuthenticated, user } = useAuth0();
   const [isScrolled, setIsScrolled] = useState(false);
   const [infoUser, setInfoUser] = useState({});
-  const navigate = useNavigate();
+  const menuRef = useRef(null);
 
   useEffect(() => {
     if (user && isAuthenticated) {
@@ -60,26 +59,30 @@ const NavBar = () => {
     };
   }, []);
 
+  const closeMenu = () => {
+    setShowMenu(false);
+  };
+
   return (
     <header className={`${styles.header} ${isScrolled && styles.scrolled}`}>
       <div className={styles.img}>
         <img src={image} alt="furnished apartament" className={styles.image} />
       </div>
       <nav className={styles.navbar}>
-        <div className={`${styles.links} ${showMenu && styles.show}`}>
-          <Link to="/" className={styles.link}>
+        <div className={`${styles.links} ${showMenu && styles.show}`} ref={menuRef}>
+          <Link to="/" onClick={closeMenu}>
             Home
           </Link>
-          <Link to="about" className={styles.link}>
+          <Link to="about" onClick={closeMenu}>
             About Us
           </Link>
-          <Link to="apartments" className={styles.link}>
+          <Link to="apartments" onClick={closeMenu}>
             For Rent
           </Link>
           {user && isAuthenticated ? (
-            <LogoutButton />
+            <LogoutButton className={styles.login} />
           ) : (
-            <LoginButton />
+            <LoginButton className={styles.login} />
           )}
         </div>
 

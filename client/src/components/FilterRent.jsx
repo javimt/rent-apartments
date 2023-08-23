@@ -45,7 +45,7 @@ const FilterRent = ({ apartmentId, onClose, updateApartmentAvailability }) => {
             },
           }
         );
-  console.log("lo que se envia",response.data);
+  //console.log("lo que se envia",response.data);
         setRentalData({
           startDate: "",
           endDate: "",
@@ -62,7 +62,7 @@ const FilterRent = ({ apartmentId, onClose, updateApartmentAvailability }) => {
   };
 
   return (
-    <div className={styles.filterRentContainer}>
+    <section className={styles.filterRentContainer}>
       <div className={styles.formGroup}>
         <label className={styles.label}>Start Date:</label>
         <input
@@ -97,7 +97,7 @@ const FilterRent = ({ apartmentId, onClose, updateApartmentAvailability }) => {
       >
         {isSubmitting ? "Renting..." : "Rent"}
       </button>
-    </div>
+    </section>
   );
 };
 

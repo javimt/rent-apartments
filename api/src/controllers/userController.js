@@ -1,5 +1,4 @@
 const { User } = require("../../db");
-//const bcrypt = require("bcrypt");
 
 module.exports = {
   getAllUsers: async (req, res) => {
@@ -31,8 +30,6 @@ module.exports = {
       if (user) {
         return res.status(400).json({ error: "Email already exists" });
       } 
-  //console.log("este es el usuario de la base de datos", user)
-      //const hashedPassword = bcrypt.hashSync(password, 10);
       user = await User.create({email, name, lastName, image, role});
   console.log("este es el usuario creado", user)
       res.status(200).json(user);

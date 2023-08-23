@@ -85,7 +85,6 @@ module.exports = {
       if (!apartment.availability) {
         return res.status(400).send({ error: "Apartment is not available for rent" });
       }
-  console.log("este es el user id por body", req.body.userId)
       try {
         const rent = await Rent.create({
           apartmentId: apartment.id,

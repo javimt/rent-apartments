@@ -127,10 +127,10 @@ header {
     display: flex;
     flex-direction: column;
     background: linear-gradient(
-    to left,
-    rgb(74, 128, 160),
-    black
-  );
+      to left,
+      rgb(74, 128, 160),
+      black
+    );
     right: 0;
     padding-top: 10px;
     border-top: none;

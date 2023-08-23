@@ -6,7 +6,6 @@ const {
   deleteRent,
   getRentById,
 } = require("../controllers/rentController");
-const {formatDateMiddleware} = require("../middleware/rentMiddleware");
 
 const router = Router(); 
 

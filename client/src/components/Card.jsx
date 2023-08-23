@@ -5,12 +5,14 @@ import styles from "../styles/Card.module.css";
 
 const Card = ({image, description, price, ubication, availability, id, updateApartmentAvailability}) => {
   const [showFilterRent, setShowFilterRent] = useState(false);
-  const { isAuthenticated } = useAuth0();
+  const { isAuthenticated, loginWithPopup } = useAuth0();
   const cardRef = useRef(null);
 
   const handleShowFilterRent = () => {
     if (isAuthenticated) {
       setShowFilterRent(!showFilterRent);
+    } else {
+      loginWithPopup();
     }
   };
 
@@ -43,7 +45,8 @@ const Card = ({image, description, price, ubication, availability, id, updateApa
           <FilterRent 
             apartmentId={id} 
             onClose={() => setShowFilterRent()} 
-            updateApartmentAvailability={updateApartmentAvailability}/>)}
+            updateApartmentAvailability={updateApartmentAvailability}/>
+          )}
           {!showFilterRent && (
             <button
               className={styles.rent}
