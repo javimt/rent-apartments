@@ -8,8 +8,8 @@ const {checkExpiredRents} = require("./src/controllers/rentExpiration");
 
 const PORT = process.env.PORT;
 
-console.log("Ejecutando verificación de alquileres vencidos...");
-checkExpiredRents();
+//console.log("Ejecutando verificación de alquileres vencidos...");
+//checkExpiredRents();
 
 cron.schedule("0 0 * * *", () => {
   console.log("Verificando alquileres vencidos...");

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Card from "../components/Card";
 import image from "../assets/apartament.jpg";
-import styles from "../styles/Apartaments.module.css";
+import styles from "../styles/Apartments.module.css";
 
 const Apartaments = () => {
   const [apartments, setApartments] = useState([]);

@@ -3,6 +3,14 @@
   align-items: center;
   justify-content: center;
   margin-top: 5px;
+  color: rgb(74, 128, 160);
+  background-color: rgb(240, 211, 177);
+  font-weight: 550;
+}
+.login:hover {
+  cursor: pointer;
+  background-color: rgb(74, 128, 160);
+  color: rgb(240, 211, 177);
 }
 .icon {
   margin-left: 4px;

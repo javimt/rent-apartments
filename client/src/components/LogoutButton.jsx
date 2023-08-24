@@ -5,18 +5,12 @@ import styles from "../styles/LogoutButton.module.css";
 const LogoutButton = () => {
   const { logout } = useAuth0();
 
-  const handleLogout = (e) => {
-    e.preventDefault(); 
-    logout(); 
-  };
-
   return (
     <div>
       <button
-        onClick={handleLogout}
+        onClick={() => logout()}
         className={styles.logout}>
-          Log Out
-          <LuLogOut className={styles.icon} />
+        Log Out <LuLogOut className={styles.icon} />
       </button>
     </div>
   );

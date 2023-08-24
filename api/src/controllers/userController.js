@@ -31,14 +31,14 @@ module.exports = {
         return res.status(400).json({ error: "Email already exists" });
       } 
       user = await User.create({email, name, lastName, image, role});
-  console.log("este es el usuario creado", user)
+  //console.log("este es el usuario creado", user)
       res.status(200).json(user);
     } catch (error) {
       res.status(500).send({ error: error.message });
     }
   },
 
- /*  assignAdminRole: async (req, res) => {
+  assignAdminRole: async (req, res) => {
     const { id } = req.params;
     try {
       const user = await User.findByPk(id);
@@ -55,7 +55,7 @@ module.exports = {
     } catch (error) {
       res.status(500).send({ error: error.message });
     }
-  }, */
+  },
 
   putUser: async (req, res) => {
     const { id } = req.params;

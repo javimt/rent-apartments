@@ -6,8 +6,9 @@ const AdminDashboard = ({ isAuthenticated }) => {
   const [formData, setFormData] = useState({
     image: '',
     ubication: '',
-    price: 0,
+    price: "",
     description: '',
+    availability: true
   });
 
   const handleAssignAdmin = async (userId) => {
@@ -22,13 +23,14 @@ const AdminDashboard = ({ isAuthenticated }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3001/user/apartment', formData);
+      const response = await axios.post('http://localhost:3001/apartment', formData);
       console.log('Apartment created:', response.data);
       setFormData({
         image: '',
         ubication: '',
-        price: 0,
+        price: "",
         description: '',
+        availability: true
       });
     } catch (error) {
       console.error('Error creating apartment:', error);
@@ -36,7 +38,7 @@ const AdminDashboard = ({ isAuthenticated }) => {
   };
 
   useEffect(() => {
-    const checkAdminStatus = async (id) => {
+    const checkAdminStatus = async () => {
       if (isAuthenticated) {
         try {
           const response = await axios.get(`http://localhost:3001/user/admin`);

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef} from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { BsFillBuildingsFill } from "react-icons/bs";
 import { AiFillCloseCircle } from "react-icons/ai";
@@ -14,13 +14,11 @@ const NavBar = () => {
   const { isAuthenticated, user } = useAuth0();
   const [isScrolled, setIsScrolled] = useState(false);
   const [infoUser, setInfoUser] = useState({});
-  const menuRef = useRef(null);
 
   useEffect(() => {
     if (user && isAuthenticated) {
-  //console.log(user, isAuthenticated)
-      axios.get("http://localhost:3001/user").then((e) => {
-        const userDb = e.data.find((e) => e.email === user.email);
+      axios.get("http://localhost:3001/user").then((response) => {
+        const userDb = response.data.find((e) => e.email === user.email);
         if (!userDb) {
           const newUser = {
             name: user.given_name,
@@ -28,10 +26,9 @@ const NavBar = () => {
             email: user.email,
             image: user.picture
           };
-    console.log(newUser, isAuthenticated)
           axios.post("http://localhost:3001/user", newUser)
           .then((response) => {
-    console.log("User saved to the database:", response.data);
+            console.log("User saved to the database:", response.data);
             setInfoUser(newUser);
           })
           .catch((error) => {
@@ -39,20 +36,23 @@ const NavBar = () => {
           });
         } else {
           setInfoUser(userDb);
-          return false;
         }
-      });
+      })
+      .catch((error) => { 
+        console.error("Error retrieving user from the database:", error); 
+      }); 
     }
   }, [user, isAuthenticated]);
 
+  const handleScroll = useCallback(() => {
+    if (window.scrollY > 0) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  },[]);
+
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -69,7 +69,7 @@ const NavBar = () => {
         <img src={image} alt="furnished apartament" className={styles.image} />
       </div>
       <nav className={styles.navbar}>
-        <div className={`${styles.links} ${showMenu && styles.show}`} ref={menuRef}>
+        <div className={`${styles.links} ${showMenu && styles.show}`} >
           <Link to="/" onClick={closeMenu}>
             Home
           </Link>
@@ -80,9 +80,9 @@ const NavBar = () => {
             For Rent
           </Link>
           {user && isAuthenticated ? (
-            <LogoutButton className={styles.login} />
+            <LogoutButton className={styles.login} onClick={closeMenu}/>
           ) : (
-            <LoginButton className={styles.login} />
+            <LoginButton className={styles.login} onClick={closeMenu}/>
           )}
         </div>
 

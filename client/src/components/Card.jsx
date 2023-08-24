@@ -50,7 +50,7 @@ const Card = ({image, description, price, ubication, availability, id, updateApa
           {!showFilterRent && (
             <button
               className={styles.rent}
-              onClick={handleShowFilterRent}
+              onClick={() => handleShowFilterRent(!availability)}
               disabled={!availability}
             >
               Rent
