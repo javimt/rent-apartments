@@ -1,20 +1,20 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import styles from "../styles/AdminDashboard.module.css";
 
-const AdminDashboard = ({ isAuthenticated }) => {
-  const [isAdmin, setIsAdmin] = useState(false);
+const AdminDashboard = () => {
   const [formData, setFormData] = useState({
     image: '',
     ubication: '',
     price: "",
     description: '',
-    availability: true
+    availability: true,
   });
 
   const handleAssignAdmin = async (userId) => {
     try {
       await axios.put(`http://localhost:3001/user/${userId}/admin`);
-      console.log('User assigned as admin');
+  console.log('User assigned as admin');
     } catch (error) {
       console.error('Error assigning admin role:', error);
     }
@@ -24,33 +24,18 @@ const AdminDashboard = ({ isAuthenticated }) => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:3001/apartment', formData);
-      console.log('Apartment created:', response.data);
+  console.log('Apartment created:', response.data);
       setFormData({
         image: '',
         ubication: '',
         price: "",
         description: '',
-        availability: true
+        availability: true,
       });
     } catch (error) {
       console.error('Error creating apartment:', error);
     }
   };
-
-  useEffect(() => {
-    const checkAdminStatus = async () => {
-      if (isAuthenticated) {
-        try {
-          const response = await axios.get(`http://localhost:3001/user/admin`);
-          setIsAdmin(response.data.isAdmin);
-        } catch (error) {
-          console.error('Error checking admin status:', error);
-        }
-      }
-    };
-
-    checkAdminStatus();
-  }, [isAuthenticated]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -60,12 +45,8 @@ const AdminDashboard = ({ isAuthenticated }) => {
     }));
   };
 
-  if (!isAdmin) {
-    return <div>Acceso denegado: Solo los administradores pueden acceder a esta página.</div>;
-  }
-
   return (
-    <div>
+    <div className={styles.container}>
       <h1>Admin Dashboard</h1>
       <form onSubmit={handleSubmit}>
         <div>
@@ -86,7 +67,7 @@ const AdminDashboard = ({ isAuthenticated }) => {
         </div>
         <button type="submit">Create Apartment</button>
       </form>
-      <button onClick={() => handleAssignAdmin(userIdToAssign)}>
+      <button onClick={() => handleAssignAdmin()}>
         Assign Admin Role
       </button>
     </div>

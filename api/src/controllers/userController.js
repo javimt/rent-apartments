@@ -17,7 +17,12 @@ module.exports = {
       if (!user) {
         return res.status(404).json({ error: "User not found" });
       }
-      res.status(200).json(user);
+      const isAdmin = user.role === "admin";
+      if (isAdmin) {
+        return res.status(200).json({ isAdmin: true, redirectUrl: `user/${user.id}/admin` });
+      } else {
+        return res.status(200).json({ isAdmin: false });
+      }
     } catch (error) {
       res.status(500).send({ error: error.message });
     }
@@ -38,6 +43,23 @@ module.exports = {
     }
   },
 
+  checkAdminStatus: async (req, res) => {
+    const { id } = req.params;
+    try {
+      const user = await User.findByPk(id);
+      if (!user) {
+        return res.status(404).send({ error: "User not found" });
+      }
+      if (user.role === "admin") {
+        res.status(200).json({ isAdmin: true });
+      } else {
+        res.status(200).json({ isAdmin: false });
+      }
+    } catch (error) {
+      res.status(500).send({ error: error.message });
+    }
+  },
+
   assignAdminRole: async (req, res) => {
     const { id } = req.params;
     try {
@@ -45,13 +67,9 @@ module.exports = {
       if (!user) {
         return res.status(404).send({ error: "User not found" });
       }
-      if (!req.user.is_admin) {
-        return res.status(403).json({ error: "Access denied. Only administrators can assign roles." });
-      }
-      user.is_admin = true;
+      user.role = "admin";
       await user.save();
-
-      res.status(200).json({ message: "User role updated to administrator", user });
+      res.status(200).send({ message: "User role updated to admin" });
     } catch (error) {
       res.status(500).send({ error: error.message });
     }

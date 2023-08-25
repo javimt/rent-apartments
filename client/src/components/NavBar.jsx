@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { BsFillBuildingsFill } from "react-icons/bs";
 import { AiFillCloseCircle } from "react-icons/ai";
@@ -44,13 +44,13 @@ const NavBar = () => {
     }
   }, [user, isAuthenticated]);
 
-  const handleScroll = useCallback(() => {
+  const handleScroll = () => {
     if (window.scrollY > 0) {
       setIsScrolled(true);
     } else {
       setIsScrolled(false);
     }
-  },[]);
+  };
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -79,11 +79,11 @@ const NavBar = () => {
           <Link to="apartments" onClick={closeMenu}>
             For Rent
           </Link>
-          {user && isAuthenticated ? (
-            <LogoutButton className={styles.login} onClick={closeMenu}/>
-          ) : (
-            <LoginButton className={styles.login} onClick={closeMenu}/>
-          )}
+            {user && isAuthenticated ? (
+              <LogoutButton className={styles.login} onClick={closeMenu}/>
+            ) : (
+              <LoginButton className={styles.login} onClick={closeMenu}/>
+            )}
         </div>
 
         <div className={styles.menuIcon}>
