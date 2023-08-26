@@ -1,6 +1,11 @@
 header {
   display: block;
-  background: linear-gradient(to bottom, black, rgb(74, 128, 160), rgb(39, 86, 114));
+  background: linear-gradient(
+    to bottom,
+    black,
+    rgb(74, 128, 160),
+    rgb(39, 86, 114)
+  );
   top: 0;
   z-index: 1000;
   position: fixed;
@@ -12,6 +17,7 @@ header {
 .navbar {
   display: flex;
   align-items: center;
+  justify-content: center;
   position: relative;
 }
 .img {
@@ -33,7 +39,7 @@ header {
 .links {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-grow: 1;
   margin-bottom: 5px;
   padding: 0 80px;
@@ -46,12 +52,51 @@ header {
   font-weight: 600;
 }
 .links a:hover {
-  color: white/* rgb(74, 128, 160) */;
+  color: white /* rgb(74, 128, 160) */;
 }
 .login {
   margin-left: 10px;
   margin-top: 10px;
 }
+
+.userMenu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  display: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 100;
+  background: linear-gradient(to left, rgb(74, 128, 160), black);
+  border-top: none;
+  padding: 10px;
+}
+.userName {
+  color: rgb(240, 211, 177);
+}
+.adminButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  color: rgb(74, 128, 160);
+  background-color: rgb(240, 211, 177);
+  font-weight: 550;
+}
+.adminButton:hover {
+  cursor: pointer;
+  background-color: rgb(74, 128, 160);
+  color: rgb(240, 211, 177);
+}
+.userImage {
+  width: 40px;
+  border-radius: 50%;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
 .menuIcon {
   display: none;
   cursor: pointer;
@@ -62,7 +107,7 @@ header {
 .closeIcon {
   font-size: 40px;
   position: absolute;
-  transform: translateY(-114%);
+  transform: translateY(-70.5%);
   color: rgb(240, 211, 177);
 }
 .show {
@@ -88,6 +133,9 @@ header {
     display: none;
   }
   .links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 10px;
     margin-bottom: 15px;
     align-content: center;
@@ -101,6 +149,8 @@ header {
   }
   .menuIcon {
     display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 50px;
     right: 30px;
   }
@@ -125,12 +175,10 @@ header {
   }
   .show {
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
-    background: linear-gradient(
-      to left,
-      rgb(74, 128, 160),
-      black
-    );
+    background: linear-gradient(to left, rgb(74, 128, 160), black);
     right: 0;
     padding-top: 10px;
     border-top: none;

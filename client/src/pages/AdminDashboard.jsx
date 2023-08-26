@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from "../styles/AdminDashboard.module.css";
+import { useAuth0 } from '@auth0/auth0-react';
 
 const AdminDashboard = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +11,34 @@ const AdminDashboard = () => {
     description: '',
     availability: true,
   });
+  const [isAdmin, setIsAdmin] = useState(false);
+  const {user, isAuthenticated} = useAuth0();
+
+  useEffect(() => {
+    if (isAuthenticated && user) {
+      const userId = user.email;
+      const checkAdminStatus = async () => {
+        try {
+      console.log(userId)
+          const response = await axios.get(`http://localhost:3001/user/${userId}`);
+  console.log(response.data)
+          if (response.data.isAdmin) {
+            setIsAdmin(true);
+          } else {
+            console.error("Acceso denegado: Solo los administradores pueden acceder a esta página");
+          }
+        } catch (error) {
+          console.error('Error al obtener el rol del usuario:', error);
+        }
+      };
+
+      checkAdminStatus();
+    }
+  }, [user]);
+
+  if (!isAdmin) {
+    return <div>Acceso denegado: Solo los administradores pueden acceder a esta página.</div>;
+  }
 
   const handleAssignAdmin = async (userId) => {
     try {

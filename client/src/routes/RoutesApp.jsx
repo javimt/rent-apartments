@@ -16,7 +16,7 @@ const RoutesApp = () => {
         <Route path="about" element={<About />} />
         <Route path="apartments" element={<Apartments />} />
         <Route path="rent/:apartmentId" element={<FilterRent />} />
-        <Route path="user/:id/admin" element={<AdminDashboard />} /> 
+        <Route path="admin" element={<AdminDashboard />} /> 
       </Routes>
       <Footer />
     </div>

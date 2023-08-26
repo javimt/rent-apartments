@@ -13,15 +13,15 @@ module.exports = {
   getUserById: async (req, res) => {
     const { id } = req.params;
     try {
-      const user = await User.findByPk(id);
+      const user = await User.findOne({ where: { email: id } });
       if (!user) {
         return res.status(404).json({ error: "User not found" });
       }
       const isAdmin = user.role === "admin";
       if (isAdmin) {
-        return res.status(200).json({ isAdmin: true, redirectUrl: `user/${user.id}/admin` });
+        res.status(200).json({ isAdmin: true, redirectUrl: `/user/${user.email}/admin` });
       } else {
-        return res.status(200).json({ isAdmin: false });
+        res.status(200).json({ isAdmin: false });
       }
     } catch (error) {
       res.status(500).send({ error: error.message });

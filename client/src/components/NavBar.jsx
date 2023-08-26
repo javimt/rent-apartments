@@ -11,9 +11,10 @@ import axios from "axios";
 
 const NavBar = () => {
   const [showMenu, setShowMenu] = useState(false);
-  const { isAuthenticated, user } = useAuth0();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [infoUser, setInfoUser] = useState({});
+  const { isAuthenticated, user, isLoading } = useAuth0();
 
   useEffect(() => {
     if (user && isAuthenticated) {
@@ -63,6 +64,10 @@ const NavBar = () => {
     setShowMenu(false);
   };
 
+  const toggleUserMenu = () => {
+    setUserMenuOpen(!userMenuOpen);
+  };
+
   return (
     <header className={`${styles.header} ${isScrolled && styles.scrolled}`}>
       <div className={styles.img}>
@@ -79,11 +84,33 @@ const NavBar = () => {
           <Link to="apartments" onClick={closeMenu}>
             For Rent
           </Link>
-            {user && isAuthenticated ? (
-              <LogoutButton className={styles.login} onClick={closeMenu}/>
-            ) : (
-              <LoginButton className={styles.login} onClick={closeMenu}/>
-            )}
+          {isLoading ? (
+            <div>Loading...</div>
+          ) : isAuthenticated ? (
+            <>
+              <img
+                src={user.picture}
+                alt="Profile"
+                className={styles.userImage}
+                onClick={toggleUserMenu}
+              />
+              {userMenuOpen && (
+                <div className={styles.userMenu}>
+                  <div className={styles.userName}>Hi! {user.nickname}</div>
+                  {infoUser.role === "admin" && (
+                    <Link to={`admin`} onClick={closeMenu}>
+                      <button className={styles.adminButton}>
+                        Dashboard
+                      </button>
+                    </Link>
+                  )}
+                  <LogoutButton className={styles.logout} onClick={closeMenu} />
+              </div>
+              )}
+            </>
+          ) : (
+            <LoginButton className={styles.login} onClick={closeMenu} />
+          )}
         </div>
 
         <div className={styles.menuIcon}>
