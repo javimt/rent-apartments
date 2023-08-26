@@ -80,7 +80,7 @@
 .price {
   width: 100%;
   color: rgb(240, 211, 177);
-  text-align: center;
+  margin-left: 27%;
   font-size: 120%;
   font-weight: bold;
   padding: 10px 0;
@@ -105,6 +105,23 @@
   color: black;
   border-bottom: 1px solid;
   padding-left: 10px;
+}
+.link {
+  position: absolute;
+  /* transform: translate(210%, -16%); */
+  right: 0;
+  bottom: 95px;
+}
+.det {
+  background-color: black;
+  border: 2px inset grey;
+  border-radius: 0;
+  color: rgb(240, 211, 177);
+  width: 100%;
+}
+.det:hover {
+  color: rgb(74, 128, 160);
+  background-color: rgb(240, 211, 177);
 }
 
 @media (max-width: 820px) and (min-width: 540px) {

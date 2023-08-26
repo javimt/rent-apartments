@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import FilterRent from "./FilterRent";
 import styles from "../styles/Card.module.css";
@@ -63,6 +64,9 @@ const Card = ({image, description, price, ubication, availability, id, updateApa
           <p className={styles.description}>{description}</p>
         </div>
       </div>
+      <Link to={`/${id}/`} className={styles.link}>
+        <button className={styles.det}>Details</button>
+      </Link>
     </article>
   );
 };

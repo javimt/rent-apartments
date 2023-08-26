@@ -23,5 +23,14 @@ module.exports = (sequelize) => {
     description: {
       type: DataTypes.STRING,
     },
+    bedrooms: {
+      type: DataTypes.INTEGER
+    },
+    bathrooms: {
+      type: DataTypes.INTEGER
+    },
+    apartmenNumber: {
+      type: DataTypes.STRING
+    }
   },{timestamps: false});
 };

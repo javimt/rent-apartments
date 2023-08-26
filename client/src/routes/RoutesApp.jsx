@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
-import { Home, About, Apartments, AdminDashboard } from "../pages/index";
+import { Home, About, Apartments, AdminDashboard, Details } from "../pages/index";
 import Contacts from "../components/Contacts";
 import FilterRent from "../components/FilterRent";
 
@@ -15,6 +15,7 @@ const RoutesApp = () => {
         <Route exact path="/" element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="apartments" element={<Apartments />} />
+        <Route path=":id" element={<Details />} />
         <Route path="rent/:apartmentId" element={<FilterRent />} />
         <Route path="admin" element={<AdminDashboard />} /> 
       </Routes>
