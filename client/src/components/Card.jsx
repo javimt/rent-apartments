@@ -4,7 +4,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import FilterRent from "./FilterRent";
 import styles from "../styles/Card.module.css";
 
-const Card = ({image, description, price, ubication, availability, id, updateApartmentAvailability}) => {
+const Card = ({images, description, price, ubication, availability, id, updateApartmentAvailability, bedrooms, bathrooms, apartmentNumber}) => {
   const [showFilterRent, setShowFilterRent] = useState(false);
   const { isAuthenticated, loginWithPopup } = useAuth0();
   const cardRef = useRef(null);
@@ -34,6 +34,8 @@ const Card = ({image, description, price, ubication, availability, id, updateApa
     return `$${price.toLocaleString()}us`;
   };
 
+  const image = Array.isArray(images) && images.length > 0 ? images[0] : null;
+console.log(images)
   return (
     <article className={styles.card} ref={cardRef}>
       <img src={image} alt="apartament furnished" className={styles.image} />
@@ -64,7 +66,10 @@ const Card = ({image, description, price, ubication, availability, id, updateApa
           <p className={styles.description}>{description}</p>
         </div>
       </div>
-      <Link to={`/${id}/`} className={styles.link}>
+      <Link to={`/${id}/details`}
+        state={{ bedrooms, bathrooms, apartmentNumber, images: [images] }}
+        className={styles.link}
+      >
         <button className={styles.det}>Details</button>
       </Link>
     </article>

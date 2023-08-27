@@ -35,7 +35,28 @@ module.exports = {
 
   createApartment: async (req, res) => {
     try {
-      const newApartment = await Apartment.create(req.body);
+      const {
+        images,
+        ubication,
+        availability,
+        price,
+        description,
+        bedrooms,
+        bathrooms,
+        apartmentNumber,
+        id,
+      } = req.body;
+      const newApartment = await Apartment.create({
+        images,
+        ubication,
+        availability,
+        price,
+        description,
+        bedrooms,
+        bathrooms,
+        apartmentNumber,
+        id,
+      });
       res.status(201).json(newApartment);
     } catch (error) {
       res.status(500).send({ error: error.message });
@@ -76,14 +97,18 @@ module.exports = {
     const { id } = req.params;
     try {
       if (!req.body.userId) {
-        return res.status(400).send({ error: "User ID is missing in the request body" });
+        return res
+          .status(400)
+          .send({ error: "User ID is missing in the request body" });
       }
       const apartment = await Apartment.findByPk(id);
       if (!apartment) {
         return res.status(404).send({ error: "Apartment not found" });
       }
       if (!apartment.availability) {
-        return res.status(400).send({ error: "Apartment is not available for rent" });
+        return res
+          .status(400)
+          .send({ error: "Apartment is not available for rent" });
       }
       try {
         const rent = await Rent.create({
@@ -96,7 +121,9 @@ module.exports = {
         });
         apartment.availability = false;
         await apartment.save();
-        res.status(200).json({ message: "Apartment rented successfully", rent });
+        res
+          .status(200)
+          .json({ message: "Apartment rented successfully", rent });
       } catch (error) {
         res.status(500).send({ error: error.message });
       }

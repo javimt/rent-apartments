@@ -7,8 +7,8 @@ module.exports = (sequelize) => {
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
     },
-    image: {
-      type: DataTypes.TEXT,
+    images: {
+      type: DataTypes.ARRAY(DataTypes.TEXT),
     },
     ubication: {
       type: DataTypes.STRING,
@@ -29,7 +29,7 @@ module.exports = (sequelize) => {
     bathrooms: {
       type: DataTypes.INTEGER
     },
-    apartmenNumber: {
+    apartmentNumber: {
       type: DataTypes.STRING
     }
   },{timestamps: false});

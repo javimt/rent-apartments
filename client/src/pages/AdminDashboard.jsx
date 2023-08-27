@@ -5,10 +5,13 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 const AdminDashboard = () => {
   const [formData, setFormData] = useState({
-    image: '',
+    images: [],
     ubication: '',
     price: "",
     description: '',
+    bedrooms: "",
+    bathrooms: "",
+    apartmentNumber: "",
     availability: true,
   });
   const [isAdmin, setIsAdmin] = useState(false);
@@ -19,9 +22,7 @@ const AdminDashboard = () => {
       const userId = user.email;
       const checkAdminStatus = async () => {
         try {
-      console.log(userId)
           const response = await axios.get(`http://localhost:3001/user/${userId}`);
-  console.log(response.data)
           if (response.data.isAdmin) {
             setIsAdmin(true);
           } else {
@@ -53,14 +54,18 @@ const AdminDashboard = () => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:3001/apartment', formData);
-  console.log('Apartment created:', response.data);
+  console.log(response.data)
       setFormData({
-        image: '',
+        images: [],
         ubication: '',
         price: "",
         description: '',
+        bedrooms: "",
+        bathrooms: "",
+        apartmentNumber: "",
         availability: true,
       });
+  console.log(setFormData)
     } catch (error) {
       console.error('Error creating apartment:', error);
     }
@@ -74,13 +79,49 @@ const AdminDashboard = () => {
     }));
   };
 
+  const handleImageUrlChange = (e, index) => {
+    const { value } = e.target;
+    setFormData((prevData) => {
+      const newImageUrls = [...prevData.images];
+      newImageUrls[index] = value;
+      return {
+        ...prevData,
+        images: newImageUrls,
+      };
+    });
+  };
+
+  const handleAddImageField = () => {
+    setFormData((prevData) => ({
+      ...prevData,
+      images: [...prevData.images, ""],
+    }));
+  };
+
+  const handleRemoveImageField = (index) => {
+    setFormData((prevData) => {
+      const newImageUrls = [...prevData.images];
+      newImageUrls.splice(index, 1);
+      return {
+        ...prevData,
+        images: newImageUrls,
+      };
+    });
+  };
+
   return (
     <div className={styles.container}>
       <h1>Admin Dashboard</h1>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>Image URL:</label>
-          <input type="text" name="image" value={formData.image} onChange={handleChange} />
+      <div>
+          <label>Images:</label>
+          {formData.images.map((imageUrl, index) => (
+            <div key={index}>
+              <input type="text" value={imageUrl} onChange={(e) => handleImageUrlChange(e, index)} />
+              <button type="button" onClick={() => handleRemoveImageField(index)}>Remove</button>
+            </div>
+          ))}
+          <button type="button" onClick={handleAddImageField}>Add Image</button>
         </div>
         <div>
           <label>Ubication:</label>
@@ -92,7 +133,19 @@ const AdminDashboard = () => {
         </div>
         <div>
           <label>Description:</label>
-          <textarea name="description" value={formData.description} onChange={handleChange} />
+          <textarea type="text" name="description" value={formData.description} onChange={handleChange} />
+        </div>
+        <div>
+          <label>Bedrooms:</label>
+          <textarea type="text" name="bedrooms" value={formData.bedrooms} onChange={handleChange} />
+        </div>
+        <div>
+          <label>Bathrooms:</label>
+          <textarea type="text" name="bathrooms" value={formData.bathrooms} onChange={handleChange} />
+        </div>
+        <div>
+          <label>Number:</label>
+          <textarea type="text" name="apartmentNumber" value={formData.apartmentNumber} onChange={handleChange} />
         </div>
         <button type="submit">Create Apartment</button>
       </form>

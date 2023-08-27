@@ -29,7 +29,7 @@ const NavBar = () => {
           };
           axios.post("http://localhost:3001/user", newUser)
           .then((response) => {
-            console.log("User saved to the database:", response.data);
+            console.log("User saved to the database:");
             setInfoUser(newUser);
           })
           .catch((error) => {

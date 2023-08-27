@@ -1,27 +1,31 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
+import { useLocation } from "react-router-dom";
 import styles from "../styles/Details.module.css";
 
-const Details = ({bedrooms, bathrooms, apartmenNumber, apartmentId}) => {
-  const [apartment, setApartment] = useState(null);
+const Details = () => {
+  const location = useLocation();
+  const { bedrooms, bathrooms, apartmentNumber, images } = location.state;
 
   return (
     <article className={styles.det}>
       <div className={styles.container}>
-        {/* {apartment && ( */}
-          <div className={styles.details}>
-            <div className={styles.images}>
-              {/* {apartment.images.map((image, index) => (
-                <img key={index} src={image} alt={`Apartment ${index}`} />
-              ))} */}
-            </div>
-            <div className={styles.info}>
-              <p className={styles.number}>Number: {apartmenNumber}</p>
-              <p className={styles.bathrooms}>Bathrooms: {bathrooms}</p>
-              <p className={styles.bedrooms}>Bedrooms: {bedrooms}</p>
-            </div>
+        <div className={styles.details}>
+          <div className={styles.images}>
+            <Carousel showArrows={true}>
+              {images.map((image, index) => (
+                <div key={index}>
+                  <img src={image} alt={`Apartment ${index}`} />
+                </div>
+              ))}
+            </Carousel>
           </div>
-        {/* )} */}
+          <div className={styles.info}>
+            <p className={styles.number}>Number: {apartmentNumber}</p>
+            <p className={styles.bathrooms}>Bathrooms: {bathrooms}</p>
+            <p className={styles.bedrooms}>Bedrooms: {bedrooms}</p>
+          </div>
+        </div>
       </div>
     </article>
   );

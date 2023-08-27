@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Card from "../components/Card";
-import image from "../assets/apartament.jpg";
 import styles from "../styles/Apartments.module.css";
 
 const Apartaments = () => {
@@ -11,6 +10,7 @@ const Apartaments = () => {
     try {
       const response = await axios.get("http://localhost:3001/apartment");
       setApartments(response.data);
+  console.log(response.data.map(i => i.images))
       if(response.data.length === 0) {
         return "apartments not found"
       }
@@ -39,11 +39,14 @@ const Apartaments = () => {
         <Card
           key={apartment.id}
           id={apartment.id}
-          image={image}
+          image={apartment.images}
           availability={apartment.availability}
           price={apartment.price}
           ubication={apartment.ubication}
           description={apartment.description}
+          bedrooms={apartment.bedrooms} 
+          bathrooms={apartment.bathrooms} 
+          apartmentNumber={apartment.apartmentNumber} 
           updateApartmentAvailability={updateApartmentAvailability}
         />
       ))}
