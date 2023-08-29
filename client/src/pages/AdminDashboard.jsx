@@ -20,14 +20,16 @@ const AdminDashboard = () => {
   const {user, isAuthenticated} = useAuth0();
 
   useEffect(() => {
-    if (isAuthenticated && user) {
+    if (isAuthenticated && users) {
       const userId = user.email;
       const checkAdminStatus = async () => {
         try {
           const response = await axios.get(`http://localhost:3001/user/${userId}`);
-          if (response.data.isAdmin || response.data.isSuperAdmin) {
-            setIsAdmin(true);
+      //console.log(response.data)
+          if (response.data.isSuperAdmin) {
             setIsSuperAdmin(true);
+          } else if (response.data.isAdmin) {
+            setIsAdmin(true); 
           } else {
             console.error("Acceso denegado: Solo los administradores pueden acceder a esta página");
           }
@@ -50,11 +52,11 @@ const AdminDashboard = () => {
       });
   }, []);
 
-  const handleRoleChange = (userId, newRole) => {
-  console.log(isSuperAdmin)
-  console.log(userId)
+  const handleRoleChange = (userId, role) => {
+console.log(isSuperAdmin)
+  console.log(isAdmin)
     if (isSuperAdmin) {
-      axios.put(`http://localhost:3001/user/${userId}/admin`, { role: newRole })
+      axios.put(`http://localhost:3001/user/${userId}/admin`, {role} )
         .then(() => {
           axios.get('http://localhost:3001/user')
             .then((response) => {
@@ -131,7 +133,7 @@ const AdminDashboard = () => {
     });
   };
 
-  if (!(isAdmin || isSuperAdmin)) {
+  if (!isAdmin && !isSuperAdmin) {
     return <div>Acces denied: Only adminstrator can acces this page.</div>;
   }
 
@@ -186,9 +188,9 @@ const AdminDashboard = () => {
             <br />
             {isSuperAdmin && (
               <>
-                <button onClick={() => handleRoleChange(user.email, 'user')} /* disabled={user.role === 'superAdmin'} */>User</button>
+                <button onClick={() => handleRoleChange(user.email, 'user')} disabled={user.role === 'superAdmin'}>User</button>
                 <button onClick={() => handleRoleChange(user.email, 'admin')} /* disabled={user.role === 'superAdmin'} */>Admin</button>
-                <button onClick={() => handleRoleChange(user.email, 'superAdmin')} /* disabled={user.role === 'superAdmin'} */>SuperAdmin</button>
+                <button onClick={() => handleRoleChange(user.email, 'superAdmin')} disabled={user.role === 'superAdmin'}>SuperAdmin</button>
               </>
             )}
           </div>

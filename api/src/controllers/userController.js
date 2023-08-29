@@ -19,8 +19,10 @@ module.exports = {
       }
       const isAdmin = user.role === "admin";
       const isSuperAdmin = user.role === "superAdmin"
-      if (isAdmin || isSuperAdmin) {
-        res.status(200).json({ isAdmin: true, isSuperAdmin: true, redirectUrl: `/user/${user.email}/admin` });
+      if (isAdmin) {
+        res.status(200).json({ isAdmin: true, redirectUrl: `/user/${user.email}/admin` });
+      } else if(isSuperAdmin) {
+        res.status(200).json({isSuperAdmin: true, redirectUrl: `/user/${user.email}/admin`})
       } else {
         res.status(200).json({ isAdmin: false, isSuperAdmin: false });
       }
@@ -52,19 +54,20 @@ module.exports = {
       if (!currentUser) {
         return res.status(404).send({ error: "Usuario no encontrado" });
       }
-      if (currentUser.role === "superAdmin") {
-        return res.status(201).json("access succesfully", currentUser);
+      if (currentUser === "superAdmin") {
+        //return res.status(403).send({ error: "No puedes cambiar tu propio rol" });
+        return res.status(201).json({ message: "Access successfully", user: currentUser });
       } 
       const user = await User.findByPk(id);
       if (!user) {
         return res.status(404).send({ error: "User not found" });
       }
-      if (user.role === "superAdmin" && user.id === currentUser.id) {
+      if (user.role === "superAdmin" && user.id === currentUser) {
         return res.status(403).send({ error: "No puedes cambiar tu propio rol" });
       }
       user.role = role;
       await user.save();
-      res.status(200).send({ message: "User role updated to admin" });
+      res.status(200).send({ message: "User role updated" });
     } catch (error) {
       res.status(500).send({ error: error.message });
     }
