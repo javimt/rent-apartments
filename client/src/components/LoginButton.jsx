@@ -5,15 +5,11 @@ import { LuLogIn } from "react-icons/lu";
 import styles from "../styles/LoginButton.module.css";
 
 const LoginButton = () => {
-  const { loginWithPopup, isAuthenticated, user, isLoading } = useAuth0();
-
-  const handleLogin = async() => {
-    await loginWithPopup();
-  };
+  const { loginWithPopup } = useAuth0();
 
   return (
     <div>
-        <button onClick={handleLogin} className={styles.login}>
+        <button onClick={() => loginWithPopup()} className={styles.login}>
           Login <LuLogIn className={styles.icon} />
         </button>
       {/* )} */}

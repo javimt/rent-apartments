@@ -15,6 +15,8 @@ const AdminDashboard = () => {
     availability: true,
   });
   const [isAdmin, setIsAdmin] = useState(false);
+  const [isSuperAdmin, setIsSuperAdmin] = useState(false);
+  const [users, setUsers] = useState([]);
   const {user, isAuthenticated} = useAuth0();
 
   useEffect(() => {
@@ -23,31 +25,59 @@ const AdminDashboard = () => {
       const checkAdminStatus = async () => {
         try {
           const response = await axios.get(`http://localhost:3001/user/${userId}`);
-          if (response.data.isAdmin) {
+          if (response.data.isAdmin || response.data.isSuperAdmin) {
             setIsAdmin(true);
+            setIsSuperAdmin(true);
           } else {
             console.error("Acceso denegado: Solo los administradores pueden acceder a esta página");
           }
         } catch (error) {
-          console.error('Error al obtener el rol del usuario:', error);
+          console.error('Error getting user role:', error);
         }
       };
 
       checkAdminStatus();
     }
-  }, [user]);
+  }, [user, isAuthenticated]);
 
-  if (!isAdmin) {
-    return <div>Acceso denegado: Solo los administradores pueden acceder a esta página.</div>;
-  }
+  useEffect(() => {
+    axios.get('http://localhost:3001/user') 
+      .then((response) => {
+        setUsers(response.data);
+      })
+      .catch((error) => {
+        console.error('Error getting user list:', error);
+      });
+  }, []);
 
-  const handleAssignAdmin = async (userId) => {
-    try {
-      await axios.put(`http://localhost:3001/user/${userId}/admin`);
-  console.log('User assigned as admin');
-    } catch (error) {
-      console.error('Error assigning admin role:', error);
+  const handleRoleChange = (userId, newRole) => {
+  console.log(isSuperAdmin)
+  console.log(userId)
+    if (isSuperAdmin) {
+      axios.put(`http://localhost:3001/user/${userId}/admin`, { role: newRole })
+        .then(() => {
+          axios.get('http://localhost:3001/user')
+            .then((response) => {
+              setUsers(response.data); 
+            })
+            .catch((error) => {
+              console.error('Error getting user list:', error);
+            });
+        })
+        .catch((error) => {
+          console.error(`Error changing user role ${userId}:`, error);
+        });
+    } else {
+      console.error('Access denied: Only superAdmins can change user roles.');
     }
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+        ...prevData,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = async (e) => {
@@ -69,14 +99,6 @@ const AdminDashboard = () => {
     } catch (error) {
       console.error('Error creating apartment:', error);
     }
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
   };
 
   const handleImageUrlChange = (e, index) => {
@@ -109,6 +131,10 @@ const AdminDashboard = () => {
     });
   };
 
+  if (!(isAdmin || isSuperAdmin)) {
+    return <div>Acces denied: Only adminstrator can acces this page.</div>;
+  }
+
   return (
     <div className={styles.container}>
       <h1>Admin Dashboard</h1>
@@ -133,25 +159,41 @@ const AdminDashboard = () => {
         </div>
         <div>
           <label>Description:</label>
-          <textarea type="text" name="description" value={formData.description} onChange={handleChange} />
+          <input type="text" name="description" value={formData.description} onChange={handleChange} />
         </div>
         <div>
           <label>Bedrooms:</label>
-          <textarea type="text" name="bedrooms" value={formData.bedrooms} onChange={handleChange} />
+          <input type="text" name="bedrooms" value={formData.bedrooms} onChange={handleChange} />
         </div>
         <div>
           <label>Bathrooms:</label>
-          <textarea type="text" name="bathrooms" value={formData.bathrooms} onChange={handleChange} />
+          <input type="text" name="bathrooms" value={formData.bathrooms} onChange={handleChange} />
         </div>
         <div>
           <label>Number:</label>
-          <textarea type="text" name="apartmentNumber" value={formData.apartmentNumber} onChange={handleChange} />
+          <input type="text" name="apartmentNumber" value={formData.apartmentNumber} onChange={handleChange} />
         </div>
         <button type="submit">Create Apartment</button>
       </form>
-      <button onClick={() => handleAssignAdmin()}>
-        Assign Admin Role
-      </button>
+      <div>
+        <h2>Users list</h2>
+        {users.map((user) => (
+          <div key={user.email} className={styles.userCard}>
+            <p>Email: {user.email}</p>
+            <p>Nombre: {user.name}</p>
+            <p>Apellido: {user.lastName}</p>
+            <p>Rol: {user.role}</p>
+            <br />
+            {isSuperAdmin && (
+              <>
+                <button onClick={() => handleRoleChange(user.email, 'user')} /* disabled={user.role === 'superAdmin'} */>User</button>
+                <button onClick={() => handleRoleChange(user.email, 'admin')} /* disabled={user.role === 'superAdmin'} */>Admin</button>
+                <button onClick={() => handleRoleChange(user.email, 'superAdmin')} /* disabled={user.role === 'superAdmin'} */>SuperAdmin</button>
+              </>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

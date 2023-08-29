@@ -14,7 +14,7 @@ const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [infoUser, setInfoUser] = useState({});
-  const { isAuthenticated, user, isLoading } = useAuth0();
+  const { isAuthenticated, user } = useAuth0();
 
   useEffect(() => {
     if (user && isAuthenticated) {
@@ -84,9 +84,7 @@ const NavBar = () => {
           <Link to="apartments" onClick={closeMenu}>
             For Rent
           </Link>
-          {isLoading ? (
-            <div>Loading...</div>
-          ) : isAuthenticated ? (
+          { isAuthenticated ? (
             <>
               <img
                 src={user.picture}
@@ -97,7 +95,7 @@ const NavBar = () => {
               {userMenuOpen && (
                 <div className={styles.userMenu}>
                   <div className={styles.userName}>Hi! {user.nickname}</div>
-                  {infoUser.role === "admin" && (
+                  {(infoUser.role === "admin" || infoUser.role === "superAdmin") && (
                     <Link to={`admin`} onClick={closeMenu}>
                       <button className={styles.adminButton}>
                         Dashboard

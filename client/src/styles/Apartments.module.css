@@ -30,7 +30,6 @@
 @media (max-width: 680px) {
   .container {
     margin-top: 5rem; 
-    /* justify-content: space-around; */
     display: flex;
     align-items: flex-start;
     margin-bottom: 1rem;

@@ -10,7 +10,6 @@ const Apartaments = () => {
     try {
       const response = await axios.get("http://localhost:3001/apartment");
       setApartments(response.data);
-  console.log(response.data.map(i => i.images))
       if(response.data.length === 0) {
         return "apartments not found"
       }
@@ -39,7 +38,7 @@ const Apartaments = () => {
         <Card
           key={apartment.id}
           id={apartment.id}
-          image={apartment.images}
+          images={apartment.images}
           availability={apartment.availability}
           price={apartment.price}
           ubication={apartment.ubication}

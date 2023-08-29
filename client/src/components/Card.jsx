@@ -34,11 +34,11 @@ const Card = ({images, description, price, ubication, availability, id, updateAp
     return `$${price.toLocaleString()}us`;
   };
 
-  const image = Array.isArray(images) && images.length > 0 ? images[0] : null;
-console.log(images)
+  const firsImage = Array.isArray(images) && images.length > 0 ? images[0] : null;
+
   return (
     <article className={styles.card} ref={cardRef}>
-      <img src={image} alt="apartament furnished" className={styles.image} />
+      <img src={firsImage} alt="apartament furnished" className={styles.image} />
       <div className={styles.details}>
         <div className={styles.availability}>
           <button className={styles.ava}>
@@ -67,7 +67,7 @@ console.log(images)
         </div>
       </div>
       <Link to={`/${id}/details`}
-        state={{ bedrooms, bathrooms, apartmentNumber, images: [images] }}
+        state={{ bedrooms, bathrooms, apartmentNumber, images }}
         className={styles.link}
       >
         <button className={styles.det}>Details</button>
