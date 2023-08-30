@@ -71,9 +71,7 @@ module.exports = {
         return res.status(404).send({ error: "Apartment not found" });
       }
       const updatedApartment = await apartment.update(req.body);
-      res
-        .status(200)
-        .json({ message: "Apartment updated successfully", updatedApartment });
+      res.status(200).json({ message: "Apartment updated successfully", updatedApartment });
     } catch (error) {
       res.status(500).send({ error: error.message });
     }
@@ -97,18 +95,34 @@ module.exports = {
     const { id } = req.params;
     try {
       if (!req.body.userId) {
-        return res
-          .status(400)
-          .send({ error: "User ID is missing in the request body" });
+        return res.status(400).send({ error: "User ID is missing in the request body" });
       }
       const apartment = await Apartment.findByPk(id);
       if (!apartment) {
         return res.status(404).send({ error: "Apartment not found" });
       }
       if (!apartment.availability) {
-        return res
-          .status(400)
-          .send({ error: "Apartment is not available for rent" });
+        return res.status(400).send({ error: "Apartment is not available for rent" });
+      }
+      let currentDate = new Date();
+      //currentDate.setDate(currentDate.getDate())
+  console.log(currentDate)
+      const startDate = new Date(req.body.startDate);
+      const endDate = new Date(req.body.endDate);
+      if (!startDate || !endDate) {
+        return res.status(400).send("no se pueden generar rentas sin fecha de inicio y finalizacion");
+      }
+      if(startDate <= currentDate) {
+        return res.status(400).send("la fecha de inicio debe ser mayor o igual a la actual")
+      }
+      if(startDate > endDate) {
+        return res.status(400).send("la fecha de inicio no puede ser igual a la de finalizacion")
+      }
+      if(endDate < currentDate) {
+        return res.status(400).send("la fecha de finalizacion no puede ser menor a la actual")
+      }
+      if(startDate < currentDate && endDate > currentDate) {
+        return res.status(400).send("no se puede generar la renta, error en las fechas")
       }
       try {
         const rent = await Rent.create({
@@ -121,9 +135,7 @@ module.exports = {
         });
         apartment.availability = false;
         await apartment.save();
-        res
-          .status(200)
-          .json({ message: "Apartment rented successfully", rent });
+        res.status(200).json({ message: "Apartment rented successfully", rent });
       } catch (error) {
         res.status(500).send({ error: error.message });
       }

@@ -59,7 +59,7 @@
   width: auto;
   border: 2px inset grey;
   transition: background-color 0.3s;
-  transform: translateY(31.5%);
+  margin-top: 19px;
 }
 .rentButton:hover {
   color: rgb(240, 211, 177);

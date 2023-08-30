@@ -10,7 +10,7 @@ module.exports = {
         where: {
           status: "not available",
           endDate: {
-            [Op.lte]: currentDate, // Encuentra las fechas de finalización anteriores o iguales a la fecha actual
+            [Op.lte]: currentDate, 
           },
         },
       });

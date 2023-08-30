@@ -11,7 +11,7 @@ const PORT = process.env.PORT;
 //console.log("Ejecutando verificación de alquileres vencidos...");
 //checkExpiredRents();
 
-cron.schedule("07 21 * * *", () => {
+cron.schedule("0 12 * * *", () => {
   console.log("Verificando alquileres vencidos...");
   checkExpiredRents();
 });

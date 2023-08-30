@@ -25,9 +25,28 @@ const FilterRent = ({ apartmentId, onClose, updateApartmentAvailability }) => {
     };
     fetchApartment();
   }, [apartmentId]);
-
+  
   const handleRent = async () => {
     if (rentalData.startDate && rentalData.endDate && !isSubmitting) {
+      let currentDate = new Date();
+console.log(currentDate)
+      const startDate = new Date(currentDate);
+      const endDate = new Date(rentalData.endDate);
+      if (!startDate || !endDate) {
+        return false;
+      }
+      if(startDate <= currentDate) {
+        return false;
+      }
+      if(startDate > endDate) {
+        return false;
+      }
+      if(endDate < currentDate) {
+        return false;
+      }
+      if(startDate < currentDate && endDate > currentDate) {
+        return false
+      }
       setIsSubmitting(true);
       try {
         const idTokenClaims = await getIdTokenClaims();
