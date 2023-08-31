@@ -127,3 +127,13 @@
     width: 32rem;
   }
 }
+
+@media (max-width: 320px) and (min-width: 280px) {
+  .card {
+    width: auto;
+    height: 23.5rem;
+  }
+  .image {
+    height: 16.5rem;
+  }
+}

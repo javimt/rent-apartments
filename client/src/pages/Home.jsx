@@ -27,20 +27,23 @@ const Home = () => {
 
   return (
     <div className={styles.homeContainer}>
-      <div className={styles.contentContainer}>
-        <h1>Welcome to Furnished Apartments Medellín</h1>
-        <p>Discover luxurious apartments for your stay in Medellín. Explore the beauty of the city and enjoy comfortable accommodations.</p>
+      <div className={styles.content}>
+        <h2>Welcome to Furnished Apartments Medellín</h2>
       </div>
-      <div className={styles.carouselContainer}>
-        <Carousel
-          showThumbs={false}
-          showIndicators={true}
-          infiniteLoop={true}
-          autoPlay={true}
-          interval={3000} 
-          transitionTime={500}
-          stopOnHover={true}
-        >
+      <div className={styles.carousel}>
+        <div className={styles.text}>
+          <p>Discover luxurious apartments for your stay in Medellín. Explore the beauty of the city and enjoy comfortable accommodations.</p>
+        </div>
+        <div className={styles.carouselContainer}>
+          <Carousel
+            showThumbs={false}
+            showIndicators={true}
+            infiniteLoop={true}
+            autoPlay={true}
+            interval={3000} 
+            transitionTime={500}
+            stopOnHover={true}
+          >
           <div>
             <img src={apartmentImage1} alt="Apartment 1" />
           </div>
@@ -51,6 +54,8 @@ const Home = () => {
             <img src={apartmentImage3} alt="Apartment 3" />
           </div>
         </Carousel>
+        </div>
+        
       </div>
       <br />
       <div id="map" className={styles.mapContainer}></div>
