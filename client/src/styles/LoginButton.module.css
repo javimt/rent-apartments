@@ -2,15 +2,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 5px;
-  color: rgb(74, 128, 160);
-  background-color: rgb(240, 211, 177);
+  background-color: rgb(74, 128, 160);
+  color: rgb(240, 211, 177);
   font-weight: 550;
+  margin-bottom: 10px;
+  border: 2px inset grey
 }
 .login:hover {
   cursor: pointer;
-  background-color: rgb(74, 128, 160);
-  color: rgb(240, 211, 177);
+  color: rgb(74, 128, 160);
+  background-color: rgb(240, 211, 177);
 }
 .icon {
   margin-left: 2px;

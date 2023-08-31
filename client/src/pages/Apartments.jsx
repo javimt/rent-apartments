@@ -31,7 +31,7 @@ const Apartaments = () => {
       )
     );
   };
-
+  
   return (
     <section className={styles.container}>
       {apartments.map((apartment) => (

@@ -2,16 +2,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 0;
+  margin-top: 0;background-color: rgb(74, 128, 160);
+  color: rgb(240, 211, 177);
   margin-bottom: 10px;
-  color: rgb(74, 128, 160);
-  background-color: rgb(240, 211, 177);
   font-weight: 550;
+  border: 2px inset grey;
 }
 .logout:hover {
+  color: rgb(74, 128, 160);
+  background-color: rgb(240, 211, 177);
   cursor: pointer;
-  background-color: rgb(74, 128, 160);
-  color: rgb(240, 211, 177);
 }
 .icon {
   margin-left: 4px;

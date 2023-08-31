@@ -14,6 +14,7 @@ module.exports = {
     } catch (error) {
       res.status(500).send({ error: error.message });
     }
+    
   },
 
   getApartmentById: async (req, res) => {
@@ -104,16 +105,19 @@ module.exports = {
       if (!apartment.availability) {
         return res.status(400).send({ error: "Apartment is not available for rent" });
       }
-      let currentDate = new Date();
-      //currentDate.setDate(currentDate.getDate())
-  console.log(currentDate)
+      const currentDate = new Date();
+      currentDate.setHours(currentDate.getHours() - 5);
       const startDate = new Date(req.body.startDate);
+      //startDate.setDate(currentDate.getDate() - 1)
+      startDate.setHours(startDate.getHours() + 15);
       const endDate = new Date(req.body.endDate);
+      endDate.setDate(endDate.getDate(), endDate.getHours() + 15)
+      endDate.setHours(endDate.getHours() + 15);
       if (!startDate || !endDate) {
         return res.status(400).send("no se pueden generar rentas sin fecha de inicio y finalizacion");
       }
-      if(startDate <= currentDate) {
-        return res.status(400).send("la fecha de inicio debe ser mayor o igual a la actual")
+      if(startDate < currentDate) {
+        return res.status(400).send("la fecha de inicio debe ser mayor a la actual")
       }
       if(startDate > endDate) {
         return res.status(400).send("la fecha de inicio no puede ser igual a la de finalizacion")
@@ -121,14 +125,14 @@ module.exports = {
       if(endDate < currentDate) {
         return res.status(400).send("la fecha de finalizacion no puede ser menor a la actual")
       }
-      if(startDate < currentDate && endDate > currentDate) {
+      /* if(startDate < currentDate && endDate > startDate) {
         return res.status(400).send("no se puede generar la renta, error en las fechas")
-      }
+      } */
       try {
         const rent = await Rent.create({
           apartmentId: apartment.id,
           userId: req.body.userId,
-          startDate: req.body.startDate,
+          startDate: startDate,
           endDate: req.body.endDate,
           totalPrice: req.body.totalPrice,
           status: req.body.status,

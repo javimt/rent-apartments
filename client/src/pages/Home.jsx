@@ -53,9 +53,6 @@ const Home = () => {
         </Carousel>
       </div>
       <br />
-      <div className={styles.imageContainer}>
-        <img className={styles.cityImage} src={cityImage} alt="Medellín Panorama" />
-      </div>
       <div id="map" className={styles.mapContainer}></div>
     </div>
   );

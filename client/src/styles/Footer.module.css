@@ -1,12 +1,11 @@
 .footer {
   display: flex;
   justify-content: center;
-  align-items: center;/* 
-  position: sticky; */
+  align-items: center;
   bottom: 0;
   margin-top: auto;
   width: 100%;
-  background: linear-gradient(to top, rgb(74, 128, 160), black);
+  background: rgb(74, 128, 160);
   overflow-x: hidden;
   font-size: 100%;
   padding-left: 10px;
@@ -17,15 +16,18 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  color: rgb(240, 211, 177);
+  color: black /* rgb(240, 211, 177) */;
   margin: 20px;
 }
 .p {
-  color: rgb(240, 211, 177);
+  color: black /* rgb(240, 211, 177) */;
   gap: 5px;
 }
 .a {
   text-decoration: none;
+}
+.a p:hover {
+  color: white;
 }
 
 @media (max-width: 680px) {

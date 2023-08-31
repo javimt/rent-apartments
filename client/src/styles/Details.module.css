@@ -19,12 +19,7 @@
   width: 30rem;
   min-height: 27rem;
   border-radius: 10px;
-  background: linear-gradient(
-    to bottom,
-    black,
-    black,
-    rgb(74, 128, 160)
-  );
+  background:rgb(74, 128, 160);
   position: relative;
   margin-top: 13rem;
   margin-bottom: 20px;

@@ -25,7 +25,6 @@ const AdminDashboard = () => {
       const checkAdminStatus = async () => {
         try {
           const response = await axios.get(`http://localhost:3001/user/${userId}`);
-      //console.log(response.data)
           if (response.data.isSuperAdmin) {
             setIsSuperAdmin(true);
           } else if (response.data.isAdmin) {
@@ -53,8 +52,6 @@ const AdminDashboard = () => {
   }, []);
 
   const handleRoleChange = (userId, role) => {
-console.log(isSuperAdmin)
-  console.log(isAdmin)
     if (isSuperAdmin) {
       axios.put(`http://localhost:3001/user/${userId}/admin`, {role} )
         .then(() => {
@@ -86,7 +83,6 @@ console.log(isSuperAdmin)
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:3001/apartment', formData);
-  console.log(response.data)
       setFormData({
         images: [],
         ubication: '',
@@ -97,7 +93,6 @@ console.log(isSuperAdmin)
         apartmentNumber: "",
         availability: true,
       });
-  console.log(setFormData)
     } catch (error) {
       console.error('Error creating apartment:', error);
     }

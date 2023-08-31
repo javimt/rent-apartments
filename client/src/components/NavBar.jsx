@@ -70,10 +70,13 @@ const NavBar = () => {
 
   return (
     <header className={`${styles.header} ${isScrolled && styles.scrolled}`}>
-      <div className={styles.img}>
-        <img src={image} alt="furnished apartament" className={styles.image} />
+      <div className={styles.title}>
+        <h3>The best website to rent furnished apartments</h3>
       </div>
       <nav className={styles.navbar}>
+        <div className={styles.img}>
+          <img src={image} alt="furnished apartament" className={styles.image} />
+        </div>
         <div className={`${styles.links} ${showMenu && styles.show}`} >
           <Link to="/" onClick={closeMenu}>
             Home
@@ -102,12 +105,12 @@ const NavBar = () => {
                       </button>
                     </Link>
                   )}
-                  <LogoutButton className={styles.logout} onClick={closeMenu} />
+                  <LogoutButton />
               </div>
               )}
             </>
           ) : (
-            <LoginButton className={styles.login} onClick={closeMenu} />
+            <LoginButton />
           )}
         </div>
 

@@ -28,14 +28,15 @@ const FilterRent = ({ apartmentId, onClose, updateApartmentAvailability }) => {
   
   const handleRent = async () => {
     if (rentalData.startDate && rentalData.endDate && !isSubmitting) {
-      let currentDate = new Date();
-console.log(currentDate)
-      const startDate = new Date(currentDate);
+      const currentDate = new Date();
+      const startDate = new Date(rentalData.startDate);
+      startDate.setDate(currentDate.getDate())
       const endDate = new Date(rentalData.endDate);
+      endDate.setDate(currentDate.getDate())
       if (!startDate || !endDate) {
         return false;
       }
-      if(startDate <= currentDate) {
+      if(startDate < currentDate) {
         return false;
       }
       if(startDate > endDate) {
@@ -44,14 +45,10 @@ console.log(currentDate)
       if(endDate < currentDate) {
         return false;
       }
-      if(startDate < currentDate && endDate > currentDate) {
-        return false
-      }
       setIsSubmitting(true);
       try {
         const idTokenClaims = await getIdTokenClaims();
         const idToken = idTokenClaims.__raw;
-  //console.log(idToken)
         const response = await axios.post(`http://localhost:3001/apartment/${apartmentId}/rent`, {
           startDate: rentalData.startDate,
           endDate: rentalData.endDate,
@@ -64,7 +61,6 @@ console.log(currentDate)
             },
           }
         );
-  //console.log("lo que se envia",response.data);
         setRentalData({
           startDate: "",
           endDate: "",
