@@ -79,18 +79,17 @@ header {
   position: absolute;
   top: 100%;
   right: 0;
-  display: none;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  z-index: 100;
-  background: linear-gradient(to left, rgb(74, 128, 160), black);
+  z-index: 90;
+  background-color: white;
   border-top: none;
   padding: 10px;
 }
 .userName {
-  color: rgb(240, 211, 177);
+  color: rgb(74, 128, 160);
 }
 .adminButton {
   display: flex;
@@ -105,7 +104,7 @@ header {
 .adminButton:hover {
   cursor: pointer;
   color: rgb(74, 128, 160);
-  background-color: rgb(240, 211, 177);
+  background-color: white;
 }
 .userImage {
   width: 40px;
@@ -115,8 +114,10 @@ header {
 
 .menuIcon {
   display: none;
+  align-content: center;
   cursor: pointer;
   position: absolute;
+  font-size: 40px;
   color: rgb(74, 128, 160);
 }
 .closeIcon {
@@ -126,19 +127,24 @@ header {
 }
 .show {
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
   position: absolute;
-  top: 100%;
+  top: 0;
   right: 0;
-  padding: 10px;
+  width: auto;
+  padding: 5px;
   border-top: none;
+  background-color: white;
+  z-index: 100;
 }
 .menuOptions {
   display: flex;
   align-items: center;
   justify-content: space-around;
   flex-direction: row;
-  background-color: rgb(74, 128, 160);
+  background-color: black;
   padding: 10px;
 }
 
@@ -266,22 +272,22 @@ header {
     margin-bottom: 15px;
     align-content: center;
     width: 120px;
-    color: rgb(240, 211, 177);
+    color: rgb(74, 128, 160);
     font-weight: 600;
     font-size: 24px;
   }
   .links a:hover {
-    color: white;
+    color: black;
   }
   .menuIcon {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 50px;
+    font-size: 40px;
     right: 30px;
   }
   .closeIcon {
-    font-size: 50px;
+    font-size: 40px;
     right: 0;
   }
   .img {
@@ -304,10 +310,8 @@ header {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background: linear-gradient(to left, rgb(74, 128, 160), black);
-    right: 0;
-    padding-top: 10px;
-    border-top: none;
-    z-index: 100;
+  }
+  .userMenu {
+    width: 100%;
   }
 }
