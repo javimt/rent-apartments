@@ -1,0 +1,102 @@
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-30%);
+  }
+}
+.container1 {
+  margin-top: 3rem;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.slider {
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0%;
+  width: 50%;
+}
+.slider .con {
+  padding: 10px;
+}
+.slider .slide_track {
+  animation: scroll 9s ease-in-out infinite alternate;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.slider .slide {
+  height: 300px;
+  width: 400px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+}
+.slide .slide:hover {
+  transform: scale(1.1);
+}
+.slider :hover {
+  animation-play-state: paused;
+  cursor: pointer;
+  transition: step-end;
+}
+.slider img {
+  width: 75%;
+  height: 60%;
+  border-radius: 5px;
+}
+
+/* CSS para pantallas medianas 
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .slider .slide {
+    height: 450px;
+    width: 550px;
+  }
+  .slider .slide_track {
+    animation: scroll 100s ease-in-out infinite alternate;
+    display: flex;
+    width: calc(40px * 21);
+    gap: 20px;
+  }
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-440px * 29));
+    }
+  }
+}*/
+
+/* CSS para pantallas pequeñas 
+@media screen and (max-width: 767px) {
+  .slider .slide {
+    height: 250px;
+    width: 350px;
+  }
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-318px * 26));
+    }
+  }
+  .slider .slide_track {
+    gap: 5px;
+    animation: scroll 100s ease-in-out infinite alternate;
+    display: flex;
+    width: calc(17px * 21);
+  }
+}*/
+
+/* CSS para todas las pantallas */
+

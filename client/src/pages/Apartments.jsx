@@ -3,7 +3,7 @@ import axios from "axios";
 import Card from "../components/Card";
 import styles from "../styles/Apartments.module.css";
 
-const Apartaments = () => {
+const Apartments = () => {
   const [apartments, setApartments] = useState([]);
 
   const fetchApartments = async () => {
@@ -52,5 +52,4 @@ const Apartaments = () => {
     </section>
   );
 };
-
-export default Apartaments;
+export default Apartments;

@@ -11,15 +11,21 @@
   margin-top: 5rem;
 }
 
+.carousel {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .content {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 100%;
-  margin: 2rem auto;
+  width: 90%;
   font-size: 0.8rem;
-  margin-top: 7rem;
+  margin-top: 2rem;
   overflow: hidden;
 }
 h2 {
@@ -30,35 +36,38 @@ h2 {
   color: #333;
 }
 .ad {
+  flex-shrink: 1;
+  flex-grow: 1; 
   margin-top: 1rem;
   padding: 10px;
+  width: auto;
   background-color: rgb(74, 128, 160); 
   border-radius: 5px;
   animation: pulse 2s infinite; 
 }
 @keyframes pulse {
   0%, 100% {
-    transform: scale(1);
+    transform: scale(0.9);
   }
   50% {
-    transform: scale(1.1);
+    transform: scale(1);
   }
 }
 
 .text {
-  flex-shrink: 1;
-  flex-grow: 1;
+  /* flex-shrink: 1;
+  flex-grow: 1; */
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: auto;
+  flex-wrap: wrap;
   width: 90%;
   padding: 10px;
   background-color: white;
 }
 .p {
-  width: auto;
+  width: 100%;
   color: black;
   font-size: 15px;
 }
@@ -73,49 +82,8 @@ h2 {
 }
 
 .mapContainer {
-  margin-top: 10px;
   width: 90%;
   height: 500px;
   margin-bottom: 2rem;
-  margin: 2rem auto;
 }
 
-@media (max-width:712px) {
-  .carousel {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    flex-wrap: wrap;
-    flex-basis: 100%;
-    flex: 1;
-    width: 90%;
-    height: 400px;
-    padding: 0;
-    margin-bottom: 5rem;
-  }
-  .carouselContainer {
-    flex-shrink: 1;
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 60%;
-    height: auto;
-  }
-  .text {
-    flex-shrink: 1;
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-    width: 40%;
-    padding: 10px;
-  }
-  .p {
-    width: auto;
-    color: black;
-    font-size: 14px;
-  }
-}
