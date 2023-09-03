@@ -134,7 +134,8 @@ const AdminDashboard = () => {
 
   return (
     <div className={styles.container}>
-      <h1>Admin Dashboard</h1>
+      <h2>Admin Dashboard</h2>
+      <br />
       <form onSubmit={handleSubmit}>
       <div>
           <label>Images:</label>
@@ -173,6 +174,7 @@ const AdminDashboard = () => {
         <button type="submit">Create Apartment</button>
       </form>
       <div>
+        <br />
         <h2>Users list</h2>
         {users.map((user) => (
           <div key={user.email} className={styles.userCard}>
@@ -183,9 +185,9 @@ const AdminDashboard = () => {
             <br />
             {isSuperAdmin && (
               <>
-                <button onClick={() => handleRoleChange(user.email, 'user')} disabled={user.role === 'superAdmin'}>User</button>
-                <button onClick={() => handleRoleChange(user.email, 'admin')} /* disabled={user.role === 'superAdmin'} */>Admin</button>
-                <button onClick={() => handleRoleChange(user.email, 'superAdmin')} disabled={user.role === 'superAdmin'}>SuperAdmin</button>
+                <button className={styles.butdashboard} onClick={() => handleRoleChange(user.email, 'user')} disabled={user.role === 'superAdmin'}>User</button>
+                <button className={styles.butdashboard} onClick={() => handleRoleChange(user.email, 'admin')} /* disabled={user.role === 'superAdmin'} */>Admin</button>
+                <button className={styles.butdashboard} onClick={() => handleRoleChange(user.email, 'superAdmin')} disabled={user.role === 'superAdmin'}>SuperAdmin</button>
               </>
             )}
           </div>

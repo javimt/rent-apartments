@@ -33,4 +33,25 @@ h1 {
   line-height: 1.1;
 }
 
-
+button {
+  padding: 10px;
+  background-color: rgb(240, 211, 177);
+  color: rgb(74, 128, 160);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+}
+button:hover {
+  color: rgb(240, 211, 177);
+  background-color: rgb(74, 128, 160);
+  font-weight: 550;
+}
+button:disabled {
+  background-color: #afafaf;
+  color: #5c5b5b;
+  cursor: not-allowed;
+}

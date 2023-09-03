@@ -12,9 +12,7 @@ if (!images || images.length === 0) {
         <div className={styles.slide_track}>
           {images.map((image, index) => (
             <div className={styles.con} key={image.key}>
-              <div className={styles.slide} id={styles[`img${index + 1}`]}>
-                <img src={image.url} alt={`slide ${index + 1}`} />
-              </div>
+              <img src={image.url} alt={`slide ${index + 1}`} />
             </div>
           ))}
         </div>

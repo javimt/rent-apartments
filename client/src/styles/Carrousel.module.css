@@ -3,14 +3,14 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-30%);
+    transform: translateX(-55%);
   }
 }
 .container1 {
-  margin-top: 3rem;
+  margin-top: 5rem;
   display: flex;
   width: 100%;
-  justify-content: center;
+  height: auto; 
   align-items: center;
 }
 .slider {
@@ -18,85 +18,193 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0%;
-  width: 50%;
-}
-.slider .con {
-  padding: 10px;
+  margin: 0;
+  width: auto;
 }
 .slider .slide_track {
-  animation: scroll 9s ease-in-out infinite alternate;
+  transform: translateX(0);
+  animation: scroll 45s ease-in-out infinite alternate;
   display: flex;
-  justify-content: center;
   align-items: center;
+  width: auto;
+  overflow: hidden;
 }
-.slider .slide {
-  height: 300px;
-  width: 400px;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 15px;
+.con {
+  height: 100%;
+  width: 100%;
 }
-.slide .slide:hover {
+.con:hover {
   transform: scale(1.1);
+  border-radius: 5px;
 }
-.slider :hover {
+.slider:hover .slide_track {
   animation-play-state: paused;
   cursor: pointer;
   transition: step-end;
 }
 .slider img {
-  width: 75%;
-  height: 60%;
+  display: flex;
+  align-items: center;
+  margin: 5px;
+  height: 300px;
+  width: 400px;
   border-radius: 5px;
 }
 
-/* CSS para pantallas medianas 
-@media screen and (min-width: 768px) and (max-width: 1199px) {
-  .slider .slide {
-    height: 450px;
-    width: 550px;
-  }
-  .slider .slide_track {
-    animation: scroll 100s ease-in-out infinite alternate;
-    display: flex;
-    width: calc(40px * 21);
-    gap: 20px;
-  }
+@media (max-width: 1468px) {
   @keyframes scroll {
     0% {
       transform: translateX(0);
     }
     100% {
-      transform: translateX(calc(-440px * 29));
+      transform: translateX(-54%);
     }
   }
-}*/
+}
 
-/* CSS para pantallas pequeñas 
-@media screen and (max-width: 767px) {
-  .slider .slide {
-    height: 250px;
-    width: 350px;
-  }
+@media (max-width: 1390px) {
   @keyframes scroll {
     0% {
       transform: translateX(0);
     }
     100% {
-      transform: translateX(calc(-318px * 26));
+      transform: translateX(-58%);
     }
   }
-  .slider .slide_track {
-    gap: 5px;
-    animation: scroll 100s ease-in-out infinite alternate;
-    display: flex;
-    width: calc(17px * 21);
+}
+
+@media (max-width: 1280px) and (min-width: 1025px) {
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-59%);
+    }
   }
-}*/
+}
 
-/* CSS para todas las pantallas */
+@media (max-width: 1024px) {
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-67%);
+    }
+  }
+}
 
+@media (max-width: 820px) {
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-74%);
+    }
+  }
+}
+
+@media (max-width: 712px) {
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-77%);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-75%);
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-83%);
+    }
+  }
+}
+
+@media (max-width: 414px) {
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-87%);
+    }
+  }
+}
+
+@media (max-width: 412px) {
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-83%);
+    }
+  }
+  .slider img{
+    height: 200px;
+    width: 300px
+  }
+}
+
+@media (max-width: 375px) {
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-84%);
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-85%);
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-87%);
+    }
+  }
+}
+
+@media (max-width: 280px) {
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-88%);
+    }
+  }
+}

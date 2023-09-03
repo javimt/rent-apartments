@@ -27,7 +27,7 @@ const Details = () => {
         </div>
         <div className={styles.details}>
           <div className={styles.info}>
-            <p className={styles.number}>Number: {apartmentNumber}</p>
+            <p className={styles.number}>{apartmentNumber}</p>
             <p className={styles.bathrooms}>Bathrooms: {bathrooms}</p>
             <p className={styles.bedrooms}>Bedrooms: {bedrooms}</p>
           </div>

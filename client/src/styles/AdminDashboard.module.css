@@ -3,23 +3,25 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 90%;
+  width: 100%;
+  height: 100%;
   margin: 0 auto;
   padding: 10px;
-  margin-top: 13rem;
+  margin-top: 25%;
   border: 1px solid #ccc;
   border-radius: 10px;
-  background: linear-gradient(to bottom, black, rgb(74, 128, 160), black);
+  background:  rgb(74, 128, 160);
   margin-bottom: 1rem;
-  margin-bottom: 20px;
+  overflow-x: hidden;
 }
-h1 {
+.container h2 {
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 25px;
   color: rgb(240, 211, 177);
 }
+
 form {
   display: flex;
   flex-direction: column;
@@ -44,23 +46,6 @@ textarea {
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-button {
-  padding: 10px;
-  background-color: rgb(240, 211, 177);
-  color: rgb(74, 128, 160);
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 16px;
-  transition: background-color 0.3s;
-  margin-top: 10px;
-}
-button:hover {
-  color: rgb(240, 211, 177);
-  background-color: rgb(74, 128, 160);
-  font-weight: 550;
-}
 .error-message {
   color: red;
   font-weight: bold;
@@ -70,4 +55,36 @@ button:hover {
   color: red;
   font-weight: bold;
   text-align: center;
+}
+
+.userCard {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  overflow-x: auto;
+  border: 1px solid black;
+  padding: 10px;
+  background-color: aliceblue;
+  color: black;
+}
+.butdashboard {
+  padding: 5px 10px;
+  background-color: rgb(240, 211, 177);
+  color: rgb(74, 128, 160);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  margin-right: 5px;
+}
+.butdashboard:hover {
+  color: rgb(240, 211, 177);
+  background-color: rgb(74, 128, 160);
+  font-weight: 550;
+}
+.butdashboard:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
 }
