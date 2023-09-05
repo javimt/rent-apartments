@@ -1,11 +1,18 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import { useLocation } from "react-router-dom";
 import styles from "../styles/Details.module.css";
+import { useParams } from "react-router-dom";
+import { useApartments } from "../ApartmenContext";
 
 const Details = () => {
-  const location = useLocation();
-  const { bedrooms, bathrooms, apartmentNumber, images } = location.state;
+  const {apartments} = useApartments();
+  const { id } = useParams();
+  
+  const apartment = apartments.find((apartment) => apartment.id === id);;
+  if (!apartment) {
+    return null; 
+  }
+  const { bedrooms, bathrooms, apartmentNumber, images } = apartment || {};
 
   return (
     <article className={styles.det}>
@@ -18,7 +25,7 @@ const Details = () => {
             showThumbs={true}
             style={{ width: "100%", height: "100%" }}
             >
-            {images.map((image, index) => (
+            {images?.map((image, index) => (
               <div key={index} className={styles.imageContainer}>
                 <img src={image} alt={`Apartment ${index}`} />
               </div>

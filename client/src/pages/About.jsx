@@ -1,34 +1,40 @@
 import styles from "../styles/About.module.css";
+import image from "../assets/foto dueño.jpg";
 
 const About = () => {
   return (
     <div className={styles.about}>
       <div className={styles.ownerInfo}>
-        <img src="" alt="Dueño de la aplicación" className={styles.ownerImage} />
-        <h2 className={styles.ownerName}>Nombre del Dueño</h2>
+        <img
+          src={image}
+          alt="Dueño de la aplicación"
+          className={styles.ownerImage}
+        />
+        <h2 className={styles.ownerName}>Henry Tabares</h2>
         <p className={styles.ownerDescription}>
-          Descripción sobre el dueño de la aplicación.
+          I am willing to help you rent or buy the property that you have always
+          been looking for with the best advice and always at the best price.
         </p>
       </div>
       <div className={styles.aboutText}>
-        <h1 className={styles.aboutTitle}>Sobre Nosotros</h1>
+        <h1 className={styles.aboutTitle}>About us</h1>
         <div className={styles.missionVision}>
           <div className={styles.mission}>
-            <h2>Misión</h2>
+            <h2>Mision</h2>
             <p>
-              Nuestra misión es proporcionar a nuestros clientes experiencias
-              únicas y confortables en apartamentos amoblados de alta calidad en
-              Medellín. Nos esforzamos por superar las expectativas de nuestros
-              huéspedes y brindar un servicio excepcional.
+              Our mission is to provide our customers with experiences
+              unique and comfortable in high quality furnished apartments in
+              Medellin. We strive to exceed the expectations of our
+              guests and provide exceptional service.
             </p>
           </div>
           <div className={styles.vision}>
-            <h2>Visión</h2>
+            <h2>Vision</h2>
             <p>
-              Ser reconocidos como la opción líder en alojamiento amoblado en
-              Medellín. Buscamos expandir nuestra oferta y llegar a más
-              destinos, manteniendo siempre nuestros altos estándares de
-              calidad y servicio.
+              To be recognized as the leading option in furnished accommodation in
+              Medellin. We seek to expand our offer and reach more
+              destinations, always maintaining our high quality standards
+              and service.
             </p>
           </div>
         </div>
