@@ -8,7 +8,7 @@ import { ApartmentProvider } from "./ApartmenContext.jsx";
 import axios from "axios";
 
 //axios.defaults.baseURL = "http://localhost:5173/";
-axios.defaults.baseURL = "https://rentapartmentsmedelin.netlify.app/"
+axios.defaults.baseURL = "https://deploy-5llo.onrender.com"
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
