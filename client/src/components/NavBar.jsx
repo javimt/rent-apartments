@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import { BsFillBuildingsFill } from "react-icons/bs";
 import { AiFillCloseCircle } from "react-icons/ai";
 import image from "../assets/rent apt.jpeg";
-import styles from "../styles/Navbar.module.css";
 import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
+import styles from "../styles/Navbar.module.css?used"; 
 
 const NavBar = () => {
   const [showMenu, setShowMenu] = useState(false);
