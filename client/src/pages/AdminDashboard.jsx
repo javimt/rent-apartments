@@ -12,6 +12,8 @@ const AdminDashboard = () => {
     bedrooms: "",
     bathrooms: "",
     apartmentNumber: "",
+    lat: "",
+    lon: "",
     availability: true,
   });
   const [isAdmin, setIsAdmin] = useState(false);
@@ -91,6 +93,8 @@ const AdminDashboard = () => {
         bedrooms: "",
         bathrooms: "",
         apartmentNumber: "",
+        lat: "",
+        lon: "",
         availability: true,
       });
     } catch (error) {
@@ -168,8 +172,16 @@ const AdminDashboard = () => {
           <input type="text" name="bathrooms" value={formData.bathrooms} onChange={handleChange} />
         </div>
         <div>
-          <label>Number:</label>
+          <label>Name:</label>
           <input type="text" name="apartmentNumber" value={formData.apartmentNumber} onChange={handleChange} />
+        </div>
+        <div>
+          <label>Latitud:</label>
+          <input type="number" name="lat" value={formData.lat} onChange={handleChange} />
+        </div>
+        <div>
+          <label>Longitud:</label>
+          <input type="number" name="lon" value={formData.lon} onChange={handleChange} />
         </div>
         <button type="submit">Create Apartment</button>
       </form>

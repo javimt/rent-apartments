@@ -29,19 +29,19 @@ const Home = () => {
       const apartmentLocations = await Promise.all(
         apartments.map(async (apartment) => {
           try {
-            const results = await provider.search({ query: apartment.address });
+            const results = await provider.search({ query: apartment.ubication });
             if (results.length > 0) {
               const { label, x, y } = results[0];
               return {
                 id: apartment.id,
-                name: apartment.name,
+                name: apartment.apartmentNumber,
                 address: label,
                 lat: y,
                 lon: x,
               };
             }
           } catch (error) {
-            console.error(`Error geocoding address for apartment: ${apartment.name}`);
+            console.error(`Error geocoding address for apartment: ${apartment.apartmentNumber}`);
             return null;
           }
         })
@@ -74,8 +74,6 @@ const Home = () => {
         .bindPopup(`<b>${apartment.name}</b>`)
         .openPopup();
     });
-    const santaMariaMarker = L.marker([6.18939, -75.57992]).addTo(map);
-    santaMariaMarker.bindPopup("<b>Santa María de los Ángeles</b>").openPopup();
     return () => map.remove();
   }, [apartmentLocations]);
 
@@ -100,9 +98,9 @@ const Home = () => {
         </p> 
       </div>
       <div className={styles.features}>
-        <i className="fas fa-wifi"><FaWifi /></i>
-        <i className="fas fa-swimming-pool"><MdPool /></i>
-        <i className="fas fa-car"><TbBusStop /></i>
+        <i className={styles.wifi}><FaWifi /></i>
+        <i className={styles.pool}><MdPool /></i>
+        <i className={styles.stop}><TbBusStop /></i>
       </div>
       <br />
       <div id="map" className={styles.mapContainer}></div>

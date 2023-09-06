@@ -7,7 +7,8 @@ import { Auth0Provider } from "@auth0/auth0-react";
 import { ApartmentProvider } from "./ApartmenContext.jsx";
 import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:3001/";
+axios.defaults.baseURL = "http://localhost:5173/";
+//axios.defaults.baseURL = ""
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

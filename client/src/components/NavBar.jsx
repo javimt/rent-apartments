@@ -74,6 +74,7 @@ const NavBar = () => {
         <h3>The best website to rent furnished apartments</h3>
       </div>
       <nav className={styles.navbar}>
+      <div className={`${styles.overlay} ${showMenu && styles.show}`} onClick={closeMenu}></div>
         <div className={styles.img}>
           <img src={image} alt="furnished apartament" className={styles.image} />
         </div>
