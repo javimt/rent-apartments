@@ -24,7 +24,12 @@ cron.schedule("0 12 * * *", () => {
 const server = express();
 server.use(morgan("dev"));
 server.use(express.json());
-server.use(cors());
+
+const corsOptions = {
+  origin: "https://rentapartmentsmedelin.netlify.app/", // Reemplaza con la URL de tu frontend en Render
+  optionsSuccessStatus: 200, // Algunas opciones adicionales
+};
+server.use(cors(corsOptions));
 
 server.use("/", router);
 
