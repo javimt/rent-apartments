@@ -3,7 +3,7 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-55%);
+    transform: translateX(-80%);
   }
 }
 .container1 {
@@ -23,7 +23,7 @@
 }
 .slider .slide_track {
   transform: translateX(0);
-  animation: scroll 45s ease-in-out infinite alternate;
+  animation: scroll 50s ease-in-out infinite alternate;
   display: flex;
   align-items: center;
   width: auto;
@@ -57,7 +57,7 @@
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-54%);
+      transform: translateX(-80%);
     }
   }
 }
@@ -68,7 +68,7 @@
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-58%);
+      transform: translateX(-85%);
     }
   }
 }
@@ -79,7 +79,7 @@
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-59%);
+      transform: translateX(-83%);
     }
   }
 }
@@ -90,7 +90,18 @@
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-67%);
+      transform: translateX(-86%);
+    }
+  }
+}
+
+@media (max-width: 912px) {
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-89%);
     }
   }
 }
@@ -101,7 +112,7 @@
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-74%);
+      transform: translateX(-89%);
     }
   }
 }
@@ -112,7 +123,7 @@
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-77%);
+      transform: translateX(-100%);
     }
   }
 }
@@ -123,7 +134,7 @@
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-75%);
+      transform: translateX(-90%);
     }
   }
 }
@@ -134,7 +145,7 @@
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-83%);
+      transform: translateX(-93%);
     }
   }
 }
@@ -145,7 +156,7 @@
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-87%);
+      transform: translateX(-95%);
     }
   }
 }
@@ -156,7 +167,7 @@
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-83%);
+      transform: translateX(-93%);
     }
   }
   .slider img{
@@ -171,7 +182,7 @@
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-84%);
+      transform: translateX(-94%);
     }
   }
 }
@@ -182,7 +193,7 @@
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-85%);
+      transform: translateX(-94%);
     }
   }
 }
@@ -193,7 +204,7 @@
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-87%);
+      transform: translateX(-95%);
     }
   }
 }
@@ -204,7 +215,7 @@
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-88%);
+      transform: translateX(-95%);
     }
   }
 }

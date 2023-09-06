@@ -163,7 +163,7 @@
 @media (max-width: 912px) {
   .det {
     height: auto;
-    padding: 90px;
+    padding: 150px;
   }
   .container {
     height: auto;
@@ -221,12 +221,18 @@
 
 @media (max-width: 414px) {
   .det {
-    padding: 30px;
+    padding-left: 17px;
+    padding-right: 17px;
     width: auto;
   }
-  .container {
+}
+
+@media (max-width: 412px) {
+  .det {
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 70px;
     width: auto;
-    height: auto;
   }
 }
 
