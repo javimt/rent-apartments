@@ -7,7 +7,7 @@ import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
-import styles from "../styles/Navbar.module.css?used"; 
+import styles from "../styles/Navbar.module.css"; 
 
 const NavBar = () => {
   const [showMenu, setShowMenu] = useState(false);
