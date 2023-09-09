@@ -110,7 +110,7 @@ const FilterRent = ({ apartmentId, onClose, updateApartmentAvailability }) => {
         onClick={handleRent}
         disabled={isSubmitting || !isAvailable}
       >
-        {isSubmitting ? "Renting..." : "Rent"}
+        {isSubmitting ? "Renting..." : "Rent"} 
       </button>
     </section>
   );
