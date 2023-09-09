@@ -25,7 +25,7 @@ const Details = () => {
   if (!apartment) {
     return null;
   }
-  const { bedrooms, bathrooms, apartmentNumber, images, price, availability } =
+  const { bedrooms, bathrooms, apartmentNumber, images, price, availability, updateApartmentAvailability } =
     apartment || {};
 
   const formatPrice = (price) => {

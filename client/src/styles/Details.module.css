@@ -85,10 +85,6 @@
   font-size: 100%;
   color: rgb(240, 211, 177);
 }
-.availability {
-  width: 100%;
-  margin-left: 80.3%;
-}
 .rent {
   cursor: pointer;
   color: rgb(74, 128, 160);
@@ -113,11 +109,11 @@
 }
 .ava:hover {
   color: black;
-  background-color: rgb(74, 128, 160);
+  background-color: rgb(240, 211, 177);
 }
 .rent:hover {
   color: rgb(240, 211, 177);
-  background-color: rgb(74, 128, 160);
+  background-color: black;
 }
 .info{
   display: flex;

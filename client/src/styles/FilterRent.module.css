@@ -41,12 +41,6 @@
   border-radius: 3px;
   width: 100%;
 }
-/* .submit {
-  display: flex;
-  align-items: normal;
-  justify-content: center;
-
-} */
 .rentButton {
   display: flex;
   align-items: center;
@@ -55,7 +49,7 @@
   color: rgb(74, 128, 160);
   background-color: rgb(240, 211, 177);
   font-weight: bold;
-  height: 30px;
+  height: auto;
   width: auto;
   border: 2px inset grey;
   transition: background-color 0.3s;
@@ -63,5 +57,5 @@
 }
 .rentButton:hover {
   color: rgb(240, 211, 177);
-  background-color: rgb(74, 128, 160);
+  background-color: black;
 }

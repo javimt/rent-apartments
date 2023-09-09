@@ -116,9 +116,9 @@
   align-items: center;
   justify-content: center;
   position: absolute;
-  right: 0;
-  bottom: 0;
-  height: 100%;
+  right: 1%;
+  bottom: 1%;
+  height: 15%;
   text-decoration: none;
 }
 .det {
@@ -127,7 +127,7 @@
   border-radius: 0;
   color: rgb(240, 211, 177);
   width: 100%;
-  margin-bottom: 0;
+  
 }
 .det:hover {
   color: rgb(74, 128, 160);

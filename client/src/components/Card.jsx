@@ -4,7 +4,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import FilterRent from "./FilterRent";
 import styles from "../styles/Card.module.css";
 
-const Card = ({images, description, price, ubication, availability, id, updateApartmentAvailability, bedrooms, bathrooms, apartmentNumber}) => {
+const Card = ({images, description, price, ubication, availability, id, updateApartmentAvailability}) => {
   const [showFilterRent, setShowFilterRent] = useState(false);
   const { isAuthenticated, loginWithPopup } = useAuth0();
   const cardRef = useRef(null);
