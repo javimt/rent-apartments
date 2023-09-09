@@ -66,9 +66,7 @@ const Card = ({images, description, price, ubication, availability, id, updateAp
           <p className={styles.description}>{description}</p>
         </div>
       </div>
-      <Link to={`/${id}/details`}
-        className={styles.link}
-      >
+      <Link to={`/${id}/details`} className={styles.link}>
         <button className={styles.det}>Details</button>
       </Link>
     </article>
