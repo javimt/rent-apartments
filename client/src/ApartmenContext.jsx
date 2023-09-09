@@ -13,7 +13,7 @@ export function ApartmentProvider({ children }) {
   useEffect(() => {
     const fetchApartments = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/apartment");
+        const response = await axios.get("https://deploy-ik5w.onrender.com/apartment");
         setApartments(response.data);
       } catch (error) {
         console.error(error);

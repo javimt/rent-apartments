@@ -18,7 +18,7 @@ const NavBar = () => {
 
   useEffect(() => {
     if (user && isAuthenticated) {
-      axios.get("http://localhost:3001/user").then((response) => {
+      axios.get("http://https://deploy-ik5w.onrender.com/user").then((response) => {
         const userDb = response.data.find((e) => e.email === user.email);
         if (!userDb) {
           const newUser = {
@@ -27,7 +27,7 @@ const NavBar = () => {
             email: user.email,
             image: user.picture
           };
-          axios.post("http://localhost:3001/user", newUser)
+          axios.post("http://https://deploy-ik5w.onrender.com/user", newUser)
           .then((response) => {
             console.log("User saved to the database:");
             setInfoUser(newUser);

@@ -26,7 +26,7 @@ const AdminDashboard = () => {
       const userId = user.email;
       const checkAdminStatus = async () => {
         try {
-          const response = await axios.get(`http://localhost:3001/user/${userId}`);
+          const response = await axios.get(`https://deploy-ik5w.onrender.com/user/${userId}`);
           if (response.data.isSuperAdmin) {
             setIsSuperAdmin(true);
           } else if (response.data.isAdmin) {
@@ -44,7 +44,7 @@ const AdminDashboard = () => {
   }, [user, isAuthenticated]);
 
   useEffect(() => {
-    axios.get('http://localhost:3001/user') 
+    axios.get('https://deploy-ik5w.onrender.com/user') 
       .then((response) => {
         setUsers(response.data);
       })
@@ -55,9 +55,9 @@ const AdminDashboard = () => {
 
   const handleRoleChange = (userId, role) => {
     if (isSuperAdmin) {
-      axios.put(`http://localhost:3001/user/${userId}/admin`, {role} )
+      axios.put(`https://deploy-ik5w.onrender.com/user/${userId}/admin`, {role} )
         .then(() => {
-          axios.get('http://localhost:3001/user')
+          axios.get('https://deploy-ik5w.onrender.com/user')
             .then((response) => {
               setUsers(response.data); 
             })
@@ -84,7 +84,7 @@ const AdminDashboard = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3001/apartment', formData);
+      const response = await axios.post('https://deploy-ik5w.onrender.com/apartment', formData);
       setFormData({
         images: [],
         ubication: '',

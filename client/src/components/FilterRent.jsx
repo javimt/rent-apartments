@@ -16,7 +16,7 @@ const FilterRent = ({ apartmentId, onClose, updateApartmentAvailability }) => {
   useEffect(() => {
     const fetchApartment = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/apartment/${apartmentId}`);
+        const response = await axios.get(`https://deploy-ik5w.onrender.com/apartment/${apartmentId}`);
         setApartmentPrice(response.data.price);
         setIsAvailable(response.data.availability);
       } catch (error) {
@@ -49,7 +49,7 @@ const FilterRent = ({ apartmentId, onClose, updateApartmentAvailability }) => {
       try {
         const idTokenClaims = await getIdTokenClaims();
         const idToken = idTokenClaims.__raw;
-        const response = await axios.post(`http://localhost:3001/apartment/${apartmentId}/rent`, {
+        const response = await axios.post(`https://deploy-ik5w.onrender.com/apartment/${apartmentId}/rent`, {
           startDate: rentalData.startDate,
           endDate: rentalData.endDate,
           userId: user.email,
