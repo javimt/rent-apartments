@@ -8,7 +8,7 @@ import { ApartmentProvider } from "./ApartmenContext.jsx";
 import axios from "axios";
 
 //axios.defaults.baseURL = "http://localhost:3001/";
-axios.defaults.baseURL = "https://deploy-ik5w.onrender.com/"
+axios.defaults.baseURL = "https://deploy-ik5w.onrender.com"
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
