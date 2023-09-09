@@ -17,7 +17,6 @@ const About = () => {
         </p>
       </div>
       <div className={styles.aboutText}>
-        <h1 className={styles.aboutTitle}>About us</h1>
         <div className={styles.missionVision}>
           <div className={styles.mission}>
             <h2>Mision</h2>

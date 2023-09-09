@@ -72,7 +72,6 @@ const Details = () => {
           </div>
         </div>
         <div className={styles.details}>
-          
           <div className={styles.info}>
             <p className={styles.price}>{formatPrice(price)}</p>
             <p className={styles.number}>{apartmentNumber}</p>
