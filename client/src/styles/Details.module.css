@@ -85,12 +85,60 @@
   font-size: 100%;
   color: rgb(240, 211, 177);
 }
+.availability {
+  width: 100%;
+  margin-left: 80.3%;
+}
+.rent {
+  cursor: pointer;
+  color: rgb(74, 128, 160);
+  background-color: rgb(240, 211, 177);
+  font-weight: 550;
+  transform: translateY(-4.5%);
+  border-radius: 0;
+  border-left: 0;
+  border-top: 2px inset grey;
+  border-right: 2px inset grey;
+  border-bottom: 2px inset grey;
+}
+.ava {
+  cursor: pointer;
+  background-color: black;
+  color: rgb(240, 211, 177);
+  width: auto;
+  font-weight: 550;
+  transform: translateY(-4.5%);
+  border-radius: 0;
+  border: 2px inset rgb(102, 100, 100);
+}
+.ava:hover {
+  color: black;
+  background-color: rgb(74, 128, 160);
+}
+.rent:hover {
+  color: rgb(240, 211, 177);
+  background-color: rgb(74, 128, 160);
+}
 .info{
   display: flex;
   align-items: flex-start;
   justify-content: center;
   flex-direction: column;
   width: 100%;
+}
+.price {
+  width: 50%;
+  display: flex;
+  height: 40px;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  color: black/* rgb(240, 211, 177) */;
+  /* margin-left: 10px; */
+  font-size: 120%;
+  font-weight: bold;
+  /* padding: 10px 0; */
+  background-color: rgba(74, 128, 160, 0.664);
 }
 .number {
   width: 100%;

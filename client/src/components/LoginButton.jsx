@@ -7,10 +7,9 @@ const LoginButton = () => {
 
   return (
     <div>
-        <button onClick={() => loginWithPopup()} className={styles.login}>
-          Login <LuLogIn className={styles.icon} />
-        </button>
-      {/* )} */}
+      <button onClick={() => loginWithPopup()} className={styles.login}>
+        Login <LuLogIn className={styles.icon} />
+      </button>
     </div>
   );
 };

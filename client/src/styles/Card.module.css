@@ -117,7 +117,7 @@
   justify-content: center;
   position: absolute;
   right: 0;
-  bottom: 70px;
+  height: 100%;
   text-decoration: none;
 }
 .det {
