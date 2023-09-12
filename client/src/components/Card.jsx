@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import FilterRent from "./FilterRent";
 import styles from "../styles/Card.module.css";
+import axios from "axios";
 
 const Card = ({images, description, price, ubication, availability, id, updateApartmentAvailability}) => {
   const [showFilterRent, setShowFilterRent] = useState(false);
