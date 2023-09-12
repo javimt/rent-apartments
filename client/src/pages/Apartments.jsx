@@ -1,9 +1,10 @@
+import { useEffect } from "react";
 import Card from "../components/Card";
 import styles from "../styles/Apartments.module.css";
 import { useApartments } from "../ApartmenContext";
 
 const Apartments = () => {
-  const { apartments, updateApartmentAvailability } = useApartments();
+  const { apartments, updateApartmentAvailability, deleteApartment } = useApartments();
   
   return (
     <section className={styles.container}>
@@ -20,6 +21,7 @@ const Apartments = () => {
           bathrooms={apartment.bathrooms} 
           apartmentNumber={apartment.apartmentNumber} 
           updateApartmentAvailability={updateApartmentAvailability}
+          deleteApartment={deleteApartment}
         />
       ))}
     </section>

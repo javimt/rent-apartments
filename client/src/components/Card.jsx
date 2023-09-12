@@ -5,7 +5,7 @@ import FilterRent from "./FilterRent";
 import styles from "../styles/Card.module.css";
 import axios from "axios";
 
-const Card = ({images, description, price, ubication, availability, id, updateApartmentAvailability}) => {
+const Card = ({images, description, price, ubication, availability, id, updateApartmentAvailability, deleteApartment}) => {
   const [showFilterRent, setShowFilterRent] = useState(false);
   const { user, isAuthenticated, loginWithPopup } = useAuth0();
   const [userHasPermission, setUserHasPermission] = useState(false);
@@ -38,8 +38,7 @@ const Card = ({images, description, price, ubication, availability, id, updateAp
 
   const handleDeleteApartment = async () => {
     try {
-      await axios.delete(`https://deploy-ik5w.onrender.com/apartment/${id}`);
-      updateApartmentAvailability()
+      await deleteApartment(id);
     } catch (error) {
       console.error(`Error deleting apartment ${id}:`, error);
     }
@@ -49,9 +48,15 @@ const Card = ({images, description, price, ubication, availability, id, updateAp
     if (isAuthenticated) {
       try {
         const response = await axios.get(`https://deploy-ik5w.onrender.com/user/${user.email}`);
-        const userRole = response.data.role;
-        if (userRole === "admin" || userRole === "superAdmin") {
-          setUserHasPermission(true);
+        if (response.data && response.data.redirectUrl) {
+          const redirectUrl = response.data.redirectUrl;
+          if (redirectUrl.includes("/admin") || redirectUrl.includes("/superAdmin")) {
+            setUserHasPermission(true);
+          } else {
+            console.log("Usuario no tiene permisos de administrador ni superadministrador.");
+          }
+        } else {
+          console.log("No se encontraron datos para el usuario.");
         }
       } catch (error) {
         console.error("Error obteniendo el rol del usuario:", error);

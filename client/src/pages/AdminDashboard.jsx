@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from "../styles/AdminDashboard.module.css";
 import { useAuth0 } from '@auth0/auth0-react';
+import { useApartments } from '../ApartmenContext';
 
 const AdminDashboard = () => {
   const [formData, setFormData] = useState({
@@ -20,6 +21,7 @@ const AdminDashboard = () => {
   const [isSuperAdmin, setIsSuperAdmin] = useState(false);
   const [users, setUsers] = useState([]);
   const {user, isAuthenticated} = useAuth0();
+  const { addApartment } = useApartments();
 
   useEffect(() => {
     if (isAuthenticated && users) {
@@ -85,6 +87,7 @@ const AdminDashboard = () => {
     e.preventDefault();
     try {
       const response = await axios.post('https://deploy-ik5w.onrender.com/apartment', formData);
+      const newApartment = response.data;
       setFormData({
         images: [],
         ubication: '',
@@ -96,7 +99,8 @@ const AdminDashboard = () => {
         lat: "",
         lon: "",
         availability: true,
-      });
+      }); 
+      addApartment(newApartment);
     } catch (error) {
       console.error('Error creating apartment:', error);
     }

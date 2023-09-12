@@ -8,6 +8,7 @@ import LogoutButton from "./LogoutButton";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import styles from "../styles/NavBar.module.css";
+import { useTheme } from "./ThemeProvider";
 
 const NavBar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -15,6 +16,7 @@ const NavBar = () => {
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [infoUser, setInfoUser] = useState({});
   const { isAuthenticated, user } = useAuth0();
+  const { toggleTheme } = useTheme();
 
   useEffect(() => {
     if (user && isAuthenticated) {
@@ -71,6 +73,7 @@ const NavBar = () => {
   return (
     <header className={`${styles.header} ${isScrolled && styles.scrolled}`}>
       <div className={styles.title}>
+      {/* <button onClick={toggleTheme}></button> */}
         <h3>The best website to rent furnished apartments</h3>
       </div>
       <nav className={styles.navbar}>

@@ -55,3 +55,11 @@ button:disabled {
   color: #5c5b5b;
   cursor: not-allowed;
 }
+.light {
+  background-color: white;
+  color: black;
+}
+.dark {
+  background-color: black;
+  color: white;
+}

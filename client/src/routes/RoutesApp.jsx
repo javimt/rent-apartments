@@ -4,11 +4,13 @@ import Footer from "../components/Footer";
 import { Home, About, Apartments, AdminDashboard, Details } from "../pages/index";
 import Contacts from "../components/Contacts";
 import FilterRent from "../components/FilterRent";
+import { useTheme } from "../components/ThemeProvider";
 
 const RoutesApp = () => {
+  const { theme } = useTheme();
 
   return (
-    <div>
+    <div className={`app ${theme === "dark" ? "dark" : "light"}`}>
       <NavBar/>
       <Contacts />
       <Routes>

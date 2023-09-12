@@ -10,16 +10,16 @@ export function useApartments() {
 export function ApartmentProvider({ children }) {
   const [apartments, setApartments] = useState([]);
 
-  useEffect(() => {
-    const fetchApartments = async () => {
-      try {
-        const response = await axios.get("https://deploy-ik5w.onrender.com/apartment");
-        setApartments(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+  const fetchApartments = async () => {
+    try {
+      const response = await axios.get("https://deploy-ik5w.onrender.com/apartment");
+      setApartments(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
+  useEffect(() => {
     fetchApartments();
   }, []);
 
@@ -29,12 +29,27 @@ export function ApartmentProvider({ children }) {
         ? { ...apartment, availability: false }
         : apartment
     );
-
     setApartments(updatedApartments); 
   };
 
+  const addApartment = (newApartment) => {
+    // Agregar el nuevo apartamento a la lista existente
+    setApartments([...apartments, newApartment]);
+  };
+
+  const deleteApartment = async (apartmentId) => {
+    // Eliminar el apartamento de la lista
+    try {
+      await axios.delete(`https://deploy-ik5w.onrender.com/apartment/${apartmentId}`);
+      const updatedApartments = await apartments.filter((apartment) => apartment.id !== apartmentId);
+      setApartments(updatedApartments);
+    } catch (error) {
+      console.error(`Error deleting apartment ${apartmentId}:`, error);
+    }
+  };
+
   return (
-    <ApartmentContext.Provider value={{apartments, updateApartmentAvailability}}>
+    <ApartmentContext.Provider value={{apartments, updateApartmentAvailability, deleteApartment, addApartment}}>
       {children}
     </ApartmentContext.Provider>
   );
