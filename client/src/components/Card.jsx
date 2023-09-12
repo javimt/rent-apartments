@@ -6,8 +6,11 @@ import styles from "../styles/Card.module.css";
 
 const Card = ({images, description, price, ubication, availability, id, updateApartmentAvailability}) => {
   const [showFilterRent, setShowFilterRent] = useState(false);
-  const { isAuthenticated, loginWithPopup } = useAuth0();
+  const { user, isAuthenticated, loginWithPopup } = useAuth0();
+  const isAdminOrSuperAdmin = isAuthenticated && (user.role === 'admin' || user.role === 'superAdmin');
   const cardRef = useRef(null);
+
+console.log(isAdminOrSuperAdmin)
 
   const handleShowFilterRent = () => {
     if (isAuthenticated) {
@@ -34,10 +37,24 @@ const Card = ({images, description, price, ubication, availability, id, updateAp
     return `$${price.toLocaleString()}us`;
   };
 
+  const handleDeleteApartment = async () => {
+    try {
+      await axios.delete(`https://deploy-ik5w.onrender.com/apartment/${id}`);
+      updateApartmentAvailability()
+    } catch (error) {
+      console.error(`Error deleting apartment ${id}:`, error);
+    }
+  };
+
   const firsImage = Array.isArray(images) && images.length > 0 ? images[0] : null;
 
   return (
     <article className={styles.card} ref={cardRef}>
+    {isAdminOrSuperAdmin && (
+      <button className={styles.deleteButton} onClick={handleDeleteApartment}>
+        Delete
+      </button>
+    )}
       <img src={firsImage} alt="apartament furnished" className={styles.image} />
       <div className={styles.details}>
         <div className={styles.availability}>
@@ -47,8 +64,7 @@ const Card = ({images, description, price, ubication, availability, id, updateAp
           {showFilterRent && (
           <FilterRent 
             apartmentId={id} 
-            onClose={() => setShowFilterRent()} 
-            updateApartmentAvailability={updateApartmentAvailability}/>
+            onClose={() => setShowFilterRent()}/>
           )}
           {!showFilterRent && (
             <button

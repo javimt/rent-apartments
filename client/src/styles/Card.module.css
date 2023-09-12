@@ -81,11 +81,9 @@
   margin: 0;
   align-items: center;
   justify-content: center;
-  color: black/* rgb(240, 211, 177) */;
-  /* margin-left: 10px; */
+  color: black;
   font-size: 120%;
   font-weight: bold;
-  /* padding: 10px 0; */
   background-color: rgba(74, 128, 160, 0.664);
 }
 .ubication {
@@ -133,23 +131,22 @@
   color: rgb(74, 128, 160);
   background-color: rgb(240, 211, 177);
 }
-
-/* @media (max-width: 820px) and (min-width: 540px) {
-  .card {
-    width: auto;
-  }
-  .image {
-    width: auto;
-  }
+.deleteButton {
+  position: absolute;
+  top: 10px; 
+  right: 10px; 
+  height: 50%;
+  background-color: red; 
+  color: white; 
+  border: none;
+  border-radius: 5px; 
+  padding: 5px 10px; 
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
-
-@media (max-width: 320px) and (min-width: 280px) {
-  .card {
-    width: auto;
-    height: 23.5rem;
-  }
-  .image {
-    height: 16.5rem;
-  }
+.deleteButton:hover {
+  background-color: darkred; /* Cambia el color de fondo al pasar el mouse */
+  transform: scale(1.1); /* Efecto de escala al pasar el mouse */
 }
- */
