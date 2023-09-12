@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "../styles/FilterRent.module.css";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useApartments } from "../ApartmenContext";
 
-const FilterRent = ({ apartmentId, onClose, updateApartmentAvailability }) => {
+const FilterRent = ({ apartmentId, onClose }) => {
   const [rentalData, setRentalData] = useState({
     startDate: "",
     endDate: "",
@@ -12,19 +13,15 @@ const FilterRent = ({ apartmentId, onClose, updateApartmentAvailability }) => {
   const [apartmentPrice, setApartmentPrice] = useState(0);
   const [isAvailable, setIsAvailable] = useState(true);
   const { getIdTokenClaims, user } = useAuth0();
+  const { apartments, updateApartmentAvailability } = useApartments(); 
   
   useEffect(() => {
-    const fetchApartment = async () => {
-      try {
-        const response = await axios.get(`https://deploy-ik5w.onrender.com/apartment/${apartmentId}`);
-        setApartmentPrice(response.data.price);
-        setIsAvailable(response.data.availability);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchApartment();
-  }, [apartmentId]);
+    const apartment = apartments.find(apartment => apartment.id === apartmentId);
+    if (apartment) {
+      setApartmentPrice(apartment.price);
+      setIsAvailable(apartment.availability);
+    }
+  }, [apartmentId, apartments]);
   
   const handleRent = async () => {
     if (rentalData.startDate && rentalData.endDate && !isSubmitting) {

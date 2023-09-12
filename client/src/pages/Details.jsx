@@ -57,7 +57,6 @@ const Details = () => {
               <FilterRent
                 apartmentId={id}
                 onClose={() => setShowFilterRent()}
-                updateApartmentAvailability={updateApartmentAvailability}
               />
             )}
             {!showFilterRent && (
