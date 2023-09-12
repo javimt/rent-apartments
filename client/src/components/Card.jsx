@@ -7,10 +7,8 @@ import styles from "../styles/Card.module.css";
 const Card = ({images, description, price, ubication, availability, id, updateApartmentAvailability}) => {
   const [showFilterRent, setShowFilterRent] = useState(false);
   const { user, isAuthenticated, loginWithPopup } = useAuth0();
-  const isAdminOrSuperAdmin = isAuthenticated && (user.role === 'admin' || user.role === 'superAdmin');
+  const [userHasPermission, setUserHasPermission] = useState(false);
   const cardRef = useRef(null);
-
-console.log(isAdminOrSuperAdmin)
 
   const handleShowFilterRent = () => {
     if (isAuthenticated) {
@@ -46,11 +44,29 @@ console.log(isAdminOrSuperAdmin)
     }
   };
 
+  const checkUserPermission = async () => {
+    if (isAuthenticated) {
+      try {
+        const response = await axios.get(`https://deploy-ik5w.onrender.com/user/${user.email}`);
+        const userRole = response.data.role;
+        if (userRole === "admin" || userRole === "superAdmin") {
+          setUserHasPermission(true);
+        }
+      } catch (error) {
+        console.error("Error obteniendo el rol del usuario:", error);
+      }
+    }
+  };
+
+  useEffect(() => {
+    checkUserPermission();
+  }, [user, isAuthenticated]);
+
   const firsImage = Array.isArray(images) && images.length > 0 ? images[0] : null;
 
   return (
     <article className={styles.card} ref={cardRef}>
-    {isAdminOrSuperAdmin && (
+    {userHasPermission && (
       <button className={styles.deleteButton} onClick={handleDeleteApartment}>
         Delete
       </button>
