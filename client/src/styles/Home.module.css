@@ -31,6 +31,32 @@
 h2 {
   color: #333;
 }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes scrollIn {
+  from {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.content {
+  animation: fadeIn 2.5s ease-in-out;
+}
+.Metro {
+  width: auto;
+  max-width: 100%;
+  animation: scrollIn 2s ease-in-out;
+}
 .subtitle {
   font-size: 1.2rem;
   color: #333;
@@ -55,8 +81,6 @@ h2 {
 }
 
 .text {
-  /* flex-shrink: 1;
-  flex-grow: 1; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -73,12 +97,12 @@ h2 {
 }
 
 .features {
-  margin-top: 2rem;
-  font-size: 2rem;
+  font-size: 3rem;
   color: rgb(74, 128, 160);
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
-  width: 50%;
+  width: 90%;
 }
 
 .mapContainer {

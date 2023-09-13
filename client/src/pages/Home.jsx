@@ -4,10 +4,11 @@ import { MdPool } from "react-icons/md";
 import { TbBusStop } from "react-icons/tb";
 import styles from "../styles/Home.module.css";
 import L from "leaflet";
-import { GeoSearchControl, OpenStreetMapProvider } from "leaflet-geosearch";
+import { OpenStreetMapProvider } from "leaflet-geosearch";
 import "leaflet/dist/leaflet.css";
 import Carrousel from "../components/Carrousel";
 import { useApartments } from "../ApartmenContext";
+import image from "../assets/mapa-lineas-metroplus.png"
 
 const Home = () => {
   const center = [6.18939, -75.57992];
@@ -82,7 +83,7 @@ const Home = () => {
       <div className={styles.carousel}>
         <Carrousel images={images} />
       </div>
-      <div className={styles.content}>
+      <div className={`${styles.content} fadeIn`}>
         <h2>Welcome to Furnished Apartments Medellín</h2>
         <br />
         <p className={styles.subtitle}>Your Home Away From Home</p>
@@ -98,9 +99,8 @@ const Home = () => {
         </p> 
       </div>
       <div className={styles.features}>
-        <i className={styles.wifi}><FaWifi /></i>
-        <i className={styles.pool}><MdPool /></i>
         <i className={styles.stop}><TbBusStop /></i>
+      <img src={image}  className={`${styles.Metro} scrollIn`} alt="furnished apartments medellin" />
       </div>
       <br />
       <div id="map" className={styles.mapContainer}></div>
