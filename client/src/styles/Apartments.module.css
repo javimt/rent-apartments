@@ -11,6 +11,7 @@
   flex-wrap: wrap;
   overflow: hidden;
   height: auto;
+  min-height: 100vh;
   width: auto;
 }
 
