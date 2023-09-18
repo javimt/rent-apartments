@@ -33,12 +33,10 @@ export function ApartmentProvider({ children }) {
   };
 
   const addApartment = (newApartment) => {
-    // Agregar el nuevo apartamento a la lista existente
     setApartments([...apartments, newApartment]);
   };
 
   const deleteApartment = async (apartmentId) => {
-    // Eliminar el apartamento de la lista
     try {
       await axios.delete(`https://deploy-ik5w.onrender.com/apartment/${apartmentId}`);
       const updatedApartments = await apartments.filter((apartment) => apartment.id !== apartmentId);
