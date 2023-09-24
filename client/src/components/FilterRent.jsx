@@ -50,6 +50,7 @@ const FilterRent = ({ apartmentId, onClose }) => {
           startDate: rentalData.startDate,
           endDate: rentalData.endDate,
           userId: user.email,
+          totalPrice: apartmentPrice,
           status: "not available", 
           },
           {

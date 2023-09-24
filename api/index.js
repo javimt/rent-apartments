@@ -8,6 +8,12 @@ const { checkExpiredRents } = require("./src/controllers/rentExpiration");
 
 const port = process.env.PORT || 3000
 
+cron.schedule("0 12 * * *", () => {
+  console.log("Verifying expired rentals...");
+  checkExpiredRents();
+});
+checkExpiredRents();
+
 process.on("unhandledRejection", (reason, promise) => {
   console.error("Unhandled Rejection at:", promise, "reason:", reason);
 });
@@ -38,11 +44,6 @@ const startServer = async () => {
   } catch (error) {
     console.error("Error starting the server:", error);
   }
-
-  cron.schedule("0 12 * * *", () => {
-    console.log("Verifying expired rentals...");
-    checkExpiredRents();
-  });
 };
 
 startServer();
