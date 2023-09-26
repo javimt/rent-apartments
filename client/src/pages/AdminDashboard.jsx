@@ -55,9 +55,9 @@ const AdminDashboard = () => {
       });
   }, []);
 
-  const handleRoleChange = (userId, role) => {
+  const handleRoleChange = async (userId, role) => {
     if (isSuperAdmin) {
-      axios.put(`https://deploy-ik5w.onrender.com/${userId}/admin`, {role} )
+      await axios.put(`https://deploy-ik5w.onrender.com/user/${userId}/admin`, {role} )
         .then(() => {
           axios.get('https://deploy-ik5w.onrender.com/user')
             .then((response) => {
