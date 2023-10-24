@@ -16,7 +16,7 @@ const NavBar = () => {
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [infoUser, setInfoUser] = useState({});
   const { isAuthenticated, user } = useAuth0();
-  const { toggleTheme } = useTheme();
+  //const { toggleTheme } = useTheme();
 
   useEffect(() => {
     if (user && isAuthenticated) {
@@ -90,6 +90,9 @@ const NavBar = () => {
           </Link>
           <Link to="apartments" onClick={closeMenu}>
             For Rent
+          </Link>
+          <Link to="apartments/sale" onClick={closeMenu}>
+            For Sale
           </Link>
           { isAuthenticated ? (
             <>
