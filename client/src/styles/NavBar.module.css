@@ -72,7 +72,7 @@ header {
   font-weight: 600;
 }
 .links a:hover {
-  color:  black;
+  color: #3f3f3f;
 }
 
 .userMenu {
@@ -144,7 +144,7 @@ header {
   align-items: center;
   justify-content: space-around;
   flex-direction: row;
-  background-color: black;
+  background-color: #3f3f3f;;
   padding: 10px;
 }
 

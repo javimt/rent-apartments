@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { BsFillBuildingsFill } from "react-icons/bs";
 import { AiFillCloseCircle } from "react-icons/ai";
+import { FaLightbulb } from "react-icons/fa";
 import image from "../assets/rent apt.jpeg";
 import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
@@ -16,7 +17,7 @@ const NavBar = () => {
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [infoUser, setInfoUser] = useState({});
   const { isAuthenticated, user } = useAuth0();
-  //const { toggleTheme } = useTheme();
+  const { toggleTheme, theme } = useTheme();
 
   useEffect(() => {
     if (user && isAuthenticated) {
@@ -71,9 +72,9 @@ const NavBar = () => {
   };
 
   return (
-    <header className={`${styles.header} ${isScrolled && styles.scrolled}`}>
+    <header className={`app ${theme === "dark" ? "dark" : "light"} ${styles.header} ${isScrolled && styles.scrolled}`}>
       <div className={styles.title}>
-      {/* <button onClick={toggleTheme}></button> */}
+        <FaLightbulb Lightbulb onClick={toggleTheme} style={{marginLeft: "20px", cursor: "pointer"}}></FaLightbulb>
         <h3>The best website to rent furnished apartments</h3>
       </div>
       <nav className={styles.navbar}>

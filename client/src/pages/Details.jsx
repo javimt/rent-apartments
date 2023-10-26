@@ -6,12 +6,14 @@ import { useParams } from "react-router-dom";
 import { useApartments } from "../ApartmenContext";
 import FilterRent from "../components/FilterRent";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useTheme } from "../components/ThemeProvider";
 
 const Details = () => {
   const { apartments } = useApartments();
   const { id } = useParams();
   const [showFilterRent, setShowFilterRent] = useState(false);
   const { isAuthenticated, loginWithPopup } = useAuth0();
+  const { theme } = useTheme();
 
   const handleShowFilterRent = () => {
     if (isAuthenticated) {
@@ -33,7 +35,7 @@ const Details = () => {
   };
 
   return (
-    <article className={styles.det}>
+    <article className={`app ${theme === "dark" ? "dark" : "light"} ${styles.det}`}>
       <div className={styles.container}>
         <div className={styles.carousel}>
           <Carousel

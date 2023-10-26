@@ -1,9 +1,11 @@
 import styles from "../styles/About.module.css";
 import image from "../assets/foto dueño.jpg";
+import { useTheme } from "../components/ThemeProvider";
 
 const About = () => {
+  const { theme } = useTheme();
   return (
-    <div className={styles.about}>
+    <div className={`app ${theme === "dark" ? "dark" : "light"} ${styles.about}`}>
       <div className={styles.ownerInfo}>
         <img
           src={image}
