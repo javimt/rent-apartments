@@ -74,7 +74,7 @@ const NavBar = () => {
   return (
     <header className={`app ${theme === "dark" ? "dark" : "light"} ${styles.header} ${isScrolled && styles.scrolled}`}>
       <div className={styles.title}>
-        <FaLightbulb Lightbulb onClick={toggleTheme} style={{marginLeft: "20px", cursor: "pointer"}}></FaLightbulb>
+        <FaLightbulb onClick={toggleTheme} style={{marginRight: "15px", cursor: "pointer", padding: "2px"}}></FaLightbulb>
         <h3>The best website to rent furnished apartments</h3>
       </div>
       <nav className={styles.navbar}>

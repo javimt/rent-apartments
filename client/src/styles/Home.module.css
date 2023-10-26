@@ -88,11 +88,10 @@ h2 {
   flex-wrap: wrap;
   width: 90%;
   padding: 10px;
-  background-color: white;
 }
 .p {
   width: 100%;
-  color: black;
+  color: #333;
   font-size: 15px;
 }
 

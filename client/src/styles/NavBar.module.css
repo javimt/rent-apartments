@@ -28,9 +28,8 @@ header {
 }
 .title h3 {
   display: flex;
-  flex-grow: 1;
   margin: 0;
-  padding: 3px;
+  padding-right: 10px;
   font-size: clamp(13px, 3vw, 17px);
   white-space: nowrap;
   overflow: hidden;
