@@ -92,7 +92,7 @@ const NavBar = () => {
           <Link to="apartments" onClick={closeMenu}>
             For Rent
           </Link>
-          <Link to="apartments/sale" onClick={closeMenu}>
+          <Link to="apartments" onClick={closeMenu}>
             For Sale
           </Link>
           { isAuthenticated ? (

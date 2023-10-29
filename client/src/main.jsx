@@ -21,11 +21,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           redirect_uri: window.location.origin, 
         }}
       >
-          <ThemeProvider>
-        <ApartmentProvider>
-            <App />
-        </ApartmentProvider>
-          </ThemeProvider>
+        <ThemeProvider>
+          <ApartmentProvider>
+              <App />
+          </ApartmentProvider>
+        </ThemeProvider>
       </Auth0Provider>
     </BrowserRouter>
   </React.StrictMode>

@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import { FaWifi } from "react-icons/fa";
-import { MdPool } from "react-icons/md";
 import { TbBusStop } from "react-icons/tb";
 import styles from "../styles/Home.module.css";
 import L from "leaflet";

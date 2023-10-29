@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import Card from "../components/Card";
 import styles from "../styles/Apartments.module.css";
 import { useApartments } from "../ApartmenContext";
