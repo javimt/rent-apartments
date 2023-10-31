@@ -4,10 +4,11 @@ import { useApartments } from "../ApartmenContext";
 
 const Apartments = () => {
   const { apartments, updateApartmentAvailability, deleteApartment } = useApartments();
-  
+
   return (
     <section className={styles.container}>
       {apartments.map((apartment) => (
+        apartment.status === "rent" &&
         <Card
           key={apartment.id}
           id={apartment.id}
@@ -17,11 +18,12 @@ const Apartments = () => {
           ubication={apartment.ubication}
           description={apartment.description}
           bedrooms={apartment.bedrooms} 
+          status={apartment.status}
           bathrooms={apartment.bathrooms} 
           apartmentNumber={apartment.apartmentNumber} 
           updateApartmentAvailability={updateApartmentAvailability}
           deleteApartment={deleteApartment}
-        />
+        /> 
       ))}
     </section>
   );

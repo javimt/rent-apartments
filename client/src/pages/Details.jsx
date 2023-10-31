@@ -27,8 +27,7 @@ const Details = () => {
   if (!apartment) {
     return null;
   }
-  const { bedrooms, bathrooms, apartmentNumber, images, price, availability } =
-    apartment || {};
+  const { bedrooms, bathrooms, apartmentNumber, images, price, availability } = apartment || {};
 
   const formatPrice = (price) => {
     return `$${price.toLocaleString()}us`;

@@ -89,10 +89,10 @@ const NavBar = () => {
           <Link to="about" onClick={closeMenu}>
             About Us
           </Link>
-          <Link to="apartments" onClick={closeMenu}>
+          <Link to="apartments/rent" onClick={closeMenu}>
             For Rent
           </Link>
-          <Link to="apartments" onClick={closeMenu}>
+          <Link to="apartments/sale" onClick={closeMenu}>
             For Sale
           </Link>
           { isAuthenticated ? (
