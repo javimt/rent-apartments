@@ -9,7 +9,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useTheme } from "../components/ThemeProvider";
 
 const Details = () => {
-  const { apartments } = useApartments();
+  const { apartments, markApartmentAsSold } = useApartments();
   const { id } = useParams();
   const [showFilterRent, setShowFilterRent] = useState(false);
   const { isAuthenticated, loginWithPopup } = useAuth0();
@@ -18,6 +18,14 @@ const Details = () => {
   const handleShowFilterRent = () => {
     if (isAuthenticated) {
       setShowFilterRent(!showFilterRent);
+    } else {
+      loginWithPopup();
+    }
+  };
+  
+  const handleBuyApartment = (apartmentId) => {
+    if (isAuthenticated) {
+      markApartmentAsSold(apartmentId); 
     } else {
       loginWithPopup();
     }
@@ -51,23 +59,34 @@ const Details = () => {
             ))}
           </Carousel>
           <div className={styles.availability}>
-            <button className={styles.ava}>
-              {availability ? "Available" : "Not available"}
-            </button>
-            {showFilterRent && (
-              <FilterRent
-                apartmentId={id}
-                onClose={() => setShowFilterRent()}
-              />
-            )}
-            {!showFilterRent && (
-              <button
-                className={styles.rent}
-                onClick={() => handleShowFilterRent(!availability)}
-                disabled={!availability}
-              >
-                Rent
+            {apartment.status === "rent" && (
+              <div>
+                <button className={styles.ava}>
+                {availability ? "Available" : "Not available"}
               </button>
+              {showFilterRent && (
+                <FilterRent
+                  apartmentId={id}
+                  onClose={() => setShowFilterRent()}
+                />
+              )}
+              {!showFilterRent && (
+                <button
+                  className={styles.rent}
+                  onClick={() => handleShowFilterRent(!availability)}
+                  disabled={!availability}
+                >
+                  Rent
+                </button>
+              )}
+              </div>
+            )}
+            {apartment.status === "sale" && (
+              <div className={styles.availability}>
+                <button className={styles.rent} onClick={() => handleBuyApartment(id)}>
+                  Buy
+                </button>
+            </div>
             )}
           </div>
         </div>

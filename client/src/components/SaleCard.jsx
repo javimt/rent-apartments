@@ -6,7 +6,6 @@ import { useApartments } from "../ApartmenContext";
 import axios from "axios";
 
 const SaleCard = () => {
-  const [showBuy, setShowBuy] = useState(false);
   const [userHasPermission, setUserHasPermission] = useState(false);
   const { user, isAuthenticated, loginWithPopup } = useAuth0();
   const { apartments, deleteApartment, markApartmentAsSold  } = useApartments();
@@ -15,7 +14,6 @@ const SaleCard = () => {
   const handleBuyApartment = (apartmentId) => {
     if (isAuthenticated) {
       markApartmentAsSold(apartmentId); 
-      setShowBuy(false); 
     } else {
       loginWithPopup();
     }
@@ -75,11 +73,9 @@ const SaleCard = () => {
       <img src={images[0]} alt="apartment furnished" className={styles.image} />
       <div className={styles.details}>
         <div className={styles.availability}>
-          {!showBuy && (
-            <button className={styles.rent} onClick={() => handleBuyApartment(id)}>
-              Buy
-            </button>
-          )}
+          <button className={styles.rent} onClick={() => handleBuyApartment(id)}>
+            Buy
+          </button>
         </div>
         <div className={styles.info}>
           <p className={styles.price}>{formatPrice(price)}</p>
