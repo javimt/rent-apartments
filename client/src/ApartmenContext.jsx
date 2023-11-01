@@ -46,8 +46,24 @@ export function ApartmentProvider({ children }) {
     }
   };
 
+  const markApartmentAsSold = async (apartmentId) => {
+    try {
+      const updatedApartments = apartments.map((apartment) =>
+        apartment.id === apartmentId
+          ? { ...apartment, status: 'sold' }
+          : apartment
+      );
+      setApartments(updatedApartments);
+      await axios.put(`https://deploy-ik5w.onrender.com/apartment/${apartmentId}`, {
+        status: 'sold'
+      });
+    } catch (error) {
+      console.error(`Error marking apartment ${apartmentId} as sold:`, error);
+    }
+  };
+
   return (
-    <ApartmentContext.Provider value={{apartments, updateApartmentAvailability, deleteApartment, addApartment}}>
+    <ApartmentContext.Provider value={{apartments, updateApartmentAvailability, deleteApartment, addApartment, markApartmentAsSold}}>
       {children}
     </ApartmentContext.Provider>
   );

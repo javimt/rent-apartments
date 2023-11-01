@@ -16,7 +16,8 @@ const Home = () => {
   
   const fetchImages = async () => {
     try {
-      const apartmentImages = apartments.map((apartment) => ({
+      const availableApartments = apartments.filter(apartment => apartment.status !== 'sold');
+      const apartmentImages = availableApartments.map((apartment) => ({
         url: apartment.images[0],
         key: apartment.id,
       }));

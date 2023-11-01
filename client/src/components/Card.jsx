@@ -5,7 +5,7 @@ import FilterRent from "./FilterRent";
 import styles from "../styles/Card.module.css";
 import axios from "axios";
 
-const Card = ({images, description, price, ubication, availability, id, status, deleteApartment}) => {
+const Card = ({images, description, price, ubication, availability, id, deleteApartment}) => {
   const [showFilterRent, setShowFilterRent] = useState(false);
   const { user, isAuthenticated, loginWithPopup } = useAuth0();
   const [userHasPermission, setUserHasPermission] = useState(false);

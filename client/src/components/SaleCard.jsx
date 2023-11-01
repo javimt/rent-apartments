@@ -2,36 +2,24 @@ import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import styles from "../styles/SaleCard.module.css";
-import axios from "axios";
 import { useApartments } from "../ApartmenContext";
+import axios from "axios";
 
 const SaleCard = () => {
-  const [showFilterBuy, setShowFilterBuy] = useState(false);
+  const [showBuy, setShowBuy] = useState(false);
   const [userHasPermission, setUserHasPermission] = useState(false);
   const { user, isAuthenticated, loginWithPopup } = useAuth0();
-  const { apartments, deleteApartment } = useApartments();
+  const { apartments, deleteApartment, markApartmentAsSold  } = useApartments();
   const cardRef = useRef(null);
 
-  const handleShowFilterBuy = () => {
+  const handleBuyApartment = (apartmentId) => {
     if (isAuthenticated) {
-      setShowFilterBuy(!showFilterBuy);
+      markApartmentAsSold(apartmentId); 
+      setShowBuy(false); 
     } else {
       loginWithPopup();
     }
   };
-
-  const handleCardClick = (e) => {
-    if (showFilterBuy && cardRef.current && !cardRef.current.contains(e.target)) {
-      setShowFilterBuy(false);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener("mousedown", handleCardClick);
-    return () => {
-      document.removeEventListener("mousedown", handleCardClick);
-    };
-  }, [showFilterBuy]);
 
   const formatPrice = (price) => {
     return `$${price.toLocaleString()}us`;
@@ -44,6 +32,30 @@ const SaleCard = () => {
       console.error(`Error deleting apartment ${apartmentId}:`, error);
     }
   };
+
+  const checkUserPermission = async () => {
+    if (isAuthenticated) {
+      try {
+        const response = await axios.get(`https://deploy-ik5w.onrender.com/user/${user.email}`);
+        if (response.data && response.data.redirectUrl) {
+          const redirectUrl = response.data.redirectUrl;
+          if (redirectUrl.includes("/admin") || redirectUrl.includes("/superAdmin")) {
+            setUserHasPermission(true);
+          } else {
+            console.log("Usuario no tiene permisos de administrador ni superadministrador.");
+          }
+        } else {
+          console.log("No se encontraron datos para el usuario.");
+        }
+      } catch (error) {
+        console.error("Error obteniendo el rol del usuario:", error);
+      }
+    }
+  };
+
+  useEffect(() => {
+    checkUserPermission();
+  }, [user, isAuthenticated]);
 
   const apartment = apartments.find((apartment) => apartment.status === "sale");
   if (!apartment) {
@@ -63,11 +75,12 @@ const SaleCard = () => {
       <img src={images[0]} alt="apartment furnished" className={styles.image} />
       <div className={styles.details}>
         <div className={styles.availability}>
-            <button className={styles.rent} onClick={handleShowFilterBuy}>
+          {!showBuy && (
+            <button className={styles.rent} onClick={() => handleBuyApartment(id)}>
               Buy
             </button>
+          )}
         </div>
-
         <div className={styles.info}>
           <p className={styles.price}>{formatPrice(price)}</p>
           <p className={styles.ubication}>{ubication}</p>
