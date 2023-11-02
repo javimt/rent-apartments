@@ -47,37 +47,21 @@
   display: flex;
   flex-direction: column;
   position: absolute;
-  bottom: 2px;
+  bottom: 1.5px;
   left: 0;
   width: 100%;
   font-size: 100%;
   color: rgb(240, 211, 177);
 }
-.rent {
+.buy {
   cursor: pointer;
   color: rgb(74, 128, 160);
   background-color: rgb(240, 211, 177);
   font-weight: 550;
-  transform: translateY(-4.5%);
+  transform: translateY(-1%);
   border-radius: 0;
-  border-left: 0;
-  border-top: 2px inset grey;
-  border-right: 2px inset grey;
-  border-bottom: 2px inset grey;
-}
-.ava {
-  cursor: pointer;
-  background-color: black;
-  color: rgb(240, 211, 177);
-  width: auto;
-  font-weight: 550;
-  transform: translateY(-4.5%);
-  border-radius: 0;
-  border: 2px inset rgb(102, 100, 100);
-}
-.ava:hover {
-  color: black;
-  background-color: rgb(74, 128, 160);
+  border: 2px inset grey;
+  margin-left: 0.5px;
 }
 .rent:hover {
   color: rgb(240, 211, 177);
@@ -130,8 +114,8 @@
   align-items: center;
   justify-content: center;
   position: absolute;
-  right: 1%;
-  bottom: 1%;
+  right: 0.5px;
+  bottom: 0.5px;
   height: 15%;
   text-decoration: none;
 }
@@ -141,7 +125,7 @@
   border-radius: 0;
   color: rgb(240, 211, 177);
   width: 100%;
-  
+  border-bottom-right-radius: 10px;
 }
 .det:hover {
   color: rgb(74, 128, 160);

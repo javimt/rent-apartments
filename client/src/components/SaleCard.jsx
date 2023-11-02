@@ -73,7 +73,7 @@ const SaleCard = () => {
       <img src={images[0]} alt="apartment furnished" className={styles.image} />
       <div className={styles.details}>
         <div className={styles.availability}>
-          <button className={styles.rent} onClick={() => handleBuyApartment(id)}>
+          <button className={styles.buy} onClick={() => handleBuyApartment(id)}>
             Buy
           </button>
         </div>

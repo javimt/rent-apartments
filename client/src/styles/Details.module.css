@@ -94,10 +94,17 @@
   font-weight: 550;
   transform: translateY(-4.5%);
   border-radius: 0;
-  border-left: 0;
-  border-top: 2px inset grey;
-  border-right: 2px inset grey;
-  border-bottom: 2px inset grey;
+  border: 2px inset grey;
+}
+.buy {
+  cursor: pointer;
+  color: rgb(74, 128, 160);
+  background-color: rgb(240, 211, 177);
+  font-weight: 550;
+  transform: translateY(-4.5%);
+  border-radius: 0;
+  border: 2px inset grey;
+  margin-left: 1.5px;
 }
 .ava {
   cursor: pointer;
@@ -114,6 +121,10 @@
   background-color: rgb(240, 211, 177);
 }
 .rent:hover {
+  color: rgb(240, 211, 177);
+  background-color: black;
+}
+.buy:hover {
   color: rgb(240, 211, 177);
   background-color: black;
 }

@@ -83,7 +83,7 @@ const Details = () => {
             )}
             {apartment.status === "sale" && (
               <div className={styles.availability}>
-                <button className={styles.rent} onClick={() => handleBuyApartment(id)}>
+                <button className={styles.buy} onClick={() => handleBuyApartment(id)}>
                   Buy
                 </button>
             </div>
