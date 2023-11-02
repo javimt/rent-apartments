@@ -61,7 +61,7 @@
   transform: translateY(-1%);
   border-radius: 0;
   border: 2px inset grey;
-  margin-left: 0.5px;
+  margin-left: 0.4px;
 }
 .rent:hover {
   color: rgb(240, 211, 177);
@@ -115,7 +115,7 @@
   justify-content: center;
   position: absolute;
   right: 0.5px;
-  bottom: 0.5px;
+  bottom: 0.7px;
   height: 15%;
   text-decoration: none;
 }
