@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { BsFillBuildingsFill } from "react-icons/bs";
 import { AiFillCloseCircle } from "react-icons/ai";
-import { FaLightbulb } from "react-icons/fa";
+import { CgDarkMode } from "react-icons/cg";
 import image from "../assets/rent apt.jpeg";
 import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
@@ -21,30 +21,33 @@ const NavBar = () => {
 
   useEffect(() => {
     if (user && isAuthenticated) {
-      axios.get("https://deploy-ik5w.onrender.com/user").then((response) => {
-        const userDb = response.data.find((e) => e.email === user.email);
-        if (!userDb) {
-          const newUser = {
-            name: user.given_name,
-            lastName: user.family_name,
-            email: user.email,
-            image: user.picture
-          };
-          axios.post("https://deploy-ik5w.onrender.com/user", newUser)
-          .then((response) => {
-            console.log("User saved to the database:");
-            setInfoUser(newUser);
-          })
-          .catch((error) => {
-            console.error("Error saving user to the database:", error);
-          });
-        } else {
-          setInfoUser(userDb);
-        }
-      })
-      .catch((error) => { 
-        console.error("Error retrieving user from the database:", error); 
-      }); 
+      axios
+        .get("https://deploy-ik5w.onrender.com/user")
+        .then((response) => {
+          const userDb = response.data.find((e) => e.email === user.email);
+          if (!userDb) {
+            const newUser = {
+              name: user.given_name,
+              lastName: user.family_name,
+              email: user.email,
+              image: user.picture,
+            };
+            axios
+              .post("https://deploy-ik5w.onrender.com/user", newUser)
+              .then((response) => {
+                console.log("User saved to the database:");
+                setInfoUser(newUser);
+              })
+              .catch((error) => {
+                console.error("Error saving user to the database:", error);
+              });
+          } else {
+            setInfoUser(userDb);
+          }
+        })
+        .catch((error) => {
+          console.error("Error retrieving user from the database:", error);
+        });
     }
   }, [user, isAuthenticated]);
 
@@ -72,17 +75,31 @@ const NavBar = () => {
   };
 
   return (
-    <header className={`app ${theme === "dark" ? "dark" : "light"} ${styles.header} ${isScrolled && styles.scrolled}`}>
+    <header
+      className={`app ${theme === "dark" ? "dark" : "light"} ${styles.header} ${
+        isScrolled && styles.scrolled
+      }`}
+    >
       <div className={styles.title}>
-        <FaLightbulb onClick={toggleTheme} style={{marginRight: "15px", cursor: "pointer", padding: "2px"}}></FaLightbulb>
         <h3>The best website to rent furnished apartments</h3>
+        <CgDarkMode
+          onClick={toggleTheme}
+          style={{ cursor: "pointer", padding: "2px", fontSize: "30px" }}
+        ></CgDarkMode>
       </div>
       <nav className={styles.navbar}>
-      <div className={`${styles.overlay} ${showMenu && styles.show}`} onClick={closeMenu}></div>
+        <div
+          className={`${styles.overlay} ${showMenu && styles.show}`}
+          onClick={closeMenu}
+        ></div>
         <div className={styles.img}>
-          <img src={image} alt="furnished apartament" className={styles.image} />
+          <img
+            src={image}
+            alt="furnished apartament"
+            className={styles.image}
+          />
         </div>
-        <div className={`${styles.links} ${showMenu && styles.show}`} >
+        <div className={`${styles.links} ${showMenu && styles.show}`}>
           <Link to="/" onClick={closeMenu}>
             Home
           </Link>
@@ -95,7 +112,7 @@ const NavBar = () => {
           <Link to="apartments/sale" onClick={closeMenu}>
             For Sale
           </Link>
-          { isAuthenticated ? (
+          {isAuthenticated ? (
             <>
               <img
                 src={user.picture}
@@ -106,15 +123,14 @@ const NavBar = () => {
               {userMenuOpen && (
                 <div className={styles.userMenu}>
                   <div className={styles.userName}>Hi! {user.nickname}</div>
-                  {(infoUser.role === "admin" || infoUser.role === "superAdmin") && (
+                  {(infoUser.role === "admin" ||
+                    infoUser.role === "superAdmin") && (
                     <Link to={`admin`} onClick={closeMenu}>
-                      <button className={styles.adminButton}>
-                        Dashboard
-                      </button>
+                      <button className={styles.adminButton}>Dashboard</button>
                     </Link>
                   )}
                   <LogoutButton />
-              </div>
+                </div>
               )}
             </>
           ) : (
