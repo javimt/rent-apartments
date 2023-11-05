@@ -3,6 +3,7 @@ import axios from 'axios';
 import styles from "../styles/AdminDashboard.module.css";
 import { useAuth0 } from '@auth0/auth0-react';
 import { useApartments } from '../ApartmenContext';
+import { useTheme } from "../components/ThemeProvider";
 
 const AdminDashboard = () => {
   const [formData, setFormData] = useState({
@@ -22,6 +23,7 @@ const AdminDashboard = () => {
   const [users, setUsers] = useState([]);
   const {user, isAuthenticated} = useAuth0();
   const { addApartment } = useApartments();
+  const { theme } = useTheme();
 
   useEffect(() => {
     if (isAuthenticated && users) {
@@ -118,6 +120,15 @@ const AdminDashboard = () => {
     });
   };
 
+  const handleImageUpload = (e) => {
+    const files = Array.from(e.target.files);
+    const images = files.map((file) => URL.createObjectURL(file));
+    setFormData((prevData) => ({
+      ...prevData,
+      images: prevData.images.concat(images),
+    }));
+  };
+
   const handleAddImageField = () => {
     setFormData((prevData) => ({
       ...prevData,
@@ -141,18 +152,18 @@ const AdminDashboard = () => {
   }
 
   return (
-    <div className={styles.container}>
-      <h2>Admin Dashboard</h2>
-      <br />
+    <div className={`app ${theme === "dark" ? "dark" : "light"} ${styles.container}`}>
       <form onSubmit={handleSubmit}>
-      <div>
+        <div>
           <label>Images:</label>
           {formData.images.map((imageUrl, index) => (
             <div key={index}>
+              <img src={imageUrl} alt={`image-${index}`}/>
               <input type="text" value={imageUrl} onChange={(e) => handleImageUrlChange(e, index)} />
               <button type="button" onClick={() => handleRemoveImageField(index)}>Remove</button>
             </div>
           ))}
+          <input type="file" onChange={handleImageUpload} accept="image/*" multiple style={{textAlign:"center"}}/>
           <button type="button" onClick={handleAddImageField}>Add Image</button>
         </div>
         <div>
