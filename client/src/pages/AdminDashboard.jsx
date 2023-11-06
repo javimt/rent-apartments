@@ -179,8 +179,8 @@ const AdminDashboard = () => {
               <button type="button" onClick={() => handleRemoveImageField(index)} style={{marginBottom:"10px"}}>Remove</button>
             </div>
           ))}
-          <input type="file" onChange={handleImageUpload} accept="image/*" multiple style={{textAlign:"center", alignItems:"center", display:"flex", justifyContent:"center", flexDirection:"colum"}}/>
-          <div>
+{/*           <input type="file" onChange={handleImageUpload} accept="image/*" multiple style={{textAlign:"center", alignItems:"center", display:"flex", justifyContent:"center", flexDirection:"colum"}}/>
+ */}          <div>
             <button type="button" onClick={handleAddImageField}>Add Image</button>
           </div>
         </div>
