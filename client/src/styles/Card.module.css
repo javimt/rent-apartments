@@ -26,6 +26,7 @@
   object-fit: cover;
   border-bottom: 1px solid white;
   background-color: white;
+  overflow: hidden;
 }
 .details {
   display: flex;
