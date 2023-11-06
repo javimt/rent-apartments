@@ -58,6 +58,14 @@ const AdminDashboard = () => {
       });
   }, []);
 
+ /*  const cleanBlobURL = (url) => {
+    const prefix = "blob:";
+    if (url.startsWith(prefix)) {
+      return url.slice(prefix.length);
+    }
+    return url;
+  }; */
+
   const handleRoleChange = async (userId, role) => {
     if (isSuperAdmin) {
       await axios.put(`https://deploy-ik5w.onrender.com/user/${userId}/admin`, {role} )
@@ -89,7 +97,11 @@ const AdminDashboard = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://deploy-ik5w.onrender.com/apartment', formData);
+      //const cleanImages = formData.images.map((url) => cleanBlobURL(url));
+      const response = await axios.post('https://deploy-ik5w.onrender.com/apartment',formData /*{
+         ...formData,
+        images: cleanImages,
+      } */);
       const newApartment = response.data;
       setFormData({
         images: [],
@@ -127,7 +139,7 @@ const AdminDashboard = () => {
     const images = files.map((file) => URL.createObjectURL(file));
     setFormData((prevData) => ({
       ...prevData,
-      images: prevData.images.concat(images),
+      images: prevData.images.concat(images/* .map(image => image.replace("blob:", "")) */),
     }));
   };
 

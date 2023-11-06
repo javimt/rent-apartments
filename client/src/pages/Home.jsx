@@ -6,7 +6,6 @@ import { OpenStreetMapProvider } from "leaflet-geosearch";
 import "leaflet/dist/leaflet.css";
 import Carrousel from "../components/Carrousel";
 import { useApartments } from "../ApartmenContext";
-import image from "../assets/mapa-lineas-metroplus.png"
 
 const Home = () => {
   const center = [6.18939, -75.57992];
@@ -99,7 +98,7 @@ const Home = () => {
       </div>
       <div className={styles.features}>
         <i className={styles.stop}><TbBusStop /></i>
-      <img src={image}  className={`${styles.Metro} scrollIn`} alt="furnished apartments medellin" />
+      <img src={"https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1699290316/PROYECTO%20PROPIEDADES/apt%20al%20azar/metro-med_hpdii5.gif"}  className={`${styles.Metro} scrollIn`} alt="furnished apartments medellin" />
       </div>
       <br />
       <div id="map" className={styles.mapContainer}></div>
