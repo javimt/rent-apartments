@@ -55,39 +55,36 @@ const SaleCard = () => {
     checkUserPermission();
   }, [user, isAuthenticated]);
 
-  const apartment = apartments.find((apartment) => apartment.status === "sale");
-  if (!apartment) {
-    return null;
-  }
-
-  const { images, description, price, ubication, id } = apartment;
-
   return (
-    <article className={styles.salesCard} ref={cardRef}>
-      <div className={styles.card}>
-      {userHasPermission && (
-        <button className={styles.deleteButton} onClick={() => handleDeleteApartment(id)}>
-          Delete
-        </button>
-      )}
-      <img src={images[0]} alt="apartment furnished" className={styles.image} />
-      <div className={styles.details}>
-        <div className={styles.availability}>
-          <button className={styles.buy} onClick={() => handleBuyApartment(id)}>
-            Buy
-          </button>
-        </div>
-        <div className={styles.info}>
-          <p className={styles.price}>{formatPrice(price)}</p>
-          <p className={styles.ubication}>{ubication}</p>
-          <p className={styles.description}>{description}</p>
-        </div>
-      </div>
-      <Link to={`/${id}/details`} className={styles.link}>
-        <button className={styles.det}>Details</button>
-      </Link>
-      </div>
-    </article>
+    <div className={styles.container}>
+      {apartments.map((apartment) => (
+        apartment.status === "sale" && (
+          <article key={apartment.id} className={styles.card} ref={cardRef}>
+              {userHasPermission && (
+                <button className={styles.deleteButton} onClick={() => handleDeleteApartment(apartment.id)}>
+                  Delete
+                </button>
+              )}
+              <img src={apartment.images[0]} alt="apartment furnished" className={styles.image} />
+              <div className={styles.details}>
+                <div className={styles.availability}>
+                  <button className={styles.buy} onClick={() => handleBuyApartment(apartment.id)}>
+                    Buy
+                  </button>
+                </div>
+                <div className={styles.info}>
+                  <p className={styles.price}>{formatPrice(apartment.price)}</p>
+                  <p className={styles.ubication}>{apartment.ubication}</p>
+                  <p className={styles.description}>{apartment.description}</p>
+                </div>
+              </div>
+              <Link to={`/${apartment.id}/details`} className={styles.link}>
+                <button className={styles.det}>Details</button>
+              </Link>
+          </article>
+        )
+      ))}
+    </div>
   );
 };
 

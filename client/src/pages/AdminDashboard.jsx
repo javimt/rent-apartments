@@ -17,6 +17,7 @@ const AdminDashboard = () => {
     lat: "",
     lon: "",
     availability: true,
+    status: ""
   });
   const [isAdmin, setIsAdmin] = useState(false);
   const [isSuperAdmin, setIsSuperAdmin] = useState(false);
@@ -93,6 +94,7 @@ const AdminDashboard = () => {
       setFormData({
         images: [],
         ubication: '',
+        status: '',
         price: "",
         description: '',
         bedrooms: "",
@@ -153,18 +155,26 @@ const AdminDashboard = () => {
 
   return (
     <div className={`app ${theme === "dark" ? "dark" : "light"} ${styles.container}`}>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Images:</label>
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <div className={styles.images}>
+          <div style={{display:"flex", alignItems:"center", justifyContent:"center", flexDirection:"column"}}>
+            <label>Images:</label>
+          </div>
           {formData.images.map((imageUrl, index) => (
             <div key={index}>
-              <img src={imageUrl} alt={`image-${index}`}/>
+              <img src={imageUrl} alt={`image-${index}`} style={{textAlign:"center", alignItems:"center", display:"flex", justifyContent:"center", width:"50px"}}/>
               <input type="text" value={imageUrl} onChange={(e) => handleImageUrlChange(e, index)} />
-              <button type="button" onClick={() => handleRemoveImageField(index)}>Remove</button>
+              <button type="button" onClick={() => handleRemoveImageField(index)} style={{marginBottom:"10px"}}>Remove</button>
             </div>
           ))}
-          <input type="file" onChange={handleImageUpload} accept="image/*" multiple style={{textAlign:"center"}}/>
-          <button type="button" onClick={handleAddImageField}>Add Image</button>
+          <input type="file" onChange={handleImageUpload} accept="image/*" multiple style={{textAlign:"center", alignItems:"center", display:"flex", justifyContent:"center", flexDirection:"colum"}}/>
+          <div>
+            <button type="button" onClick={handleAddImageField}>Add Image</button>
+          </div>
+        </div>
+        <div>
+          <label>Status:</label>
+          <input type="text" name="status" value={formData.status} onChange={handleChange} />
         </div>
         <div>
           <label>Ubication:</label>
@@ -198,11 +208,13 @@ const AdminDashboard = () => {
           <label>Longitud:</label>
           <input type="number" name="lon" value={formData.lon} onChange={handleChange} />
         </div>
-        <button type="submit">Create Apartment</button>
+        <div>
+          <button type="submit">Create Apartment</button>
+        </div>
       </form>
-      <div>
-        <br />
-        <h2>Users list</h2>
+      <br />
+      <h2>Users list</h2>
+      <div className={styles.userCont}>
         {users.map((user) => (
           <div key={user.email} className={styles.userCard}>
             <p>Email: {user.email}</p>

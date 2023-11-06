@@ -146,6 +146,6 @@
   align-items: flex-start;
 }
 .deleteButton:hover {
-  background-color: darkred; /* Cambia el color de fondo al pasar el mouse */
-  transform: scale(1.1); /* Efecto de escala al pasar el mouse */
+  background-color: darkred;
+  transform: scale(1.1);
 }

@@ -72,11 +72,11 @@ const Card = ({images, description, price, ubication, availability, id, deleteAp
 
   return (
     <article className={styles.card} ref={cardRef}>
-    {userHasPermission && (
-      <button className={styles.deleteButton} onClick={handleDeleteApartment}>
-        Delete
-      </button>
-    )}
+      {userHasPermission && (
+        <button className={styles.deleteButton} onClick={handleDeleteApartment}>
+          Delete
+        </button>
+      )}
       <img src={firsImage} alt="apartament furnished" className={styles.image} />
       <div className={styles.details}>
         <div className={styles.availability}>
