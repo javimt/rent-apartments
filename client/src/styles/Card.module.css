@@ -9,7 +9,7 @@
   border-radius: 10px;
   background-color:rgb(74, 128, 160);
   position: relative;
-  overflow-x: hidden;
+  overflow: hidden;
   margin-top: 20px;
   margin-bottom: 20px;
   margin-left: 10px;
