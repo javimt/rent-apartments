@@ -8,7 +8,7 @@
   font-weight: 650;
   text-align: center;
   overflow-x: hidden;
-  margin-top: 5rem;
+  margin-top: 8.5rem;
 }
 
 .carousel {
@@ -110,3 +110,8 @@ h2 {
   margin-bottom: 2rem;
 }
 
+@media (max-width: 680px) {
+  .homeContainer {
+    margin-top: 5rem;
+  }
+}
