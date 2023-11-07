@@ -174,7 +174,7 @@ const AdminDashboard = () => {
           </div>
           {formData.images.map((imageUrl, index) => (
             <div key={index}>
-              <img src={imageUrl} alt={`image-${index}`} style={{textAlign:"center", alignItems:"center", display:"flex", justifyContent:"center", width:"50px"}}/>
+              <img src={imageUrl} alt={`image-${index}`} style={{textAlign:"center", alignItems:"center", display:"flex", justifyContent:"center", width:"80px"}}/>
               <input type="text" value={imageUrl} onChange={(e) => handleImageUrlChange(e, index)} />
               <button type="button" onClick={() => handleRemoveImageField(index)} style={{marginBottom:"10px"}}>Remove</button>
             </div>
