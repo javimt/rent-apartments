@@ -14,6 +14,9 @@ const SaleCard = () => {
   const handleBuyApartment = (apartmentId) => {
     if (isAuthenticated) {
       markApartmentAsSold(apartmentId); 
+      if (isAuthenticated) {
+        window.open("https://api.whatsapp.com/send?phone=NUMERODEWHATSAPP&text=Hola,%20me%20interesa%20alquilar%20este%20apartamento.", "_blank");
+      }
     } else {
       loginWithPopup();
     }

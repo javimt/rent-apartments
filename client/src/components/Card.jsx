@@ -14,6 +14,9 @@ const Card = ({images, description, price, ubication, availability, id, deleteAp
   const handleShowFilterRent = () => {
     if (isAuthenticated) {
       setShowFilterRent(!showFilterRent);
+      if (isAuthenticated) {
+        window.open("https://api.whatsapp.com/send?phone=NUMERODEWHATSAPP&text=Hola,%20me%20interesa%20alquilar%20este%20apartamento.", "_blank");
+      }
     } else {
       loginWithPopup();
     }
