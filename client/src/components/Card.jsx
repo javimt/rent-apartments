@@ -28,6 +28,14 @@ const Card = ({images, description, price, ubication, availability, id, deleteAp
     }
   };
 
+  const handleConfirmPayment = async () => {
+    try {
+      const response = await axios.put(`https://deploy-ik5w.onrender.com/apartment/${id}/confirm-payment`);
+    } catch (error) {
+      console.error('Error al confirmar el pago:', error);
+    }
+  };
+
   useEffect(() => {
     document.addEventListener("mousedown", handleCardClick);
     return () => {
@@ -76,9 +84,14 @@ const Card = ({images, description, price, ubication, availability, id, deleteAp
   return (
     <article className={styles.card} ref={cardRef}>
       {userHasPermission && (
-        <button className={styles.deleteButton} onClick={handleDeleteApartment}>
-          Delete
-        </button>
+        <>
+          <button className={styles.deleteButton} onClick={handleDeleteApartment}>
+            Delete
+          </button>
+          <button className={styles.confirmPaymentButton} onClick={handleConfirmPayment}>
+            Confirm Rent
+          </button>
+        </>
       )}
       <img src={firsImage} alt="apartament furnished" className={styles.image} />
       <div className={styles.details}>

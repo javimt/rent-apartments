@@ -84,7 +84,7 @@ const NavBar = () => {
         <h3>The best website to rent furnished apartments</h3>
         <CgDarkMode
           onClick={toggleTheme}
-          style={{ cursor: "pointer", padding: "2px", fontSize: "30px" }}
+          style={{ cursor: "pointer", padding: "2px", fontSize: "40px" }}
         ></CgDarkMode>
       </div>
       <nav className={styles.navbar}>

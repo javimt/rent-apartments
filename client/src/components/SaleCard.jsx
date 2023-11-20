@@ -22,6 +22,15 @@ const SaleCard = () => {
     }
   };
 
+  const handleConfirmPayment = async (apartmentId) => {
+    try {
+      const response = await axios.put(`https://deploy-ik5w.onrender.com/apartment/${apartmentId}/confirm-payment`);
+      // Lógica para manejar la respuesta después de confirmar el pago
+    } catch (error) {
+      console.error('Error al confirmar el pago:', error);
+    }
+  };
+
   const formatPrice = (price) => {
     return `$${price.toLocaleString()}us`;
   };
@@ -64,9 +73,14 @@ const SaleCard = () => {
         apartment.status === "sale" && (
           <article key={apartment.id} className={styles.card} ref={cardRef}>
               {userHasPermission && (
-                <button className={styles.deleteButton} onClick={() => handleDeleteApartment(apartment.id)}>
-                  Delete
-                </button>
+                <>
+                  <button className={styles.deleteButton} onClick={() => handleDeleteApartment(apartment.id)}>
+                    Delete
+                  </button>
+                  <button className={styles.confirmPaymentButton} onClick={() => handleConfirmPayment(apartment.id)}>
+                    Confirm Paid
+                  </button>
+                </>
               )}
               <img src={apartment.images[0]} alt="apartment furnished" className={styles.image} />
               <div className={styles.details}>

@@ -47,11 +47,11 @@ const FilterRent = ({ apartmentId, onClose }) => {
         const idTokenClaims = await getIdTokenClaims();
         const idToken = idTokenClaims.__raw;
         const response = await axios.post(`https://deploy-ik5w.onrender.com/apartment/${apartmentId}/rent`, {
-          startDate: rentalData.startDate,
-          endDate: rentalData.endDate,
-          userId: user.email,
-          totalPrice: apartmentPrice,
-          status: "not available", 
+            startDate: rentalData.startDate,
+            endDate: rentalData.endDate,
+            userId: user.email,
+            totalPrice: apartmentPrice,
+            status: "not available", 
           },
           {
             headers: {
@@ -67,7 +67,7 @@ const FilterRent = ({ apartmentId, onClose }) => {
         onClose();
         updateApartmentAvailability(apartmentId);
       } catch (error) {
-        console.error(error); 
+        console.error('Error confirming payment:', error); 
       } finally {
         setIsSubmitting(false);
       }
