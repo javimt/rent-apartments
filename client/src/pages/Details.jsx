@@ -53,32 +53,34 @@ const Details = () => {
             style={{ width: "100%", height: "100%" }}
           >
             {images?.map((image, index) => (
-              <div key={index} className={styles.imageContainer}>
-                <img src={image} alt={`Apartment ${index}`} />
+              <div key={index} >
+                <img src={image} className={styles.imageContainer} alt={`Apartment ${index}`} />
               </div>
             ))}
           </Carousel>
+        </div>
+        <div className={styles.details}>
           <div className={styles.availability}>
             {apartment.status === "rent" && (
               <div>
                 <button className={styles.ava}>
-                {availability ? "Available" : "Not available"}
-              </button>
-              {showFilterRent && (
-                <FilterRent
-                  apartmentId={id}
-                  onClose={() => setShowFilterRent()}
-                />
-              )}
-              {!showFilterRent && (
-                <button
-                  className={styles.rent}
-                  onClick={() => handleShowFilterRent(!availability)}
-                  disabled={!availability}
-                >
-                  Rent
+                  {availability ? "Available" : "Not available"}
                 </button>
-              )}
+                {showFilterRent && (
+                  <FilterRent
+                    apartmentId={id}
+                    onClose={() => setShowFilterRent()}
+                  />
+                )}
+                {!showFilterRent && (
+                  <button
+                    className={styles.rent}
+                    onClick={() => handleShowFilterRent(!availability)}
+                    disabled={!availability}
+                  >
+                    Rent
+                  </button>
+                )}
               </div>
             )}
             {apartment.status === "sale" && (
@@ -89,8 +91,6 @@ const Details = () => {
             </div>
             )}
           </div>
-        </div>
-        <div className={styles.details}>
           <div className={styles.info}>
             <p className={styles.price}>{formatPrice(price)}</p>
             <p className={styles.number}>{apartmentNumber}</p>
