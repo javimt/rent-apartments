@@ -44,7 +44,7 @@
 .imageContainer {
   object-fit: cover;
   max-width: 28rem;
-  max-height: 18rem;
+  max-height: 19rem;
   height: 100%;
   width: 100%;
   display: flex;
@@ -59,10 +59,10 @@
   justify-content: center;
   width: 100%;
   height: 100%;
+  max-width: 23rem;
+  max-height: 19rem;
   object-fit: cover;
   overflow: hidden;
-  border-bottom: 1px solid white;
-  background-color: white;
   box-sizing: border-box;
 }
 /*.carousel {
@@ -74,7 +74,7 @@ estilos de las miniaturas */
   display: flex;
   justify-content: center;
   box-sizing: border-box;
-  
+  width: 100%;
 }
 /* estilos de cada miniatura */
 .carousel .thumbs {
