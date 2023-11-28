@@ -1,5 +1,5 @@
 import styles from "../styles/About.module.css";
-import image from "../assets/medellin3d.jpg";
+import image from "../assets/avatar perfil.jpg";
 import { useTheme } from "../components/ThemeProvider";
 
 const About = () => {
