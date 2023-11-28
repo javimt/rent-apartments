@@ -14,9 +14,6 @@ const Card = ({images, description, price, ubication, availability, id, deleteAp
   const handleShowFilterRent = () => {
     if (isAuthenticated) {
       setShowFilterRent(!showFilterRent);
-      //if (isAuthenticated) {
-      //  window.open("https://api.whatsapp.com/send?phone=NUMERODEWHATSAPP&text=Hola,%20me%20interesa%20alquilar%20este%20apartamento.", "_blank");
-      //}
     } else {
       loginWithPopup();
     }
@@ -27,16 +24,6 @@ const Card = ({images, description, price, ubication, availability, id, deleteAp
       setShowFilterRent(false);
     }
   };
-
-  /* const handleConfirmPayment = async ({date, total, userId, apartmentId, status}) => {
-    try {
-      const response = await axios.post(`https://deploy-ik5w.onrender.com/payment`,{date, total, userId: user.email, apartmentId, status});
-  console.log(response.data)
-      window.location.href = "https://furnishedapartmentsmedellin.netlify.app/apartments";
-    } catch (error) {
-      console.error('Error al confirmar el pago:', error);
-    }
-  }; */
 
   useEffect(() => {
     document.addEventListener("mousedown", handleCardClick);

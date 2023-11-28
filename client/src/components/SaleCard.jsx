@@ -13,27 +13,12 @@ const SaleCard = () => {
 
   const handleBuyApartment = (apartmentId) => {
     if (isAuthenticated) {
-      markApartmentAsSold(apartmentId); 
-     /*  if (isAuthenticated) {
-        window.open("https://api.whatsapp.com/send?phone=NUMERODEWHATSAPP&text=Hola,%20me%20interesa%20alquilar%20este%20apartamento.", "_blank");
-      } */
+      markApartmentAsSold(apartmentId);
     } else {
       loginWithPopup();
     }
   };
-
- /*  const handleConfirmPayment = async ({ date, total, userId, status, apartmentId }) => {
-    try {
-      //const userPay = user.id;
-      const response = await axios.post(`http://localhost:3001/payment/`, { date, total, userId: user.email, apartmentId, status });
-  console.log(response)
-      // Lógica para manejar la respuesta después de confirmar el pago
-      window.location.href = "https://furnishedapartmentsmedellin.netlify.app/apartments";
-    } catch (error) {
-      console.error('Error al confirmar el pago:', error);
-    }
-  }; */
-
+  
   const formatPrice = (price) => {
     return `$${price.toLocaleString()}us`;
   };
