@@ -39,7 +39,8 @@ export function ApartmentProvider({ children }) {
   const deleteApartment = async (apartmentId) => {
     try {
       await axios.delete(`https://deploy-ik5w.onrender.com/apartment/${apartmentId}`);
-      const updatedApartments = await apartments.filter((apartment) => apartment.id !== apartmentId);
+      const updatedApartments = await apartments.filter((apartment) => apartment.id !== apartmentId/*  && apartment.status === "sold" */);
+  console.log(updatedApartments)
       setApartments(updatedApartments);
     } catch (error) {
       console.error(`Error deleting apartment ${apartmentId}:`, error);

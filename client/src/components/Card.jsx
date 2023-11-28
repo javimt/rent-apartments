@@ -14,9 +14,9 @@ const Card = ({images, description, price, ubication, availability, id, deleteAp
   const handleShowFilterRent = () => {
     if (isAuthenticated) {
       setShowFilterRent(!showFilterRent);
-      if (isAuthenticated) {
-        window.open("https://api.whatsapp.com/send?phone=NUMERODEWHATSAPP&text=Hola,%20me%20interesa%20alquilar%20este%20apartamento.", "_blank");
-      }
+      //if (isAuthenticated) {
+      //  window.open("https://api.whatsapp.com/send?phone=NUMERODEWHATSAPP&text=Hola,%20me%20interesa%20alquilar%20este%20apartamento.", "_blank");
+      //}
     } else {
       loginWithPopup();
     }
@@ -28,13 +28,15 @@ const Card = ({images, description, price, ubication, availability, id, deleteAp
     }
   };
 
-  const handleConfirmPayment = async () => {
+  /* const handleConfirmPayment = async ({date, total, userId, apartmentId, status}) => {
     try {
-      const response = await axios.put(`https://deploy-ik5w.onrender.com/apartment/${id}/confirm-payment`);
+      const response = await axios.post(`https://deploy-ik5w.onrender.com/payment`,{date, total, userId: user.email, apartmentId, status});
+  console.log(response.data)
+      window.location.href = "https://furnishedapartmentsmedellin.netlify.app/apartments";
     } catch (error) {
       console.error('Error al confirmar el pago:', error);
     }
-  };
+  }; */
 
   useEffect(() => {
     document.addEventListener("mousedown", handleCardClick);
@@ -84,14 +86,9 @@ const Card = ({images, description, price, ubication, availability, id, deleteAp
   return (
     <article className={styles.card} ref={cardRef}>
       {userHasPermission && (
-        <>
           <button className={styles.deleteButton} onClick={handleDeleteApartment}>
             Delete
           </button>
-          <button className={styles.confirmPaymentButton} onClick={handleConfirmPayment}>
-            Confirm Rent
-          </button>
-        </>
       )}
       <img src={firsImage} alt="apartament furnished" className={styles.image} />
       <div className={styles.details}>

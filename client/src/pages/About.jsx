@@ -1,5 +1,5 @@
 import styles from "../styles/About.module.css";
-import image from "../assets/foto dueño.jpg";
+import image from "../assets/medellin3d.jpg";
 import { useTheme } from "../components/ThemeProvider";
 
 const About = () => {
@@ -12,7 +12,7 @@ const About = () => {
           alt="Dueño de la aplicación"
           className={styles.ownerImage}
         />
-        <h2 className={styles.ownerName}>Henry Tabares</h2>
+        <h2 className={styles.ownerName}>Usuario De Prueba</h2>
         <p className={styles.ownerDescription}>
           I am willing to help you rent or buy the property that you have always
           been looking for with the best advice and always at the best price.

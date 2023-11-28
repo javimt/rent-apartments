@@ -14,22 +14,25 @@ const SaleCard = () => {
   const handleBuyApartment = (apartmentId) => {
     if (isAuthenticated) {
       markApartmentAsSold(apartmentId); 
-      if (isAuthenticated) {
+     /*  if (isAuthenticated) {
         window.open("https://api.whatsapp.com/send?phone=NUMERODEWHATSAPP&text=Hola,%20me%20interesa%20alquilar%20este%20apartamento.", "_blank");
-      }
+      } */
     } else {
       loginWithPopup();
     }
   };
 
-  const handleConfirmPayment = async (apartmentId) => {
+ /*  const handleConfirmPayment = async ({ date, total, userId, status, apartmentId }) => {
     try {
-      const response = await axios.put(`https://deploy-ik5w.onrender.com/apartment/${apartmentId}/confirm-payment`);
+      //const userPay = user.id;
+      const response = await axios.post(`http://localhost:3001/payment/`, { date, total, userId: user.email, apartmentId, status });
+  console.log(response)
       // Lógica para manejar la respuesta después de confirmar el pago
+      window.location.href = "https://furnishedapartmentsmedellin.netlify.app/apartments";
     } catch (error) {
       console.error('Error al confirmar el pago:', error);
     }
-  };
+  }; */
 
   const formatPrice = (price) => {
     return `$${price.toLocaleString()}us`;
@@ -73,14 +76,9 @@ const SaleCard = () => {
         apartment.status === "sale" && (
           <article key={apartment.id} className={styles.card} ref={cardRef}>
               {userHasPermission && (
-                <>
-                  <button className={styles.deleteButton} onClick={() => handleDeleteApartment(apartment.id)}>
-                    Delete
-                  </button>
-                  <button className={styles.confirmPaymentButton} onClick={() => handleConfirmPayment(apartment.id)}>
-                    Confirm Paid
-                  </button>
-                </>
+                <button className={styles.deleteButton} onClick={() => handleDeleteApartment(apartment.id)}>
+                  Delete
+                </button>
               )}
               <img src={apartment.images[0]} alt="apartment furnished" className={styles.image} />
               <div className={styles.details}>
