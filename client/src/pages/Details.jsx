@@ -51,6 +51,13 @@ const Details = () => {
             infiniteLoop={true}
             showThumbs={true}
             style={{ width: "100%", height: "100%" }}
+            renderThumbs={() =>
+              images?.map((image, index) => (
+                <div key={index} className={styles.thumb}>
+                  <img src={image} alt={`Apartment ${index}`} />
+                </div>
+              ))
+            }
           >
             {images?.map((image, index) => (
               <div key={index} >
