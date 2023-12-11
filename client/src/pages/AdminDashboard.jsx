@@ -31,7 +31,7 @@ const AdminDashboard = () => {
       const userId = user.email;
       const checkAdminStatus = async () => {
         try {
-          const response = await axios.get(`https://deploy-ik5w.onrender.com/user/${userId}`);
+          const response = await axios.get(`http://localhost:3001/user/${userId}`);
           if (response.data.isSuperAdmin) {
             setIsSuperAdmin(true);
           } else if (response.data.isAdmin) {
@@ -49,7 +49,7 @@ const AdminDashboard = () => {
   }, [user, isAuthenticated]);
 
   useEffect(() => {
-    axios.get('https://deploy-ik5w.onrender.com/user') 
+    axios.get('http://localhost:3001/user') 
       .then((response) => {
         setUsers(response.data);
       })
@@ -68,9 +68,9 @@ const AdminDashboard = () => {
 
   const handleRoleChange = async (userId, role) => {
     if (isSuperAdmin) {
-      await axios.put(`https://deploy-ik5w.onrender.com/user/${userId}/admin`, {role} )
+      await axios.put(`http://localhost:3001/user/${userId}/admin`, {role} )
         .then(() => {
-          axios.get('https://deploy-ik5w.onrender.com/user')
+          axios.get('http://localhost:3001/user')
             .then((response) => {
               setUsers(response.data); 
             })
@@ -98,7 +98,7 @@ const AdminDashboard = () => {
     e.preventDefault();
     try {
       //const cleanImages = formData.images.map((url) => cleanBlobURL(url));
-      const response = await axios.post('https://deploy-ik5w.onrender.com/apartment',formData /*{
+      const response = await axios.post('http://localhost:3001/apartment',formData /*{
          ...formData,
         images: cleanImages,
       } */);

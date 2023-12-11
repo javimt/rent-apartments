@@ -46,7 +46,7 @@ const FilterRent = ({ apartmentId, onClose }) => {
       try {
         const idTokenClaims = await getIdTokenClaims();
         const idToken = idTokenClaims.__raw;
-        const response = await axios.post(`https://deploy-ik5w.onrender.com/apartment/${apartmentId}/rent`, {
+        const response = await axios.post(`http://localhost:3001/apartment/${apartmentId}/rent`, {
             startDate: rentalData.startDate,
             endDate: rentalData.endDate,
             userId: user.email,

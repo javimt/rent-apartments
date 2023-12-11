@@ -47,7 +47,7 @@ const Card = ({images, description, price, ubication, availability, id, deleteAp
   const checkUserPermission = async () => {
     if (isAuthenticated) {
       try {
-        const response = await axios.get(`https://deploy-ik5w.onrender.com/user/${user.email}`);
+        const response = await axios.get(`http://localhost:3001/user/${user.email}`);
         if (response.data && response.data.redirectUrl) {
           const redirectUrl = response.data.redirectUrl;
           if (redirectUrl.includes("/admin") || redirectUrl.includes("/superAdmin")) {

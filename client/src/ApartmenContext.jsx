@@ -12,7 +12,7 @@ export function ApartmentProvider({ children }) {
 
   const fetchApartments = async () => {
     try {
-      const response = await axios.get("https://deploy-ik5w.onrender.com/apartment");
+      const response = await axios.get("http://localhost:3001/apartment");
       setApartments(response.data);
     } catch (error) {
       console.error(error);
@@ -38,7 +38,7 @@ export function ApartmentProvider({ children }) {
 
   const deleteApartment = async (apartmentId) => {
     try {
-      await axios.delete(`https://deploy-ik5w.onrender.com/apartment/${apartmentId}`);
+      await axios.delete(`http://localhost:3001/apartment/${apartmentId}`);
       const updatedApartments = await apartments.filter((apartment) => apartment.id !== apartmentId/*  && apartment.status === "sold" */);
   console.log(updatedApartments)
       setApartments(updatedApartments);
@@ -55,7 +55,7 @@ export function ApartmentProvider({ children }) {
           : apartment
       );
       setApartments(updatedApartments);
-      await axios.put(`https://deploy-ik5w.onrender.com/apartment/${apartmentId}`, {
+      await axios.put(`http://localhost:3001/apartment/${apartmentId}`, {
         status: 'sold'
       });
     } catch (error) {
