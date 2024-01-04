@@ -6,6 +6,7 @@ import { OpenStreetMapProvider } from "leaflet-geosearch";
 import "leaflet/dist/leaflet.css";
 import Carrousel from "../components/Carrousel";
 import { useApartments } from "../ApartmenContext";
+import SearchBar from "../components/SearchBar";
 
 const Home = () => {
   const center = [6.18939, -75.57992];
@@ -78,6 +79,7 @@ const Home = () => {
 
   return (
     <div className={styles.homeContainer}>
+      <SearchBar />
       <div className={styles.carousel}>
         <Carrousel images={images} />
       </div>
