@@ -21,7 +21,7 @@ const SearchBar = () => {
         value={searchTerm}
         onChange={handleInputChange}
       />
-      <button onClick={handleSearchClick}>Search</button>
+      <button className={styles.button} onClick={handleSearchClick}>Search</button>
     </div>
   );
 };
