@@ -1,31 +1,30 @@
 import React, { useState } from 'react';
 import styles from "./../styles/FilterPrice.module.css";
 
-const FilterPrice = ({ filterByPrice }) => {
-  const [minPrice, setMinPrice] = useState('');
-  const [maxPrice, setMaxPrice] = useState('');
+const FilterPrice = ({ apartments, updateFilteredApartments }) => {
+  const [priceRange, setPriceRange] = useState([0, 10000]); // Establece un rango predeterminado
 
-  const handleFilter = () => {
-    filterByPrice(minPrice, maxPrice);
+  const handleFilter = (e) => {
+    const maxPrice = parseInt(e.target.value);
+    setPriceRange([0, maxPrice]);
+    const filtered = apartments.filter(
+      (apartment) => apartment.price <= maxPrice
+    );
+    updateFilteredApartments(filtered);
   };
 
   return (
-    <div className={styles.search}>
+    <div className={styles.filter}>
       <input
         type="range"
-        placeholder="Min Price"
-        value={minPrice}
-        onChange={(e) => setMinPrice(e.target.value)}
+        min="0"
+        max="10000"
+        step="50"
+        value={priceRange[1]}
+        onChange={handleFilter}
       />
-      {/* <input
-        type="range"
-        placeholder="Max Price"
-        value={maxPrice}
-        onChange={(e) => setMaxPrice(e.target.value)}
-      /> 
-      <button onClick={handleFilter}>Apply</button>*/}
+      <p className={styles.range}>{`Filter by Price: $0 - $${priceRange[1]}`}</p>
     </div>
   );
 };
-
 export default FilterPrice;
