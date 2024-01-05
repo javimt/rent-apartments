@@ -1,16 +1,19 @@
 import styles from "./../styles/SearchBar.module.css";
 import { useState } from "react";
+import { useApartments } from "../ApartmenContext";
 
 const SearchBar = () => {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [search, setSearch] = useState("");
+  const {filterApartmentsByLocation} = useApartments();
 
   const handleInputChange = (e) => {
-    setSearchTerm(e.target.value);
+    setSearch(e.target.value);
   };
 
   const handleSearchClick = () => {
-    // Lógica para realizar la búsqueda por ciudades
-    handleSearchClick(searchTerm);
+    // Filtrar apartamentos por la ubicación ingresada en el input
+    filterApartmentsByLocation(search);
+    setSearch("");
   };
 
   return (
@@ -18,7 +21,7 @@ const SearchBar = () => {
       <input
         type="text"
         placeholder="Search by city..."
-        value={searchTerm}
+        value={search}
         onChange={handleInputChange}
       />
       <button className={styles.button} onClick={handleSearchClick}>Search</button>

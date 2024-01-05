@@ -9,6 +9,7 @@ export function useApartments() {
 
 export function ApartmentProvider({ children }) {
   const [apartments, setApartments] = useState([]);
+  const [filteredApartments, setFilteredApartments] = useState([]);
 
   const fetchApartments = async () => {
     try {
@@ -63,8 +64,22 @@ export function ApartmentProvider({ children }) {
     }
   };
 
+  const filterApartmentsByLocation = (location) => {
+    const filtered = apartments.filter(
+      (apartment) =>
+        apartment.ubication.toLowerCase().includes(location.toLowerCase())
+    );
+    setFilteredApartments(filtered);
+  };
+
   return (
-    <ApartmentContext.Provider value={{apartments, updateApartmentAvailability, deleteApartment, addApartment, markApartmentAsSold}}>
+    <ApartmentContext.Provider value={{apartments: filteredApartments.length > 0 ? filteredApartments : apartments, // Usar apartamentos filtrados si existen
+      updateApartmentAvailability,
+      deleteApartment, 
+      addApartment, 
+      markApartmentAsSold,
+      filterApartmentsByLocation,
+    }}>
       {children}
     </ApartmentContext.Provider>
   );

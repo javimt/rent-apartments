@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from "./../styles/FilterPrice.module.css";
 
 const FilterPrice = ({ filterByPrice }) => {
   const [minPrice, setMinPrice] = useState('');
@@ -10,20 +11,19 @@ const FilterPrice = ({ filterByPrice }) => {
 
   return (
     <div className={styles.search}>
-      <h2>Price Range</h2>
       <input
-        type="number"
+        type="range"
         placeholder="Min Price"
         value={minPrice}
         onChange={(e) => setMinPrice(e.target.value)}
       />
-      <input
-        type="number"
+      {/* <input
+        type="range"
         placeholder="Max Price"
         value={maxPrice}
         onChange={(e) => setMaxPrice(e.target.value)}
-      />
-      <button onClick={handleFilter}>Apply</button>
+      /> 
+      <button onClick={handleFilter}>Apply</button>*/}
     </div>
   );
 };
