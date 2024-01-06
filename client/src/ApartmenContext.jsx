@@ -73,7 +73,7 @@ export function ApartmentProvider({ children }) {
   };
 
   return (
-    <ApartmentContext.Provider value={{apartments: filteredApartments.length > 0 ? filteredApartments : apartments, // Usar apartamentos filtrados si existen
+    <ApartmentContext.Provider value={{apartments: filteredApartments.length > 0 ? filteredApartments : apartments,
       updateApartmentAvailability,
       deleteApartment, 
       addApartment, 

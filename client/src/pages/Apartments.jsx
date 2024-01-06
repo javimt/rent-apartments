@@ -15,8 +15,10 @@ const Apartments = () => {
 
   return (
     <section className={styles.container}>
-    <SearchBar />
-    <FilterPrice apartments={apartments} updateFilteredApartments={updateFilteredApartments} />
+      <div className={styles.searchFilter}>
+        <SearchBar />
+        <FilterPrice apartments={apartments} updateFilteredApartments={updateFilteredApartments} />
+      </div>
       {filteredApartments.map((apartment) => (
         apartment.status === "rent" &&
         <Card

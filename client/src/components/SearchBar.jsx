@@ -11,7 +11,6 @@ const SearchBar = () => {
   };
 
   const handleSearchClick = () => {
-    // Filtrar apartamentos por la ubicación ingresada en el input
     filterApartmentsByLocation(search);
     setSearch("");
   };

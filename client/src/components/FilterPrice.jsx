@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import styles from "./../styles/FilterPrice.module.css";
 
 const FilterPrice = ({ apartments, updateFilteredApartments }) => {
-  const [priceRange, setPriceRange] = useState([0, 10000]); // Establece un rango predeterminado
+  const [priceRange, setPriceRange] = useState([600, 10000]);
 
   const handleFilter = (e) => {
     const maxPrice = parseInt(e.target.value);
-    setPriceRange([0, maxPrice]);
+    setPriceRange([600, maxPrice]);
     const filtered = apartments.filter(
       (apartment) => apartment.price <= maxPrice
     );
@@ -15,15 +15,16 @@ const FilterPrice = ({ apartments, updateFilteredApartments }) => {
 
   return (
     <div className={styles.filter}>
+      <h3 style={{fontSize: 17, color: "#333"}}>Filter by price</h3>
       <input
         type="range"
-        min="0"
+        min="600"
         max="10000"
         step="50"
         value={priceRange[1]}
         onChange={handleFilter}
       />
-      <p className={styles.range}>{`Filter by Price: $0 - $${priceRange[1]}`}</p>
+      <p className={styles.range}>{`$600 - $${priceRange[1]}`}</p>
     </div>
   );
 };
