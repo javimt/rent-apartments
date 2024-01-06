@@ -7,16 +7,25 @@ import { useState, useEffect } from "react";
 
 const Apartments = () => {
   const { apartments, updateApartmentAvailability, deleteApartment } = useApartments();
+  const [searchLocation, setSearchLocation] = useState('');
   const [filteredApartments, setFilteredApartments] = useState(apartments);
 
   const updateFilteredApartments = (filtered) => {
     setFilteredApartments(filtered);
   };
 
+  const handleSearch = () => {
+    filterApartmentsByLocation(searchLocation);
+  };
+
+  useEffect(() => {
+    setFilteredApartments(apartments);
+  }, [apartments]);
+
   return (
     <section className={styles.container}>
       <div className={styles.searchFilter}>
-        <SearchBar />
+        <SearchBar setSearchLocation={setSearchLocation} handleSearch={handleSearch} />
         <FilterPrice apartments={apartments} updateFilteredApartments={updateFilteredApartments} />
       </div>
       {filteredApartments.map((apartment) => (
