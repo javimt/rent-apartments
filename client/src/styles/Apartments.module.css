@@ -52,7 +52,7 @@
 
 @media (max-width: 680px) {
   .container {
-    margin-top: 10rem; 
+    margin-top: 5rem; 
     display: flex;
     align-items: flex-start;
     margin-bottom: 1rem;

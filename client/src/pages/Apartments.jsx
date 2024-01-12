@@ -26,6 +26,7 @@ const Apartments = () => {
     <section className={styles.container}>
       <div className={styles.searchFilter}>
         <SearchBar setSearchLocation={setSearchLocation} handleSearch={handleSearch} />
+        <br />
         <FilterPrice apartments={apartments} updateFilteredApartments={updateFilteredApartments} />
       </div>
       {filteredApartments.map((apartment) => (
