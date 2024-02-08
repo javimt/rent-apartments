@@ -16,14 +16,15 @@ const FilterPrice = ({ apartments, updateFilteredApartments }) => {
   return (
     <div className={styles.filter}>
       <h3 style={{fontSize: 17, color: "#333"}}>Filter by price</h3>
-      <input
-        type="range"
-        min="600"
-        max="10000"
-        step="50"
-        value={priceRange[1]}
-        onChange={handleFilter}
-      />
+        <input
+          type="range"
+          min="600"
+          max="5000"
+          step="100"
+          value={priceRange[1]}
+          onChange={handleFilter}
+          className={styles.input}
+        />
       <p className={styles.range}>{`$600 - $${priceRange[1]}`}</p>
     </div>
   );

@@ -5,16 +5,22 @@
   align-items: center;
   width: 100%;
 }
+.input {
+  width: 60%;
+}
 .button {
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  color: rgb(74, 128, 160);
-  background-color: rgb(240, 211, 177);
+  color: rgb(240, 211, 177);
+  background-color: rgb(74, 128, 160);
   font-weight: 550;
   transform: translateY(-10%);
-  border-radius: 0;
-  border-left: 0;
+  border-radius: 5;
   border: 2px inset grey;
+}
+.button:hover {
+  background-color: rgb(240, 211, 177);
+  color: rgb(74, 128, 160);
 }

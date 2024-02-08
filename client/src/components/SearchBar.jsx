@@ -22,6 +22,7 @@ const SearchBar = () => {
         placeholder="Search by city..."
         value={search}
         onChange={handleInputChange}
+        className={styles.input}
       />
       <button className={styles.button} onClick={handleSearchClick}>Search</button>
     </div>

@@ -9,3 +9,7 @@
 .range {
   font-size: 16px;
 }
+.input{
+  cursor: pointer;
+  width: 50%;
+}
