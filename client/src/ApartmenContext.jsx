@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
+import apart from "./apartments.json";
 
 const ApartmentContext = createContext();
 
@@ -13,8 +14,8 @@ export function ApartmentProvider({ children }) {
 
   const fetchApartments = async () => {
     try {
-      const response = await axios.get("http://localhost:3001/apartment");
-      setApartments(response.data);
+      const response = apart   //await axios.get("http://localhost:3001/apartment");
+      setApartments(response/* .data */);
     } catch (error) {
       console.error(error);
     }
