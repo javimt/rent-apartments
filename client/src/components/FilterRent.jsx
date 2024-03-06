@@ -3,6 +3,7 @@ import axios from "axios";
 import styles from "../styles/FilterRent.module.css";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useApartments } from "../ApartmenContext";
+import apart from "../apartments.json";
 
 const FilterRent = ({ apartmentId, onClose }) => {
   const [rentalData, setRentalData] = useState({
@@ -46,7 +47,7 @@ const FilterRent = ({ apartmentId, onClose }) => {
       try {
         const idTokenClaims = await getIdTokenClaims();
         const idToken = idTokenClaims.__raw;
-        const response = await axios.post(`http://localhost:3001/apartment/${apartmentId}/rent`, {
+        const response = await axios.post(apart.id  /* `http://localhost:3001/apartment/${apartmentId}/rent` */, {
             startDate: rentalData.startDate,
             endDate: rentalData.endDate,
             userId: user.email,
