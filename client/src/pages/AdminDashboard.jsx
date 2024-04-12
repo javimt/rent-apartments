@@ -4,6 +4,7 @@ import styles from "../styles/AdminDashboard.module.css";
 import { useAuth0 } from '@auth0/auth0-react';
 import { useApartments } from '../ApartmenContext';
 import { useTheme } from "../components/ThemeProvider";
+import DashboardSearch from '../components/DashboardSearch';
 
 const AdminDashboard = () => {
   const [formData, setFormData] = useState({
@@ -58,14 +59,6 @@ const AdminDashboard = () => {
       });
   }, []);
 
- /*  const cleanBlobURL = (url) => {
-    const prefix = "blob:";
-    if (url.startsWith(prefix)) {
-      return url.slice(prefix.length);
-    }
-    return url;
-  }; */
-
   const handleRoleChange = async (userId, role) => {
     if (isSuperAdmin) {
       await axios.put(`http://localhost:3001/user/${userId}/admin`, {role} )
@@ -97,11 +90,7 @@ const AdminDashboard = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      //const cleanImages = formData.images.map((url) => cleanBlobURL(url));
-      const response = await axios.post('http://localhost:3001/apartment',formData /*{
-         ...formData,
-        images: cleanImages,
-      } */);
+      const response = await axios.post('http://localhost:3001/apartment',formData);
       const newApartment = response.data;
       setFormData({
         images: [],
@@ -139,7 +128,7 @@ const AdminDashboard = () => {
     const images = files.map((file) => URL.createObjectURL(file));
     setFormData((prevData) => ({
       ...prevData,
-      images: prevData.images.concat(images/* .map(image => image.replace("blob:", "")) */),
+      images: prevData.images.concat(images),
     }));
   };
 
@@ -167,6 +156,7 @@ const AdminDashboard = () => {
 
   return (
     <div className={`app ${theme === "dark" ? "dark" : "light"} ${styles.container}`}>
+      <DashboardSearch />
       <form onSubmit={handleSubmit} className={styles.form}>
         <div className={styles.images}>
           <div style={{display:"flex", alignItems:"center", justifyContent:"center", flexDirection:"column"}}>
@@ -179,8 +169,7 @@ const AdminDashboard = () => {
               <button type="button" onClick={() => handleRemoveImageField(index)} style={{marginBottom:"10px"}}>Remove</button>
             </div>
           ))}
-{/*           <input type="file" onChange={handleImageUpload} accept="image/*" multiple style={{textAlign:"center", alignItems:"center", display:"flex", justifyContent:"center", flexDirection:"colum"}}/>
- */}          <div>
+          <div>
             <button type="button" onClick={handleAddImageField}>Add Image</button>
           </div>
         </div>

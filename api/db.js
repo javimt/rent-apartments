@@ -16,33 +16,19 @@ const sequelize = new Sequelize(process.env.DATABASE_URL, {
   }, */
 });
 
-const models = [];
+const models = {};
 fs.readdirSync(path.join(__dirname, "src", "models"))
-  .filter((dir) => dir.indexOf(".") != 0 && dir.slice(-3) === ".js")
-  .forEach((dir) =>
-    models.push(require(path.join(__dirname, "src", "models", dir)))
-);
+  .filter((file) => file.endsWith(".js"))
+  .forEach((file) => {
+    const model = require(path.join(__dirname, "src", "models", file))(sequelize);
+    models[model.name] = model;
+  });
 
-models.forEach((model) => model(sequelize));
-
-const {Apartment, Rent, User, Sale, Payment} = sequelize.models;
-
-// relaciones
-
-User.hasMany(Apartment, { foreignKey: 'userId' });
-Apartment.belongsTo(User, { foreignKey: 'userId' });
-
-User.hasMany(Rent, { foreignKey: 'userId' });
-Rent.belongsTo(User, { foreignKey: 'userId' }); 
-
-User.hasMany(Sale, { foreignKey: 'userId' });
-Sale.belongsTo(User, { foreignKey: 'userId' });
-
-Apartment.hasMany(Rent, { foreignKey: 'apartmentId' });
-Rent.belongsTo(Apartment, { foreignKey: 'apartmentId' });
-
-Apartment.hasMany(Sale, { foreignKey: 'apartmentId' });
-Sale.belongsTo(Apartment, { foreignKey: 'apartmentId' });
+Object.keys(models).forEach((e) => {
+  if (models[e].associate) {
+    models[e].associate(models);
+  }
+});
 
 module.exports = {
   ...sequelize.models,

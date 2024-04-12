@@ -4,16 +4,6 @@ const checkAvailability = (apartment) => {
   return apartment.availability ? "Available" : "Not Available";
 }; 
 
-const checkPaymentStatus = async (userId) => {
-  try {
-    const userPayments = await Payment.findAll({ where: { userId } });
-    const lastPayment = userPayments[userPayments.length - 1];
-    return lastPayment.status; 
-  } catch (error) {
-    throw new Error("Error fetching payment status");
-  }
-};
-
 module.exports = {
   getAllApartments: async (req, res) => {
     try {
@@ -65,34 +55,7 @@ module.exports = {
 
   createApartment: async (req, res) => {
     try {
-      const {
-        images,
-        ubication,
-        availability,
-        price,
-        description,
-        bedrooms,
-        bathrooms,
-        apartmentNumber,
-        status,
-        id,
-        lat,
-        lon
-      } = req.body;
-      const newApartment = await Apartment.create({
-        images,
-        ubication,
-        availability,
-        price,
-        description,
-        bedrooms,
-        bathrooms,
-        apartmentNumber,
-        id,
-        status,
-        lat,
-        lon
-      });
+      const newApartment = await Apartment.create(req.body);
       res.status(201).json(newApartment);
     } catch (error) {
       res.status(500).send({ error: error.message });
@@ -140,11 +103,6 @@ module.exports = {
       if (!apartment.availability) {
         return res.status(400).send({ error: "Apartment is not available for rent" });
       }
-
-      /* const paymentStatus = await checkPaymentStatus(req.body.userId);
-      if (paymentStatus !== "approved") {
-        return res.status(400).send({ error: "Payment not approved. Cannot proceed with renting the apartment" });
-      } */
 
       const currentDate = new Date();
       currentDate.setHours(currentDate.getHours() - 5);
@@ -199,11 +157,6 @@ module.exports = {
       if (!apartment) {
         return res.status(404).send({ error: "Apartment not found" });
       }
-
-      /* const paymentStatus = await checkPaymentStatus(req.body.userId);
-      if (paymentStatus !== "approved") {
-        return res.status(400).send({ error: "Payment not approved. Cannot proceed with selling the apartment" });
-      } */
 
       const date = new Date(req.body.date);
       date.setHours(date.getHours());

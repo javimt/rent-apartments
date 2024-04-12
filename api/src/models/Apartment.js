@@ -1,7 +1,7 @@
 const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
-  sequelize.define("Apartment", {
+  const Apartment = sequelize.define("Apartment", {
     id: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
@@ -43,4 +43,10 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
   },{timestamps: false});
+  Apartment.associate = (models) => {
+    Apartment.belongsTo(models.User, { foreignKey: 'userId' });
+    Apartment.hasMany(models.Rent, { foreignKey: 'apartmentId' });
+    Apartment.hasMany(models.Sale, { foreignKey: 'apartmentId' });
+  }
+  return Apartment;
 };

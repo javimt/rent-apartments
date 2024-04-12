@@ -1,7 +1,7 @@
 const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
-  sequelize.define("User", {
+  const User = sequelize.define("User", {
 
     email: {
       type: DataTypes.STRING,
@@ -22,4 +22,10 @@ module.exports = (sequelize) => {
       defaultValue: "user"
     }
   });
+  User.associate = (models) => {
+    User.hasMany(models.Apartment, { foreignKey: 'userId' });
+    User.hasMany(models.Rent, { foreignKey: 'userId' });
+    User.hasMany(models.Sale, { foreignKey: 'userId' });
+  }
+  return User;
 }
