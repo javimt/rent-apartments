@@ -3,11 +3,17 @@ const { Sequelize } = require("sequelize");
 const path = require("path");
 const fs = require("fs");
 
-const sequelize = new Sequelize(process.env.SEQUELIZE_URL, { 
+const sequelize = new Sequelize(process.env.DATABASE_URL, {
   native: false,
-  protocol: "postgres",
   dialect: "postgres",
-  logging: false
+  protocol: "postgres",
+  logging: false,
+  /* dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false
+    }
+  }, */
 });
 
 const models = [];
@@ -19,7 +25,7 @@ fs.readdirSync(path.join(__dirname, "src", "models"))
 
 models.forEach((model) => model(sequelize));
 
-const {Apartment, Rent, User} = sequelize.models;
+const {Apartment, Rent, User, Sale, Payment} = sequelize.models;
 
 // relaciones
 
@@ -29,8 +35,14 @@ Apartment.belongsTo(User, { foreignKey: 'userId' });
 User.hasMany(Rent, { foreignKey: 'userId' });
 Rent.belongsTo(User, { foreignKey: 'userId' }); 
 
+User.hasMany(Sale, { foreignKey: 'userId' });
+Sale.belongsTo(User, { foreignKey: 'userId' });
+
 Apartment.hasMany(Rent, { foreignKey: 'apartmentId' });
 Rent.belongsTo(Apartment, { foreignKey: 'apartmentId' });
+
+Apartment.hasMany(Sale, { foreignKey: 'apartmentId' });
+Sale.belongsTo(Apartment, { foreignKey: 'apartmentId' });
 
 module.exports = {
   ...sequelize.models,
