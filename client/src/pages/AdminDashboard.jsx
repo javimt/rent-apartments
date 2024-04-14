@@ -4,7 +4,6 @@ import styles from "../styles/AdminDashboard.module.css";
 import { useAuth0 } from '@auth0/auth0-react';
 import { useApartments } from '../ApartmenContext';
 import { useTheme } from "../components/ThemeProvider";
-import DashboardSearch from '../components/DashboardSearch';
 
 const AdminDashboard = () => {
   const [formData, setFormData] = useState({
@@ -156,7 +155,6 @@ const AdminDashboard = () => {
 
   return (
     <div className={`app ${theme === "dark" ? "dark" : "light"} ${styles.container}`}>
-      <DashboardSearch />
       <form onSubmit={handleSubmit} className={styles.form}>
         <div className={styles.images}>
           <div style={{display:"flex", alignItems:"center", justifyContent:"center", flexDirection:"column"}}>

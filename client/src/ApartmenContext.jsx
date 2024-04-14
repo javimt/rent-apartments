@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
-import apart from "./apartments.json";
 
 const ApartmentContext = createContext();
 
@@ -68,7 +67,8 @@ export function ApartmentProvider({ children }) {
   const filterApartmentsByLocation = (location) => {
     const filtered = apartments.filter(
       (apartment) =>
-        apartment.ubication.toLowerCase().includes(location.toLowerCase())
+        apartment.ubication.toLowerCase().includes(location.toLowerCase()) || 
+        apartment.apartmentNumber.toLowerCase().includes(location.toLowerCase())
     );
     setFilteredApartments(filtered);
   };

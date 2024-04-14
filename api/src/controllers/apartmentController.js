@@ -46,7 +46,7 @@ module.exports = {
         const availability = checkAvailability(apartment);
         res.status(200).json({ ...apartment.toJSON(), availability });
       } else {
-        res.status(200).json(apartment)
+        res.status(200).json(apartment, req.body.apartmentNumber)
       }
     } catch (error) {
       res.status(500).json({ error: error.message });

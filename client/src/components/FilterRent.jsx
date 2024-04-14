@@ -3,7 +3,6 @@ import axios from "axios";
 import styles from "../styles/FilterRent.module.css";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useApartments } from "../ApartmenContext";
-import apart from "../apartments.json";
 
 const FilterRent = ({ apartmentId, onClose }) => {
   const [rentalData, setRentalData] = useState({
@@ -14,8 +13,8 @@ const FilterRent = ({ apartmentId, onClose }) => {
   const [apartmentPrice, setApartmentPrice] = useState(0);
   const [isAvailable, setIsAvailable] = useState(true);
   const { getIdTokenClaims, user } = useAuth0();
-  const { apartments, updateApartmentAvailability } = useApartments(); 
-  
+  const { apartments, updateApartmentAvailability } = useApartments();
+
   useEffect(() => {
     const apartment = apartments.find(apartment => apartment.id === apartmentId);
     if (apartment) {
@@ -23,31 +22,21 @@ const FilterRent = ({ apartmentId, onClose }) => {
       setIsAvailable(apartment.availability);
     }
   }, [apartmentId, apartments]);
-  
+
   const handleRent = async () => {
     if (rentalData.startDate && rentalData.endDate && !isSubmitting) {
-      const currentDate = new Date();
-      const startDate = new Date(rentalData.startDate);
-      startDate.setDate(currentDate.getDate())
-      const endDate = new Date(rentalData.endDate);
-      endDate.setDate(currentDate.getDate())
-      if (!startDate || !endDate) {
-        return false;
-      }
-      if(startDate < currentDate) {
-        return false;
-      }
-      if(startDate > endDate) {
-        return false;
-      }
-      if(endDate < currentDate) {
-        return false;
-      }
       setIsSubmitting(true);
       try {
         const idTokenClaims = await getIdTokenClaims();
         const idToken = idTokenClaims.__raw;
-        const response = await axios.post(`http://localhost:3001/apartment/${apartmentId}/rent`, {
+        
+        // Verificar si el usuario tiene rol de administrador o superadmin
+        const userId = user.email;
+        const response = await axios.get(`http://localhost:3001/user/${userId}`);
+        const userData = response.data;
+
+        if (userData.isAdmin || userData.isSuperAdmin) {
+          const response = await axios.post(`http://localhost:3001/apartment/${apartmentId}/rent`, {
             startDate: rentalData.startDate,
             endDate: rentalData.endDate,
             userId: user.email,
@@ -58,8 +47,13 @@ const FilterRent = ({ apartmentId, onClose }) => {
             headers: {
               Authorization: `Bearer ${idToken}`,
             },
-          }
-        );
+          });
+
+        } else {
+          const apart = await axios.get(`http://localhost:3001/apartment/${apartmentId}/rent`);
+          const whatsappLink = `https://wa.me/3114617436?text=Hola, me gustaría rentar el apartamento ${apart.data.apartmentNumber} desde el ${rentalData.startDate} hasta el ${rentalData.endDate} que tiene un precio de ${apartmentPrice}.`;
+          window.open(whatsappLink, '_blank');
+        }
         setRentalData({
           startDate: "",
           endDate: "",
@@ -109,7 +103,7 @@ const FilterRent = ({ apartmentId, onClose }) => {
         onClick={handleRent}
         disabled={isSubmitting || !isAvailable}
       >
-        {isSubmitting ? "Renting..." : "Rent"} 
+        {isSubmitting ? "Renting..." : "Rent"}
       </button>
     </section>
   );
