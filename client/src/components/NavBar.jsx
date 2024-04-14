@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { BsFillBuildingsFill } from "react-icons/bs";
 import { AiFillCloseCircle } from "react-icons/ai";
-import { CgDarkMode } from "react-icons/cg";
+import { MdLightbulbCircle } from "react-icons/md";
 import image from "../assets/rent apt.jpeg";
 import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
@@ -82,10 +82,10 @@ const NavBar = () => {
     >
       <div className={styles.title}>
         <h3>The best website to rent furnished apartments</h3>
-        <CgDarkMode
+        <MdLightbulbCircle
           onClick={toggleTheme}
           style={{ cursor: "pointer", padding: "2px", fontSize: "40px" }}
-        ></CgDarkMode>
+        ></MdLightbulbCircle>
       </div>
       <nav className={styles.navbar}>
         <div
