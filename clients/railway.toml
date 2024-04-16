@@ -6,7 +6,7 @@ output = "dist"
 
 [deploy]
 # Define el comando para iniciar tu aplicación Vite
-startCommand = "node index.js"  # Actualizado para el archivo server.js
+startCommand = "dist/assets/index.js"  # Actualizado para el archivo server.js
 # Configura un redireccionamiento global para aplicaciones Vite
 [[redirects]]
 from = "/*"
