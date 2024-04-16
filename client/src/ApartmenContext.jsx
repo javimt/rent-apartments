@@ -1,5 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
+const url = 'http://localhost:3001/'
+const productionUrl = 'https://brave-bird-production.up.railway.app/'
 
 const ApartmentContext = createContext();
 
@@ -13,7 +15,7 @@ export function ApartmentProvider({ children }) {
 
   const fetchApartments = async () => {
     try {
-      const response = await axios.get("http://localhost:3001/apartment");
+      const response = await axios.get(url + "apartment");
       setApartments(response.data.data);
     } catch (error) {
       console.error(error);
