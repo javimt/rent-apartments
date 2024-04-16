@@ -1,0 +1,90 @@
+
+.mainContainer{
+    background-color: white;
+}
+
+.telephoneIcon{
+   
+    width: 25px;
+    height: 25px;
+    position: relative !important;
+    bottom: 2px;
+    color: grey !important;
+}
+.navbar-toggler {
+    border: none !important;
+}
+
+.companyName{
+    position: relative;
+    bottom: 2px;
+}
+.smallScreen {
+    text-align: center !important;
+    padding-top: 5px;
+    position: absolute!important;
+    right: 0px;
+    bottom: 4px;
+}
+
+.smallScreen span{
+    padding-top: 15px !important;
+}
+
+
+@media (max-width: 1200px){
+    .smallScreenLinks span{
+        text-align: center !important;
+        margin-right: 40px !important;
+    }
+    .smallScreen{
+        position: relative !important;
+        text-align: center !important;
+        margin-right: 40px !important;
+        font-size: 15px !important;
+    }
+    .companyName{
+        font-size: 18px!important;
+    }
+
+    .smallScreenLinks li{
+        text-align: center !important;
+        
+    }
+    .companyName{
+        font-size: 20px!important;
+    }
+    
+    
+}
+@media (max-width: 500px){
+    .smallScreen{
+        position: relative !important;
+        text-align: center !important;
+        margin-right: 40px !important;
+        font-size: 15px !important;
+    }
+    .companyName{
+        font-size: 18px!important;
+    }
+
+    .smallScreenLinks li{
+        text-align: center !important;
+        
+    }
+    
+}
+
+
+@media (max-width: 400px){
+    .smallScreen{
+        position: relative !important;
+        text-align: center !important;
+        margin-right: 40px !important;
+        font-size: 12px !important;
+    }
+    .companyName{
+        font-size: 20px!important;
+    }
+    
+}
