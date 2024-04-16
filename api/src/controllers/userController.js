@@ -1,103 +1,85 @@
 const { User } = require("../../db");
+const { resSender, HttpStatusCodes, rejectSender } = require('../helpers/resSender');
 
 module.exports = {
-  getAllUsers: async (req, res) => {
+  getAllUsers: async (req, res, next) => {
     try {
       const allUsers = await User.findAll();
-      res.status(200).json(allUsers);
+      resSender(null, HttpStatusCodes.aceptado, allUsers);
     } catch (error) { 
-      res.status(500).send({ error: error.message });
+      next(error);
     }
   },
 
-  getUserById: async (req, res) => {
-    const { id } = req.params;
+  loginOrRegister: async (req, res, next) => {
+    const { email } = req.body;
     try {
-      const user = await User.findOne({ where: { email: id } });
-      if (!user) {
-        return res.status(404).json({ error: "User not found" });
-      }
-      const isAdmin = user.role === "admin";
-      const isSuperAdmin = user.role === "superAdmin"
-      if (isAdmin) {
-        res.status(200).json({ isAdmin: true, redirectUrl: `/user/${user.email}/admin` });
-      } else if(isSuperAdmin) {
-        res.status(200).json({isSuperAdmin: true, redirectUrl: `/user/${user.email}/admin`})
-      } else {
-        res.status(200).json({ isAdmin: false, isSuperAdmin: false });
-      }
+      const user = await User.findOrCreate({ where: { email: email }, defaults: req.body});
+      resSender(null, HttpStatusCodes.creado, user);
     } catch (error) {
-      res.status(500).send({ error: error.message });
+      next(error);
     }
   },
 
-  postUser: async (req, res) => {
-    const {name, lastName, email, role, image} = req.body;
+  getByEmail: async (req, res, next) => {
     try {
-      let user = await User.findOne({ where: { email } });
-      if (user) {
-        return res.status(400).json({ error: "Email already exists" });
-      } 
-      user = await User.create({email, name, lastName, image, role});
-  //console.log("este es el usuario creado", user)
-      res.status(200).json(user);
+      const user = await User.findOne({where: {email: email}});
+      resSender(null, HttpStatusCodes.creado, user);
     } catch (error) {
-      res.status(500).send({ error: error.message });
+      next(error);
     }
   },
 
-  assignAdminRole: async (req, res) => {
+  assignAdminRole: async (req, res, next) => {
     const { id } = req.params;
     const { role } = req.body
     try {
       const currentUser = await User.findOne({ where: { email: id } });
       if (!currentUser) {
-        return res.status(404).send({ error: "Usuario no encontrado" });
+        rejectSender("Usuario no encontrado", HttpStatusCodes.noEncontrado);
       }
       if (currentUser === "superAdmin") {
-        //return res.status(403).send({ error: "No puedes cambiar tu propio rol" });
-        return res.status(201).json({ message: "Access successfully", user: currentUser });
+        resSender(null, HttpStatusCodes.aceptado, {user: currentUser});
       } 
       const user = await User.findByPk(id);
       if (!user) {
-        return res.status(404).send({ error: "User not found" });
+        rejectSender("User not found", HttpStatusCodes.noEncontrado);
       }
       if (user.role === "superAdmin" && user.id === currentUser) {
-        return res.status(403).send({ error: "No puedes cambiar tu propio rol" });
+        rejectSender("No puedes cambiar tu propio rol", HttpStatusCodes.conflictivo);
       }
       user.role = role;
       await user.save();
-      res.status(200).send({ message: "User role updated" });
+      resSender("User role updated", HttpStatusCodes.actualizado);
     } catch (error) {
-      res.status(500).send({ error: error.message });
+      next(error);
     }
   },
 
-  putUser: async (req, res) => {
-    const { id } = req.params;
+  putUser: async (req, res, next) => {
     try {
-      const user = await User.findByPk(id);
+      const user = await User.findOne(email);
       if (!user) {
-        return res.status(404).send({ error: "User not found" });
+        rejectSender("User not found", HttpStatusCodes.noEncontrado);
       }
       const updateUser = await user.update(req.body);
-      res.status(200).json({ message: "User updated succesfully", updateUser });
+      resSender(null, HttpStatusCodes.actualizado, updateUser);
     } catch (error) {
-      res.status(500).send({ error: error.message });
+      next(error);
     }
   },
 
-  deleteUser: async (req, res) => {
+  deleteUser: async (req, res, next) => {
     const { id } = req.params;
     try {
       const user = await User.findByPk(id);
       if (!user) {
-        return res.status(404).send({ error: "User not found" });
+        rejectSender("User not found", HttpStatusCodes.noEncontrado);
       }
       await user.destroy();
-      res.status(200).send({ message: "User deleted" });
+      resSender("User deleted", HttpStatusCodes.eliminado, null);
     } catch (error) {
-      res.status(500).send({ error: error.message });
+      next(error);
     }
   },
 };

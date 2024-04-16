@@ -1,38 +1,17 @@
-const { User, Apartment, Rent, Sale, Payment } = require("../../db");
-
-const checkAvailability = (apartment) => {
-  return apartment.availability ? "Available" : "Not Available";
-}; 
+const { User, Apartment, Rent, Sale } = require("../../db");
+const { resSender, HttpStatusCodes, rejectSender } = require('../helpers/resSender');
 
 module.exports = {
-  getAllApartments: async (req, res) => {
+  getAllApartments: async (req, res, next) => {
     try {
       const apartments = await Apartment.findAll(); 
-      res.status(200).json(apartments);
+      resSender(null, HttpStatusCodes.aceptado, apartments);
     } catch (error) {
-      res.status(500).send({ error: error.message });
+      next(error);
     }
   },
 
-  getAllRentApartments: async (req, res) => {
-    try {
-      const rentalApartments = await Apartment.findAll({ where: { status: 'rent' } });
-      res.status(200).json(rentalApartments);
-    } catch (error) {
-      res.status(500).send({ error: error.message });
-    }
-  },
-
-  getAllSaleApartments: async (req, res) => {
-    try {
-      const saleApartments = await Apartment.findAll({ where: { status: 'sale' } });
-      res.status(200).json(saleApartments);
-    } catch (error) {
-      res.status(500).send({ error: error.message });
-    }
-  },
-
-  getApartmentById: async (req, res) => {
+  getApartmentById: async (req, res, next) => {
     const { id } = req.params;
     try {
       const apartment = await Apartment.findOne({
@@ -40,68 +19,64 @@ module.exports = {
         include: { model: User },
       });
       if (!apartment) {
-        return res.status(404).json({ error: "Apartment not found" });
-      }
-      if(apartment.status === "rent") {
-        const availability = checkAvailability(apartment);
-        res.status(200).json({ ...apartment.toJSON(), availability });
+        rejectSender('Apartamento no encontrado', HttpStatusCodes.noEncontrado);
       } else {
-        res.status(200).json(apartment, req.body.apartmentNumber)
+        resSender(null, HttpStatusCodes.aceptado, apartment);
       }
     } catch (error) {
-      res.status(500).json({ error: error.message });
+      next(error);
     }
   },
 
-  createApartment: async (req, res) => {
+  createApartment: async (req, res, next) => {
     try {
       const newApartment = await Apartment.create(req.body);
-      res.status(201).json(newApartment);
+      resSender(null, HttpStatusCodes.creado, newApartment);
     } catch (error) {
-      res.status(500).send({ error: error.message });
+      next(error);
     }
   },
 
-  updateApartment: async (req, res) => {
+  updateApartment: async (req, res, next) => {
     const { id } = req.params;
     try {
       const apartment = await Apartment.findByPk(id);
       if (!apartment) {
-        return res.status(404).send({ error: "Apartment not found" });
+        rejectSender('Apartamento no encontrado', HttpStatusCodes.noEncontrado);
       }
       const updatedApartment = await apartment.update(req.body);
-      res.status(200).json({ message: "Apartment updated successfully", updatedApartment });
+      resSender(null, HttpStatusCodes.actualizado, updatedApartment);
     } catch (error) {
-      res.status(500).send({ error: error.message });
+      next(error);
     }
   },
 
-  deleteApartment: async (req, res) => {
+  deleteApartment: async (req, res, next) => {
     const { id } = req.params;
     try {
       const apartment = await Apartment.findByPk(id);
       if (!apartment) {
-        return res.status(404).send({ error: "Apartment not found" });
+        rejectSender('Apartamento no encontrado', HttpStatusCodes.noEncontrado);
       }
       await apartment.destroy();
-      res.status(200).send({ message: "Apartment deleted successfully" });
+      resSender("Apartment deleted successfully", HttpStatusCodes.eliminado, null);
     } catch (error) {
-      res.status(500).send({ error: error.message });
+      next(error);
     }
   },
 
-  rentApartment: async (req, res) => {
+  rentApartment: async (req, res, next) => {
     const { id } = req.params;
     try {
       if (!req.body.userId) {
-        return res.status(400).send({ error: "User ID is missing in the request body" });
+        rejectSender("User ID is missing in the request body", HttpStatusCodes.sinContenido);
       }
       const apartment = await Apartment.findByPk(id);
       if (!apartment) {
-        return res.status(404).send({ error: "Apartment not found" });
+        rejectSender("Apartment not found", HttpStatusCodes.noEncontrado);
       }
       if (!apartment.availability) {
-        return res.status(400).send({ error: "Apartment is not available for rent" });
+        rejectSender("Apartment is not available for rent", HttpStatusCodes.entidadNoProcesable );
       }
 
       const currentDate = new Date();
@@ -116,16 +91,16 @@ module.exports = {
       endDate.setDate(endDate.getDate());
       
       if (!startDate || !endDate) {
-        return res.status(400).send("no se pueden generar rentas sin fecha de inicio y finalizacion");
+        rejectSender("no se pueden generar rentas sin fecha de inicio y finalizacion", HttpStatusCodes.badRequest);
       }
       if(startDate < currentDate) {
-        return res.status(400).send("la fecha de inicio debe ser mayor a la actual")
+        rejectSender("la fecha de inicio debe ser mayor a la actual", HttpStatusCodes.badRequest)
       }
       if(startDate > endDate) {
-        return res.status(400).send("la fecha de inicio no puede ser igual a la de finalizacion")
+        rejectSender("la fecha de inicio no puede ser igual a la de finalizacion", HttpStatusCodes.badRequest)
       }
       if(endDate < currentDate) {
-        return res.status(400).send("la fecha de finalizacion no puede ser menor a la actual")
+        rejectSender("la fecha de finalizacion no puede ser menor a la actual", HttpStatusCodes.badRequest)
       }
       try {
         const rent = await Rent.create({
@@ -138,24 +113,24 @@ module.exports = {
         });
         apartment.availability = false;
         await apartment.save();
-        res.status(200).json({ message: "Apartment rented successfully", rent });
+        resSender("Apartment rented successfully", HttpStatusCodes.aceptado, rent );
       } catch (error) {
-        res.status(500).send({ error: error.message });
+        next(error);
       }
     } catch (error) {
-      res.status(500).send({ error: error.message });
+      next(error);
     }
   }, 
 
-  saleApartment: async(req, res) => {
+  saleApartment: async(req, res, next) => {
     const { id } = req.params;
     try {
       if (!req.body.userId) {
-        return res.status(400).send({ error: "User ID is missing in the request body" });
+        rejectSender("User ID is missing in the request body", HttpStatusCodes.sinContenido);
       }
       const apartment = await Apartment.findByPk(id);
       if (!apartment) {
-        return res.status(404).send({ error: "Apartment not found" });
+        rejectSender("Apartment not found", HttpStatusCodes.noEncontrado);
       }
 
       const date = new Date(req.body.date);
@@ -172,13 +147,12 @@ module.exports = {
         });
         apartment.status = "sold";
         await apartment.save();
-        res.status(201).json({ message: "Apartment sold successfully", sale });
+        resSender("Apartment sold successfully", HttpStatusCodes.aceptado, sale );
       } catch (error) {
-        res.status(500).send({ error: error.message });
+        next(error);
       }
     } catch (error) {
-      res.status(500).send({ error: error.message });
+      next(error);
     }
   } 
-
 };

@@ -4,12 +4,15 @@ import { useAuth0 } from "@auth0/auth0-react";
 import styles from "../styles/SaleCard.module.css";
 import { useApartments } from "../ApartmenContext";
 import axios from "axios";
+import SearchBar from "./SearchBar";
+import FilterPrice from "./FilterPrice";
 
 const SaleCard = () => {
   const [userHasPermission, setUserHasPermission] = useState(false);
   const { user, isAuthenticated, loginWithPopup } = useAuth0();
-  const { apartments, deleteApartment, markApartmentAsSold  } = useApartments();
+  const { apartments, deleteApartment, markApartmentAsSold, filterApartmentsByLocation } = useApartments();
   const cardRef = useRef(null);
+  const [filteredApartments, setFilteredApartments] = useState([]);
 
   const handleBuyApartment = (apartmentId) => {
     if (isAuthenticated) {
@@ -18,7 +21,7 @@ const SaleCard = () => {
       loginWithPopup();
     }
   };
-  
+
   const formatPrice = (price) => {
     return `$${price.toLocaleString()}us`;
   };
@@ -55,20 +58,37 @@ const SaleCard = () => {
     checkUserPermission();
   }, [user, isAuthenticated]);
 
+  useEffect(() => {
+    setFilteredApartments(apartments.filter(apartment => apartment.status === "sale"));
+  }, [apartments]);
+
   return (
     <div className={styles.container}>
-      {apartments.map((apartment) => (
-        apartment.status === "sale" && (
-          <article key={apartment.id} className={styles.card} ref={cardRef}>
+      <SearchBar filterFunction={filterApartmentsByLocation} />
+      <FilterPrice apartments={filteredApartments} updateFilteredApartments={setFilteredApartments} />
+      {apartments.map(
+        (apartment) =>
+          apartment.status === "sale" && (
+            <article key={apartment.id} className={styles.card} ref={cardRef}>
               {userHasPermission && (
-                <button className={styles.deleteButton} onClick={() => handleDeleteApartment(apartment.id)}>
+                <button
+                  className={styles.deleteButton}
+                  onClick={() => handleDeleteApartment(apartment.id)}
+                >
                   Delete
                 </button>
               )}
-              <img src={apartment.images[0]} alt="apartment furnished" className={styles.image} />
+              <img
+                src={apartment.images[0]}
+                alt="apartment furnished"
+                className={styles.image}
+              />
               <div className={styles.details}>
                 <div className={styles.availability}>
-                  <button className={styles.buy} onClick={() => handleBuyApartment(apartment.id)}>
+                  <button
+                    className={styles.buy}
+                    onClick={() => handleBuyApartment(apartment.id)}
+                  >
                     Buy
                   </button>
                 </div>
@@ -81,9 +101,9 @@ const SaleCard = () => {
               <Link to={`/${apartment.id}/details`} className={styles.link}>
                 <button className={styles.det}>Details</button>
               </Link>
-          </article>
-        )
-      ))}
+            </article>
+          )
+      )}
     </div>
   );
 };
