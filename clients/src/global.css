@@ -1,0 +1,16 @@
+
+:root {
+  --gris-claro: #F5F5F5; 
+}
+
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background-color:var(--gris-claro)!important;
+  min-height: 100vh;
+}

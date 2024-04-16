@@ -1,0 +1,91 @@
+.mainContainer {
+    width: 1200px !important;
+    height: 600px;
+    background-image: url('../../assets/imagenPortada1.jpeg');
+    object-fit: cover;
+    /* Ajusta la imagen para cubrir completamente el contenedor */
+    background-position: center;
+    /* Centra la imagen */
+    /* Calcula la altura del contenedor para mantener la relación de aspecto 16:9 */
+    border-radius: 20px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.mainContainer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.313);
+    /* Color oscuro con una opacidad del 50% */
+    border-radius: 20px;
+    z-index: 1;
+}
+
+.textContainer {
+    color: rgb(255, 255, 255) !important;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 230%;
+    text-align: center;
+    width: 70%;
+    border-radius: 20px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    position: relative;
+    z-index: 100;
+
+}
+
+.textContainer p{
+    font-size: 50%!important;
+    font-weight: 300;
+}
+
+
+.FilterPanelContainer {
+    width: 70%;
+    height: 100px;
+    background-color: white;
+    position: absolute;
+    right: calc 50%;
+    bottom:calc(0% - 50px);
+    border-radius: 20px;
+    z-index: 101;
+}
+
+
+
+@media (max-width: 500px) {
+
+    .mainContainer {
+        width: 90% !important;
+        height: 50vh;
+        background-image: url('../../assets/imagenPortada1.jpeg');
+        background-size: cover;
+        /* Ajusta la imagen para cubrir completamente el contenedor */
+        background-position: center;
+        /* Centra la imagen */
+        /* Calcula la altura del contenedor para mantener la relación de aspecto 16:9 */
+        border-radius: 20px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .textContainer {
+        color: white !important;
+        font-size: 100%;
+        text-align: center;
+        width: 70%;
+    }
+}
