@@ -1,4 +1,3 @@
-import portada from '../../assets/imagenPortada1.jpeg'
 import styles from './header.module.css'
 import FilterPanel from './panel';
 
