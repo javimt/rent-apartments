@@ -23,7 +23,7 @@
 }
 .slider .slide_track {
   transform: translateX(0);
-  animation: scroll 90s ease-in-out infinite alternate;
+  animation: scroll 120s ease-in-out infinite alternate;
   display: flex;
   align-items: center;
   width: auto;
