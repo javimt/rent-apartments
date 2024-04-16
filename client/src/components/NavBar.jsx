@@ -21,33 +21,18 @@ const NavBar = () => {
 
   useEffect(() => {
     if (user && isAuthenticated) {
-      axios
-        .get("http://localhost:3001/user")
-        .then((response) => {
-          const userDb = response.data.find((e) => e.email === user.email);
-          if (!userDb) {
-            const newUser = {
-              name: user.given_name,
-              lastName: user.family_name,
-              email: user.email,
-              image: user.picture,
-            };
-            axios
-              .post("http://localhost:3001/user", newUser)
-              .then((response) => {
-                console.log("User saved to the database:");
-                setInfoUser(newUser);
-              })
-              .catch((error) => {
-                console.error("Error saving user to the database:", error);
-              });
-          } else {
-            setInfoUser(userDb);
-          }
-        })
-        .catch((error) => {
-          console.error("Error retrieving user from the database:", error);
-        });
+      const newUser = {
+        name: user.given_name,
+        lastName: user.family_name,
+        email: user.email,
+        image: user.picture,
+      };
+      axios.post("http://localhost:3001/user/login", newUser).then((response) => {
+        //data en su posicion 1 guarda la info si el usuario está o no registrado (true - false)
+        setInfoUser(response.data.data[0]);
+      }).catch((error) => {
+        console.error("Error retrieving user from the database:", error);
+      });
     }
   }, [user, isAuthenticated]);
 

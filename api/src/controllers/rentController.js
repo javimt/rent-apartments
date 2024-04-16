@@ -1,84 +1,69 @@
 const { Rent, Apartment } = require("../../db");
+const { resSender, HttpStatusCodes, rejectSender } = require('../helpers/resSender');
 
 module.exports = {
-  getAllRents: async (req, res) => {
+  getAllRents: async (req, res, next) => {
     try {
       const rents = await Rent.findAll();
-      res.status(200).json(rents);
+      resSender(null, HttpStatusCodes.aceptado, rents);
     } catch (error) {
-      res.status(500).send({ error: error.message });
+      next(error);
     }
   },
 
-  getRentById: async (req, res) => {
+  getRentById: async (req, res, next) => {
     const id = req.params.id;
     try {
       const rent = await Rent.findByPk(id);
       if (!rent) {
-        return res.status(404).send({ error: "Rent not found" });
+        rejectSender("Rent not found", HttpStatusCodes.noEncontrado);
       }
-      res.status(200).json(rent);
+      resSender(null, HttpStatusCodes.aceptado, rent);
     } catch (error) {
-      res.status(500).send({error: error.message});
+      next(error);
     }
   },
 
-  createRent: async (req, res) => {
+  createRent: async (req, res, next) => {
     try {
-      const { apartmentId, startDate, endDate, totalPrice, status } = req.body;
+      const { apartmentId } = req.body;
       const apartment = await Apartment.findByPk(apartmentId);
       if (!apartment) {
-        return res.status(404).send({ error: "Apartment not found" });
+        rejectSender("Apartment not found", HttpStatusCodes.noEncontrado);
       }
       if (!apartment.availability) {
-        return res.status(400).send({ error: "Apartment is not available for rent" });
+        rejectSender("Apartment is not available for rent", HttpStatusCodes.conflictivo);
       }
-      const newRent = await Rent.create({
-        apartmentId,
-        startDate,
-        endDate,
-        totalPrice,
-        status,
-      });
+      const newRent = await Rent.create(req.body);
       apartment.availability = false;
       await apartment.save();
-      res.status(201).json(newRent);
+      resSender(null, HttpStatusCodes.creado, newRent);
     } catch (error) {
-      res.status(500).send({ error: error.message });
+      next(error);
     }
   },
 
-  updateRent: async (req, res) => {
+  updateRent: async (req, res, next) => {
     const { id } = req.params;
-    const { 
-      startDate,
-      endDate,
-      totalPrice,
-      status } = req.body;
     try {
       const rent = await Rent.findByPk(id);
       if (!rent) {
-        return res.status(404).send({ error: "Rent not found" });
+        rejectSender("Rent not found", HttpStatusCodes.noEncontrado);
       }
-      const updatedRent = await rent.update({ 
-        startDate,
-        endDate,
-        totalPrice,
-        status 
-      });
-      res.status(200).json({ message: "Rent updated successfully", updatedRent });
+      const updatedRent = await rent.update(req.body);
+      resSender(null, HttpStatusCodes.actualizado, updatedRent);
     } catch (error) {
-      res.status(500).send({ error: error.message });
+      next(error);
     }
   },
 
-  deleteRent: async (req, res) => {
+  deleteRent: async (req, res, next) => {
     const { id } = req.params;
     try {
       await Rent.destroy({ where: { id } });
-      res.status(200).send({ message: "Rent deleted successfully" });
+      resSender("Rent deleted successfully", HttpStatusCodes.eliminado, null);
     } catch (error) {
-      res.status(500).send({ error: error.message });
+      next(error);
     }
   },
 };

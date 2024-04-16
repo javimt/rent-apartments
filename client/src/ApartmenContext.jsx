@@ -14,7 +14,7 @@ export function ApartmentProvider({ children }) {
   const fetchApartments = async () => {
     try {
       const response = await axios.get("http://localhost:3001/apartment");
-      setApartments(response.data);
+      setApartments(response.data.data);
     } catch (error) {
       console.error(error);
     }

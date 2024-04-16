@@ -1,78 +1,69 @@
 const { Sale, Apartment } = require("../../db");
+const { resSender, HttpStatusCodes, rejectSender } = require('../helpers/resSender');
 
 module.exports = {
-  getAllSales: async (req, res) => {
+  getAllSales: async (req, res, next) => {
     try {
       const sales = await Sale.findAll();
-      res.status(200).json(sales);
+      resSender(null, HttpStatusCodes.aceptado, sales);
     } catch (error) {
-      res.status(500).send({ error: error.message });
+      next(error);
     }
   },
 
-  getSaleById: async (req, res) => {
+  getSaleById: async (req, res, next) => {
     const id = req.params.id;
     try {
       const sale = await Sale.findByPk(id);
       if (!sale) {
-        return res.status(404).send({ error: "Sale not found" });
+        rejectSender("Sale not found", HttpStatusCodes.noEncontrado);
       }
-      res.status(200).json(sale);
+      resSender(null, HttpStatusCodes.aceptado, sale);
     } catch (error) {
-      res.status(500).send({error: error.message});
+      next(error);
     }
   },
 
-  createSale: async (req, res) => {
+  createSale: async (req, res, next) => {
     try {
-      const { apartmentId, date, totalPrice, status } = req.body;
+      const { apartmentId } = req.body;
       const apartment = await Apartment.findByPk(apartmentId);
       if (!apartment) {
-        return res.status(404).send({ error: "Apartment not found" });
+        rejectSender("Apartment not found", HttpStatusCodes.noEncontrado);
       }
       if (apartment.status !== "available") {
-        return res.status(400).send({ error: "Apartment is not available for Sale" });
+        rejectSender("Apartment is not available for Sale", HttpStatusCodes.conflictivo);
       }
-      const newSale = await Sale.create({
-        apartmentId,
-        date,
-        totalPrice,
-        status,
-      });
+      const newSale = await Sale.create(req.body);
       apartment.status = "sale";
       await apartment.save();
-      res.status(201).json(newSale);
+      resSender(null, HttpStatusCodes.creado, newSale);
     } catch (error) {
-      res.status(500).send({ error: error.message });
+      next(error);
     }
   },
 
-  updateSale: async (req, res) => {
+  updateSale: async (req, res, next) => {
     const { id } = req.params;
-    const { date, totalPrice, status } = req.body;
     try {
       const sale = await Sale.findByPk(id);
       if (!sale) {
-        return res.status(404).send({ error: "Sale not found" });
+        rejectSender("Sale not found", HttpStatusCodes.noEncontrado);
       }
-      const updatedSale = await sale.update({ 
-        date,
-        totalPrice,
-        status 
-      });
-      res.status(200).json({ message: "Sale updated successfully", updatedSale });
+      const updatedSale = await sale.update(req.body);
+      resSender(null ,HttpStatusCodes.actualizado, updatedSale);
     } catch (error) {
-      res.status(500).send({ error: error.message });
+      next(error);
     }
   },
 
-  deleteSale: async (req, res) => {
+  deleteSale: async (req, res, next) => {
     const { id } = req.params;
     try {
       await Sale.destroy({ where: { id } });
-      res.status(200).send({ message: "sale deleted successfully" });
+      resSender("sale deleted successfully", HttpStatusCodes.eliminado, null);
     } catch (error) {
-      res.status(500).send({ error: error.message });
+      next(error);
     }
   },
 };

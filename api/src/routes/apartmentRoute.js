@@ -1,8 +1,6 @@
 const { Router } = require("express");
 const {
   getAllApartments,
-  getAllRentApartments,
-  getAllSaleApartments,
   createApartment,
   updateApartment,
   deleteApartment,
@@ -14,8 +12,6 @@ const {
 const router = Router();
 
 router.get("/", getAllApartments);
-router.get("/rent", getAllRentApartments);
-router.get("/sale", getAllSaleApartments);
 router.get("/:id/rent", getApartmentById);
 router.post("/", createApartment);
 router.post("/:id/rent", rentApartment);

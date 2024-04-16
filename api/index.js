@@ -5,6 +5,8 @@ const { connection } = require("./db");
 const router = require("./src/routes/index");
 const cron = require("node-cron");
 const { checkExpiredRents } = require("./src/controllers/rentExpiration");
+const { resSender} = require('./src/helpers/resSender');
+const { captureRes } = require("./src/helpers/midlewareRes");
 
 const port = process.env.PORT || 3000
 
@@ -22,11 +24,12 @@ const app = express();
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(cors());
+app.use(captureRes);
 
 app.use("/", router);
 
 app.get("/", (req, res) => {
-  res.status(200).send("Welcome to ISO proyect");
+  res.status(200).send("Welcome to Furnished Apartments");
 });
 
 //manejo de errores
