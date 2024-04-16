@@ -9,7 +9,7 @@ interface propsType {
 }
 
 
-function DropDown({type, options, name, desc}: propsType) {
+function DropDown({options, name, desc}: propsType) {
 
     const { toogleHandleShow , show} = useHandleShow()
 
