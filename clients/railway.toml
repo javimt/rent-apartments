@@ -2,9 +2,14 @@
 
 [build]
   command = "npm run build"
+  
   # Especificar el directorio de construcción
   output = "dist"
-  
+
+[deploy]
+startCommand = "echo starting"
+
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
