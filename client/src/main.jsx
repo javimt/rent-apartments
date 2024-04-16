@@ -8,7 +8,7 @@ import { ApartmentProvider } from "./ApartmenContext.jsx";
 import { ThemeProvider } from "./components/ThemeProvider.jsx";
 import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:3001/";
+axios.defaults.baseURL = "https://api-rent-appartament.up.railway.app";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

@@ -37,7 +37,7 @@ const SaleCard = () => {
   const checkUserPermission = async () => {
     if (isAuthenticated) {
       try {
-        const response = await axios.get(`http://localhost:3001/user/${user.email}`);
+        const response = await axios.get(`https://api-rent-appartament.up.railway.app/user/${user.email}`);
         if (response.data && response.data.redirectUrl) {
           const redirectUrl = response.data.redirectUrl;
           if (redirectUrl.includes("/admin") || redirectUrl.includes("/superAdmin")) {

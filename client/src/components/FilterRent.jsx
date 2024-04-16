@@ -32,11 +32,11 @@ const FilterRent = ({ apartmentId, onClose }) => {
         
         // Verificar si el usuario tiene rol de administrador o superadmin
         const userId = user.email;
-        const response = await axios.get(`http://localhost:3001/user/${userId}`);
+        const response = await axios.get(`https://api-rent-appartament.up.railway.app/user/${userId}`);
         const userData = response.data;
 
         if (userData.isAdmin || userData.isSuperAdmin) {
-          const response = await axios.post(`http://localhost:3001/apartment/${apartmentId}/rent`, {
+          const response = await axios.post(`https://api-rent-appartament.up.railway.app/apartment/${apartmentId}/rent`, {
             startDate: rentalData.startDate,
             endDate: rentalData.endDate,
             userId: user.email,
@@ -50,7 +50,7 @@ const FilterRent = ({ apartmentId, onClose }) => {
           });
 
         } else {
-          const apart = await axios.get(`http://localhost:3001/apartment/${apartmentId}/rent`);
+          const apart = await axios.get(`https://api-rent-appartament.up.railway.app/apartment/${apartmentId}/rent`);
           const whatsappLink = `https://wa.me/3114617436?text=Hola, me gustaría rentar el apartamento ${apart.data.apartmentNumber} desde el ${rentalData.startDate} hasta el ${rentalData.endDate} que tiene un precio de ${apartmentPrice}.`;
           window.open(whatsappLink, '_blank');
         }

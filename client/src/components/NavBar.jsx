@@ -27,7 +27,7 @@ const NavBar = () => {
         email: user.email,
         image: user.picture,
       };
-      axios.post("http://localhost:3001/user/login", newUser).then((response) => {
+      axios.post("https://api-rent-appartament.up.railway.app/user/login", newUser).then((response) => {
         //data en su posicion 1 guarda la info si el usuario está o no registrado (true - false)
         setInfoUser(response.data.data[0]);
       }).catch((error) => {

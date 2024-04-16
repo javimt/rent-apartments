@@ -13,7 +13,7 @@ export function ApartmentProvider({ children }) {
 
   const fetchApartments = async () => {
     try {
-      const response = await axios.get("http://localhost:3001/apartment");
+      const response = await axios.get("https://api-rent-appartament.up.railway.app/apartment");
       setApartments(response.data.data);
     } catch (error) {
       console.error(error);
@@ -39,7 +39,7 @@ export function ApartmentProvider({ children }) {
 
   const deleteApartment = async (apartmentId) => {
     try {
-      await axios.delete(`http://localhost:3001/apartment/${apartmentId}`);
+      await axios.delete(`https://api-rent-appartament.up.railway.app/apartment/${apartmentId}`);
       const updatedApartments = await apartments.filter((apartment) => apartment.id !== apartmentId/*  && apartment.status === "sold" */);
   console.log(updatedApartments)
       setApartments(updatedApartments);
@@ -56,7 +56,7 @@ export function ApartmentProvider({ children }) {
           : apartment
       );
       setApartments(updatedApartments);
-      await axios.put(`http://localhost:3001/apartment/${apartmentId}`, {
+      await axios.put(`https://api-rent-appartament.up.railway.app/apartment/${apartmentId}`, {
         status: 'sold'
       });
     } catch (error) {

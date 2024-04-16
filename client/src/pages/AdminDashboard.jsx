@@ -31,7 +31,7 @@ const AdminDashboard = () => {
       const userId = user.email;
       const checkAdminStatus = async () => {
         try {
-          const response = await axios.get(`http://localhost:3001/user/${userId}`);
+          const response = await axios.get(`https://api-rent-appartament.up.railway.app/user/${userId}`);
           if (response.data.isSuperAdmin) {
             setIsSuperAdmin(true);
           } else if (response.data.isAdmin) {
@@ -49,7 +49,7 @@ const AdminDashboard = () => {
   }, [user, isAuthenticated]);
 
   useEffect(() => {
-    axios.get('http://localhost:3001/user') 
+    axios.get('https://api-rent-appartament.up.railway.app/user') 
       .then((response) => {
         setUsers(response.data);
       })
@@ -60,9 +60,9 @@ const AdminDashboard = () => {
 
   const handleRoleChange = async (userId, role) => {
     if (isSuperAdmin) {
-      await axios.put(`http://localhost:3001/user/${userId}/admin`, {role} )
+      await axios.put(`https://api-rent-appartament.up.railway.app/user/${userId}/admin`, {role} )
         .then(() => {
-          axios.get('http://localhost:3001/user')
+          axios.get('https://api-rent-appartament.up.railway.app/user')
             .then((response) => {
               setUsers(response.data); 
             })
@@ -89,7 +89,7 @@ const AdminDashboard = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3001/apartment',formData);
+      const response = await axios.post('https://api-rent-appartament.up.railway.app/apartment',formData);
       const newApartment = response.data;
       setFormData({
         images: [],
