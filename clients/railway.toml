@@ -1,16 +1,14 @@
-
-
 [build]
-  command = "npm run build"
-  
-  # Especificar el directorio de construcción
-  output = "dist"
+command = "npm run build"
+root = "src"
+# Especifica la salida de la compilación Vite
+output = "dist"
 
 [deploy]
-startCommand = "echo starting"
-
-
+# Define el comando para iniciar tu aplicación Vite
+startCommand = "node dist/server.js"
+# Configura un redireccionamiento global para aplicaciones Vite
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+from = "/*"
+to = "/index.html"
+status = 200
