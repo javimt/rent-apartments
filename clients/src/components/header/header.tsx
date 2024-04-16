@@ -1,5 +1,5 @@
-import styles from './header.module.css'
-import FilterPanel from './panel';
+import styles from './panel/header.module.css'
+import FilterPanel from './panel/panel';
 
 
 function Header() {
@@ -11,7 +11,6 @@ function Header() {
                 <p>con mas de 15 años en el rubro y mas de 200 apartamentos equipados</p>
             </div>
                 <FilterPanel/>
-            
         </div>
       );
 }

@@ -1,7 +1,7 @@
 .mainContainer {
     width: 1200px !important;
     height: 600px;
-    background-image: url('../../assets/imagenPortada1.jpeg');
+    background-image: url('../../../assets/imagenPortada1.jpeg')!important;
     object-fit: cover;
     /* Ajusta la imagen para cubrir completamente el contenedor */
     background-position: center;
@@ -52,7 +52,7 @@
 
 .FilterPanelContainer {
     width: 70%;
-    height: 100px;
+    padding: 20px;
     background-color: white;
     position: absolute;
     right: calc 50%;
@@ -61,9 +61,28 @@
     z-index: 101;
 }
 
+/* DROPDOWN */
+.dropdowmMainContainer{
+    width: max-content !important;
+    background-color: white !important;
+    border: solid rgb(214, 212, 212) 1px;
+    border-radius: 10px;
+}
+.dropDownTitle{
+    font-size: 15px;
+    padding: 0px;
+    margin: 0px;
+    
+}
 
+.dropDownDescription{
+    font-size: 10px;
+    padding: 0px;
+    margin: 0px;
+    
+}
 
-@media (max-width: 500px) {
+@media (max-width: 1200px) {
 
     .mainContainer {
         width: 90% !important;
@@ -84,8 +103,26 @@
 
     .textContainer {
         color: white !important;
-        font-size: 100%;
+        font-size: 200%;
         text-align: center;
         width: 70%;
+    }
+
+    .FilterPanelContainer {
+        width: 80%;
+        
+    }
+    .dropDownTitle{
+        font-size: 20px;
+        padding: 0px;
+        margin: 0px;
+        
+    }
+    
+    .dropDownDescription{
+        font-size: 10px;
+        padding: 0px;
+        margin: 0px;
+        
     }
 }
