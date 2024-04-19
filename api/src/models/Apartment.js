@@ -10,9 +10,6 @@ module.exports = (sequelize) => {
     images: {
       type: DataTypes.ARRAY(DataTypes.TEXT),
     },
-    ubication: {
-      type: DataTypes.STRING,
-    },
     availability: {
       type: DataTypes.BOOLEAN,
       defaultValue: true,
@@ -27,12 +24,12 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER
     },
     size: {
-      type: DataTypes.INTEGER
+      type: DataTypes.STRING
     },
     bathrooms: {
       type: DataTypes.INTEGER
     },
-    name: {
+    urbanizacion: {
       type: DataTypes.STRING
     },
     lat: {
@@ -51,6 +48,7 @@ module.exports = (sequelize) => {
     Apartment.hasMany(models.Rent, { foreignKey: 'apartmentId' });
     Apartment.hasMany(models.Sale, { foreignKey: 'apartmentId' });
     Apartment.hasMany(models.Transaction);
+    Apartment.belongsTo(models.City);
   }
   return Apartment;
 };

@@ -1,4 +1,4 @@
-const { Transaction, Apartment, User, Rent } = require('../../db');
+const { Transaction, Apartment, User } = require('../../db');
 const { resSender, HttpStatusCodes, rejectSender } = require('../helpers/resSender');
 
 module.exports = {
