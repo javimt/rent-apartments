@@ -5,12 +5,16 @@ const {
   updateApartment,
   deleteApartment,
   getApartmentById,
+  getApartmentByCity,
+  getApartmentByName,
 } = require("../controllers/apartmentController");
 
 const router = Router();
 
 router.get("/", getAllApartments);
-router.get("/:id/", getApartmentById);
+router.get("/city/:city", getApartmentByCity);
+router.get("/:urbanizacion", getApartmentByName);
+router.get("/:id", getApartmentById);
 router.post("/", createApartment);
 router.put("/:id", updateApartment);
 router.delete("/:id", deleteApartment);
