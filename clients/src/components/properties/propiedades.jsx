@@ -12,8 +12,8 @@ function Properties() {
     const { counter, handleCounter } = useCounterHouses()
 
     return (
-        <Transition className={'px-4 mb-40 ms:mt-0 mt-[300px] md:mt-40  md:px-40'}>
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+        <Transition className={'px-4 mb-40 ms:mt-0 mt-[300px] md:mt-20  md:px-40'}>
+            <div className="grid grid-cols-2 gap-2 md:gap-4 xl:grid-cols-4">
                 {
                     apartments && apartments.map(({
                         availability,
@@ -45,7 +45,7 @@ function Properties() {
                                             <p className="text-secondary">{ubication}</p>
                                             <div className="">
                                                 <div className="flex">
-                                                    <LiaCommentsDollarSolid className="mr-2 text-green-400" />
+                                                    <LiaCommentsDollarSolid className="mr-2 text-green-800" />
                                                     <p className=" font-bold">{parseToDollarsMoney(price)}</p>
                                                 </div>
                                                 <div className="gap-4 mt-2 lg:flex">
