@@ -1,12 +1,15 @@
 import { actionTypes } from "./actionTypes"
 
-
+const productionHandler ={
+    urlProduction:'https://api-rent-appartament.up.railway.app/apartment',
+    urlDevelopment: 'http://localhost:3000/apartment'
+}
 
 
 
 export function getApatments(){
     return (dispatch)=>{
-        fetch('http://localhost:3000/apartment')
+        fetch(productionHandler.urlProduction)
         .then(response => response.json())
         .then(data => dispatch({type: actionTypes.GET_ALL_APARTMENTS, payload: data}))
         .catch(error => console.error(error))
