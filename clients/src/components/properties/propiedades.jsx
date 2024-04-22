@@ -3,7 +3,7 @@ import Transition from "../banner/floatedSearch/transition";
 import { Link } from 'react-router-dom'
 import { LiaStarSolid, LiaCommentsDollarSolid, LiaBedSolid, LiaBathSolid, LiaRulerCombinedSolid } from 'react-icons/lia'
 import { parseToDollarsMoney } from "../../utils/parseMoney";
-import useCounterHouses from "../../redux/actoions/counterHauses";
+import useCounterHouses from "../../redux/actions/counterHauses";
 
 
 function Properties() {
@@ -12,7 +12,7 @@ function Properties() {
     const { counter, handleCounter } = useCounterHouses()
 
     return (
-        <Transition className={'px-4 mb-40 ms:mt-0 mt-[300px] md:mt-20  md:px-40'}>
+        <Transition className={'px-4 mb-0 ms:mt-0 mt-[300px] md:mt-20  md:px-40'}>
             <div className="grid grid-cols-2 gap-2 md:gap-4 xl:grid-cols-4">
                 {
                     apartments && apartments.map(({

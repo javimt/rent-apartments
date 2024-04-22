@@ -57,8 +57,8 @@ function NavBar({ openStatus }) {
                         {
                             dataLink.map(({ id, name, link }) => {
                                 return (
-                                    <div className='text-center text-[18px]'> 
-                                        <Link key={id} to={link} className='block border-b-[1px] border-white hover:text-secondary hover:border-b-[1px] hover:border-b-secondary md:mb-0 mb-4'>
+                                    <div key={id} className='text-center text-[18px]'> 
+                                        <Link  to={link} className='block border-b-[1px] border-white hover:text-secondary hover:border-b-[1px] hover:border-b-secondary md:mb-0 mb-4'>
                                             {name}
                                         </Link>
                                     </div>

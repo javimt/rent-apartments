@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getApatments } from "../redux/actoions/apartmentActions";
+import { getApatments } from "../redux/actions/apartmentActions";
 
 
 
@@ -15,8 +15,9 @@ function useGetApartments() {
         dispatch(getApatments())
     }
     const length = apartments ? apartments.length : 8
+    
     useEffect(()=>{
-        dispatch(getApatments())
+        !allApartment.length && dispatch(getApatments())
     }, [])
     
     useEffect(()=>{

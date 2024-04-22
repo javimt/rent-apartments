@@ -7,6 +7,7 @@ import TransitionPage from './components/transitionPage/transitionPage'
 import Header from './components/header/header'
 import Banner from './components/banner/banner'
 import Properties from './components/properties/propiedades'
+import Services from './components/services/services'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -19,6 +20,7 @@ function App() {
           <Header />
           <Banner />
           <Properties />
+          <Services/>
         </>}
         />
 
