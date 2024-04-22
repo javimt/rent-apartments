@@ -14,7 +14,7 @@ function useGetApartments() {
     function resetApartmentsList(){
         dispatch(getApatments())
     }
-    
+    const length = apartments ? apartments.length : 8
     useEffect(()=>{
         dispatch(getApatments())
     }, [])
@@ -25,7 +25,8 @@ function useGetApartments() {
     
     return{
         apartments,
-        resetApartmentsList
+        resetApartmentsList,
+        length
     };
 }
 

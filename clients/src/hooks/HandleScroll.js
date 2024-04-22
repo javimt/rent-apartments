@@ -4,27 +4,30 @@ import { useEffect, useState } from "react";
 
 
 function useHandleScroll() {
-    
-    const [scrolling, setScrolling ] = useState(false)
 
-    function handleScroll(){
-        
-        if(window.scrollY >= window.innerHeight - 600){
-            
+    const [scrolling, setScrolling] = useState(false)
+
+    function handleScroll() {
+
+        if (window.scrollY >= window.innerHeight - 400) {
+
             setScrolling(true)
-        }else{
+        } else if (window.scrollY == 0) {
+            setScrolling(false)
+        } else {
             setScrolling(false)
         }
     }
 
-    useEffect(()=>{
+    useEffect(() => {
+
         window.addEventListener('scroll', handleScroll)
-        console.log(window.innerHeight - 400)
-        return ()=>{
+        
+        return () => {
             window.removeEventListener('scroll', handleScroll)
         }
-    },[])
-    
+    }, [])
+
     return {
         scrolling,
     }

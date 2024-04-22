@@ -3,15 +3,16 @@ import Transition from "../banner/floatedSearch/transition";
 import { Link } from 'react-router-dom'
 import { LiaStarSolid, LiaCommentsDollarSolid, LiaBedSolid, LiaBathSolid, LiaRulerCombinedSolid } from 'react-icons/lia'
 import { parseToDollarsMoney } from "../../utils/parseMoney";
+import useCounterHouses from "../../redux/actoions/counterHauses";
 
 
 function Properties() {
 
-    const { apartments } = useGetApartments()
-
+    const { apartments, length } = useGetApartments()
+    const { counter, handleCounter } = useCounterHouses()
 
     return (
-        <Transition className={'px-4  ms:mt-0 mt-[300px] md:mt-20  md:px-40'}>
+        <Transition className={'px-4 mb-40 ms:mt-0 mt-[300px] md:mt-40  md:px-40'}>
             <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
                 {
                     apartments && apartments.map(({
@@ -28,8 +29,10 @@ function Properties() {
                         size,
                         status,
                         ubication,
-                        userId }) => {
+                        userId }, index) => {
                         return (
+                        
+                            index < counter &&
                             <Link className="shadow-light hover:shadow-xl font-quicksand rounded-2xl transition-all duration-300 cursor-pointer" key={id} to={`/properties/${id}`}>
                                 <div className="relative -z-[1]">
                                     <div className="relative">
@@ -72,22 +75,13 @@ function Properties() {
                     )
                 }
             </div>
+            {   counter < length &&
+                <div className="text-center my-7 rounded-3xl">
+                    <button onClick={handleCounter} className="py-2 px-3 bg-secondary text-white rounded-xl">Ver mas</button>
+                </div>
+            }
         </Transition>
     );
 }
 
 export default Properties;
-// availability
-// bathrooms
-// bedrooms
-// description
-// id
-// images
-// lat
-// lon
-// name
-// price
-// size
-// status
-// ubication
-// userId

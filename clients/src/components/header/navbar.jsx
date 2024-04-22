@@ -28,7 +28,6 @@ function NavBar({ openStatus }) {
 
     const { scrolling } = useHandleScroll()
 
-    console.log(scrolling)
     return (
         <AnimatePresence>
             {
