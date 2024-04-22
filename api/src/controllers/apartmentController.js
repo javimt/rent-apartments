@@ -1,4 +1,5 @@
-const { Apartment, Rent } = require("../../db");
+const { Op } = require("sequelize");
+const { Apartment, Rent, City } = require("../../db");
 const { resSender, HttpStatusCodes, rejectSender } = require('../helpers/resSender');
 
 module.exports = {
@@ -23,6 +24,66 @@ module.exports = {
       } else {
         resSender(null, HttpStatusCodes.aceptado, apartment);
       }
+    } catch (error) {
+      next(error);
+    }
+  },
+
+  getApartmentByCity: async (req, res, next) => {
+    const { city } = req.params;
+    try {
+      const apartment = await Apartment.findAll({
+        include: [
+          {
+            model: City,
+            where: {
+              city: {[Op.iLike]: `%${city}%`}
+            }
+          }
+        ]
+      })
+      if(!apartment) {
+        rejectSender("no se encontró el modelo CITY", HttpStatusCodes.noEncontrado);
+      }
+      resSender(null, HttpStatusCodes.aceptado, apartment);
+    } catch (error) {
+      next(error);
+    }
+  },
+
+  getApartmentByName: async (req, res ,next) => {
+    const { urbanizacion } = req.params;
+    try {
+      const nameApartment = await Apartment.findOne({
+        where: {
+          urbanizacion: {
+            [Op.iLike]: `%${urbanizacion}%`
+          }
+        }
+      });
+      if(!nameApartment) {
+        rejectSender("no se encontro el apartamento por el nombre", HttpStatusCodes.noEncontrado);
+      }
+      resSender(null, HttpStatusCodes.aceptado, nameApartment);
+    } catch (error) {
+      next(error);
+    }
+  },
+
+  getApartmentsByPriceRange: async (req, res, next) => {
+    const { minPrice, maxPrice } = req.body.price;
+    try {
+      const apartments = await Apartment.findAll({
+        where: {
+          price: {
+            [Op.between]: [minPrice, maxPrice]
+          }
+        }
+      });
+      if (!apartments.length) {
+        rejectSender("No se encontraron apartamentos dentro del rango de precios proporcionado", HttpStatusCodes.noEncontrado);
+      }
+      resSender(null, HttpStatusCodes.aceptado, apartments);
     } catch (error) {
       next(error);
     }

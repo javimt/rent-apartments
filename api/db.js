@@ -23,7 +23,7 @@ function setWorkSeting(production = false, ssl= false){
    return new Sequelize(url, options)
 }
 
-const sequelize = setWorkSeting(false)
+const sequelize = setWorkSeting(true);
 
 const models = {};
 fs.readdirSync(path.join(__dirname, "src", "models"))
