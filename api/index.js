@@ -41,7 +41,7 @@ app.use((err, req, res, next) => {
 });
 
 connection
-  .sync({ force: true })
+  .sync({ force: false })
   .then((response) => console.info("the postgreSQL Db is connected"))
   .then(() =>
     app.listen(port, console.info(`Server is listening on port ${port}`))
