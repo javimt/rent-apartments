@@ -1,3 +1,4 @@
+import { actionTypes } from "../actoions/actionTypes";
 
 
 const initialState = {
@@ -8,9 +9,11 @@ const initialState = {
 
 function apartmentReducer(state = initialState, action){
     switch (action.type) {
-        case '':
+        case actionTypes.GET_ALL_APARTMENTS:
             
-            return {...state};
+            return {...state,
+                apartments: action.payload
+            };
     
         default:
             return {...state};
