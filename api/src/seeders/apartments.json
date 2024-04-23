@@ -1,7 +1,7 @@
 [
   {
-    "id": "c62444ed-070d-4323-88c9-3015a1ce0836",
-    "images": [
+    "id":"c62444ed-070d-4323-88c9-3015a1ce0836",
+    "images":[
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1699370549/PROYECTO%20PROPIEDADES/apartamento%20drive/High-Rise%2C%20Fully-Equipped%20Apartment%20for%20a%20remote%20worker%20in%20Patio%20Bonito%2C%20El%20Poblado%20with%20Stunning%20Views/3_vvo06u.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1699370552/PROYECTO%20PROPIEDADES/apartamento%20drive/High-Rise%2C%20Fully-Equipped%20Apartment%20for%20a%20remote%20worker%20in%20Patio%20Bonito%2C%20El%20Poblado%20with%20Stunning%20Views/dd35d4d0-d4e4-4d6d-876a-883794d53887_gdlpb2.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1699370551/PROYECTO%20PROPIEDADES/apartamento%20drive/High-Rise%2C%20Fully-Equipped%20Apartment%20for%20a%20remote%20worker%20in%20Patio%20Bonito%2C%20El%20Poblado%20with%20Stunning%20Views/8ae91f6f-00b2-4bb2-aeba-6c5690f94087_dhangl.jpg",
@@ -16,83 +16,107 @@
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1699370552/PROYECTO%20PROPIEDADES/apartamento%20drive/High-Rise%2C%20Fully-Equipped%20Apartment%20for%20a%20remote%20worker%20in%20Patio%20Bonito%2C%20El%20Poblado%20with%20Stunning%20Views/bf8ae14f-d12b-4207-abb6-db74a24b6ae2_wj8n3w.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1699370551/PROYECTO%20PROPIEDADES/apartamento%20drive/High-Rise%2C%20Fully-Equipped%20Apartment%20for%20a%20remote%20worker%20in%20Patio%20Bonito%2C%20El%20Poblado%20with%20Stunning%20Views/b8ad6c65-3365-4dff-8262-9b944f4a1fe4_kycsqe.jpg"
     ],
-    "size": "80",
-    "urbanizacion": "Patio bonito 1302",
-    "availability": false,
-    "price": 1150,
-    "description": "4 people max",
-    "bedrooms": 3,
-    "bathrooms": 4,
-    "lat": "6.204085",
-    "lon": "-75.574586",
-    "status": "rent",
-    "userId": null
+    "size":"80",
+    "urbanizacion":"Patio bonito 1302",
+    "availability":false,
+    "price":1150,
+    "description":"4 people max",
+    "bedrooms":3,
+    "bathrooms":4,
+    "lat":"6.204085",
+    "lon":"-75.574586",
+    "status":"rent",
+    "userId":null,
+    "rating":{
+      "valorations":[
+        3
+      ],
+      "media":3
+    }
   },
   {
-    "id": "2bc111b2-cb53-4bc7-bb63-e3e02df5cf97",
-    "images": [
+    "id":"2bc111b2-cb53-4bc7-bb63-e3e02df5cf97",
+    "images":[
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg"
     ],
-    "size": "70",
-    "availability": true,
-    "price": 1000,
-    "description": "4 people max",
-    "bedrooms": 2,
-    "bathrooms": 2,
-    "urbanizacion": "Bosques del Rio 1709",
-    "lat": "6.220148",
-    "lon": "-75.574051",
-    "status": "rent",
-    "userId": null
+    "size":"70",
+    "availability":true,
+    "price":1000,
+    "description":"4 people max",
+    "bedrooms":2,
+    "bathrooms":2,
+    "urbanizacion":"Bosques del Rio 1709",
+    "lat":"6.220148",
+    "lon":"-75.574051",
+    "status":"rent",
+    "userId":null,
+    "rating":{
+      "valorations":[
+        3
+      ],
+      "media":3
+    }
   },
   {
-    "id": "808c4b91-c3b1-4a51-ab62-124a46881c9d",
-    "images": [
+    "id":"808c4b91-c3b1-4a51-ab62-124a46881c9d",
+    "images":[
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939207/PROYECTO%20PROPIEDADES/ariari%20301/img2_rxfznu.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939224/PROYECTO%20PROPIEDADES/ariari%20301/img7_fa82vz.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939208/PROYECTO%20PROPIEDADES/ariari%20301/img5_clyenm.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939207/PROYECTO%20PROPIEDADES/ariari%20301/img3_szbxzb.jpg"
     ],
-    "size": "100",
-    "availability": true,
-    "price": 75000,
-    "description": "4 people max",
-    "bedrooms": 3,
-    "bathrooms": 4,
-    "urbanizacion": "Edificio Ariari",
-    "lat": "6.262601",
-    "lon": "-75.596294",
-    "status": "sale",
-    "userId": null
+    "size":"100",
+    "availability":true,
+    "price":75000,
+    "description":"4 people max",
+    "bedrooms":3,
+    "bathrooms":4,
+    "urbanizacion":"Edificio Ariari",
+    "lat":"6.262601",
+    "lon":"-75.596294",
+    "status":"sale",
+    "userId":null,
+    "rating":{
+      "valorations":[
+        3
+      ],
+      "media":3
+    }
   },
   {
-    "id": "9543706e-d7c6-43e0-a3f5-a731b9fb89bc",
-    "images": [
+    "id":"9543706e-d7c6-43e0-a3f5-a731b9fb89bc",
+    "images":[
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/ar_16:9,c_fill,g_auto,q_100,w_1024/v1693939295/PROYECTO%20PROPIEDADES/castropol%201602/img9_klzsbv.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939271/PROYECTO%20PROPIEDADES/castropol%201602/img1_ewvtps.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939274/PROYECTO%20PROPIEDADES/castropol%201602/img3_gdgp6d.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939273/PROYECTO%20PROPIEDADES/castropol%201602/img2_b7nrmh.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_95/v1693939275/PROYECTO%20PROPIEDADES/castropol%201602/img4_gjk9ce.jpg"
     ],
-    "size": "70",
-    "availability": false,
-    "price": 1020,
-    "description": "4 people max",
-    "bedrooms": 2,
-    "bathrooms": 2,
-    "urbanizacion": "Castropol 1602",
-    "lat": "6.123457",
-    "lon": "75.123457",
-    "status": "rent",
-    "userId": null
+    "size":"70",
+    "availability":false,
+    "price":1020,
+    "description":"4 people max",
+    "bedrooms":2,
+    "bathrooms":2,
+    "urbanizacion":"Castropol 1602",
+    "lat":"6.123457",
+    "lon":"75.123457",
+    "status":"rent",
+    "userId":null,
+    "rating":{
+      "valorations":[
+        3
+      ],
+      "media":3
+    }
   },
   {
-    "id": "5698eea2-d533-44be-a14d-40b3e939a4a7",
-    "images": [
+    "id":"5698eea2-d533-44be-a14d-40b3e939a4a7",
+    "images":[
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939269/PROYECTO%20PROPIEDADES/castropol%201308/apt1.1_gpkiks.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939271/PROYECTO%20PROPIEDADES/castropol%201308/apt1_fa5rdh.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939271/PROYECTO%20PROPIEDADES/castropol%201308/apt1.4_tohfkw.jpg",
@@ -100,39 +124,51 @@
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939269/PROYECTO%20PROPIEDADES/castropol%201308/apt1.2_awavmi.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939270/PROYECTO%20PROPIEDADES/castropol%201308/apt1.3_uiflpr.jpg"
     ],
-    "size": "70",
-    "availability": false,
-    "price": 1100,
-    "description": "4 people max",
-    "bedrooms": 3,
-    "bathrooms": 4,
-    "urbanizacion": "Castropol 1308",
-    "lat": "6.214168",
-    "lon": "-75.569281",
-    "status": "rent",
-    "userId": null
+    "size":"70",
+    "availability":false,
+    "price":1100,
+    "description":"4 people max",
+    "bedrooms":3,
+    "bathrooms":4,
+    "urbanizacion":"Castropol 1308",
+    "lat":"6.214168",
+    "lon":"-75.569281",
+    "status":"rent",
+    "userId":null,
+    "rating":{
+      "valorations":[
+        3
+      ],
+      "media":3
+    }
   },
   {
-    "id": "63145fa2-af25-42b6-bebe-8676ad3f5356",
-    "images": [
+    "id":"63145fa2-af25-42b6-bebe-8676ad3f5356",
+    "images":[
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939307/PROYECTO%20PROPIEDADES/la%20duquesa/apt1.1_afos4n.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939320/PROYECTO%20PROPIEDADES/la%20duquesa/apt1_n0xeve.jpg"
     ],
-    "size": "95",
-    "availability": true,
-    "price": 950,
-    "description": "4 people max",
-    "bedrooms": 2,
-    "bathrooms": 3,
-    "urbanizacion": "La Duquesa 515",
-    "lat": "6.220148",
-    "lon": "-75.574051",
-    "status": "rent",
-    "userId": null
+    "size":"95",
+    "availability":true,
+    "price":950,
+    "description":"4 people max",
+    "bedrooms":2,
+    "bathrooms":3,
+    "urbanizacion":"La Duquesa 515",
+    "lat":"6.220148",
+    "lon":"-75.574051",
+    "status":"rent",
+    "userId":null,
+    "rating":{
+      "valorations":[
+        3
+      ],
+      "media":3
+    }
   },
   {
-    "id": "11d9a992-b200-4885-809a-0233064aaf19",
-    "images": [
+    "id":"11d9a992-b200-4885-809a-0233064aaf19",
+    "images":[
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939375/PROYECTO%20PROPIEDADES/nueva%20alejandria%201504/apt1.3_yusdls.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939375/PROYECTO%20PROPIEDADES/nueva%20alejandria%201504/apt1.1_q1nr8v.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939375/PROYECTO%20PROPIEDADES/nueva%20alejandria%201504/apt1.4_fmruvv.jpg",
@@ -140,21 +176,27 @@
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939376/PROYECTO%20PROPIEDADES/nueva%20alejandria%201504/apt1.5_lmuua1.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939376/PROYECTO%20PROPIEDADES/nueva%20alejandria%201504/apt1.6_im534i.jpg"
     ],
-    "size": "85",
-    "availability": true,
-    "price": 1300,
-    "description": "4 people max",
-    "bedrooms": 2,
-    "bathrooms": 3,
-    "urbanizacion": "Nueva Alejandria 1205",
-    "lat": "6.220148",
-    "lon": "-75.574051",
-    "status": "rent",
-    "userId": null
+    "size":"85",
+    "availability":true,
+    "price":1300,
+    "description":"4 people max",
+    "bedrooms":2,
+    "bathrooms":3,
+    "urbanizacion":"Nueva Alejandria 1205",
+    "lat":"6.220148",
+    "lon":"-75.574051",
+    "status":"rent",
+    "userId":null,
+    "rating":{
+      "valorations":[
+        3
+      ],
+      "media":3
+    }
   },
   {
-    "id": "908e454c-14c4-47e0-9757-f3409afc452b",
-    "images": [
+    "id":"908e454c-14c4-47e0-9757-f3409afc452b",
+    "images":[
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939383/PROYECTO%20PROPIEDADES/nueva%20alejandria%20201/apt1.5_ek5nty.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939382/PROYECTO%20PROPIEDADES/nueva%20alejandria%20201/apt1.3_qgqmje.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939384/PROYECTO%20PROPIEDADES/nueva%20alejandria%20201/apt1_yln9hj.jpg",
@@ -162,21 +204,27 @@
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/ar_16:9,c_fill,g_auto,q_100,w_1024/v1693939381/PROYECTO%20PROPIEDADES/nueva%20alejandria%20201/apt1.2_kbufbo.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939383/PROYECTO%20PROPIEDADES/nueva%20alejandria%20201/apt1.7_scapjq.jpg"
     ],
-    "size": "85",
-    "availability": true,
-    "price": 1100,
-    "description": "4 people max",
-    "bedrooms": 2,
-    "bathrooms": 3,
-    "urbanizacion": "Nueva Alejandria 201",
-    "lat": "6.220148",
-    "lon": "-75.574051",
-    "status": "rent",
-    "userId": null
+    "size":"85",
+    "availability":true,
+    "price":1100,
+    "description":"4 people max",
+    "bedrooms":2,
+    "bathrooms":3,
+    "urbanizacion":"Nueva Alejandria 201",
+    "lat":"6.220148",
+    "lon":"-75.574051",
+    "status":"rent",
+    "userId":null,
+    "rating":{
+      "valorations":[
+        3
+      ],
+      "media":3
+    }
   },
   {
-    "id": "ab6bc77f-e0b5-4b2a-aa67-7d1417a54ae9",
-    "images": [
+    "id":"ab6bc77f-e0b5-4b2a-aa67-7d1417a54ae9",
+    "images":[
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939571/PROYECTO%20PROPIEDADES/nueva%20alejandria%20601/apt1.2_ylecnj.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939572/PROYECTO%20PROPIEDADES/nueva%20alejandria%20601/apt1_kwtgn3.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939572/PROYECTO%20PROPIEDADES/nueva%20alejandria%20601/apt1.9_arphaa.jpg",
@@ -185,21 +233,27 @@
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939572/PROYECTO%20PROPIEDADES/nueva%20alejandria%20601/apt1.8_ty3g3h.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939571/PROYECTO%20PROPIEDADES/nueva%20alejandria%20601/apt1.6_bjylep.jpg"
     ],
-    "size": "85",
-    "availability": true,
-    "price": 1200,
-    "description": "4 people max",
-    "bedrooms": 2,
-    "bathrooms": 3,
-    "urbanizacion": "nueva Alejandría 601",
-    "lat": "6.220148",
-    "lon": "-75.574051",
-    "status": "rent",
-    "userId": null
+    "size":"85",
+    "availability":true,
+    "price":1200,
+    "description":"4 people max",
+    "bedrooms":2,
+    "bathrooms":3,
+    "urbanizacion":"nueva Alejandría 601",
+    "lat":"6.220148",
+    "lon":"-75.574051",
+    "status":"rent",
+    "userId":null,
+    "rating":{
+      "valorations":[
+        3
+      ],
+      "media":3
+    }
   },
   {
-    "id": "92b8bf82-c5c8-4d89-bb63-028220e41e93",
-    "images": [
+    "id":"92b8bf82-c5c8-4d89-bb63-028220e41e93",
+    "images":[
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939575/PROYECTO%20PROPIEDADES/nueva%20alejandria%20701/apt1.3_jm3rvz.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939575/PROYECTO%20PROPIEDADES/nueva%20alejandria%20701/apt1.3_jm3rvz.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939705/PROYECTO%20PROPIEDADES/nueva%20alejandria%20701/apt1_nmykii.jpg",
@@ -207,21 +261,27 @@
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939587/PROYECTO%20PROPIEDADES/nueva%20alejandria%20701/apt1.4_nmt25u.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939573/PROYECTO%20PROPIEDADES/nueva%20alejandria%20701/apt1.1_s4h7c1.jpg"
     ],
-    "size": "85",
-    "availability": true,
-    "price": 3000,
-    "description": "4 people max",
-    "bedrooms": 2,
-    "bathrooms": 3,
-    "urbanizacion": "nueva Alejandría 701",
-    "lat": "6.220148",
-    "lon": "-75.574051",
-    "status": "rent",
-    "userId": null
+    "size":"85",
+    "availability":true,
+    "price":3000,
+    "description":"4 people max",
+    "bedrooms":2,
+    "bathrooms":3,
+    "urbanizacion":"nueva Alejandría 701",
+    "lat":"6.220148",
+    "lon":"-75.574051",
+    "status":"rent",
+    "userId":null,
+    "rating":{
+      "valorations":[
+        3
+      ],
+      "media":3
+    }
   },
   {
-    "id": "15a4825a-c839-4ff7-926c-0cefa0a9c23b",
-    "images": [
+    "id":"15a4825a-c839-4ff7-926c-0cefa0a9c23b",
+    "images":[
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939894/PROYECTO%20PROPIEDADES/nueva%20alejandria%20901/apt1.6_jrztx7.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939894/PROYECTO%20PROPIEDADES/nueva%20alejandria%20901/apt1.2_yrynn8.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939894/PROYECTO%20PROPIEDADES/nueva%20alejandria%20901/apt1.2_yrynn8.jpg",
@@ -229,21 +289,27 @@
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939893/PROYECTO%20PROPIEDADES/nueva%20alejandria%20901/apt1.1_fat8g0.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939895/PROYECTO%20PROPIEDADES/nueva%20alejandria%20901/apt1.8_ucr3ma.jpg"
     ],
-    "size": "85",
-    "availability": true,
-    "price": 1250,
-    "description": "4 people max",
-    "bedrooms": 2,
-    "bathrooms": 3,
-    "urbanizacion": "nueva Alejandría 901",
-    "lat": "6.220148",
-    "lon": "-75.574051",
-    "status": "rent",
-    "userId": null
+    "size":"85",
+    "availability":true,
+    "price":1250,
+    "description":"4 people max",
+    "bedrooms":2,
+    "bathrooms":3,
+    "urbanizacion":"nueva Alejandría 901",
+    "lat":"6.220148",
+    "lon":"-75.574051",
+    "status":"rent",
+    "userId":null,
+    "rating":{
+      "valorations":[
+        3
+      ],
+      "media":3
+    }
   },
   {
-    "id": "dbeb1710-ce9c-4cf4-90a4-2560b520bf7e",
-    "images": [
+    "id":"dbeb1710-ce9c-4cf4-90a4-2560b520bf7e",
+    "images":[
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939896/PROYECTO%20PROPIEDADES/plaza%20del%20rio%20416/img13_sccm2y.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939897/PROYECTO%20PROPIEDADES/plaza%20del%20rio%20416/img15_rpaeag.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939954/PROYECTO%20PROPIEDADES/plaza%20del%20rio%20416/img7_sbadwj.jpg",
@@ -252,42 +318,54 @@
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939896/PROYECTO%20PROPIEDADES/plaza%20del%20rio%20416/img12_zua1bi.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939897/PROYECTO%20PROPIEDADES/plaza%20del%20rio%20416/img2_zk0pgl.jpg"
     ],
-    "size": "90",
-    "availability": true,
-    "price": 1100,
-    "description": "4 people max",
-    "bedrooms": 2,
-    "bathrooms": 3,
-    "urbanizacion": "Plaza del Rio 216",
-    "lat": "6.220148",
-    "lon": "-75.574051",
-    "status": "rent",
-    "userId": null
+    "size":"90",
+    "availability":true,
+    "price":1100,
+    "description":"4 people max",
+    "bedrooms":2,
+    "bathrooms":3,
+    "urbanizacion":"Plaza del Rio 216",
+    "lat":"6.220148",
+    "lon":"-75.574051",
+    "status":"rent",
+    "userId":null,
+    "rating":{
+      "valorations":[
+        3
+      ],
+      "media":3
+    }
   },
   {
-    "id": "58d37807-981e-429f-8d81-b2f94ca5398c",
-    "images": [
+    "id":"58d37807-981e-429f-8d81-b2f94ca5398c",
+    "images":[
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939260/PROYECTO%20PROPIEDADES/aves%20marias%20sabaneta/img10_a5hxdq.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939263/PROYECTO%20PROPIEDADES/aves%20marias%20sabaneta/img4_mrddoo.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939263/PROYECTO%20PROPIEDADES/aves%20marias%20sabaneta/img5_v15njw.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/aves%20marias%20sabaneta/img9_f9l8vm.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939264/PROYECTO%20PROPIEDADES/aves%20marias%20sabaneta/img8_dxc7zo.jpg"
     ],
-    "size": "80",
-    "availability": true,
-    "price": 850,
-    "description": "4 people max",
-    "bedrooms": 2,
-    "bathrooms": 1,
-    "urbanizacion": "Aves Maria 401",
-    "lat": "6.151394",
-    "lon": "-75.615844",
-    "status": "rent",
-    "userId": null
+    "size":"80",
+    "availability":true,
+    "price":850,
+    "description":"4 people max",
+    "bedrooms":2,
+    "bathrooms":1,
+    "urbanizacion":"Aves Maria 401",
+    "lat":"6.151394",
+    "lon":"-75.615844",
+    "status":"rent",
+    "userId":null,
+    "rating":{
+      "valorations":[
+        3
+      ],
+      "media":3
+    }
   },
   {
-    "id": "2959bd57-3983-49b6-9b91-8c27dcd446b3",
-    "images": [
+    "id":"2959bd57-3983-49b6-9b91-8c27dcd446b3",
+    "images":[
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939984/PROYECTO%20PROPIEDADES/santa%20maria%20de%20los%20angeles%20703/apt1.6_fwgttt.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939984/PROYECTO%20PROPIEDADES/santa%20maria%20de%20los%20angeles%20703/apt1.4_jqzqir.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693940003/PROYECTO%20PROPIEDADES/santa%20maria%20de%20los%20angeles%20703/apt2.3_viexz6.jpg",
@@ -297,21 +375,27 @@
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693940163/PROYECTO%20PROPIEDADES/santa%20maria%20de%20los%20angeles%20703/apt3_lrd3a2.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693940039/PROYECTO%20PROPIEDADES/santa%20maria%20de%20los%20angeles%20703/apt2.6_sws2hu.jpg"
     ],
-    "size": "85",
-    "availability": true,
-    "price": 1100,
-    "description": "4 people max",
-    "bedrooms": 2,
-    "bathrooms": 3,
-    "urbanizacion": "Santa Maria de los Angeles 414",
-    "lat": "6.220148",
-    "lon": "-75.574051",
-    "status": "rent",
-    "userId": null
+    "size":"85",
+    "availability":true,
+    "price":1100,
+    "description":"4 people max",
+    "bedrooms":2,
+    "bathrooms":3,
+    "urbanizacion":"Santa Maria de los Angeles 414",
+    "lat":"6.220148",
+    "lon":"-75.574051",
+    "status":"rent",
+    "userId":null,
+    "rating":{
+      "valorations":[
+        3
+      ],
+      "media":3
+    }
   },
   {
-    "id": "ed15cc1c-1231-4f78-b2bd-d0d78b12c12a",
-    "images": [
+    "id":"ed15cc1c-1231-4f78-b2bd-d0d78b12c12a",
+    "images":[
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693940164/PROYECTO%20PROPIEDADES/santa%20maria%20de%20los%20angeles%20803/img3_nzgziq.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693940163/PROYECTO%20PROPIEDADES/santa%20maria%20de%20los%20angeles%20803/img1_pii1ic.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693940166/PROYECTO%20PROPIEDADES/santa%20maria%20de%20los%20angeles%20803/img5_qzhco0.jpg",
@@ -319,357 +403,459 @@
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693940166/PROYECTO%20PROPIEDADES/santa%20maria%20de%20los%20angeles%20803/img9_fn2run.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693940164/PROYECTO%20PROPIEDADES/santa%20maria%20de%20los%20angeles%20803/img14_xdyv9h.jpg"
     ],
-    "size": "85",
-    "availability": true,
-    "price": 3000,
-    "description": "4 people max",
-    "bedrooms": 2,
-    "bathrooms": 3,
-    "urbanizacion": "Santa Maria de los Angeles 803",
-    "lat": "6.220148",
-    "lon": "-75.574051",
-    "status": "rent",
-    "userId": null
+    "size":"85",
+    "availability":true,
+    "price":3000,
+    "description":"4 people max",
+    "bedrooms":2,
+    "bathrooms":3,
+    "urbanizacion":"Santa Maria de los Angeles 803",
+    "lat":"6.220148",
+    "lon":"-75.574051",
+    "status":"rent",
+    "userId":null,
+    "rating":{
+      "valorations":[
+        3
+      ],
+      "media":3
+    }
   },
   {
-    "id": "924c1b4f-9b8d-484e-99b6-f6181f69ed64",
-    "images": [
+    "id":"924c1b4f-9b8d-484e-99b6-f6181f69ed64",
+    "images":[
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
     ],
-    "size": "80",
-    "availability": true,
-    "price": 3000,
-    "description": "4 people max",
-    "bedrooms": 3,
-    "bathrooms": 4,
-    "urbanizacion": "Bosques del Rio 1709",
-    "lat": "6.220148",
-    "lon": "-75.574051",
-    "status": "rent",
-    "userId": null
+    "size":"80",
+    "availability":true,
+    "price":3000,
+    "description":"4 people max",
+    "bedrooms":3,
+    "bathrooms":4,
+    "urbanizacion":"Bosques del Rio 1709",
+    "lat":"6.220148",
+    "lon":"-75.574051",
+    "status":"rent",
+    "userId":null,
+    "rating":{
+      "valorations":[
+        3
+      ],
+      "media":3
+    }
   },
   {
-    "id": "8bcbce28-20fc-46eb-89dc-7365b0afdeac",
-    "images": [
+    "id":"8bcbce28-20fc-46eb-89dc-7365b0afdeac",
+    "images":[
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
     ],
-    "size": "85",
-    "availability": true,
-    "price": 3000,
-    "description": "4 people max",
-    "bedrooms": 3,
-    "bathrooms": 4,
-    "urbanizacion": "Bosques del Rio 1709",
-    "lat": "6.220148",
-    "lon": "-75.574051",
-    "status": "rent",
-    "userId": null
+    "size":"85",
+    "availability":true,
+    "price":3000,
+    "description":"4 people max",
+    "bedrooms":3,
+    "bathrooms":4,
+    "urbanizacion":"Bosques del Rio 1709",
+    "lat":"6.220148",
+    "lon":"-75.574051",
+    "status":"rent",
+    "userId":null,
+    "rating":{
+      "valorations":[
+        3
+      ],
+      "media":3
+    }
   },
   {
-    "id": "96250477-c842-49e3-996d-b779597cebcd",
-    "images": [
+    "id":"96250477-c842-49e3-996d-b779597cebcd",
+    "images":[
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
     ],
-    "size": "88",
-    "availability": true,
-    "price": 3000,
-    "description": "4 people max",
-    "bedrooms": 3,
-    "bathrooms": 4,
-    "urbanizacion": "Bosques del Rio 1709",
-    "lat": "6.220148",
-    "lon": "-75.574051",
-    "status": "rent",
-    "userId": null
+    "size":"88",
+    "availability":true,
+    "price":3000,
+    "description":"4 people max",
+    "bedrooms":3,
+    "bathrooms":4,
+    "urbanizacion":"Bosques del Rio 1709",
+    "lat":"6.220148",
+    "lon":"-75.574051",
+    "status":"rent",
+    "userId":null,
+    "rating":{
+      "valorations":[
+        3
+      ],
+      "media":3
+    }
   },
   {
-    "id": "77b08c30-b90b-4cd5-9c92-18ecb5b238fd",
-    "images": [
+    "id":"77b08c30-b90b-4cd5-9c92-18ecb5b238fd",
+    "images":[
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg"
     ],
-    "size": "70",
-    "availability": true,
-    "price": 3000,
-    "description": "4 people max",
-    "bedrooms": 3,
-    "bathrooms": 4,
-    "urbanizacion": "Bosques del Rio 1709",
-    "lat": "6.220148",
-    "lon": "-75.574051",
-    "status": "rent",
-    "userId": null
+    "size":"70",
+    "availability":true,
+    "price":3000,
+    "description":"4 people max",
+    "bedrooms":3,
+    "bathrooms":4,
+    "urbanizacion":"Bosques del Rio 1709",
+    "lat":"6.220148",
+    "lon":"-75.574051",
+    "status":"rent",
+    "userId":null,
+    "rating":{
+      "valorations":[
+        3
+      ],
+      "media":3
+    }
   },
   {
-    "id": "6e43de28-babf-43b3-9e5c-745cc13338e4",
-    "images": [
+    "id":"6e43de28-babf-43b3-9e5c-745cc13338e4",
+    "images":[
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
     ],
-    "size": "78",
-    "availability": true,
-    "price": 3000,
-    "description": "4 people max",
-    "bedrooms": 3,
-    "bathrooms": 4,
-    "urbanizacion": "Bosques del Rio 1709",
-    "lat": "6.220148",
-    "lon": "-75.574051",
-    "status": "rent",
-    "userId": null
+    "size":"78",
+    "availability":true,
+    "price":3000,
+    "description":"4 people max",
+    "bedrooms":3,
+    "bathrooms":4,
+    "urbanizacion":"Bosques del Rio 1709",
+    "lat":"6.220148",
+    "lon":"-75.574051",
+    "status":"rent",
+    "userId":null,
+    "rating":{
+      "valorations":[
+        3
+      ],
+      "media":3
+    }
   },
   {
-    "id": "c8c546b0-8180-4ccf-bd1a-0b2d1c239cb5",
-    "images": [
+    "id":"c8c546b0-8180-4ccf-bd1a-0b2d1c239cb5",
+    "images":[
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
     ],
-    "size": "87",
-    "availability": true,
-    "price": 3000,
-    "description": "4 people max",
-    "bedrooms": 3,
-    "bathrooms": 4,
-    "urbanizacion": "Bosques del Rio 1709",
-    "lat": "6.220148",
-    "lon": "-75.574051",
-    "status": "rent",
-    "userId": null
+    "size":"87",
+    "availability":true,
+    "price":3000,
+    "description":"4 people max",
+    "bedrooms":3,
+    "bathrooms":4,
+    "urbanizacion":"Bosques del Rio 1709",
+    "lat":"6.220148",
+    "lon":"-75.574051",
+    "status":"rent",
+    "userId":null,
+    "rating":{
+      "valorations":[
+        3
+      ],
+      "media":3
+    }
   },
   {
-    "id": "85a17914-bede-4be2-87cf-21d6d2951c68",
-    "images": [
+    "id":"85a17914-bede-4be2-87cf-21d6d2951c68",
+    "images":[
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
     ],
-    "size": "89",
-    "availability": true,
-    "price": 3000,
-    "description": "4 people max",
-    "bedrooms": 3,
-    "bathrooms": 4,
-    "urbanizacion": "Bosques del Rio 1709",
-    "lat": "6.220148",
-    "lon": "-75.574051",
-    "status": "rent",
-    "userId": null
+    "size":"89",
+    "availability":true,
+    "price":3000,
+    "description":"4 people max",
+    "bedrooms":3,
+    "bathrooms":4,
+    "urbanizacion":"Bosques del Rio 1709",
+    "lat":"6.220148",
+    "lon":"-75.574051",
+    "status":"rent",
+    "userId":null,
+    "rating":{
+      "valorations":[
+        3
+      ],
+      "media":3
+    }
   },
   {
-    "id": "a141afe7-0a51-4ed4-9cb4-8b9d079c7b7f",
-    "images": [
+    "id":"a141afe7-0a51-4ed4-9cb4-8b9d079c7b7f",
+    "images":[
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
     ],
-    "size": "68",
-    "availability": true,
-    "price": 3000,
-    "description": "4 people max",
-    "bedrooms": 3,
-    "bathrooms": 4,
-    "urbanizacion": "Bosques del Rio 1709",
-    "lat": "6.220148",
-    "lon": "-75.574051",
-    "status": "rent",
-    "userId": null
+    "size":"68",
+    "availability":true,
+    "price":3000,
+    "description":"4 people max",
+    "bedrooms":3,
+    "bathrooms":4,
+    "urbanizacion":"Bosques del Rio 1709",
+    "lat":"6.220148",
+    "lon":"-75.574051",
+    "status":"rent",
+    "userId":null,
+    "rating":{
+      "valorations":[
+        3
+      ],
+      "media":3
+    }
   },
   {
-    "id": "be5978bc-aafc-4028-bc37-422f93e2ef4d",
-    "images": [
+    "id":"be5978bc-aafc-4028-bc37-422f93e2ef4d",
+    "images":[
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
     ],
-    "size": "96",
-    "availability": true,
-    "price": 3000,
-    "description": "4 people max",
-    "bedrooms": 3,
-    "bathrooms": 4,
-    "urbanizacion": "Bosques del Rio 1709",
-    "lat": "6.220148",
-    "lon": "-75.574051",
-    "status": "rent",
-    "userId": null
+    "size":"96",
+    "availability":true,
+    "price":3000,
+    "description":"4 people max",
+    "bedrooms":3,
+    "bathrooms":4,
+    "urbanizacion":"Bosques del Rio 1709",
+    "lat":"6.220148",
+    "lon":"-75.574051",
+    "status":"rent",
+    "userId":null,
+    "rating":{
+      "valorations":[
+        3
+      ],
+      "media":3
+    }
   },
   {
-    "id": "4ef63c8f-d25c-4626-8a43-cb24a25cebc3",
-    "images": [
+    "id":"4ef63c8f-d25c-4626-8a43-cb24a25cebc3",
+    "images":[
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
     ],
-    "size": "100",
-    "availability": true,
-    "price": 3000,
-    "description": "4 people max",
-    "bedrooms": 3,
-    "bathrooms": 4,
-    "urbanizacion": "Bosques del Rio 1709",
-    "lat": "6.220148",
-    "lon": "-75.574051",
-    "status": "sale",
-    "userId": null
+    "size":"100",
+    "availability":true,
+    "price":3000,
+    "description":"4 people max",
+    "bedrooms":3,
+    "bathrooms":4,
+    "urbanizacion":"Bosques del Rio 1709",
+    "lat":"6.220148",
+    "lon":"-75.574051",
+    "status":"sale",
+    "userId":null,
+    "rating":{
+      "valorations":[
+        3
+      ],
+      "media":3
+    }
   },
   {
-    "id": "1bfd23f4-a80a-4b6b-9b5d-29cdd6fd896d",
-    "images": [
+    "id":"1bfd23f4-a80a-4b6b-9b5d-29cdd6fd896d",
+    "images":[
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
     ],
-    "size": "78",
-    "availability": true,
-    "price": 3000,
-    "description": "4 people max",
-    "bedrooms": 3,
-    "bathrooms": 4,
-    "urbanizacion": "Bosques del Rio 1709",
-    "lat": "6.220148",
-    "lon": "-75.574051",
-    "status": "sale",
-    "userId": null
+    "size":"78",
+    "availability":true,
+    "price":3000,
+    "description":"4 people max",
+    "bedrooms":3,
+    "bathrooms":4,
+    "urbanizacion":"Bosques del Rio 1709",
+    "lat":"6.220148",
+    "lon":"-75.574051",
+    "status":"sale",
+    "userId":null,
+    "rating":{
+      "valorations":[
+        3
+      ],
+      "media":3
+    }
   },
   {
-    "id": "c6f3d3bd-3356-44aa-927a-c92071ef7d8b",
-    "images": [
+    "id":"c6f3d3bd-3356-44aa-927a-c92071ef7d8b",
+    "images":[
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
     ],
-    "size": "90",
-    "availability": true,
-    "price": 3000,
-    "description": "4 people max",
-    "bedrooms": 3,
-    "bathrooms": 4,
-    "urbanizacion": "Bosques del Rio 1709",
-    "lat": "6.220148",
-    "lon": "-75.574051",
-    "status": "sale",
-    "userId": null
+    "size":"90",
+    "availability":true,
+    "price":3000,
+    "description":"4 people max",
+    "bedrooms":3,
+    "bathrooms":4,
+    "urbanizacion":"Bosques del Rio 1709",
+    "lat":"6.220148",
+    "lon":"-75.574051",
+    "status":"sale",
+    "userId":null,
+    "rating":{
+      "valorations":[
+        3
+      ],
+      "media":3
+    }
   },
   {
-    "id": "d70b0c41-9c71-4dad-9fc7-c41e5c2dc558",
-    "images": [
+    "id":"d70b0c41-9c71-4dad-9fc7-c41e5c2dc558",
+    "images":[
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
     ],
-    "size": "89",
-    "availability": true,
-    "price": 3000,
-    "description": "4 people max",
-    "bedrooms": 3,
-    "bathrooms": 4,
-    "urbanizacion": "Bosques del Rio 1709",
-    "lat": "6.220148",
-    "lon": "-75.574051",
-    "status": "sale",
-    "userId": null
+    "size":"89",
+    "availability":true,
+    "price":3000,
+    "description":"4 people max",
+    "bedrooms":3,
+    "bathrooms":4,
+    "urbanizacion":"Bosques del Rio 1709",
+    "lat":"6.220148",
+    "lon":"-75.574051",
+    "status":"sale",
+    "userId":null,
+    "rating":{
+      "valorations":[
+        3
+      ],
+      "media":3
+    }
   },
   {
-    "id": "0f22e289-9c15-445b-8934-3821d53aa233",
-    "images": [
+    "id":"0f22e289-9c15-445b-8934-3821d53aa233",
+    "images":[
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
     ],
-    "size": "70",
-    "availability": true,
-    "price": 3000,
-    "description": "4 people max",
-    "bedrooms": 3,
-    "bathrooms": 4,
-    "urbanizacion": "Bosques del Rio 1709",
-    "lat": "6.220148",
-    "lon": "-75.574051",
-    "status": "sale",
-    "userId": null
+    "size":"70",
+    "availability":true,
+    "price":3000,
+    "description":"4 people max",
+    "bedrooms":3,
+    "bathrooms":4,
+    "urbanizacion":"Bosques del Rio 1709",
+    "lat":"6.220148",
+    "lon":"-75.574051",
+    "status":"sale",
+    "userId":null,
+    "rating":{
+      "valorations":[
+        3
+      ],
+      "media":3
+    }
   },
   {
-    "id": "9c0bb877-b4b1-46a6-a458-4713a9feb6b5",
-    "images": [
+    "id":"9c0bb877-b4b1-46a6-a458-4713a9feb6b5",
+    "images":[
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939570/PROYECTO%20PROPIEDADES/nueva%20alejandria%20505/apt1.7_gw2mpz.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939423/PROYECTO%20PROPIEDADES/nueva%20alejandria%20505/apt1.5_vmoozt.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939435/PROYECTO%20PROPIEDADES/nueva%20alejandria%20505/apt1.6_zylczc.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939411/PROYECTO%20PROPIEDADES/nueva%20alejandria%20505/apt1.4_ygelui.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939387/PROYECTO%20PROPIEDADES/nueva%20alejandria%20505/apt1.2_snlnge.jpg"
     ],
-    "size": "85",
-    "availability": true,
-    "price": 1200,
-    "description": "4 people max",
-    "bedrooms": 2,
-    "bathrooms": 2,
-    "urbanizacion": "nueva Alejandría 505",
-    "lat": "6.200521",
-    "lon": "-75.571367",
-    "status": "rent",
-    "userId": null
+    "size":"85",
+    "availability":true,
+    "price":1200,
+    "description":"4 people max",
+    "bedrooms":2,
+    "bathrooms":2,
+    "urbanizacion":"nueva Alejandría 505",
+    "lat":"6.200521",
+    "lon":"-75.571367",
+    "status":"rent",
+    "userId":null,
+    "rating":{
+      "valorations":[
+        3
+      ],
+      "media":3
+    }
   },
   {
-    "id": "ad193fe6-f839-460f-af7f-ebf9c2d722d5",
-    "images": [
+    "id":"ad193fe6-f839-460f-af7f-ebf9c2d722d5",
+    "images":[
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
     ],
-    "size": "89",
-    "availability": true,
-    "price": 3000,
-    "description": "4 people max",
-    "bedrooms": 3,
-    "bathrooms": 4,
-    "apartmenurbanizaciontNumber": "Bosques del Rio 1709",
-    "lat": "6.220148",
-    "lon": "-75.574051",
-    "status": "sold",
-    "userId": null
+    "size":"89",
+    "availability":true,
+    "price":3000,
+    "description":"4 people max",
+    "bedrooms":3,
+    "bathrooms":4,
+    "apartmenurbanizaciontNumber":"Bosques del Rio 1709",
+    "lat":"6.220148",
+    "lon":"-75.574051",
+    "status":"sold",
+    "userId":null,
+    "rating":{
+      "valorations":[
+        3
+      ],
+      "media":3
+    }
   },
   {
-    "id": "596f6795-e391-4188-ac7c-46f16babb57b",
-    "images": [
+    "id":"596f6795-e391-4188-ac7c-46f16babb57b",
+    "images":[
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939381/PROYECTO%20PROPIEDADES/nueva%20alejandria%201905/apt1_t6xwgb.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939379/PROYECTO%20PROPIEDADES/nueva%20alejandria%201905/apt1.5_nijjgf.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939379/PROYECTO%20PROPIEDADES/nueva%20alejandria%201905/apt1.4_jfzflg.jpg",
@@ -677,16 +863,22 @@
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939379/PROYECTO%20PROPIEDADES/nueva%20alejandria%201905/apt1.3_lty1cd.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939378/PROYECTO%20PROPIEDADES/nueva%20alejandria%201905/apt1.1_o27kmp.jpg"
     ],
-    "size": "85",
-    "availability": false,
-    "price": 1350,
-    "description": "4 people max",
-    "bedrooms": 2,
-    "bathrooms": 3,
-    "urbanizacion": "Nueva Alejandria 1905",
-    "lat": "6.214168",
-    "lon": "-75.569281",
-    "status": "rent",
-    "userId": null
+    "size":"85",
+    "availability":false,
+    "price":1350,
+    "description":"4 people max",
+    "bedrooms":2,
+    "bathrooms":3,
+    "urbanizacion":"Nueva Alejandria 1905",
+    "lat":"6.214168",
+    "lon":"-75.569281",
+    "status":"rent",
+    "userId":null,
+    "rating":{
+      "valorations":[
+        3
+      ],
+      "media":3
+    }
   }
 ]
