@@ -20,7 +20,7 @@ function Transition({ children, className }) {
 
     return (
         <div ref={ref} >
-            <motion.div 
+            <motion.div
                 initial='hidden'
                 variants={fadeIn()}
                 animate = {mainControls}
@@ -28,7 +28,7 @@ function Transition({ children, className }) {
                 className={className}
                 >
                 
-                {children}
+                {children} 
             </motion.div>
         </div>
     );
