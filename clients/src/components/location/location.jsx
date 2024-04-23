@@ -27,7 +27,7 @@ function Location() {
             </h2>
 
             <MapContainer center={coordinatePoint} zoom={13} scrollWheelZoom={false} className="h-[700px]">
-                <TileLayer url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png" />
+                <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
                 <MarkerAppartment selectMarker={centerMarket}/>
             </MapContainer>
         </Transition>
