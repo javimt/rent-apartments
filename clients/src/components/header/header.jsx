@@ -21,7 +21,7 @@ function Header() {
                 <div className='flex items-center gap-2 md:gap-5'>
                     <Link to={'tel:1125420570'} className='flex items-center gap-4 cursor-pointer'>
                         <BsTelephoneForward/>
-                        <span className='hidden md:block'>+54 11 2542 0570</span>
+                   
                     </Link>
                     <Link className='bg-secondary px-3 py-2 rounded-lg hover:bg-black text-white'>
                         Login
