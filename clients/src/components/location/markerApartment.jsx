@@ -10,7 +10,7 @@ function MarkerAppartment({ selectMarker }) {
     const { apartments } = useGetApartments()
     const fnMap = useMap()
     const customIcon = icon({
-        iconUrl: 'https://static.vecteezy.com/system/resources/previews/017/051/847/non_2x/red-isometric-apartment-building-free-png.png',
+        iconUrl: 'https://www.freeiconspng.com/thumbs/apartment-icon/apartment-icon-10.png',
         iconSize: [40, 40]
     })
     return (
