@@ -144,7 +144,14 @@ module.exports = {
       const apartment = await Apartment.findByPk(id);
       if (!apartment) {
         rejectSender("No se encontró el apartamento", HttpStatusCodes.noEncontrado);
+        rejectSender(
+          "No se encontró el apartamento",
+          HttpStatusCodes.noEncontrado
+        );
       }
+      const valorations = [...apartment.rating.valorations, rating]; 
+      const media = valorations.reduce((acum, current) => acum + current, 0) / valorations.length; 
+      const apartUpdated = await apartment.update({
       const valorations = [...apartment.rating.valorations, rating]; 
       const media = valorations.reduce((acum, current) => acum + current, 0) / valorations.length; 
       const apartUpdated = await apartment.update({
@@ -154,10 +161,11 @@ module.exports = {
         }
       });
       resSender(null, HttpStatusCodes.actualizado, apartUpdated);
+      resSender(null, HttpStatusCodes.actualizado, apartUpdated);
     } catch (error) {
       next(error);
     }
-  },
+},
 
   deleteApartment: async (req, res, next) => {
     const { id } = req.params;

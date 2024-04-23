@@ -34,7 +34,7 @@ function Properties() {
                         
                             index < counter &&
                             <Link className="shadow-light hover:shadow-xl font-quicksand rounded-2xl transition-all duration-300 cursor-pointer" key={id} to={`/properties/${id}`}>
-                                <div className="relative -z-[1]">
+                                <div className="relative ">
                                     <div className="relative">
                                         <div className="absolute text-secondary flex items-center px-2 rounded-lg bg-slate-50 top-2 right-2">
                                             <LiaStarSolid />
