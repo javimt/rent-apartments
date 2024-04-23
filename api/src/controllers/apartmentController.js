@@ -172,7 +172,7 @@ module.exports = {
               acum + current;
             },
             0
-          ),
+          ) / apartment.rating.valorations.length + 1
         },
       });
       resSender(null, HttpStatusCodes.actualizado, apartment);
