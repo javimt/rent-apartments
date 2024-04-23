@@ -1,11 +1,15 @@
 const { Op } = require("sequelize");
 const { Apartment, Rent, City } = require("../../db");
-const { resSender, HttpStatusCodes, rejectSender } = require('../helpers/resSender');
+const {
+  resSender,
+  HttpStatusCodes,
+  rejectSender,
+} = require("../helpers/resSender");
 
 module.exports = {
   getAllApartments: async (req, res, next) => {
     try {
-      const apartments = await Apartment.findAll(); 
+      const apartments = await Apartment.findAll();
       resSender(null, HttpStatusCodes.aceptado, apartments);
     } catch (error) {
       next(error);
@@ -20,7 +24,7 @@ module.exports = {
         include: { model: Rent },
       });
       if (!apartment) {
-        rejectSender('Apartamento no encontrado', HttpStatusCodes.noEncontrado);
+        rejectSender("Apartamento no encontrado", HttpStatusCodes.noEncontrado);
       } else {
         resSender(null, HttpStatusCodes.aceptado, apartment);
       }
@@ -37,13 +41,16 @@ module.exports = {
           {
             model: City,
             where: {
-              city: {[Op.iLike]: `%${city}%`}
-            }
-          }
-        ]
-      })
-      if(!apartment) {
-        rejectSender("no se encontró el modelo CITY", HttpStatusCodes.noEncontrado);
+              city: { [Op.iLike]: `%${city}%` },
+            },
+          },
+        ],
+      });
+      if (!apartment) {
+        rejectSender(
+          "no se encontró el modelo CITY",
+          HttpStatusCodes.noEncontrado
+        );
       }
       resSender(null, HttpStatusCodes.aceptado, apartment);
     } catch (error) {
@@ -51,20 +58,52 @@ module.exports = {
     }
   },
 
-  getApartmentByName: async (req, res ,next) => {
+  getApartmentByName: async (req, res, next) => {
     const { urbanizacion } = req.params;
     try {
       const nameApartment = await Apartment.findOne({
         where: {
           urbanizacion: {
-            [Op.iLike]: `%${urbanizacion}%`
-          }
-        }
+            [Op.iLike]: `%${urbanizacion}%`,
+          },
+        },
       });
-      if(!nameApartment) {
-        rejectSender("no se encontro el apartamento por el nombre", HttpStatusCodes.noEncontrado);
+      if (!nameApartment) {
+        rejectSender(
+          "no se encontro el apartamento por el nombre",
+          HttpStatusCodes.noEncontrado
+        );
       }
       resSender(null, HttpStatusCodes.aceptado, nameApartment);
+    } catch (error) {
+      next(error);
+    }
+  },
+
+  getRatings: async (req, res, next) => {
+    const { rating } = req.body;
+    try {
+      if (!rating) {
+        return rejectSender(
+          "No se proporcionó un rating en la solicitud",
+          HttpStatusCodes.badRequest
+        );
+      }
+      const apartments = await Apartment.findAll({
+        where: {
+          rating: rating,
+        },
+      });
+      if (!apartments || apartments.length === 0) {
+        return rejectSender(
+          "No se encontraron apartamentos con el rating proporcionado",
+          HttpStatusCodes.noEncontrado
+        );
+      }
+      if (!rating) {
+        rejectSender("no se encontró el apartamento por rating");
+      }
+      resSender(null, HttpStatusCodes.aceptado, apartments);
     } catch (error) {
       next(error);
     }
@@ -76,12 +115,15 @@ module.exports = {
       const apartments = await Apartment.findAll({
         where: {
           price: {
-            [Op.between]: [minPrice, maxPrice]
-          }
-        }
+            [Op.between]: [minPrice, maxPrice],
+          },
+        },
       });
       if (!apartments.length) {
-        rejectSender("No se encontraron apartamentos dentro del rango de precios proporcionado", HttpStatusCodes.noEncontrado);
+        rejectSender(
+          "No se encontraron apartamentos dentro del rango de precios proporcionado",
+          HttpStatusCodes.noEncontrado
+        );
       }
       resSender(null, HttpStatusCodes.aceptado, apartments);
     } catch (error) {
@@ -103,10 +145,37 @@ module.exports = {
     try {
       const apartment = await Apartment.findByPk(id);
       if (!apartment) {
-        rejectSender('Apartamento no encontrado', HttpStatusCodes.noEncontrado);
+        rejectSender("Apartamento no encontrado", HttpStatusCodes.noEncontrado);
       }
       const updatedApartment = await apartment.update(req.body);
       resSender(null, HttpStatusCodes.actualizado, updatedApartment);
+    } catch (error) {
+      next(error);
+    }
+  },
+
+  updateRating: async (req, res, next) => {
+    const { id, rating } = req.body;
+    try {
+      const apartment = await Apartment.findByPk(id);
+      if (!apartment) {
+        rejectSender(
+          "no se encontró el apartamento",
+          HttpStatusCodes.noEncontrado
+        );
+      }
+      await apartment.update({
+        rating: {
+          valoration: [...apartment.rating.valorations, rating],
+          media: [...apartment.rating.valorations, rating].reduce(
+            (acum, current) => {
+              acum + current;
+            },
+            0
+          ),
+        },
+      });
+      resSender(null, HttpStatusCodes.actualizado, apartment);
     } catch (error) {
       next(error);
     }
@@ -117,12 +186,16 @@ module.exports = {
     try {
       const apartment = await Apartment.findByPk(id);
       if (!apartment) {
-        rejectSender('Apartamento no encontrado', HttpStatusCodes.noEncontrado);
+        rejectSender("Apartamento no encontrado", HttpStatusCodes.noEncontrado);
       }
       await apartment.destroy();
-      resSender("Apartment deleted successfully", HttpStatusCodes.eliminado, null);
+      resSender(
+        "Apartment deleted successfully",
+        HttpStatusCodes.eliminado,
+        null
+      );
     } catch (error) {
       next(error);
     }
-  }
+  },
 };

@@ -26,6 +26,9 @@ module.exports = (sequelize) => {
     size: {
       type: DataTypes.STRING
     },
+    rating: {
+      type: DataTypes.JSON
+    },
     bathrooms: {
       type: DataTypes.INTEGER
     },
