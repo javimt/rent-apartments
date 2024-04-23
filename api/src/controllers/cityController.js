@@ -5,9 +5,6 @@ module.exports = {
   getAllCities: async (req, res ,next) => {
     try {
       const cities = await City.findAll();
-      if(!cities) {
-        rejectSender("no se encontraron ciudades", HttpStatusCodes.noEncontrado);
-      }
       resSender(null, HttpStatusCodes.aceptado, cities);
     } catch (error) {
       next(error);

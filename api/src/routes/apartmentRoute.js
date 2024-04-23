@@ -21,7 +21,7 @@ router.get("/urbanizacion/:urbanizacion", getApartmentByName);
 router.get("/range", getApartmentsByPriceRange);
 router.get("/:id", getApartmentById);
 router.post("/", createApartment);
-router.put("/", updateRating);
+router.put("/rating", updateRating);
 router.put("/:id", updateApartment);
 router.delete("/:id", deleteApartment);
 
