@@ -91,7 +91,7 @@ module.exports = {
       }
       const apartments = await Apartment.findAll({
         where: {
-          rating: rating,
+          rating: {rating},
         },
       });
       if (!apartments || apartments.length === 0) {
@@ -159,20 +159,17 @@ module.exports = {
     try {
       const apartment = await Apartment.findByPk(id);
       if (!apartment) {
-        rejectSender(
-          "no se encontró el apartamento",
-          HttpStatusCodes.noEncontrado
-        );
+        rejectSender("no se encontró el apartamento", HttpStatusCodes.noEncontrado);
       }
       await apartment.update({
         rating: {
           valoration: [...apartment.rating.valorations, rating],
           media: [...apartment.rating.valorations, rating].reduce(
             (acum, current) => {
-              acum + current;
+              return acum + current;
             },
             0
-          ) / apartment.rating.valorations.length + 1
+          ) / apartment.rating.valorations.length
         },
       });
       resSender(null, HttpStatusCodes.actualizado, apartment);
