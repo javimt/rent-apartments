@@ -152,9 +152,6 @@ module.exports = {
       const valorations = [...apartment.rating.valorations, rating]; 
       const media = valorations.reduce((acum, current) => acum + current, 0) / valorations.length; 
       const apartUpdated = await apartment.update({
-      const valorations = [...apartment.rating.valorations, rating]; 
-      const media = valorations.reduce((acum, current) => acum + current, 0) / valorations.length; 
-      const apartUpdated = await apartment.update({
         rating: {
           valorations: valorations,
           media: +media.toFixed(1)
