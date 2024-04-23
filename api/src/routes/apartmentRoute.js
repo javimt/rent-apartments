@@ -9,6 +9,7 @@ const {
   getApartmentByName,
   getApartmentsByPriceRange,
   getRatings,
+  updateRating,
 } = require("../controllers/apartmentController");
 
 const router = Router();
@@ -20,6 +21,7 @@ router.get("/urbanizacion/:urbanizacion", getApartmentByName);
 router.get("/range", getApartmentsByPriceRange);
 router.get("/:id", getApartmentById);
 router.post("/", createApartment);
+router.put("/", updateRating)
 router.put("/:id", updateApartment);
 router.delete("/:id", deleteApartment);
 
