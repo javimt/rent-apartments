@@ -10,8 +10,8 @@ function MarkerAppartment({ selectMarker }) {
     const { apartments } = useGetApartments()
     const fnMap = useMap()
     const customIcon = icon({
-        iconUrl: 'https://www.pngall.com/wp-content/uploads/11/Vector-Apartment-Transparent.png',
-        iconSize: [40, 40]
+        iconUrl: 'https://images.vexels.com/media/users/3/157612/isolated/preview/b8c07826c517b2acde8e31979b7a0529-icono-de-apartamento-alto.png',
+        iconSize: [30, 30]
     })
     return (
         <div className="font-quicksand">

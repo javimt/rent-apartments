@@ -6,6 +6,8 @@ import Header from './components/header/header';
 import Banner from './components/banner/banner';
 import Properties from './components/properties/propiedades';
 import Services from './components/services/services';
+import About from './components/about/About';
+import TransitionPage from './components/transitionPage/transitionPage';
 
 // Importa el componente de ubicación de manera dinámica usando React.lazy
 const LocationMap = React.lazy(() => import('./components/location/location'));
@@ -20,6 +22,7 @@ function App() {
           path="/"
           element={
             <>
+              <TransitionPage/>
               <Header />
               <Banner />
               <Properties />
@@ -27,6 +30,7 @@ function App() {
               <Suspense fallback={<div>Loading...</div>}>
                 {LocationMap && <LocationMap />}
               </Suspense>
+              <About/>
             </>
           }
         />
