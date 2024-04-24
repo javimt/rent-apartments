@@ -13,7 +13,7 @@ function Properties() {
 
     return (
         <Transition className={' min-w-[400px]  px-4 mb-0 ms:mt-0 mt-[300px] md:mt-20  md:px-20 xl:px-40'}>
-            <div className="grid grid-cols-2 gap-4 md:gap-4 md:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-4">
+            <section className="grid grid-cols-1 gap-4 md:gap-4 md:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-4">
                 {
                     apartments && apartments.map(({
                         availability,
@@ -31,7 +31,7 @@ function Properties() {
                         ubication,
                         userId }, index) => {
                         return (
-                        
+
                             index < counter &&
                             <Link className="shadow-light hover:shadow-xl font-quicksand rounded-2xl transition-all duration-300 cursor-pointer" key={id} to={`/properties/${id}`}>
                                 <div className="relative ">
@@ -74,11 +74,13 @@ function Properties() {
 
                     )
                 }
-            </div>
-            {   counter < length &&
+            </section>
+            {counter < length &&
                 <div className="text-center my-7 rounded-3xl">
-                    <button onClick={handleCounter} className="py-2 px-3 bg-secondary text-white rounded-xl">Ver mas</button>
+                    <button onClick={handleCounter} className="mx-auto block xl:mt-20 mt-5 text-xl  bg-secondary rounded-xl px-5 py-5 font-quicksand  text-white hover:bg-black">Ver Mas</button>
+
                 </div>
+
             }
         </Transition>
     );

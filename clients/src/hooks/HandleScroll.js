@@ -12,7 +12,7 @@ function useHandleScroll() {
         if (window.scrollY >= window.innerHeight - 400) {
 
             setScrolling(true)
-        } else if (window.scrollY == 0) {
+        } else if (window.scrollY < 100) {
             setScrolling(false)
         } else {
             setScrolling(false)

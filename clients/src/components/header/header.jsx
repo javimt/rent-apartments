@@ -11,7 +11,7 @@ function Header() {
 
 
     return (
-        <div className="container min-w-[400px]  mx-auto font-quicksand">
+        <div className="container min-w-[400px] xl:px-0 px-5 mx-auto font-quicksand">
             <div className='flex justify-between items-center px-5 md:px-0 text-sm'>
                 <Link to={"/"} className="flex justify-center items-center">
                     <img src={image} alt="furnished apartments medellin" className="w-20 py-1 flex justify-center items-center rounded-full" />
