@@ -1,13 +1,15 @@
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
 
 
 
 function useGetAnApartment() {
     
-    const [] = useState(null)
+    const [apartment, setApartment] = useState(null)
 
 
+    useEffect(()=>{
+
+    }, [])
 
     return {}
 }
