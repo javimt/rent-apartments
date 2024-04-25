@@ -2,7 +2,7 @@ import SearchButton from "./searchElements/searchButton";
 import SearchLocation from "./searchElements/searchLocation";
 import SearchPricingRange from "./searchElements/searchPricingRange";
 import SearchProperty from "./searchElements/searchProperty";
-import Transition from "./transition";
+import Transition from "../../complements/transition";
 
 
 

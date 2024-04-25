@@ -4,26 +4,31 @@
     {
         "id":1,
         "name":"Home",
-        "link":"/"
+        "link":"home",
+        "offSet": 0
     },
     {
         "id":2,
         "name":"About",
-        "link":"/about"
+        "link":"about",
+        "offSet": 50
     },
     {
         "id":3,
         "name":"Services",
-        "link":"/services"
+        "link":"services",
+        "offSet": 50
     },
     {
         "id":4,
-        "name":"Localization",
-        "link":"/localization"
+        "name":"Locations",
+        "link":"location",
+        "offSet": 50
     },
     {
         "id":5,
         "name":"Apartments",
-        "link":"/apartments"
+        "link":"apartments",
+        "offSet": 0
     }
 ]

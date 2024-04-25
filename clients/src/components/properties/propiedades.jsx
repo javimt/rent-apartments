@@ -1,8 +1,8 @@
 import useGetApartments from "../../hooks/GetApartments";
-import Transition from "../banner/floatedSearch/transition";
+import Transition from "../complements/transition";
 import { Link } from 'react-router-dom'
 import { LiaStarSolid, LiaCommentsDollarSolid, LiaBedSolid, LiaBathSolid, LiaRulerCombinedSolid } from 'react-icons/lia'
-import { parseToDollarsMoney } from "../../utils/parseMoney";
+import { parseToColombianMoney, parseToDollarsMoney } from "../../utils/parseMoney";
 import useCounterHouses from "../../redux/actions/counterHauses";
 
 
@@ -33,7 +33,7 @@ function Properties() {
                         return (
 
                             index < counter &&
-                            <Link className="shadow-light hover:shadow-xl font-quicksand rounded-2xl transition-all duration-300 cursor-pointer" key={id} to={`/properties/${id}`}>
+                            <Link className="shadow-light hover:shadow-xl font-quicksand rounded-2xl transition-all duration-300 cursor-pointer" key={id} to={`/${id}`}>
                                 <div className="relative ">
                                     <div className="relative">
                                         <div className="absolute text-secondary flex items-center px-2 rounded-lg bg-slate-50 top-2 right-2">
@@ -46,7 +46,7 @@ function Properties() {
                                             <div className="">
                                                 <div className="flex">
                                                     <LiaCommentsDollarSolid className="mr-2 text-green-800" />
-                                                    <p className=" font-bold">{parseToDollarsMoney(price)}</p>
+                                                    <p className=" font-bold">{parseToColombianMoney(price)}</p>
                                                 </div>
                                                 <div className="gap-4 mt-2 lg:flex">
                                                     <div className="flex items-center justify-center px-2 my-2 py-1 rounded-lg bg-slate-300/30">

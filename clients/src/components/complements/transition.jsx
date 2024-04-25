@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useAnimation, useInView, motion } from 'framer-motion'
-import { fadeIn } from "./transtionFadeIn";
+import { fadeIn } from "../banner/floatedSearch/transtionFadeIn";
 
 
 function Transition({ children, className }) {
