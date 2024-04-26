@@ -12,7 +12,7 @@ function Properties() {
     const { counter, handleCounter } = useCounterHouses()
 
     return (
-        <Transition className={' min-w-[400px]  px-4 mb-0 ms:mt-0 mt-[300px] md:mt-20  md:px-20 xl:px-40'}>
+        <Transition className={' min-w-[400px]  px-4 mb-0 ms:mt-0 mt-[300px] md:mt-20  md:px-10 xl:px-40'}>
             <section className="grid grid-cols-2 gap-4 md:gap-4 md:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-4">
                 {
                     apartments && apartments.map(({

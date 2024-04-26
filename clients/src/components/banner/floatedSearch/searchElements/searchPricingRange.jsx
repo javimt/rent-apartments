@@ -15,8 +15,8 @@ function SearchPricingRange() {
     >
       <MdOutlinePriceChange />
       <div>
-        <p>Rango de precio</p>
-        <p className="text-xs">Seleccione el rango de precios</p>
+        <p>Select price range </p>
+        <p className="md:text-[10px] xl:text-xs ">Select a range price</p>
       </div>
       <div>{openStatus ? <GrFormUp /> : <GrFormDown />}</div>
       {openStatus && (

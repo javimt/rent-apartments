@@ -11,19 +11,19 @@ function Slider() {
   return (
     <Swiper
       slidesPerView={2.5}
-      spaceBetween={15}
+      spaceBetween={20}
       freeMode={true}
       navigation
       pagination={{ clickable: true }}
-      scrollbar={{ draggable: true }}
+     
       autoplay={{ delay: 2000 }} // Ajusta el valor de delay según tus necesidades
       modules={[Navigation, Scrollbar, Autoplay]} // Agregar Autoplay al array de módulos
-      className="h-[240px] md:h-[320px] w-[380px] md:w-[600px]"
+      className="h-[240px] md:h-[380px] w-[380px] md:w-[700px] "
       grabCursor
     >
       {apartments &&
         apartments.map(({ images, id }) => (
-          <SwiperSlide key={id}>
+          <SwiperSlide className='w-100' key={id}>
             <div
               style={{ backgroundImage: `url('${images[0]}')` }}
               className="w-[100%] h-[90%] rounded-xl bg-cover object-fill"

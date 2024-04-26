@@ -13,7 +13,7 @@ function SearchProperty() {
       <MdApartment />
       <div>
         <p>Propiedad</p>
-        <p className="text-xs">Seleccione tipo de Propiedad</p>
+        <p className="md:text-[10px] xl:text-xs ">Seleccione tipo de Propiedad</p>
       </div>
       <div>{openStatus ? <GrFormUp /> : <GrFormDown />}</div>
       {openStatus && (
