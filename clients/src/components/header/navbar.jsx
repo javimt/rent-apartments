@@ -27,7 +27,7 @@ function NavBar({ openStatus }) {
   const { scrolling } = useHandleScroll();
 
   function handleSetActive() {
-    console.log('active')
+  
   }
 
   return (
@@ -45,13 +45,12 @@ function NavBar({ openStatus }) {
             {dataLink.map(({ id, name, link }) => {
               return (
                 <Link
-
+                  key={id}
                   to={link}
                   spy={true}
                   smooth={true}
                   offset={0}
                   duration={1000}
-                  onSetActive={handleSetActive}
                   className="px-3 py-2 text-black font-bold hover:text-secondary "
                 >
                   {name}
@@ -59,9 +58,9 @@ function NavBar({ openStatus }) {
               );
             })}
             {
-              <Link className="px-3 py-2 bg-secondary rounded-lg hover:bg-black ">
+              <button className="px-3 py-2 bg-secondary rounded-lg hover:bg-black ">
                 Login
-              </Link>
+              </button>
             }
           </div>
         </motion.nav>
