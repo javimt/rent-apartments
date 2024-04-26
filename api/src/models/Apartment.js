@@ -18,7 +18,7 @@ module.exports = (sequelize) => {
       type: DataTypes.FLOAT,
     },
     description: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
     },
     bedrooms: {
       type: DataTypes.INTEGER
