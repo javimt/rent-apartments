@@ -37,7 +37,7 @@ function Properties() {
                                 <div className="relative ">
                                     <div className="relative">
                                         <div className="absolute text-secondary flex items-center px-2 rounded-lg bg-slate-50 top-2 right-2">
-                                            <LiaStarSolid />
+                                            <LiaStarSolid className="text-yellow-400"/>
                                             <span className=" text-sm ml-1 font-semibold py-1">4.1</span>
                                         </div>
                                         <img src={images[0]} alt="" className="object-cover w-full max-h-full h-[280px] rounded-t-2xl" />
