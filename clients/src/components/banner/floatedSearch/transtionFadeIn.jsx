@@ -6,8 +6,8 @@ export function fadeIn() {
       x: 0,
       transition: {
         type: "tween",
-        duration: 0.8,
-        delay: 0.8,
+        duration: 0.6,
+        delay: 0.5,
         ease: [0.25],
       },
     },
@@ -17,8 +17,8 @@ export function fadeIn() {
       opacity: 1,
       transition: {
         type: "tween",
-        duration: 0.7,
-        delay: 0.8,
+        duration: 0.6,
+        delay: 0.5,
         ease: [0.25, 0.25, 0.25, 0.75],
       },
     },

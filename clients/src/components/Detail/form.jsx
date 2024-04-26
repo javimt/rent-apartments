@@ -14,9 +14,37 @@ function Form() {
       <p className="text-secondary font-semibold ">Comercial</p>
      </div>
     </div>
+    <div className="my-5">
+        <div className="mt-2">
+            <label htmlFor="" className="text-sm text-secondary">Nombre</label>
+            <div className='mt-2'>
+                <input type="text" name="name" className="w-full rounded-md border-0 py-1.5 shadow-light ring-1 ring-inset shadow-gray placeholder:text-gray-400 focus:ring-0 focus:ring-inset text-sm" />
+            </div>
+        </div>
+        <div className="mt-2">
+            <label htmlFor="" className="text-sm text-secondary">Email</label>
+            <div className='mt-2'>
+                <input type="text" name="email" className="w-full rounded-md border-0 py-1.5 shadow-light ring-1 ring-inset shadow-gray placeholder:text-gray-400 focus:ring-0 focus:ring-inset text-sm" />
+            </div>
+        </div>
+        <div className="mt-2">
+            <label htmlFor="" className="text-sm text-secondary">Telefono</label>
+            <div className='mt-2'>
+                <input type="number" name="phone" className="w-full rounded-md border-0 py-1.5 shadow-light ring-1 ring-inset shadow-gray placeholder:text-gray-400 focus:ring-0 focus:ring-inset text-sm" />
+            </div>
+        </div>
+        <div className="mt-2">
+            <label htmlFor="" className="text-sm text-secondary">Descripcion</label>
+            <div className='mt-2'>
+                <textarea rows={5}  name="description" className="w-full rounded-md border-0 py-1.5 shadow-light ring-1 ring-inset shadow-gray placeholder:text-gray-400 focus:ring-0 focus:ring-inset text-sm" />
+            </div>
+        </div>
+        <div className="flex justify-center items-center">
+            <button className="bg-secondary py-2 px-3 hover:black text-white rounded-xl mt-2">Consultar</button>
+        </div>
+
+    </div>
    </div>
-
-
   </div>
  );
 }
