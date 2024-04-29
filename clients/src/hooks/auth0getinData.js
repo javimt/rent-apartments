@@ -7,7 +7,7 @@ function useAuth0GetData() {
     const [controledUser, setControledUser ] = useState({})
 
 
-    const {user, isAuthenticated} = useAuth0()
+    const {user, isAuthenticated,getAccessTokenSilently, isLoading, logout, error, loginWithPopup, loginWithRedirect} = useAuth0()
   
     useEffect(()=>{
 
@@ -16,13 +16,19 @@ function useAuth0GetData() {
         }
 
 
-    },[user, isAuthenticated])
+    },[user, isAuthenticated,getAccessTokenSilently, isLoading, logout, error, loginWithPopup, loginWithRedirect])
 
 
     
     return ( {
         controledUser,
-        isAuthenticated
+        isAuthenticated,
+        getAccessTokenSilently,
+        isLoading,
+        logout,
+        error,
+        loginWithPopup,
+        loginWithRedirect
     } );
 }
 
