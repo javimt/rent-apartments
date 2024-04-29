@@ -1,27 +1,25 @@
 import { useState } from "react";
 
-
-
 function useOpenClose() {
-    const [openStatus, setOpenStatus] = useState(false)
+  const [openStatus, setOpenStatus] = useState(false);
 
-    function toogleOpen(){
-        setOpenStatus(prev => !prev)
-    }
+  function toogleOpen() {
+    setOpenStatus((prev) => !prev);
+  }
 
-    function close(){
-        setOpenStatus(false)
-    }
+  function close() {
+    setOpenStatus(false);
+  }
 
-    function open(){
-        setOpenStatus(true)
-    }
-    
-    return{
-        openStatus,
-        toogleOpen,
-        close,
-    } 
+  function open() {
+    setOpenStatus(true);
+  }
+
+  return {
+    openStatus,
+    toogleOpen,
+    close,
+  };
 }
 
 export default useOpenClose;
