@@ -7,6 +7,7 @@ import { BsTelephoneForward } from "react-icons/bs";
 import LoginButton from "../Auth0Buttons/LoginButton";
 import LogoutButton from "../Auth0Buttons/LogoutButton";
 import { useAuth0 } from "@auth0/auth0-react";
+import LoginPanel from "./loginPanel";
 
 function Header() {
   const { openStatus, toogleOpen } = useOpenClose();
@@ -27,18 +28,8 @@ function Header() {
           onClick={toogleOpen}
         />
         <NavBar openStatus={openStatus} />
-        <div className="flex items-center gap-2 md:gap-5">
-          {/* <Link
-            to={"tel:1125420570"}
-            className="flex items-center gap-4 cursor-pointer"
-          >
-            <BsTelephoneForward />
-          </Link> */}
-          { isAuthenticated ? (
-              <LogoutButton />
-            ) :
-              <LoginButton />
-          }
+        <div className="flex items-center gap-2 md:gap-5 relative">
+         <LoginPanel/>
         </div>
       </div>
     </div>
