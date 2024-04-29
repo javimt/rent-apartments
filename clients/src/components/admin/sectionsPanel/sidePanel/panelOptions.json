@@ -1,0 +1,26 @@
+
+
+
+[
+    {
+        "id": 1,
+        "name": "Create Apart",
+        "value": "CREATE_SECTION",
+        "description": "crea un apartamento",
+        "icon":"MdApartment"
+    },
+    {
+        "id": 2,
+        "name": "List Apartments",
+        "value": "GET_APARTMENTS_SECTION",
+        "description": "Lista los apartamentos",
+        "icon":"MdApartment" 
+    },
+    {
+        "id": 3,
+        "name": "List Users",
+        "value": "GET_USERS_SECTION",
+        "description": "Lista todos los usuarios",
+        "icon":"FaUsers"
+    }
+]

@@ -2,7 +2,7 @@ import { icon } from "leaflet";
 import { Marker, Popup, useMap } from "react-leaflet";
 import useGetApartments from "../../hooks/GetApartments";
 import { FaMapMarkedAlt } from 'react-icons/fa'
-
+import {Link} from 'react-router-dom'
 
 
 function MarkerAppartment({ selectMarker }) {
@@ -29,7 +29,7 @@ function MarkerAppartment({ selectMarker }) {
                             </div>
                             <div style={{ backgroundImage: `url(${images[0]})` }} className="mx-auto w-[150px] h-[200px] bg-cover object-fill bg-center rounded-xl">
                             </div>
-                            <button className="mx-auto block rounded-md mt-2 px-3 py-2 bg-secondary hover:bg-black text-white">ver Propiedad</button>
+                            <Link to={`/apartment/${id}`} className="text-white mx-auto block rounded-md text-center mt-2 px-3 py-2 bg-secondary hover:bg-black hover:text-white active:text-white">ver Propiedad</Link>
                         </Popup>
                     </Marker>
                 })

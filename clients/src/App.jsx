@@ -12,6 +12,8 @@ import TransitionPage from './components/transitionPage/transitionPage';
 import Complementary from './components/complementario/complementarySection';
 import Footer from './components/footer/footer';
 import CardDetail from './components/Detail/Detail';
+import AdminPanel from './components/admin/adminPanel';
+import NavBar from './components/header/navbar';
 
 
 // Importa el componente de ubicación de manera dinámica usando React.lazy
@@ -49,7 +51,13 @@ function App() {
         </Element>
           }
         />
-        <Route path="/:id" element={<CardDetail/>}/>
+        <Route path="/apartment/:id" element={<CardDetail/>}/>
+        <Route path='/admin' element={
+          <>
+            <Header/>
+            <AdminPanel/>
+          </>
+        }/>
       </Routes>
     </>
   );

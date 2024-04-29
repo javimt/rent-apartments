@@ -8,9 +8,9 @@ function Header() {
   const { openStatus, toogleOpen } = useOpenClose();
 
   return (
-    <div className="container min-w-[400px] xl:px-0 px-5 mx-auto font-quicksand">
+    <div className="container min-w-[400px] xl:px-0 px-5 mx-auto realtive z-[100]  font-quicksand">
       <div className="flex justify-between items-center px-5 md:px-0 text-sm">
-        <Link to={"/"} className="flex justify-center items-center">
+        <Link to={"/"} className="flex justify-center items-center relative z-[110]">
           <img
             src={image}
             alt="furnished apartments medellin"
@@ -29,7 +29,7 @@ function Header() {
           >
             <BsTelephoneForward />
           </Link>
-          <Link className="bg-secondary px-3 py-2 rounded-lg hover:bg-black text-white">
+          <Link className="bg-secondary px-3 py-2 rounded-lg hover:bg-black text-white relative z-[110]">
             Login
           </Link>
         </div>

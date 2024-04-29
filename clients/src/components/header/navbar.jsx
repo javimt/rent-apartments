@@ -3,6 +3,9 @@ import dataLink from "./navContenLinks.json";
 import { Link } from 'react-scroll'
 import { useEffect, useState } from "react";
 import useHandleScroll from "../../hooks/HandleScroll";
+import AdminLink from "./adminLink";
+
+
 const animationNavBar = {
   initial: {
     y: -20,
@@ -88,6 +91,9 @@ function NavBar({ openStatus }) {
               </div>
             );
           })}
+          <div className="text-center text-[18px]">
+            <AdminLink className={"block border-b-[1px] border-white hover:text-secondary hover:border-b-[1px] hover:border-b-secondary md:mb-0 mb-4 cursor-pointer"}/>
+          </div>
         </div>
       )}
     </AnimatePresence>

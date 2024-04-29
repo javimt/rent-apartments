@@ -2,7 +2,8 @@ import { actionTypes } from "../actions/actionTypes";
 
 
 const initialState = {
-    apartments:[]
+    apartments:[],
+    filters:[]
 }
 
 
