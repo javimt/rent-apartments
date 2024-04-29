@@ -3,6 +3,10 @@ import dataLink from "./navContenLinks.json";
 import { Link } from 'react-scroll'
 import { useEffect, useState } from "react";
 import useHandleScroll from "../../hooks/HandleScroll";
+import LoginButton from "../Auth0Buttons/LoginButton";
+import LogoutButton from "../Auth0Buttons/LogoutButton";
+import { useAuth0 } from "@auth0/auth0-react";
+
 const animationNavBar = {
   initial: {
     y: -20,
@@ -25,6 +29,7 @@ const animationNavBar = {
 };
 function NavBar({ openStatus }) {
   const { scrolling } = useHandleScroll();
+  const { isAuthenticated, user } = useAuth0();
 
   function handleSetActive() {
   
@@ -57,10 +62,10 @@ function NavBar({ openStatus }) {
                 </Link>
               );
             })}
-            {
-              <button className="px-3 py-2 bg-secondary rounded-lg hover:bg-black ">
-                Login
-              </button>
+            { isAuthenticated ? (
+              <LogoutButton />
+            ) :
+              <LoginButton />
             }
           </div>
         </motion.nav>

@@ -4,8 +4,13 @@ import NavBar from "./navbar";
 import image from "/rent apt.jpeg";
 import { RiMenuFoldFill } from "react-icons/ri";
 import { BsTelephoneForward } from "react-icons/bs";
+import LoginButton from "../Auth0Buttons/LoginButton";
+import LogoutButton from "../Auth0Buttons/LogoutButton";
+import { useAuth0 } from "@auth0/auth0-react";
+
 function Header() {
   const { openStatus, toogleOpen } = useOpenClose();
+  const { isAuthenticated, user } = useAuth0();
 
   return (
     <div className="container min-w-[400px] xl:px-0 px-5 mx-auto font-quicksand">
@@ -23,15 +28,17 @@ function Header() {
         />
         <NavBar openStatus={openStatus} />
         <div className="flex items-center gap-2 md:gap-5">
-          <Link
+          {/* <Link
             to={"tel:1125420570"}
             className="flex items-center gap-4 cursor-pointer"
           >
             <BsTelephoneForward />
-          </Link>
-          <Link className="bg-secondary px-3 py-2 rounded-lg hover:bg-black text-white">
-            Login
-          </Link>
+          </Link> */}
+          { isAuthenticated ? (
+              <LogoutButton />
+            ) :
+              <LoginButton />
+          }
         </div>
       </div>
     </div>
