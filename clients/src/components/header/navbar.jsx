@@ -6,6 +6,7 @@ import useHandleScroll from "../../hooks/HandleScroll";
 import LoginButton from "../Auth0Buttons/LoginButton";
 import LogoutButton from "../Auth0Buttons/LogoutButton";
 import { useAuth0 } from "@auth0/auth0-react";
+import AdminLink from './AdminLink'
 
 const animationNavBar = {
   initial: {
@@ -63,6 +64,7 @@ function NavBar({ openStatus }) {
               );
             })}
             { isAuthenticated ? (
+              
               <LogoutButton />
             ) :
               <LoginButton />
