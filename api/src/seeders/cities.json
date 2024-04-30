@@ -1,0 +1,17 @@
+[
+    {
+        "id": "1ba5bd93-d413-4d75-a1b4-19832b3d6d9a",
+        "city": "Medellin",
+        "barrio": "Poblado"
+    },
+    {
+        "id": "da4ad6cc-459b-45f5-be84-1fe6d2b11c00",
+        "city": "Medellin",
+        "barrio": "Laureles"
+    },
+    {
+        "id": "8e7305cd-e0cb-403a-8de1-eba62f8677b1",
+        "city": "Sabaneta",
+        "barrio": "Aves Maria"
+    }
+]

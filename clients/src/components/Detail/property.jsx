@@ -41,19 +41,18 @@ function Property({ apartment }) {
     <main className="max-w-5xl mx-auto font-quicksand">
       <div className=" grid md:grid-cols-[70%,1fr] my-3 py-5">
         <div className="px-6">
-          <h1 className="text-3xl mb-1 text-secondary flex justify-between">
-            <span>{urbanizacion}</span>
+          <h1 className="text-2xl mb-1 text-secondary flex justify-between">
+            <span className="text-3xl">{urbanizacion}</span>
             <div className="flex flex-col">
               <span className="font-semibold">
                 {parseToColombianMoney(price)}
               </span>
-              <p className="text-[1.2rem] mt-2">
+              <p className="text-sm mt-2">
                 imagen: <span>{imagePos + 1 + " - " + images.length}</span>
               </p>
             </div>
           </h1>
           <div className="mb-5 text-sm text-secondary">
-            <h3>City</h3>
             <div className="flex">
               <span className="mr-1">{getOneCity(CityId).city}</span>
               <span>-</span>
@@ -116,12 +115,20 @@ function Property({ apartment }) {
 
           <div className="flex flex-col mt-2">
             <h3 className="text-secondary text-sm font-semibold">Politicas</h3>
-            <div className="mt-1 text-sm color">
+            <div className="mt-1 text-xs color border p-2 border-red-600 shadow-xl rounded-lg font-extralight">
               <p>
-                1. Prohibido el ingreso de menores de edad, drogas y trabajadoras sexuales 
-                2. Compromiso de Cero Tolerancia: Nos comprometemos a adoptar una política de cero tolerancia hacia
-                  cualquier forma de explotación sexual infantil en nuestras propiedades de alquiler de apartamentos amoblados en Colombia.
-                3. 
+                1. Prohibido el ingreso de menores de edad, drogas y
+                trabajadoras sexuales 2. Compromiso de Cero Tolerancia: Nos
+                comprometemos a adoptar una política de cero tolerancia hacia
+                cualquier forma de explotación sexual infantil en nuestras
+                propiedades de alquiler de apartamentos amoblados en Colombia.
+                3. En nuestras instalaciones, consideramos cualquier forma de
+                abuso sexual hacia menores de edad como una violación grave de
+                los derechos humanos y una violación de la ley colombiana contra
+                la explotación sexual infantil. Esto incluye cualquier tipo de
+                contacto sexual, exposición indecente, explotación sexual a
+                través de la pornografía, o cualquier otro acto de naturaleza
+                sexual realizado contra un niño o niña.
               </p>
             </div>
           </div>
