@@ -7,9 +7,13 @@ import {
 } from "react-icons/lia";
 import Form from "./form";
 import { useState } from "react";
+import useGetAllCities from "../../hooks/getAllCities";
 
 function Property({ apartment }) {
   const [imagePos, setImagePos] = useState(0);
+  const { city, getOneCity } = useGetAllCities()
+  console.log(getOneCity('7f75de45-950d-47fe-9765-94f841425644'))
+
 
   function handleImagePos(e) {
     if (e.target.name == "next") {
@@ -35,7 +39,7 @@ function Property({ apartment }) {
     CityId
   } = apartment.data;
 
-  console.log(apartment.data)
+
 
   return (
     <main className="max-w-5xl mx-auto font-quicksand">
@@ -107,7 +111,11 @@ function Property({ apartment }) {
           </div>
           <div className="mt-5 text-sm text-secondary">
             <h3>City</h3>
-            <p>{CityId}</p>
+            <div className="flex">
+              <span className="mr-1">{getOneCity(CityId).city}</span>
+              <span>-</span>
+              <span className="ml-1">{getOneCity(CityId).barrio}</span>
+            </div>
           </div>
 
           <div className="flex flex-col mt-2">

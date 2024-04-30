@@ -42,3 +42,13 @@ export async function getAnAppatment(id) {
         console.error(error)
     }
 }
+
+
+export function getAllCties(){
+    return (dispatch) =>{
+        fetch('https://api-rent-appartament.up.railway.app/city')
+        .then(response => response.json())
+        .then(data => dispatch({type:actionTypes.GET_ALL_CITIES, payload: data})) 
+        .catch(error => console.error(error))
+    }
+}
