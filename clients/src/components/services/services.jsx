@@ -12,7 +12,9 @@ function Services() {
           Find the best furnished apartments, modern and secure units.
         </h2>
         <p className="mb-1 mt-7 text-secondary text-xs">
-          We know what you're looking for at the price you need
+          We know what you're looking for at the price you need.
+          Explore a range of amenities and personalized assistance designed to elevate your experience.
+          From premium furnishings to attentive customer service, we prioritize your comfort and satisfaction.
         </p>
       </div>
       <div className=" flex justify-center items-center ">

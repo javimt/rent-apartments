@@ -23,7 +23,7 @@ function Location() {
         Localization
       </h4>
       <h2 className="max-w-2xl  my-4 mb-8 text-3xl font-semibold ">
-        Discover apartments situated throughout the vibrant cityscape of Medellin.
+        Discover the Perfect Setting for Your Stay in Medellin
       </h2>
       <MapContainer
         center={coordinatePoint}
