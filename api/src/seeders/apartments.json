@@ -345,33 +345,6 @@
     }
   },
   {
-    "id": "58d37807-981e-429f-8d81-b2f94ca5398c",
-    "images": [
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939260/PROYECTO%20PROPIEDADES/aves%20marias%20sabaneta/img10_a5hxdq.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939263/PROYECTO%20PROPIEDADES/aves%20marias%20sabaneta/img4_mrddoo.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939263/PROYECTO%20PROPIEDADES/aves%20marias%20sabaneta/img5_v15njw.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/aves%20marias%20sabaneta/img9_f9l8vm.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939264/PROYECTO%20PROPIEDADES/aves%20marias%20sabaneta/img8_dxc7zo.jpg"
-    ],
-    "size": "80",
-    "availability": true,
-    "price": 850,
-    "description": "4 people max",
-    "bedrooms": 2,
-    "bathrooms": 1,
-    "urbanizacion": "Aves Maria 401",
-    "lat": "6.151394",
-    "lon": "-75.615844",
-    "status": "rent",
-    "userId": null,
-    "rating": {
-      "valorations": [
-        3
-      ],
-      "media": 3
-    }
-  },
-  {
     "id": "2959bd57-3983-49b6-9b91-8c27dcd446b3",
     "images": [
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939984/PROYECTO%20PROPIEDADES/santa%20maria%20de%20los%20angeles%20703/apt1.6_fwgttt.jpg",
@@ -566,8 +539,8 @@
     "bedrooms": 3,
     "bathrooms": 4,
     "urbanizacion": "Torres del Rio 1216",
-    "lat": "6.220148",
-    "lon": "-75.574051",
+    "lat": "6.222049",
+    "lon": "-75.574242",
     "status": "rent",
     "userId": null,
     "rating": {
