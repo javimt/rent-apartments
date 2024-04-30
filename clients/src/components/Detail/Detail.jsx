@@ -12,7 +12,6 @@ function CardDetail() {
   const { id } = useParams();
   const { apartment } = useGetAnApartment(id);
 
-console.log(apartment);
   return (
     <>
       <TransitionPage />

@@ -12,8 +12,6 @@ import useGetAllCities from "../../hooks/getAllCities";
 function Property({ apartment }) {
   const [imagePos, setImagePos] = useState(0);
   const { city, getOneCity } = useGetAllCities()
-  console.log(getOneCity('7f75de45-950d-47fe-9765-94f841425644'))
-
 
   function handleImagePos(e) {
     if (e.target.name == "next") {
@@ -38,8 +36,6 @@ function Property({ apartment }) {
     description,
     CityId
   } = apartment.data;
-
-
 
   return (
     <main className="max-w-5xl mx-auto font-quicksand">
