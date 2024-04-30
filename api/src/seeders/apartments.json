@@ -27,6 +27,7 @@
     "lon": "-75.574586",
     "status": "rent",
     "userId": null,
+    "CityId": null,
     "rating": {
       "valorations": [
         3
@@ -54,6 +55,7 @@
     "lon": "-75.574051",
     "status": "rent",
     "userId": null,
+    "CityId": null,
     "rating": {
       "valorations": [
         3
@@ -86,6 +88,7 @@
     "lon": "-75.562340",
     "status": "rent",
     "userId": null,
+    "CityId": null,
     "rating": {
       "valorations": [
         3
@@ -113,6 +116,7 @@
     "lon": "75.123457",
     "status": "rent",
     "userId": null,
+    "CityId": null,
     "rating": {
       "valorations": [
         3
@@ -141,6 +145,7 @@
     "lon": "-75.569281",
     "status": "rent",
     "userId": null,
+    "CityId": null,
     "rating": {
       "valorations": [
         3
@@ -165,6 +170,7 @@
     "lon": "-75.574051",
     "status": "rent",
     "userId": null,
+    "CityId": null,
     "rating": {
       "valorations": [
         3
@@ -196,6 +202,7 @@
     "lon": "-75.571313",
     "status": "rent",
     "userId": null,
+    "CityId": null,
     "rating": {
       "valorations": [
         3
@@ -223,6 +230,7 @@
     "lon": "-75.571313",
     "status": "rent",
     "userId": null,
+    "CityId": null,
     "rating": {
       "valorations": [
         3
@@ -252,6 +260,7 @@
     "lon": "-75.571313",
     "status": "rent",
     "userId": null,
+    "CityId": null,
     "rating": {
       "valorations": [
         3
@@ -280,6 +289,7 @@
     "lon": "-75.571313",
     "status": "rent",
     "userId": null,
+    "CityId": null,
     "rating": {
       "valorations": [
         3
@@ -308,6 +318,7 @@
     "lon": "-75.571313",
     "status": "rent",
     "userId": null,
+    "CityId": null,
     "rating": {
       "valorations": [
         3
@@ -337,6 +348,7 @@
     "lon": "-75.574051",
     "status": "rent",
     "userId": null,
+    "CityId": null,
     "rating": {
       "valorations": [
         3
@@ -367,6 +379,7 @@
     "lon": "-75.574051",
     "status": "rent",
     "userId": null,
+    "CityId": null,
     "rating": {
       "valorations": [
         3
@@ -395,6 +408,7 @@
     "lon": "-75.574051",
     "status": "rent",
     "userId": null,
+    "CityId": null,
     "rating": {
       "valorations": [
         3
@@ -425,6 +439,7 @@
     "lon": "-75.571313",
     "status": "rent",
     "userId": null,
+    "CityId": null,
     "rating": {
       "valorations": [
         3
@@ -452,6 +467,7 @@
     "lon": "-75.591152",
     "status": "sale",
     "userId": null,
+    "CityId": null,
     "rating": {
       "valorations": [
         3
@@ -483,6 +499,7 @@
     "lon": "-75.609208",
     "status": "rent",
     "userId": null,
+    "CityId": null,
     "rating": {
       "valorations": [
         3
@@ -513,6 +530,7 @@
     "lon": "-75.568958",
     "status": "rent",
     "userId": null,
+    "CityId": null,
     "rating": {
       "valorations": [
         3
@@ -535,14 +553,15 @@
     "size": "70",
     "availability": true,
     "price": 4900000,
-    "description": "4 people max",
-    "bedrooms": 3,
-    "bathrooms": 4,
+    "description": "The building has all the amenities and 24/7 security, swimming pool, sauna, Turkish, gym, Parking and utility room. Located right in Ciudad Del Rio, within walking distance of everything, supermarkets such as Éxito, Home Center, Banks, Restaurants.",
+    "bedrooms": 2,
+    "bathrooms": 2,
     "urbanizacion": "Torres del Rio 1216",
     "lat": "6.222049",
     "lon": "-75.574242",
     "status": "rent",
     "userId": null,
+    "CityId": null,
     "rating": {
       "valorations": [
         3
@@ -571,6 +590,7 @@
     "lon": "-75.571313",
     "status": "rent",
     "userId": null,
+    "CityId": null,
     "rating": {
       "valorations": [
         3
@@ -598,6 +618,7 @@
     "lon": "-75.574051",
     "status": "sold",
     "userId": null,
+    "CityId": null,
     "rating": {
       "valorations": [
         3
@@ -628,6 +649,7 @@
     "lon": "-75.571313",
     "status": "rent",
     "userId": null,
+    "CityId": null,
     "rating": {
       "valorations": [
         3
