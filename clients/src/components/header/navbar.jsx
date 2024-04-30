@@ -1,12 +1,12 @@
 import { AnimatePresence, animate, motion } from "framer-motion";
 import dataLink from "./navContenLinks.json";
-import { Link } from 'react-scroll'
+import { Link } from "react-scroll";
 import { useEffect, useState } from "react";
 import useHandleScroll from "../../hooks/HandleScroll";
 import LoginButton from "../Auth0Buttons/LoginButton";
 import LogoutButton from "../Auth0Buttons/LogoutButton";
 import { useAuth0 } from "@auth0/auth0-react";
-import AdminLink from './AdminLink'
+import AdminLink from "./adminLink";
 
 const animationNavBar = {
   initial: {
@@ -32,9 +32,7 @@ function NavBar({ openStatus }) {
   const { scrolling } = useHandleScroll();
   const { isAuthenticated, user } = useAuth0();
 
-  function handleSetActive() {
-  
-  }
+  function handleSetActive() {}
 
   return (
     <AnimatePresence>
@@ -63,20 +61,16 @@ function NavBar({ openStatus }) {
                 </Link>
               );
             })}
-            { isAuthenticated ? (
-              
-              <LogoutButton />
-            ) :
-              <LoginButton />
-            }
+            {isAuthenticated ? <LogoutButton /> : <LoginButton />}
           </div>
         </motion.nav>
       ) : (
         <div
-          className={`${openStatus
-            ? "absolute z-[100] left-0 top-14 bg-white r-0 w-full px-4 py-4 "
-            : "hidden"
-            } gap-5 md:flex`}
+          className={`${
+            openStatus
+              ? "absolute z-[100] left-0 top-14 bg-white r-0 w-full px-4 py-4 "
+              : "hidden"
+          } gap-5 md:flex`}
         >
           {dataLink.map(({ id, name, link, offSet }) => {
             return (
@@ -96,7 +90,11 @@ function NavBar({ openStatus }) {
             );
           })}
           <div className="text-center text-[18px]">
-            <AdminLink className={"block border-b-[1px] border-white hover:text-secondary hover:border-b-[1px] hover:border-b-secondary md:mb-0 mb-4 cursor-pointer"}/>
+            <AdminLink
+              className={
+                "block border-b-[1px] border-white hover:text-secondary hover:border-b-[1px] hover:border-b-secondary md:mb-0 mb-4 cursor-pointer"
+              }
+            />
           </div>
         </div>
       )}

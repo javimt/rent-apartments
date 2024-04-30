@@ -9,7 +9,7 @@ function LoginButton() {
       className="relative z-[110] px-3 py-2 bg-secondary rounded-lg hover:bg-black text-slate-100 flex justify-center items-center"
       onClick={() => loginWithPopup()}
     >
-      Login <LuLogIn className="ml-1 " />
+      Log In <LuLogIn className="ml-1 " />
     </button>
   );
 }

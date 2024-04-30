@@ -15,7 +15,7 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING
     }
   },{timestamps: false});
-  City.associate = (models) => {
+    City.associate = (models) => {
     City.hasMany(models.Apartment);
   };
   return City;

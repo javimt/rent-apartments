@@ -8,33 +8,25 @@ import Property from "./property";
 import Error404 from "./error404";
 import Footer from "../footer/footer";
 
-
-
-
 function CardDetail() {
-    const { id } = useParams()
-    const { apartment } = useGetAnApartment(id)
+  const { id } = useParams();
+  const { apartment } = useGetAnApartment(id);
 
-
-
-    console.log(apartment)
-    return (
-        <>
-            <TransitionPage/>
-            <Header/>
-            <Transition>
-                {
-                apartment.hasOwnProperty('data')
-                    
-                ?
-                <Property apartment ={apartment}/>
-                :
-                <Error404/>
-                }
-            <Footer/>
-            </Transition>
-        </>
-    );
+console.log(apartment);
+  return (
+    <>
+      <TransitionPage />
+      <Header />
+      <Transition>
+        {apartment.hasOwnProperty("data") ? (
+          <Property apartment={apartment} />
+        ) : (
+          <Error404 />
+        )}
+        <Footer />
+      </Transition>
+    </>
+  );
 }
 
 export default CardDetail;
