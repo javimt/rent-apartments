@@ -536,7 +536,7 @@
     "bedrooms": 2,
     "bathrooms": 2,
     "urbanizacion": "Terraverde 1308",
-    "lat": "6.219269  6.67626365, -75.5332296",
+    "lat": "6.219269",
     "lon": "-75.568958",
     "status": "rent",
     "userId": null,
@@ -550,265 +550,25 @@
   {
     "id": "6e43de28-babf-43b3-9e5c-745cc13338e4",
     "images": [
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
-    ],
-    "size": "78",
-    "availability": true,
-    "price": 3000,
-    "description": "4 people max",
-    "bedrooms": 3,
-    "bathrooms": 4,
-    "urbanizacion": "Bosques del Rio 1709",
-    "lat": "6.220148",
-    "lon": "-75.574051",
-    "status": "rent",
-    "userId": null,
-    "rating": {
-      "valorations": [
-        3
-      ],
-      "media": 3
-    }
-  },
-  {
-    "id": "c8c546b0-8180-4ccf-bd1a-0b2d1c239cb5",
-    "images": [
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
-    ],
-    "size": "87",
-    "availability": true,
-    "price": 3000,
-    "description": "4 people max",
-    "bedrooms": 3,
-    "bathrooms": 4,
-    "urbanizacion": "Bosques del Rio 1709",
-    "lat": "6.220148",
-    "lon": "-75.574051",
-    "status": "rent",
-    "userId": null,
-    "rating": {
-      "valorations": [
-        3
-      ],
-      "media": 3
-    }
-  },
-  {
-    "id": "85a17914-bede-4be2-87cf-21d6d2951c68",
-    "images": [
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
-    ],
-    "size": "89",
-    "availability": true,
-    "price": 3000,
-    "description": "4 people max",
-    "bedrooms": 3,
-    "bathrooms": 4,
-    "urbanizacion": "Bosques del Rio 1709",
-    "lat": "6.220148",
-    "lon": "-75.574051",
-    "status": "rent",
-    "userId": null,
-    "rating": {
-      "valorations": [
-        3
-      ],
-      "media": 3
-    }
-  },
-  {
-    "id": "a141afe7-0a51-4ed4-9cb4-8b9d079c7b7f",
-    "images": [
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
-    ],
-    "size": "68",
-    "availability": true,
-    "price": 3000,
-    "description": "4 people max",
-    "bedrooms": 3,
-    "bathrooms": 4,
-    "urbanizacion": "Bosques del Rio 1709",
-    "lat": "6.220148",
-    "lon": "-75.574051",
-    "status": "rent",
-    "userId": null,
-    "rating": {
-      "valorations": [
-        3
-      ],
-      "media": 3
-    }
-  },
-  {
-    "id": "be5978bc-aafc-4028-bc37-422f93e2ef4d",
-    "images": [
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
-    ],
-    "size": "96",
-    "availability": true,
-    "price": 3000,
-    "description": "4 people max",
-    "bedrooms": 3,
-    "bathrooms": 4,
-    "urbanizacion": "Bosques del Rio 1709",
-    "lat": "6.220148",
-    "lon": "-75.574051",
-    "status": "rent",
-    "userId": null,
-    "rating": {
-      "valorations": [
-        3
-      ],
-      "media": 3
-    }
-  },
-  {
-    "id": "4ef63c8f-d25c-4626-8a43-cb24a25cebc3",
-    "images": [
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
-    ],
-    "size": "100",
-    "availability": true,
-    "price": 3000,
-    "description": "4 people max",
-    "bedrooms": 3,
-    "bathrooms": 4,
-    "urbanizacion": "Bosques del Rio 1709",
-    "lat": "6.220148",
-    "lon": "-75.574051",
-    "status": "sale",
-    "userId": null,
-    "rating": {
-      "valorations": [
-        3
-      ],
-      "media": 3
-    }
-  },
-  {
-    "id": "1bfd23f4-a80a-4b6b-9b5d-29cdd6fd896d",
-    "images": [
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
-    ],
-    "size": "78",
-    "availability": true,
-    "price": 3000,
-    "description": "4 people max",
-    "bedrooms": 3,
-    "bathrooms": 4,
-    "urbanizacion": "Bosques del Rio 1709",
-    "lat": "6.220148",
-    "lon": "-75.574051",
-    "status": "sale",
-    "userId": null,
-    "rating": {
-      "valorations": [
-        3
-      ],
-      "media": 3
-    }
-  },
-  {
-    "id": "c6f3d3bd-3356-44aa-927a-c92071ef7d8b",
-    "images": [
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
-    ],
-    "size": "90",
-    "availability": true,
-    "price": 3000,
-    "description": "4 people max",
-    "bedrooms": 3,
-    "bathrooms": 4,
-    "urbanizacion": "Bosques del Rio 1709",
-    "lat": "6.220148",
-    "lon": "-75.574051",
-    "status": "sale",
-    "userId": null,
-    "rating": {
-      "valorations": [
-        3
-      ],
-      "media": 3
-    }
-  },
-  {
-    "id": "d70b0c41-9c71-4dad-9fc7-c41e5c2dc558",
-    "images": [
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
-    ],
-    "size": "89",
-    "availability": true,
-    "price": 3000,
-    "description": "4 people max",
-    "bedrooms": 3,
-    "bathrooms": 4,
-    "urbanizacion": "Bosques del Rio 1709",
-    "lat": "6.220148",
-    "lon": "-75.574051",
-    "status": "sale",
-    "userId": null,
-    "rating": {
-      "valorations": [
-        3
-      ],
-      "media": 3
-    }
-  },
-  {
-    "id": "0f22e289-9c15-445b-8934-3821d53aa233",
-    "images": [
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714081184/PROYECTO%20PROPIEDADES/Torres%20del%20rio%20apto%201216/WhatsApp_Image_2024-04-25_at_6.47.05_AM_2_eizjlb.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714081195/PROYECTO%20PROPIEDADES/Torres%20del%20rio%20apto%201216/WhatsApp_Image_2024-04-25_at_6.47.05_AM_3_kjjuy6.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714081259/PROYECTO%20PROPIEDADES/Torres%20del%20rio%20apto%201216/WhatsApp_Image_2024-04-25_at_6.47.07_AM_wjkiek.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714081205/PROYECTO%20PROPIEDADES/Torres%20del%20rio%20apto%201216/WhatsApp_Image_2024-04-25_at_6.47.05_AM_4_uodbfh.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714081215/PROYECTO%20PROPIEDADES/Torres%20del%20rio%20apto%201216/WhatsApp_Image_2024-04-25_at_6.47.05_AM_5_lasg8t.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714081173/PROYECTO%20PROPIEDADES/Torres%20del%20rio%20apto%201216/WhatsApp_Image_2024-04-25_at_6.47.04_AM_2_mdeerg.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714081248/PROYECTO%20PROPIEDADES/Torres%20del%20rio%20apto%201216/WhatsApp_Image_2024-04-25_at_6.47.06_AM_thgtjb.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714081227/PROYECTO%20PROPIEDADES/Torres%20del%20rio%20apto%201216/WhatsApp_Image_2024-04-25_at_6.47.06_AM_3_onurnt.jpg"
     ],
     "size": "70",
     "availability": true,
-    "price": 3000,
+    "price": 4900000,
     "description": "4 people max",
     "bedrooms": 3,
     "bathrooms": 4,
-    "urbanizacion": "Bosques del Rio 1709",
+    "urbanizacion": "Torres del Rio 1216",
     "lat": "6.220148",
     "lon": "-75.574051",
-    "status": "sale",
+    "status": "rent",
     "userId": null,
     "rating": {
       "valorations": [
@@ -848,8 +608,8 @@
   {
     "id": "ad193fe6-f839-460f-af7f-ebf9c2d722d5",
     "images": [
-      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
       "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
