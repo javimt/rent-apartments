@@ -11,7 +11,7 @@ import useGetAllCities from "../../hooks/getAllCities";
 
 function Property({ apartment }) {
   const [imagePos, setImagePos] = useState(0);
-  const { city, getOneCity } = useGetAllCities()
+  const { city, getOneCity } = useGetAllCities();
 
   function handleImagePos(e) {
     if (e.target.name == "next") {
@@ -34,14 +34,14 @@ function Property({ apartment }) {
     bathrooms,
     size,
     description,
-    CityId
+    CityId,
   } = apartment.data;
 
   return (
     <main className="max-w-5xl mx-auto font-quicksand">
       <div className=" grid md:grid-cols-[70%,1fr] my-3 py-5">
         <div className="px-6">
-          <h1 className="text-3xl mb-4 text-secondary flex justify-between">
+          <h1 className="text-3xl mb-1 text-secondary flex justify-between">
             <span>{urbanizacion}</span>
             <div className="flex flex-col">
               <span className="font-semibold">
@@ -52,6 +52,14 @@ function Property({ apartment }) {
               </p>
             </div>
           </h1>
+          <div className="mb-5 text-sm text-secondary">
+            <h3>City</h3>
+            <div className="flex">
+              <span className="mr-1">{getOneCity(CityId).city}</span>
+              <span>-</span>
+              <span className="ml-1">{getOneCity(CityId).barrio}</span>
+            </div>
+          </div>
           <div className="flex gap-5 items-center my-4">
             <h2 className="font-semibold text-xl text-secondary">
               Valoration:
@@ -105,22 +113,16 @@ function Property({ apartment }) {
             <h3>description</h3>
             <p>{description}</p>
           </div>
-          <div className="mt-5 text-sm text-secondary">
-            <h3>City</h3>
-            <div className="flex">
-              <span className="mr-1">{getOneCity(CityId).city}</span>
-              <span>-</span>
-              <span className="ml-1">{getOneCity(CityId).barrio}</span>
-            </div>
-          </div>
 
           <div className="flex flex-col mt-2">
             <h3 className="text-secondary text-sm font-semibold">Politicas</h3>
             <div className="mt-1 text-sm color">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni aut
-              ratione ipsam esse commodi eius impedit et ut ex, nemo magnam
-              explicabo, repellendus illum id reprehenderit itaque nesciunt.
-              Quasi, voluptatibus!
+              <p>
+                1. Prohibido el ingreso de menores de edad, drogas y trabajadoras sexuales 
+                2. Compromiso de Cero Tolerancia: Nos comprometemos a adoptar una política de cero tolerancia hacia
+                  cualquier forma de explotación sexual infantil en nuestras propiedades de alquiler de apartamentos amoblados en Colombia.
+                3. 
+              </p>
             </div>
           </div>
         </div>

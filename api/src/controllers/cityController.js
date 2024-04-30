@@ -26,15 +26,12 @@ module.exports = {
 
   createCity: async (req, res, next) => {
     try {
-      const apartment = await Apartment.findByPk(req.body.apartmentId);
-      if(!apartment) {
-        rejectSender("no se encontró el apartamento", HttpStatusCodes.noEncontrado);
-      }
-      const city = await City.create(req.body);
+      const city = await City.findOrCreate({
+        where: req.body,
+      });
       if(!city) {
         rejectSender("faltaron datos para crear la ciudad", HttpStatusCodes.noEncontrado);
       }
-      await city.addApartment(apartment);
       resSender(null, HttpStatusCodes.creado, city);
     } catch (error) {
       next(error);
