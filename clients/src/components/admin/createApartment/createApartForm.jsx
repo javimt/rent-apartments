@@ -19,7 +19,7 @@ function CreateApartForm({render}) {
     console.log(input)
 
     return (
-        <div className="flex flex-col justify-center  border xl:mx-auto p-1 font-quicksand">
+        <div className="flex flex-col justify-center  shadow-2xl rounded-lg xl:mx-auto p-1 font-quicksand">
             <div>
                 <p className="text-gray-400 text-center">create apartment</p>
             </div>

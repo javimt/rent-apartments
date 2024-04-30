@@ -4,7 +4,7 @@
 
 function RenderNewApartSection() {
     return ( 
-        <div className="flex justify-center border h-[200px]">
+        <div className="flex justify-center  h-[200px]">
             <h2>Render Cart</h2>
         </div>
      );
