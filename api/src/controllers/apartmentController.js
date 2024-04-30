@@ -116,6 +116,7 @@ module.exports = {
   },
 
   createApartment: async (req, res, next) => {
+    const { cityId } = req.body
     try {
       const newApartment = await Apartment.create(req.body);
       resSender(null, HttpStatusCodes.creado, newApartment);
