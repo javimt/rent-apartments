@@ -7,7 +7,7 @@ function CPanel({handleOption}) {
             {
                 panelOptions && panelOptions.map(opt => {
                     return (
-                        <div key={opt.id} onClick={(e) =>handleOption(opt.value)} className='flex font-quicksand items-center p-2 bg-white mt-2  min-w-[150px] border-[1px] shadow-light hover:shadow-2xl cursor-pointer hover:border-[2px]'>
+                        <div key={opt.id} onClick={(e) =>handleOption(opt.value)} className='flex font-quicksand items-center p-2 bg-white mt-2 rounded-xl  min-w-[150px] border-[1px] shadow-light hover:shadow-2xl cursor-pointer hover:border-[2px]'>
                             <span></span>
                             <div className='flex justify-center items-center gap-2'>
                                 {
