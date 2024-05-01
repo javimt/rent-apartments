@@ -29,7 +29,7 @@ app.use(captureRes);
 app.use("/", router);
 
 app.get("*", (req, res) => {
-  res.status(200).send("Welcome to Furnished Apartments");
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 //manejo de errores
