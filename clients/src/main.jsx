@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import { store } from './redux/store/store.js';
 import { Auth0Provider } from '@auth0/auth0-react';
 
-axios.defaults.baseURL = "api-rent-appartament.up.railway.app";
+axios.defaults.baseURL = "https://api-rent-appartament.up.railway.app";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
