@@ -21,6 +21,7 @@ const sendResponse = (req, res, next) => {
 };
 
 const app = express();
+app.use(express.static(path.join(__dirname, 'build')));
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(cors());
@@ -28,8 +29,8 @@ app.use(captureRes);
 
 app.use("/", router);
 
-app.get("/", (req, res) => {
-  res.status(200).send("Welcome to Furnished Apartments");
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 //manejo de errores
