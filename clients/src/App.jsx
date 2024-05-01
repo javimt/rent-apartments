@@ -49,7 +49,7 @@ function App() {
         </Element>
           }
         />
-        <Route exact path="/apartment/:id" element={<CardDetail/>}/>
+        <Route path="/apartment/:id" element={<CardDetail/>}/>
         <Route path='/admin' element={
           <>
             <Header/>
