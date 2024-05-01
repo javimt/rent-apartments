@@ -1,4 +1,4 @@
-import { useState, Suspense } from 'react';
+import React, { useState, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Element } from 'react-scroll'; // Importa Element desde react-scroll
 import './global.css';
@@ -13,6 +13,7 @@ import Footer from './components/footer/footer';
 import CardDetail from './components/Detail/Detail';
 import AdminPanel from './components/admin/adminPanel';
 import NavBar from './components/header/navbar';
+
 
 // Importa el componente de ubicación de manera dinámica usando React.lazy
 const LocationMap = React.lazy(() => import('./components/location/location'));
