@@ -28,7 +28,7 @@ app.use(captureRes);
 
 app.use("/", router);
 
-app.get("/", (req, res) => {
+app.get("*", (req, res) => {
   res.status(200).send("Welcome to Furnished Apartments");
 });
 
@@ -44,9 +44,6 @@ connection
   .sync({ force: false })
   .then((response) => console.info("the postgreSQL Db is connected"))
   .then(() =>
-    app.use('*', (req, res) => {
-      res.sendFile(path.join(__dirname, 'build', 'index.html'));
-    }),
     app.listen(port, console.info(`Server is listening on port ${port}`))
   )
   .catch((error) => {
