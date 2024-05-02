@@ -28,13 +28,6 @@ app.use(captureRes);
 
 app.use("/", router);
 
-app.get('/*', (req, res) => {
-  res.status(200).json({
-    apartment: "https://api-rent-appartament.up.railway.app/apartment",
-    user: "https://api-rent-appartament.up.railway.app/user",
-  });
-});
-
 //manejo de errores
 app.use((err, req, res, next) => {
   const status = err.status || 500;
