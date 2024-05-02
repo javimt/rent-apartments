@@ -3,9 +3,6 @@ import useOpenClose from "../../hooks/OpenCloseMenu";
 import NavBar from "./navbar";
 import image from "/rent apt.jpeg";
 import { RiMenuFoldFill } from "react-icons/ri";
-import { BsTelephoneForward } from "react-icons/bs";
-import LoginButton from "../Auth0Buttons/LoginButton";
-import LogoutButton from "../Auth0Buttons/LogoutButton";
 import { useAuth0 } from "@auth0/auth0-react";
 import LoginPanel from "./loginPanel";
 
