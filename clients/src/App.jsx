@@ -53,6 +53,7 @@ function App() {
         <Route path="/apartment/:id" element={<CardDetail/>}/>
         <Route path='/admin' element={
           <>
+            <TransitionPage/>
             <Header/>
             <AdminPanel/>
           </>

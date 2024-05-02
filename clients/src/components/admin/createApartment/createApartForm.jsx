@@ -6,7 +6,7 @@ import SelectOptionsSection from "./formComponents/selectOptionsSection";
 import SelectSection from "./formComponents/selectSection";
 import ImageSelector from "./formComponents/imagesSelector";
 import ImagesRenderSection from "./formComponents/imagesRenderSection";
-
+import Transition from "../../complements/transition"
 
 
 function CreateApartForm({render}) {
@@ -19,7 +19,7 @@ function CreateApartForm({render}) {
     console.log(input)
 
     return (
-        <div className="flex flex-col justify-center  shadow-2xl rounded-lg xl:mx-auto p-1 font-quicksand">
+        <Transition className="flex flex-col justify-center  shadow-2xl rounded-lg xl:mx-auto p-1 font-quicksand">
             <div>
                 <p className="text-gray-400 text-center">create apartment</p>
             </div>
@@ -50,7 +50,7 @@ function CreateApartForm({render}) {
                 <div>
                     <div className="flex flex-col mx-2  ">
                         <label className="text-gray-400 mb-1 text-[13px]">description</label>
-                        <textarea className="border " onChange={handleInputs} name={'description'} value={input.description} id="" cols="30" rows="10"></textarea>
+                        <textarea className="border text-gray-400 mb-1 text-[13px] p-2 " onChange={handleInputs} name={'description'} value={input.description} id="" cols="30" rows="10"></textarea>
                     </div>
                 </div>
                 <span className="text-xs mx-2 my-2 block text-gray-400 font-extralight">Images Section</span>
@@ -59,7 +59,7 @@ function CreateApartForm({render}) {
                     <ImagesRenderSection addImages={addImages} images={input.images} deleteImages={deleteImage} />
                 </div>
             </div>
-        </div>
+        </Transition>
     );
 }
 

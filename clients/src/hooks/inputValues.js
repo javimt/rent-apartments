@@ -9,33 +9,35 @@ function useHandleInput() {
         price: 0,
         description: "",
         bedrooms: 1,
-        size: "",
+        size: 0,
         rating: 3,
         bathrooms: 1,
         urbanizacion: "",
         lat: "",
         lon: "",
         status: "rent",
-        cityId:''
+        cityId: ''
     })
 
-    function verifyInputValidation(){
+    function verifyInputValidation() {
         return
     }
 
-    function deleteImage(e){
+    function deleteImage(e) {
         setInput({
             ...input,
-            images: input.images.filter(url => url != e )
+            images: input.images.filter(url => url != e)
         })
     }
 
-    function addImages(e){
-        if(e.current.value){
-            setInput({
-                ...input,
-                images: [...input.images, e.current.value ]
-            })
+    function addImages(e) {
+        if (!input.images.includes(e.current.value)) {
+            if (e.current.value) {
+                setInput({
+                    ...input,
+                    images: [...input.images, e.current.value]
+                })
+            }
         }
     }
 
