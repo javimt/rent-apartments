@@ -117,18 +117,16 @@ function Property({ apartment }) {
             <h3 className="text-secondary text-sm font-semibold">Politicas</h3>
             <div className="mt-1 text-xs color border p-2 border-red-600 shadow-xl rounded-lg font-extralight">
               <p>
-                1. Prohibido el ingreso de menores de edad, drogas y
-                trabajadoras sexuales 2. Compromiso de Cero Tolerancia: Nos
-                comprometemos a adoptar una política de cero tolerancia hacia
-                cualquier forma de explotación sexual infantil en nuestras
-                propiedades de alquiler de apartamentos amoblados en Colombia.
-                3. En nuestras instalaciones, consideramos cualquier forma de
-                abuso sexual hacia menores de edad como una violación grave de
-                los derechos humanos y una violación de la ley colombiana contra
-                la explotación sexual infantil. Esto incluye cualquier tipo de
-                contacto sexual, exposición indecente, explotación sexual a
-                través de la pornografía, o cualquier otro acto de naturaleza
-                sexual realizado contra un niño o niña.
+                Entry of minors, drugs, and sex workers is prohibited. Zero
+                Tolerance Commitment: We commit to adopting a zero-tolerance
+                policy towards any form of child sexual exploitation in our
+                furnished apartment rental properties in Colombia. In our
+                facilities, we consider any form of sexual abuse against minors
+                as a serious violation of human rights and a violation of
+                Colombian law against child sexual exploitation. This includes
+                any type of sexual contact, indecent exposure, sexual
+                exploitation through pornography, or any other sexual act
+                performed against a child.
               </p>
             </div>
           </div>
