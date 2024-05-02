@@ -24,7 +24,7 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER
     },
     size: {
-      type: DataTypes.STRING
+      type: DataTypes.FLOAT
     },
     rating: {
       type: DataTypes.JSON

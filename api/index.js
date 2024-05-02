@@ -28,7 +28,7 @@ app.use(captureRes);
 
 app.use("/", router);
 
-app.get('/*', (req, res) => {
+app.get('/', (req, res) => {
   res.status(200).json({
     welcome: "WELCOME TO MEDELLIN FURNISHED APARTMENTS",
     apartment: "https://api-rent-appartament.up.railway.app/apartment",
