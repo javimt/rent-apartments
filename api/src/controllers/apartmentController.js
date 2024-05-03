@@ -116,14 +116,15 @@ module.exports = {
   },
 
   createApartment: async (req, res, next) => {
-    const { cityId } = req.body;
+    const { CityId } = req.body;
     try {
-      const city = await City.findByPk(cityId);
+      const city = await City.findByPk(CityId);
+    console.log(city)
       if(!city) {
         rejectSender("No se encontró la ciudad", HttpStatusCodes.noEncontrado);
       }
       const newApartment = await Apartment.create(req.body);
-      await newApartment.addCity(city);
+      await city.addApartment(newApartment);
       resSender(null, HttpStatusCodes.creado, newApartment);
     } catch (error) {
       next(error);
