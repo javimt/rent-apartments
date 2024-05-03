@@ -6,10 +6,10 @@ import RenderNewApartSection from "./previewSection";
 
 
 function CreateApartSect() {
-    const [input, setInput] = useState({})
+    const [hookState, setHookState] = useState({input:{}, submit:()=>{}})
 
-    function getinput(inputParam){
-        setInput(inputParam)
+    function getinput(state){
+        setHookState(state)
     }
 
     
@@ -17,7 +17,7 @@ function CreateApartSect() {
     return ( 
         <div className="grid md:grid-cols-1 xl:grid-cols-2 gap-2  ">
             <CreateApartForm  render={getinput}/>
-            <RenderNewApartSection input={input}/>
+            <RenderNewApartSection input={hookState.input} submit={hookState.submit}/>
         </div>
      );
 }

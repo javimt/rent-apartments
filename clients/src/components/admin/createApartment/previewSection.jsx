@@ -1,17 +1,25 @@
 import Transition from "../../complements/transition";
 import { LiaBathSolid, LiaBedSolid, LiaRulerCombinedSolid, LiaRulerSolid } from 'react-icons/lia'
 import { MdAddHomeWork } from "react-icons/md";
+import { parseToColombianMoney } from "../../../utils/parseMoney";
+import useGetAllCities from "../../../hooks/getAllCities";
 
 
-function RenderNewApartSection({ input }) {
-    const { images, urbanizacion, bathrooms, bedrooms, size, description, status } = input
+function RenderNewApartSection({ input, submit }) {
+    const { images, urbanizacion, bathrooms, bedrooms, size, description, status, price, cityId } = input
+    const {getOneCity} = useGetAllCities()
     return (
         <Transition className="flex flex-col items-center h-full shadow-2xl rounded-lg xl:mx-auto p-1 font-quicksand relative">
             <div>
                 <p className="text-gray-400 text-center">preview apartment</p>
             </div>
-            <div className="py-5 text-gray-400 font-bold text-xl w-[400px]">
-                <h2>{urbanizacion ? urbanizacion : 'Title Here'}</h2>
+            <div className="grid grid-cols-2  py-5 text-gray-400 font-bold text-xl w-[400px]">
+                <div className="flex flex-col">
+                    <h2>{urbanizacion ? urbanizacion : 'Title Here'}</h2>
+                    {cityId &&<span className="text-gray-400 text-sm font-extralight">{getOneCity(cityId).city + ' - ' + getOneCity(cityId).barrio}</span>}
+                </div>
+                <h2 className="text-end">{parseToColombianMoney(price)}</h2>
+
             </div>
             <div className="flex flex-col justify-center mt-2">
                 <div className="w-[400px] h-[250px]  bg-cover bg-center rounded-lg object-fill relative border" style={{ backgroundImage: `url(${images && images[0] ? images[0] : 'https://t3.ftcdn.net/jpg/04/84/88/76/360_F_484887682_Mx57wpHG4lKrPAG0y7Q8Q7bJ952J3TTO.jpg'})` }}>
@@ -39,12 +47,12 @@ function RenderNewApartSection({ input }) {
                         </span>
                     </div>
                 </div>
-                <div className="min-h-[200px] xl:min-h-0">
+                <div className="min-h-[200px] xl:min-h-0 max-w-[400px]">
                     <span className="text-xs  my-2 block text-gray-400 font-extralight">Description:</span>
                     <p className="text-xs text-gray-400 ">{description ? description : 'description here....'}</p>
 
                 </div>
-                <div className="text-white flex justify-center absolute bottom-3 right-[calc(50%-100px)] ">
+                <div onClick={ submit } className="text-white flex justify-center absolute bottom-3 right-[calc(50%-100px)] ">
                     <div className="bg-secondary flex gap-2  px-3 py-2 rounded-lg mt-5 hover:bg-black cursor-pointer transition-all delay-200">
                         <MdAddHomeWork />
                         <span>Create Apartment</span>
