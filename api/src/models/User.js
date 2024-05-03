@@ -20,6 +20,10 @@ module.exports = (sequelize) => {
     role: {
       type: DataTypes.ENUM("user", "admin", "superAdmin"),
       defaultValue: "user"
+    },
+    banner: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
     }
   }, {timestamps: false});
   User.associate = (models) => {
