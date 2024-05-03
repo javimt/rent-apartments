@@ -1,6 +1,6 @@
 import { useState } from "react";
 import CreateApartForm from "./createApartForm";
-import RenderNewApartSection from "./renderNewApart";
+import RenderNewApartSection from "./previewSection";
 
 
 

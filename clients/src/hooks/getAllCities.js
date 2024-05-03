@@ -17,10 +17,8 @@ function useGetAllCities() {
         return {}
     }
     useEffect(() => {
-        if (!citiesByRedux) {
             dispatch(getAllCties())
-        }
-    }, [citiesByRedux])
+    }, [])
 
     useEffect(() => {
         setCities(citiesByRedux)
