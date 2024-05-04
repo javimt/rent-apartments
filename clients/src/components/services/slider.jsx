@@ -26,7 +26,7 @@ function Slider() {
         apartments.map(({ images, id }) => (
           <SwiperSlide className='w-100' key={id}>
             <Link to={`/apartment/${id}`} >
-              <div style={{ backgroundImage: `url('${images[0]}')` }} className="w-[100%] h-[90%] rounded-xl bg-cover object-fill" />
+              <div style={{ backgroundImage: `url('${images && images[0]}')` }} className="w-[100%] h-[90%] rounded-xl bg-cover object-fill" />
             </Link>
           </SwiperSlide>
         ))}

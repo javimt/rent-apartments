@@ -119,7 +119,6 @@ module.exports = {
     const { CityId } = req.body;
     try {
       const city = await City.findByPk(CityId);
-    console.log(city)
       if(!city) {
         rejectSender("No se encontró la ciudad", HttpStatusCodes.noEncontrado);
       }

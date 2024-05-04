@@ -51,3 +51,10 @@ export function getAllCties() {
       .catch((error) => console.error(error));
   };
 }
+
+export const filterSelectedCity = (city) => {
+  return {
+    type: actionTypes.SET_SELECTED_CITY,
+    payload: city,
+  }
+};

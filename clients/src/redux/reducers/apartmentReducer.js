@@ -18,6 +18,11 @@ function apartmentReducer(state = initialState, action) {
         ...state,
         cities: action.payload.data,
       };
+    case actionTypes.SET_SELECTED_CITY:
+      return {
+        ...state,
+        apartments: [...state.apartments].filter(c => c.CityId.includes(action.payload)),
+      };
     default:
       return { ...state };
   }

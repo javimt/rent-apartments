@@ -62,7 +62,7 @@ function Properties() {
                           </span>
                         </div>
                         <img
-                          src={images[0]}
+                          src={images && images[0]}
                           alt=""
                           className="object-cover w-full max-h-full h-[280px] rounded-t-2xl"
                         />

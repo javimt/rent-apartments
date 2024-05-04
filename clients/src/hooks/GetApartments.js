@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getApatments } from "../redux/actions/apartmentActions";
+import { getApatments, filterSelectedCity } from "../redux/actions/apartmentActions";
 
 function useGetApartments() {
   const [apartments, setApartments] = useState([]);
   const dispatch = useDispatch();
-
   const allApartment = useSelector((state) => state.apartment.apartments);
 
   function resetApartmentsList() {
     dispatch(getApatments());
   }
   const length = apartments ? apartments.length : 8;
+
+  function filterByCity(cityId) {
+    dispatch(filterSelectedCity(cityId))
+  }
 
   useEffect(() => {
     !allApartment.length && dispatch(getApatments());
@@ -25,6 +28,7 @@ function useGetApartments() {
     apartments,
     resetApartmentsList,
     length,
+    filterByCity,
   };
 }
 
