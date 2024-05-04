@@ -7,7 +7,7 @@ function SearchLocation() {
   const { toogleOpen, openStatus } = useOpenClose();
   const {filterByCity} = useGetApartments();
   const {city} = useGetAllCities();
-console.log(city)
+
 
   const handleCitySelect = (city) => {
     filterByCity(city);

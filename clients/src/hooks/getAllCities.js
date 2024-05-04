@@ -16,7 +16,10 @@ function useGetAllCities() {
     return {};
   }
   useEffect(() => {
-    dispatch(getAllCties());
+    setTimeout(()=>{
+
+      dispatch(getAllCties());
+    },500)
   }, []);
 
   useEffect(() => {
