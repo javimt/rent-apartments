@@ -30,14 +30,14 @@ module.exports = {
   },
 
   getApartmentByCity: async (req, res, next) => {
-    const { city } = req.params;
+    const { id } = req.params;
     try {
       const apartment = await Apartment.findAll({
         include: [
           {
             model: City,
             where: {
-              city: { [Op.iLike]: `%${city}%` },
+              id: { [Op.iLike]: `%${id}%` },
             },
           },
         ],

@@ -19,9 +19,11 @@ function apartmentReducer(state = initialState, action) {
         cities: action.payload.data,
       };
     case actionTypes.SET_SELECTED_CITY:
+      
+      
       return {
         ...state,
-        apartments: [...state.apartments].filter(c => c.CityId.includes(action.payload)),
+        apartments: action.payload.data
       };
     default:
       return { ...state };

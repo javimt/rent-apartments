@@ -9,8 +9,9 @@ function SearchLocation() {
   const {city} = useGetAllCities();
 
 
-  const handleCitySelect = (city) => {
-    filterByCity(city);
+  const handleCitySelect = (cityId) => {
+    console.log(cityId, '<-aca estamos-')
+    filterByCity(cityId);
   };
 
   return (
@@ -31,7 +32,7 @@ function SearchLocation() {
           return (
             <button
               key={e.id}
-              onClick={() => handleCitySelect(e)}
+              onClick={() => handleCitySelect(e.id)}
               value={e.id}
               className="p-1 hover:cursor-pointer w-full block hover:bg-gray-300 text-gray-400 text-[12px]"
             >{`${e.city} - ${e.barrio}`}</button>

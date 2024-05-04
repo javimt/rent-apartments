@@ -52,9 +52,12 @@ export function getAllCties() {
   };
 }
 
-export const filterSelectedCity = (city) => {
-  return {
-    type: actionTypes.SET_SELECTED_CITY,
-    payload: city,
+export const filterSelectedCity = (cityId) => {
+  return function (dispatch){
+    fetch(`https://api-rent-appartament.up.railway.app/apartment/city/${cityId}`)
+    .then(response => response.json())
+    .then( data => dispatch({type:actionTypes.SET_SELECTED_CITY, payload:data}) )
+
+    
   }
 };
