@@ -61,3 +61,25 @@ export const filterSelectedCity = (cityId) => {
     
   }
 };
+
+export function getAllRentApartments() {
+  return (dispatch) => {
+    fetch("https://api-rent-appartament.up.railway.app/apartment/rent")
+      .then((response) => response.json())
+      .then((data) =>
+        dispatch({ type: actionTypes.GET_ALL_RENT_APARTMENTS, payload: data })
+      )
+      .catch((error) => console.error(error));
+  };
+}
+
+export function getAllSaleApartments() {
+  return (dispatch) => {
+    fetch("https://api-rent-appartament.up.railway.app/apartment/sale")
+      .then((response) => response.json())
+      .then((data) =>
+        dispatch({ type: actionTypes.GET_ALL_SALE_APARTMENTS, payload: data }) 
+      )
+      .catch((error) => console.error(error));
+  };
+}

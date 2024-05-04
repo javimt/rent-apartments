@@ -1,9 +1,21 @@
 import { GrFormDown, GrFormUp } from "react-icons/gr";
 import { MdApartment } from "react-icons/md";
 import useOpenClose from "../../../../hooks/OpenCloseMenu";
+import { getAllRentApartments, getAllSaleApartments } from "../../../../redux/actions/apartmentActions";
+import { useDispatch } from "react-redux";
 
 function SearchProperty() {
   const { toogleOpen, openStatus } = useOpenClose();
+
+  const dispatch = useDispatch();
+
+  const handleRentClick = () => {
+    dispatch(getAllRentApartments());
+  };
+
+  const handleSaleClick = () => {
+    dispatch(getAllSaleApartments());
+  };
 
   return (
     <div
@@ -12,21 +24,17 @@ function SearchProperty() {
     >
       <MdApartment />
       <div>
-        <p>Propiedad</p>
-        <p className="md:text-[10px] xl:text-xs ">Seleccione tipo de Propiedad</p>
+        <p>Filter Options</p>
+        <p className="md:text-[10px] xl:text-xs ">Rent / Sale</p>
       </div>
       <div>{openStatus ? <GrFormUp /> : <GrFormDown />}</div>
       {openStatus && (
         <div className="absolute top-[60px] py-3 px-4  bg-white shadow-light w-full left-0 z-[50]">
-          <>
-            <p className="font-semibold"> Alquiler Temporal</p>
-          </>
-          <>
-            <p className="font-semibold"> Alquiler Permanente</p>
-          </>
-          <>
-            <p className="font-semibold"> Propiedad en venta</p>
-          </>
+          <div>
+            <button onClick={handleRentClick}>Rent</button>
+          </div>
+          
+          <button onClick={handleSaleClick}>Sale</button>
         </div>
       )}
     </div>

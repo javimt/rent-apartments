@@ -21,9 +21,9 @@ function SearchLocation() {
     >
       <GrLocation />
       <div>
-        <p className="md:text-sm ">Localizacion</p>
+        <p className="md:text-sm ">Location</p>
         <p className="md:text-[10px] xl:text-xs ">
-          Seleccione una localizacion
+          Select Location
         </p>
       </div>
       {openStatus ? <GrFormUp /> : <GrFormDown />}

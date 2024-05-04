@@ -10,11 +10,15 @@ const {
   getApartmentsByPriceRange,
   getRatings,
   updateRating,
+  getAllRentApartments,
+  getAllSaleApartments,
 } = require("../controllers/apartmentController");
 
 const router = Router();
 
 router.get("/", getAllApartments);
+router.get("/rent", getAllRentApartments);
+router.get("/sale", getAllSaleApartments);
 router.get("/rating", getRatings);
 router.get("/city/:id", getApartmentByCity);
 router.get("/urbanizacion/:urbanizacion", getApartmentByName);

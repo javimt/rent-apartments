@@ -55,6 +55,30 @@ module.exports = {
     }
   },
 
+  getAllRentApartments: async (req, res, next) => {
+    try {
+      const rentalApartments = await Apartment.findAll({ where: { status: 'rent' } });
+      if(!rentalApartments) {
+        rejectSender("no se encontraron apartamentos para alquilar", HttpStatusCodes.noEncontrado);
+      }
+      resSender(null, HttpStatusCodes.aceptado, rentalApartments);
+    } catch (error) {
+      next(error);
+    }
+  },
+
+  getAllSaleApartments: async (req, res, next) => {
+    try {
+      const saleApartments = await Apartment.findAll({ where: { status: 'sale' } });
+      if(!saleApartments) {
+        rejectSender("no se encontraron apartamentos para vender", HttpStatusCodes.noEncontrado);
+      }
+      resSender(null, HttpStatusCodes.aceptado, saleApartments);
+    } catch (error) {
+      next(error);
+    }
+  },
+
   getApartmentByName: async (req, res, next) => {
     const { urbanizacion } = req.params;
     try {

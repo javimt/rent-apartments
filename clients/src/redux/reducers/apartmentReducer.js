@@ -19,11 +19,19 @@ function apartmentReducer(state = initialState, action) {
         cities: action.payload.data,
       };
     case actionTypes.SET_SELECTED_CITY:
-        
-      
       return {
         ...state,
         apartments: action.payload
+      };
+      case actionTypes.GET_ALL_RENT_APARTMENTS:
+      return {
+        ...state,
+        apartments: action.payload,
+      };
+    case actionTypes.GET_ALL_SALE_APARTMENTS:
+      return {
+        ...state,
+        apartments: action.payload,
       };
     default:
       return { ...state };
