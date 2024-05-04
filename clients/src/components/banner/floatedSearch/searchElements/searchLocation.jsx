@@ -27,14 +27,14 @@ function SearchLocation() {
         </p>
       </div>
       {openStatus ? <GrFormUp /> : <GrFormDown />}
-      <div className={`${openStatus ? "absolute" : "hidden"} rounded-sm z-100 bg-white w-full left-0 top-[60px] border`}>
+      <div className={`${openStatus ? "absolute  z-[110]" : "hidden"} p-3 rounded-sm  bg-white w-full left-0 top-[60px] border `}>
         {city.map((e) => {
           return (
             <button
               key={e.id}
               onClick={() => handleCitySelect(e.id)}
               value={e.id}
-              className="p-1 hover:cursor-pointer w-full block hover:bg-gray-300 text-gray-400 text-[12px]"
+              className="p-1 hover:cursor-pointer text-start w-full block hover:bg-gray-300 text-gray-400 text-[16px]"
             >{`${e.city} - ${e.barrio}`}</button>
           );
         })}

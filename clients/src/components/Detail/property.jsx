@@ -108,14 +108,14 @@ function Property({ apartment }) {
               </span>
             </div>
           </div>
-          <div className="mt-5 text-sm text-secondary">
-            <h3>description</h3>
+          <div className="mt-5 text-[13px] text-gray-400 flex flex-col gap-2">
+            <h3 className="text-secondary text-sm font-semibold">Description</h3>
             <p>{description}</p>
           </div>
 
           <div className="flex flex-col mt-2">
             <h3 className="text-secondary text-sm font-semibold">Politicas</h3>
-            <div className="mt-1 text-xs color border p-2 border-red-600 shadow-xl rounded-lg font-extralight">
+            <div className="mt-1 text-xs color border text-gray-400 p-2 border-red-600 shadow-xl rounded-lg font-normal">
               <p>
                 Entry of minors, drugs, and sex workers is prohibited. Zero
                 Tolerance Commitment: We commit to adopting a zero-tolerance

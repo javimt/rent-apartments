@@ -92,7 +92,7 @@ function NavBar({ openStatus }) {
           <div className="text-center text-[18px]">
             <AdminLink
               className={
-                "block border-b-[1px] border-white hover:text-secondary hover:border-b-[1px] hover:border-b-secondary md:mb-0 mb-4 cursor-pointer"
+                "block border-b-[1px] border-white md:mb-0 mb-4 cursor-pointer"
               }
             />
           </div>
