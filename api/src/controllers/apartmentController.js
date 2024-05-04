@@ -37,7 +37,7 @@ module.exports = {
           {
             model: City,
             where: {
-              id: { [Op.iLike]: `%${id}%` },
+              id: id,
             },
           },
         ],
