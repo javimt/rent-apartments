@@ -24,19 +24,22 @@ function SearchProperty() {
     >
       <MdApartment />
       <div>
-        <p>Filter Options</p>
+        <p className="md:text-sm ">Filter Options</p>
         <p className="md:text-[10px] xl:text-xs ">Rent / Sale</p>
       </div>
-      <div>{openStatus ? <GrFormUp /> : <GrFormDown />}</div>
-      {openStatus && (
-        <div className="absolute top-[60px] py-3 px-4  bg-white shadow-light w-full left-0 z-[50]">
-          <div>
-            <button onClick={handleRentClick}>Rent</button>
+      {openStatus ? <GrFormUp /> : <GrFormDown />}
+      <div className={`${openStatus ? "absolute  z-[110]" : "hidden"} p-3 rounded-sm  bg-white w-full left-0 top-[60px] border `}>
+        {openStatus && (
+        <div>
+          <div className="p-1 hover:cursor-pointer text-start hover:bg-gray-300 text-gray-400 text-[16px]">
+            <button className="w-full text-left" onClick={handleRentClick}>Rent</button>
           </div>
-          
-          <button onClick={handleSaleClick}>Sale</button>
+          <div className="p-1 hover:cursor-pointer text-start hover:bg-gray-300 text-gray-400 text-[16px]">
+            <button className="w-full text-left" onClick={handleSaleClick}>Sale</button>
+          </div>
         </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }

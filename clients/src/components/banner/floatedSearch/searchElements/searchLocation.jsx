@@ -8,9 +8,7 @@ function SearchLocation() {
   const {filterByCity} = useGetApartments();
   const {city} = useGetAllCities();
 
-
   const handleCitySelect = (cityId) => {
-    console.log(cityId, '<-aca estamos-')
     filterByCity(cityId);
   };
 
