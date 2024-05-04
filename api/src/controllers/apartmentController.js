@@ -31,6 +31,7 @@ module.exports = {
 
   getApartmentByCity: async (req, res, next) => {
     const { id } = req.params;
+    console.log(id)
     try {
       const apartment = await Apartment.findAll({
         include: [
