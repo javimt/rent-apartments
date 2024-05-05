@@ -122,7 +122,8 @@ module.exports = {
   },
 
   getApartmentsByPriceRange: async (req, res, next) => {
-    const { minPrice, maxPrice } = req.body.price;
+    const minPrice = req.query.minPrice;
+    const maxPrice = req.query.maxPrice;
     try {
       const apartments = await Apartment.findAll({
         where: {
@@ -131,7 +132,7 @@ module.exports = {
           },
         },
       });
-      if (!apartments.length) {
+      if (!apartments) {
         rejectSender("No se encontraron apartamentos dentro del rango de precios proporcionado", HttpStatusCodes.noEncontrado);
       }
       resSender(null, HttpStatusCodes.aceptado, apartments);

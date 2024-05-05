@@ -4,9 +4,19 @@ import useOpenClose from "../../../../hooks/OpenCloseMenu";
 import { parseToDollarsMoney } from "../../../../utils/parseMoney";
 import { GoArrowSwitch } from "react-icons/go";
 import { IoInfinite } from "react-icons/io5";
+import { getApartmentsByPrice } from "../../../../redux/actions/apartmentActions";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
 
 function SearchPricingRange() {
   const { toogleOpen, openStatus } = useOpenClose();
+  const dispatch = useDispatch();
+
+  const handleRangeClick = (minPrice, maxPrice) => {
+    if (openStatus) {
+      dispatch(getApartmentsByPrice(minPrice, maxPrice));
+    }
+  };
 
   return (
     <div
@@ -20,21 +30,42 @@ function SearchPricingRange() {
       </div>
       <div>{openStatus ? <GrFormUp /> : <GrFormDown />}</div>
       {openStatus && (
-        <div className=" absolute top-[60px] py-3 px-4 bg-white text-secondary shadow-light w-full left-0 z-[50]">
-          <div className="font-semibold flex">
-            <span>{parseToDollarsMoney(100)}</span>
-            <GoArrowSwitch className="mx-2" />
-            <span>{parseToDollarsMoney(500)}</span>
+        <div className="absolute top-[60px] py-3 px-2 bg-white text-secondary shadow-light w-full left-0 z-[50]">
+          <div className="font-semibold flex p-1 hover:cursor-pointer text-start hover:bg-gray-300 text-gray-400 text-[15px]">
+            <span
+              onClick={() => handleRangeClick(4000000, 6000000)}
+              className="cursor-pointer flex w-full justify-center items-center"
+            >
+              {parseToDollarsMoney(4000000)} <GoArrowSwitch className="mx-1" />{" "}
+              {parseToDollarsMoney(6000000)}
+            </span>
           </div>
-          <div className="font-semibold flex">
-            <span>{parseToDollarsMoney(500)}</span>
-            <GoArrowSwitch className="mx-2" />
-            <span>{parseToDollarsMoney(1000)}</span>
+          <div className="font-semibold flex p-1 hover:cursor-pointer text-start hover:bg-gray-300 text-gray-400 text-[15px]">
+            <span
+              onClick={() => handleRangeClick(6000000, 9000000)}
+              className="cursor-pointer flex w-full justify-center items-center"
+            >
+              {parseToDollarsMoney(6000000)} <GoArrowSwitch className="mx-1" />{" "}
+              {parseToDollarsMoney(9000000)}
+            </span>
           </div>
-          <div className="font-semibold flex">
-            <span>{parseToDollarsMoney(1000)}</span>
-            <GoArrowSwitch className="mx-2" />
-            <IoInfinite />
+          <div className="font-semibold flex p-1 hover:cursor-pointer text-start hover:bg-gray-300 text-gray-400 text-[15px]">
+            <span
+              onClick={() => handleRangeClick(9000000, 13000000)}
+              className="cursor-pointer flex w-full justify-center items-center"
+            >
+              {parseToDollarsMoney(9000000)} <GoArrowSwitch className="mx-1" />{" "}
+              {parseToDollarsMoney(13000000)}
+            </span>
+          </div>
+          <div className="font-semibold flex p-1 hover:cursor-pointer text-start hover:bg-gray-300 text-gray-400 text-[15px]">
+            <span
+              onClick={() => handleRangeClick(13000000, 20000000)}
+              className="cursor-pointer flex w-full justify-center items-center"
+            >
+              {parseToDollarsMoney(13000000)} <GoArrowSwitch className="mx-1" />{" "}
+              {parseToDollarsMoney(20000000)}
+            </span>
           </div>
         </div>
       )}

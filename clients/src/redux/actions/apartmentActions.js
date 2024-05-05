@@ -1,4 +1,5 @@
 import { actionTypes } from "./actionTypes";
+import axios from "axios";
 
 const productionHandler = {
   urlProduction: "https://api-rent-appartament.up.railway.app/apartment",
@@ -7,7 +8,7 @@ const productionHandler = {
 
 export function getApatments() {
   return (dispatch) => {
-    fetch(productionHandler.urlProduction)
+    fetch("http://localhost:3001/apartment")
       .then((response) => response.json())
       .then((data) =>
         dispatch({ type: actionTypes.GET_ALL_APARTMENTS, payload: data })
@@ -18,7 +19,7 @@ export function getApatments() {
 
 export async function createAnApartment(apartment) {
   try {
-    const response = await fetch(productionHandler.urlProduction, {
+    const response = await fetch("https://api-rent-appartament.up.railway.app/apartment", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(apartment),
@@ -33,7 +34,7 @@ export async function createAnApartment(apartment) {
 
 export async function getAnAppatment(id) {
   try {
-    const response = await fetch(`${productionHandler.urlProduction}/${id}`);
+    const response = await fetch(`https://api-rent-appartament.up.railway.app/apartment/${id}`);
     const apartment = await response.json();
     return apartment;
   } catch (error) {
@@ -52,13 +53,12 @@ export function getAllCties() {
   };
 }
 
-export const filterSelectedCity = (cityId) => {
+export function filterSelectedCity(cityId) {
   return function (dispatch){
     fetch(`https://api-rent-appartament.up.railway.app/apartment/city/${cityId}`)
     .then(response => response.json())
     .then( data => dispatch({type:actionTypes.SET_SELECTED_CITY, payload:data}) )
-
-    
+    .catch((error) => console.error(error));
   }
 };
 
@@ -67,8 +67,7 @@ export function getAllRentApartments() {
     fetch("https://api-rent-appartament.up.railway.app/apartment/rent")
       .then((response) => response.json())
       .then((data) =>
-        dispatch({ type: actionTypes.GET_ALL_RENT_APARTMENTS, payload: data })
-      )
+        dispatch({ type: actionTypes.GET_ALL_RENT_APARTMENTS, payload: data }))
       .catch((error) => console.error(error));
   };
 }
@@ -80,6 +79,16 @@ export function getAllSaleApartments() {
       .then((data) =>
         dispatch({ type: actionTypes.GET_ALL_SALE_APARTMENTS, payload: data }) 
       )
+      .catch((error) => console.error(error));
+  };
+}
+
+export function getApartmentsByPrice(minPrice, maxPrice) {
+  return (dispatch) => {
+    fetch(`http://localhost:3001/apartment/range?minPrice=${minPrice}&maxPrice=${maxPrice}`)
+      .then((response) => response.json())
+      .then((data) =>
+        dispatch({ type: actionTypes.GET_APARTMENTS_BY_PRICE_RANGE, payload: data }))
       .catch((error) => console.error(error));
   };
 }

@@ -33,6 +33,11 @@ function apartmentReducer(state = initialState, action) {
         ...state,
         apartments: action.payload,
       };
+    case actionTypes.GET_APARTMENTS_BY_PRICE_RANGE:
+      return {
+        ...state,
+        apartments: action.payload
+      }
     default:
       return { ...state };
   }
