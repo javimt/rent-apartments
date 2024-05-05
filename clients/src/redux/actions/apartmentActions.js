@@ -8,7 +8,7 @@ const productionHandler = {
 
 export function getApatments() {
   return (dispatch) => {
-    fetch("http://localhost:3001/apartment")
+    fetch("https://api-rent-appartament.up.railway.app/apartment")
       .then((response) => response.json())
       .then((data) =>
         dispatch({ type: actionTypes.GET_ALL_APARTMENTS, payload: data })
@@ -85,7 +85,7 @@ export function getAllSaleApartments() {
 
 export function getApartmentsByPrice(minPrice, maxPrice) {
   return (dispatch) => {
-    fetch(`http://localhost:3001/apartment/range?minPrice=${minPrice}&maxPrice=${maxPrice}`)
+    fetch(`https://api-rent-appartament.up.railway.app/apartment/range?minPrice=${minPrice}&maxPrice=${maxPrice}`)
       .then((response) => response.json())
       .then((data) =>
         dispatch({ type: actionTypes.GET_APARTMENTS_BY_PRICE_RANGE, payload: data }))
