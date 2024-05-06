@@ -1,4 +1,4 @@
-import useGetApartments from "../../hooks/GetApartments";
+
 import Transition from "../complements/transition";
 import Slider from "./slider";
 

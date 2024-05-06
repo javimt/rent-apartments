@@ -1,4 +1,4 @@
-import useGetApartments from "../../hooks/GetApartments";
+import useGetApartments from "../../hooks/custom/GetApartments";
 import Transition from "../complements/transition";
 import { Link } from "react-router-dom";
 import {

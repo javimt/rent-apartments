@@ -1,12 +1,15 @@
 import { useState } from "react";
 import CreateApartForm from "./createApartForm";
 import RenderNewApartSection from "./previewSection";
+import useHandleInput from "../../../hooks/custom/inputValues";
 
 
 
 
 function CreateApartSect() {
     const [hookState, setHookState] = useState({input:{}, submit:()=>{}})
+
+    const {input} = useHandleInput()
 
     function getinput(state){
         setHookState(state)

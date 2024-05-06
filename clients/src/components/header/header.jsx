@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import useOpenClose from "../../hooks/OpenCloseMenu";
 import NavBar from "./navbar";
 import image from "/rent apt.jpeg";
 import { RiMenuFoldFill } from "react-icons/ri";
 import { useAuth0 } from "@auth0/auth0-react";
-import LoginPanel from "./loginPanel";
+import LoginPanel from "./loginPanel/loginPanel";
+import useOpenClose from "../../hooks/custom/OpenCloseMenu";
 
 function Header() {
   const { openStatus, toogleOpen } = useOpenClose();

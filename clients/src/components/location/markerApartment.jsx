@@ -1,6 +1,6 @@
 import { icon } from "leaflet";
 import { Marker, Popup, useMap } from "react-leaflet";
-import useGetApartments from "../../hooks/GetApartments";
+import useGetApartments from "../../hooks/custom/GetApartments";
 import { FaMapMarkedAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 

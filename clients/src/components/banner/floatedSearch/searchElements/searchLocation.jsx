@@ -1,7 +1,7 @@
 import { GrLocation, GrFormDown, GrFormUp } from "react-icons/gr";
-import useOpenClose from "../../../../hooks/OpenCloseMenu";
-import useGetApartments from "../../../../hooks/GetApartments";
-import useGetAllCities from "../../../../hooks/getAllCities";
+import useOpenClose from "../../../../hooks/custom/OpenCloseMenu";
+import useGetApartments from "../../../../hooks/custom/GetApartments";
+import useGetAllCities from "../../../../hooks/custom/getAllCities";
 
 function SearchLocation() {
   const { toogleOpen, openStatus } = useOpenClose();

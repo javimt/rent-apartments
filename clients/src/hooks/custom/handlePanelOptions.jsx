@@ -1,6 +1,6 @@
 import { useState } from "react";
-import CreateApartSect from "../components/admin/createApartment/createApartmentSection";
-import ListApartmentSection from "../components/admin/listtApartmentSection/listApartmentSection";
+import CreateApartSect from "../../components/admin/createApartment/createApartmentSection";
+import ListApartmentSection from "../../components/admin/listtApartmentSection/listApartmentSection";
 
 const optionTypes = {
   CREATE_SECTION: "CREATE_SECTION",

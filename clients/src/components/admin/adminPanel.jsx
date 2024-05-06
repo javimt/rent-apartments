@@ -3,7 +3,7 @@ import { useState } from "react";
 import CreateApartSect from "./createApartment/createApartmentSection";
 import panelOptions from './sectionsPanel/sidePanel/panelOptions.json'
 import CPanel from "./sectionsPanel/sidePanel/cPanel";
-import useHandlePanelOptions from "../../hooks/handlePanelOptions";
+import useHandlePanelOptions from "../../hooks/custom/handlePanelOptions";
 import RenderSection from "./sectionsPanel/renderSection/renderInfoSection";
 
 
