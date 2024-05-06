@@ -17,21 +17,13 @@ function setWorkSeting(production = false, ssl= false){
     //     rejectUnauthorized: false
     //   }
     // }, 
-<<<<<<< HEAD
   }                                     //true                        false
-=======
-  }
->>>>>>> 44bb2e1922fac14b181454101a5b86b0423d8b2f
     let url = production ? process.env.PRODUCTION_URL_DATABASE : process.env.DATABASE_URL
   let sequelize;
    return new Sequelize(url, options)
 }
 
-<<<<<<< HEAD
 const sequelize = setWorkSeting(true);
-=======
-const sequelize = setWorkSeting(true)
->>>>>>> 44bb2e1922fac14b181454101a5b86b0423d8b2f
 
 const models = {};
 fs.readdirSync(path.join(__dirname, "src", "models"))
