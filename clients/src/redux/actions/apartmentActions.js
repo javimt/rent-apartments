@@ -100,3 +100,13 @@ export function setFilters(filters) {
     payload: filters,
   }
 };
+
+export function getRatings(rating) {
+  return (dispatch) => {
+    fetch(`https://api-rent-appartament.up.railway.app/apartment/rating/?rating=${rating}`)
+    .then(response => response.json())
+    .then(data => 
+      dispatch({type: actionTypes.GET_RATINGS, payload: data}))
+    .catch((error) => console.error(error));
+  }
+}

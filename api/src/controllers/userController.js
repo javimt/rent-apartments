@@ -23,15 +23,15 @@ module.exports = {
 
   getByEmail: async (req, res, next) => {
     try {
-      const user = await User.findOne({where: {email: email}});
-      resSender(null, HttpStatusCodes.creado, user);
+      const user = await User.findOne({where: {email: req.query.email}});
+      resSender(null, HttpStatusCodes.aceptado, user);
     } catch (error) {
       next(error);
     }
   },
 
   putUser: async (req, res, next) => {
-    const { email } = req.body;
+    const { email } = req.query;
     try {
       const user = await User.findOne({where: {email: email}});
       if (!user) {
@@ -45,7 +45,7 @@ module.exports = {
   },
 
   deleteUser: async (req, res, next) => {
-    const { email } = req.body;
+    const { email } = req.query;
     try {
       const user = await User.findByPk(email);
       if (!user) {
