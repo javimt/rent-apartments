@@ -102,7 +102,7 @@ module.exports = {
   },
 
   getRatings: async (req, res, next) => {
-    const { rating } = req.body;
+    const { rating } = req.query;
     try {
       if (!rating) {
         rejectSender("No se proporcionó un rating en la solicitud", HttpStatusCodes.badRequest);
@@ -171,7 +171,7 @@ module.exports = {
   },
 
   updateRating: async (req, res, next) => {
-    const { id, rating } = req.body;
+    const { id, rating } = req.query;
     try {
       const apartment = await Apartment.findByPk(id);
       if (!apartment) {
