@@ -5,7 +5,7 @@ import useGetAllCities from "../../../../hooks/custom/getAllCities";
 function SelectSection({ name, value, label, handle }) {
   const { openStatus, toogleOpen } = useOpenClose();
   const { city } = useGetAllCities();
-console.log("-->", city);
+
 
   return (
     <div className="flex flex-col mx-2 my-2">

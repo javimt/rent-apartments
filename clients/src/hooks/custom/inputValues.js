@@ -17,8 +17,12 @@ function useHandleInput() {
         lat: "",
         lon: "",
         status: "rent",
-        cityId: ''
+        CityId: ''
     })
+
+    function editApartment (input){
+        setInput(input)
+    }
 
     function verifyInputValidation(input) {
         const errorTypes = {
@@ -35,7 +39,7 @@ function useHandleInput() {
         if (!input.urbanizacion) errors.urbanizacion = responseError(errorTypes.LENGTH, 'debes ingresar una urbanizacion')
         if (!input.lat) errors.lat = responseError(errorTypes.LENGTH, 'si no ingresas una latitud el mapa no mostrara la propiedad')
         if (!input.lon) errors.lon = responseError(errorTypes.LENGTH, 'si no ingresas una longitud el mapa no mostrara la propiedad')
-        if (!input.cityId) errors.city = responseError(errorTypes.LENGTH, 'debes agregar una ciudad')
+        if (!input.CityId) errors.city = responseError(errorTypes.LENGTH, 'debes agregar una ciudad')
 
         setError(errors)
     }
@@ -118,7 +122,8 @@ function useHandleInput() {
         addImages,
         deleteImage,
         error,
-        submit
+        submit,
+        editApartment
     };
 }
 

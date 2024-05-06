@@ -1,25 +1,33 @@
-import { useEffect, useState } from "react";
-import useHandleInput from "../../../hooks/custom/inputValues";
-import InputNumberSection from "./formComponents/inputNumberSextion";
-import InputTextSection from "./formComponents/inputTextSection";
-import SelectOptionsSection from "./formComponents/selectOptionsSection";
-import SelectSection from "./formComponents/selectSection";
-import ImageSelector from "./formComponents/imagesSelector";
-import ImagesRenderSection from "./formComponents/imagesRenderSection";
-import Transition from "../../complements/transition"
-import AlertComponent from "./formComponents/alertComponent";
+import { useEffect } from "react";
+import useAdeminApartDetail from "../../../../hooks/admin/AdminApartmentDetail";
+import useHandleInput from "../../../../hooks/custom/inputValues";
+import Transition from "../../../complements/transition";
+import AlertComponent from "../../createApartment/formComponents/alertComponent";
+import ImagesRenderSection from "../../createApartment/formComponents/imagesRenderSection";
+import ImageSelector from "../../createApartment/formComponents/imagesSelector";
+import InputNumberSection from "../../createApartment/formComponents/inputNumberSextion";
+import InputTextSection from "../../createApartment/formComponents/inputTextSection";
+import SelectOptionsSection from "../../createApartment/formComponents/selectOptionsSection";
+import SelectSection from "../../createApartment/formComponents/selectSection";
 
 
-function CreateApartForm({ render }) {
-    const { handleInputs, input, addImages, deleteImage, error, submit } = useHandleInput()
+function EditApartment({detail, sendInput}) {
+    const { handleInputs, input, addImages, deleteImage, error, submit, editApartment } = useHandleInput()
+
+
+
+    useEffect(()=>{
+        if(detail){
+            editApartment(detail)
+        }
+    },[detail])
 
     useEffect(() => {
-        render({input:input, submit: submit })
+        sendInput({input:input, submit: submit })
     }, [input])
+   
 
-    console.log('error', error)
-
-    return (
+    return ( 
         <Transition className="flex flex-col justify-center  shadow-2xl rounded-lg xl:mx-auto p-1 font-quicksand">
             <div>
                 <p className="text-gray-400 text-center">create apartment</p>
@@ -86,7 +94,7 @@ function CreateApartForm({ render }) {
                 </div>
             </div>
         </Transition>
-    );
+     );
 }
 
-export default CreateApartForm;
+export default EditApartment;
