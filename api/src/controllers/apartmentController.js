@@ -1,10 +1,11 @@
-const { User, Apartment, Rent, Sale } = require("../../db");
-const { resSender, HttpStatusCodes, rejectSender } = require('../helpers/resSender');
+const { Op } = require("sequelize");
+const { Apartment, Rent, City } = require("../../db");
+const { resSender, HttpStatusCodes, rejectSender } = require("../helpers/resSender");
 
 module.exports = {
   getAllApartments: async (req, res, next) => {
     try {
-      const apartments = await Apartment.findAll(); 
+      const apartments = await Apartment.findAll();
       resSender(null, HttpStatusCodes.aceptado, apartments);
     } catch (error) {
       next(error);
@@ -16,10 +17,10 @@ module.exports = {
     try {
       const apartment = await Apartment.findOne({
         where: { id },
-        include: { model: User },
+        include: { model: Rent },
       });
       if (!apartment) {
-        rejectSender('Apartamento no encontrado', HttpStatusCodes.noEncontrado);
+        rejectSender("Apartamento no encontrado", HttpStatusCodes.noEncontrado);
       } else {
         resSender(null, HttpStatusCodes.aceptado, apartment);
       }
@@ -28,9 +29,127 @@ module.exports = {
     }
   },
 
-  createApartment: async (req, res, next) => {
+  getApartmentByCity: async (req, res, next) => {
+    const { id } = req.params;
+    console.log(id)
     try {
+      const apartment = await Apartment.findAll({
+        include: [
+          {
+            model: City,
+            where: {
+              id: id,
+            },
+          },
+        ],
+      });
+      if (!apartment) {
+        rejectSender(
+          "no se encontró el modelo CITY",
+          HttpStatusCodes.noEncontrado
+        );
+      }
+      resSender(null, HttpStatusCodes.aceptado, apartment);
+    } catch (error) {
+      next(error);
+    }
+  },
+
+  getAllRentApartments: async (req, res, next) => {
+    try {
+      const rentalApartments = await Apartment.findAll({ where: { status: 'rent' } });
+      if(!rentalApartments) {
+        rejectSender("no se encontraron apartamentos para alquilar", HttpStatusCodes.noEncontrado);
+      }
+      resSender(null, HttpStatusCodes.aceptado, rentalApartments);
+    } catch (error) {
+      next(error);
+    }
+  },
+
+  getAllSaleApartments: async (req, res, next) => {
+    try {
+      const saleApartments = await Apartment.findAll({ where: { status: 'sale' } });
+      if(!saleApartments) {
+        rejectSender("no se encontraron apartamentos para vender", HttpStatusCodes.noEncontrado);
+      }
+      resSender(null, HttpStatusCodes.aceptado, saleApartments);
+    } catch (error) {
+      next(error);
+    }
+  },
+
+  getApartmentByName: async (req, res, next) => {
+    const { urbanizacion } = req.params;
+    try {
+      const nameApartment = await Apartment.findOne({
+        where: {
+          urbanizacion: {
+            [Op.iLike]: `%${urbanizacion}%`,
+          },
+        },
+      });
+      if (!nameApartment) {
+        rejectSender(
+          "no se encontro el apartamento por el nombre",
+          HttpStatusCodes.noEncontrado
+        );
+      }
+      resSender(null, HttpStatusCodes.aceptado, nameApartment);
+    } catch (error) {
+      next(error);
+    }
+  },
+
+  getRatings: async (req, res, next) => {
+    const { rating } = req.query;
+    try {
+      if (!rating) {
+        rejectSender("No se proporcionó un rating en la solicitud", HttpStatusCodes.badRequest);
+      }
+      const apartments = await Apartment.findAll();
+      const apartmentMedia = apartments.filter(e => e.rating.media >= rating);
+      if (!apartments || apartments.length === 0) {
+        rejectSender("No se encontraron apartamentos con el rating proporcionado", HttpStatusCodes.noEncontrado);
+      }
+      if (!rating) {
+        rejectSender("no se encontró el apartamento por rating");
+      }
+      resSender(null, HttpStatusCodes.aceptado, apartmentMedia);
+    } catch (error) {
+      next(error);
+    }
+  },
+
+  getApartmentsByPriceRange: async (req, res, next) => {
+    const minPrice = req.query.minPrice;
+    const maxPrice = req.query.maxPrice;
+    try {
+      const apartments = await Apartment.findAll({
+        where: {
+          price: {
+            [Op.between]: [minPrice, maxPrice],
+          },
+        },
+      });
+      if (!apartments) {
+        rejectSender("No se encontraron apartamentos dentro del rango de precios proporcionado", HttpStatusCodes.noEncontrado);
+      }
+      resSender(null, HttpStatusCodes.aceptado, apartments);
+    } catch (error) {
+      next(error);
+    }
+  },
+
+  createApartment: async (req, res, next) => {
+    const { CityId } = req.body;
+    try {
+      const city = await City.findByPk(CityId);
+      if(!city) {
+        rejectSender("No se encontró la ciudad", HttpStatusCodes.noEncontrado);
+      }
       const newApartment = await Apartment.create(req.body);
+      await city.addApartment(newApartment);
       resSender(null, HttpStatusCodes.creado, newApartment);
     } catch (error) {
       next(error);
@@ -42,7 +161,7 @@ module.exports = {
     try {
       const apartment = await Apartment.findByPk(id);
       if (!apartment) {
-        rejectSender('Apartamento no encontrado', HttpStatusCodes.noEncontrado);
+        rejectSender("Apartamento no encontrado", HttpStatusCodes.noEncontrado);
       }
       const updatedApartment = await apartment.update(req.body);
       resSender(null, HttpStatusCodes.actualizado, updatedApartment);
@@ -51,12 +170,33 @@ module.exports = {
     }
   },
 
+  updateRating: async (req, res, next) => {
+    const { id, rating } = req.query;
+    try {
+      const apartment = await Apartment.findByPk(id);
+      if (!apartment) {
+        rejectSender("No se encontró el apartamento", HttpStatusCodes.noEncontrado);
+      }
+      const valorations = [...apartment.rating.valorations, rating]; 
+      const media = valorations.reduce((acum, current) => acum + current, 0) / valorations.length; 
+      const apartUpdated = await apartment.update({
+        rating: {
+          valorations: valorations,
+          media: +media.toFixed(1)
+        }
+      });
+      resSender(null, HttpStatusCodes.actualizado, apartUpdated);
+    } catch (error) {
+      next(error);
+    }
+},
+
   deleteApartment: async (req, res, next) => {
     const { id } = req.params;
     try {
       const apartment = await Apartment.findByPk(id);
       if (!apartment) {
-        rejectSender('Apartamento no encontrado', HttpStatusCodes.noEncontrado);
+        rejectSender("Apartamento no encontrado", HttpStatusCodes.noEncontrado);
       }
       await apartment.destroy();
       resSender("Apartment deleted successfully", HttpStatusCodes.eliminado, null);
@@ -64,95 +204,4 @@ module.exports = {
       next(error);
     }
   },
-
-  rentApartment: async (req, res, next) => {
-    const { id } = req.params;
-    try {
-      if (!req.body.userId) {
-        rejectSender("User ID is missing in the request body", HttpStatusCodes.sinContenido);
-      }
-      const apartment = await Apartment.findByPk(id);
-      if (!apartment) {
-        rejectSender("Apartment not found", HttpStatusCodes.noEncontrado);
-      }
-      if (!apartment.availability) {
-        rejectSender("Apartment is not available for rent", HttpStatusCodes.entidadNoProcesable );
-      }
-
-      const currentDate = new Date();
-      currentDate.setHours(currentDate.getHours() - 5);
-
-      const startDate = new Date(req.body.startDate);
-      startDate.setHours(startDate.getHours());
-      startDate.setDate(startDate.getDate());
-
-      const endDate = new Date(req.body.endDate);
-      endDate.setHours(endDate.getHours());
-      endDate.setDate(endDate.getDate());
-      
-      if (!startDate || !endDate) {
-        rejectSender("no se pueden generar rentas sin fecha de inicio y finalizacion", HttpStatusCodes.badRequest);
-      }
-      if(startDate < currentDate) {
-        rejectSender("la fecha de inicio debe ser mayor a la actual", HttpStatusCodes.badRequest)
-      }
-      if(startDate > endDate) {
-        rejectSender("la fecha de inicio no puede ser igual a la de finalizacion", HttpStatusCodes.badRequest)
-      }
-      if(endDate < currentDate) {
-        rejectSender("la fecha de finalizacion no puede ser menor a la actual", HttpStatusCodes.badRequest)
-      }
-      try {
-        const rent = await Rent.create({
-          apartmentId: apartment.id,
-          userId: req.body.userId,
-          startDate: startDate,
-          endDate: endDate,
-          totalPrice: req.body.totalPrice,
-          status: req.body.status,
-        });
-        apartment.availability = false;
-        await apartment.save();
-        resSender("Apartment rented successfully", HttpStatusCodes.aceptado, rent );
-      } catch (error) {
-        next(error);
-      }
-    } catch (error) {
-      next(error);
-    }
-  }, 
-
-  saleApartment: async(req, res, next) => {
-    const { id } = req.params;
-    try {
-      if (!req.body.userId) {
-        rejectSender("User ID is missing in the request body", HttpStatusCodes.sinContenido);
-      }
-      const apartment = await Apartment.findByPk(id);
-      if (!apartment) {
-        rejectSender("Apartment not found", HttpStatusCodes.noEncontrado);
-      }
-
-      const date = new Date(req.body.date);
-      date.setHours(date.getHours());
-      date.setDate(date.getDate());
-
-      try {
-        const sale = await Sale.create({
-          apartmentId: apartment.id,
-          userId: req.body.userId,
-          date: date,
-          totalPrice: req.body.totalPrice,
-          status: req.body.status,
-        });
-        apartment.status = "sold";
-        await apartment.save();
-        resSender("Apartment sold successfully", HttpStatusCodes.aceptado, sale );
-      } catch (error) {
-        next(error);
-      }
-    } catch (error) {
-      next(error);
-    }
-  } 
 };

@@ -14,14 +14,7 @@ module.exports = (sequelize) => {
     endDate: {
       type: DataTypes.DATE,
       allowNull: false,
-    },
-    totalPrice: {
-      type: DataTypes.FLOAT,
-    },
-    status: {
-      type: DataTypes.ENUM("available", "not available"),
-      defaultValue: "available"
-    },
+    }
   }, {timestamps: false});
   Rent.associate = (models) => {
     Rent.belongsTo(models.User, { foreignKey: 'userId' });

@@ -10,9 +10,6 @@ module.exports = (sequelize) => {
     images: {
       type: DataTypes.ARRAY(DataTypes.TEXT),
     },
-    ubication: {
-      type: DataTypes.STRING,
-    },
     availability: {
       type: DataTypes.BOOLEAN,
       defaultValue: true,
@@ -21,15 +18,21 @@ module.exports = (sequelize) => {
       type: DataTypes.FLOAT,
     },
     description: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
     },
     bedrooms: {
       type: DataTypes.INTEGER
     },
+    size: {
+      type: DataTypes.FLOAT
+    },
+    rating: {
+      type: DataTypes.JSON
+    },
     bathrooms: {
       type: DataTypes.INTEGER
     },
-    apartmentNumber: {
+    urbanizacion: {
       type: DataTypes.STRING
     },
     lat: {
@@ -47,6 +50,8 @@ module.exports = (sequelize) => {
     Apartment.belongsTo(models.User, { foreignKey: 'userId' });
     Apartment.hasMany(models.Rent, { foreignKey: 'apartmentId' });
     Apartment.hasMany(models.Sale, { foreignKey: 'apartmentId' });
+    Apartment.hasMany(models.Transaction);
+    Apartment.belongsTo(models.City);
   }
   return Apartment;
 };

@@ -26,31 +26,73 @@ module.exports = {
 
   createRent: async (req, res, next) => {
     try {
-      const { apartmentId } = req.body;
-      const apartment = await Apartment.findByPk(apartmentId);
+      if (!req.body.userId) {
+        rejectSender("User ID is missing in the request body", HttpStatusCodes.sinContenido);
+      }
+      const apartment = await Apartment.findByPk(req.body.apartmentId);
+  console.log(apartment)
       if (!apartment) {
         rejectSender("Apartment not found", HttpStatusCodes.noEncontrado);
       }
       if (!apartment.availability) {
-        rejectSender("Apartment is not available for rent", HttpStatusCodes.conflictivo);
+        rejectSender("Apartment is not available for rent", HttpStatusCodes.entidadNoProcesable );
       }
-      const newRent = await Rent.create(req.body);
-      apartment.availability = false;
-      await apartment.save();
-      resSender(null, HttpStatusCodes.creado, newRent);
+
+      const currentDate = new Date();
+      currentDate.setHours(currentDate.getHours() - 5);
+
+      const startDate = new Date(req.body.startDate);
+      startDate.setHours(startDate.getHours());
+      startDate.setDate(startDate.getDate());
+
+      const endDate = new Date(req.body.endDate);
+      endDate.setHours(endDate.getHours());
+      endDate.setDate(endDate.getDate());
+      
+      if (!startDate || !endDate) {
+        rejectSender("no se pueden generar rentas sin fecha de inicio y finalizacion", HttpStatusCodes.conflictivo);
+      }
+      if(startDate < currentDate) {
+        rejectSender("la fecha de inicio debe ser mayor a la actual", HttpStatusCodes.conflictivo);
+      }
+      if(startDate > endDate) {
+        rejectSender("la fecha de inicio no puede ser igual a la de finalizacion", HttpStatusCodes.conflictivo);
+      }
+      if(endDate < currentDate) {
+        rejectSender("la fecha de finalizacion no puede ser menor a la actual", HttpStatusCodes.conflictivo);
+      }
+      try {
+        const rent = await Rent.create({
+          apartmentId: apartment.id,
+          userId: req.body.userId,
+          startDate: startDate,
+          endDate: endDate,
+          totalPrice: req.body.totalPrice,
+          status: req.body.status,
+        });
+        apartment.availability = false;
+        await apartment.save();
+        resSender("Apartment rented successfully", HttpStatusCodes.aceptado, rent );
+      } catch (error) {
+        next(error);
+      }
     } catch (error) {
       next(error);
     }
-  },
+  }, 
 
   updateRent: async (req, res, next) => {
     const { id } = req.params;
+    const { startDate, endDate } = req.body;
     try {
       const rent = await Rent.findByPk(id);
       if (!rent) {
         rejectSender("Rent not found", HttpStatusCodes.noEncontrado);
       }
-      const updatedRent = await rent.update(req.body);
+      if (startDate > endDate) {
+        rejectSender("la fecha de inicio no puede ser mayor a la de finalizacion", HttpStatusCodes.conflictivo);
+      }
+      const updatedRent = await rent.update({startDate, endDate});
       resSender(null, HttpStatusCodes.actualizado, updatedRent);
     } catch (error) {
       next(error);
@@ -60,8 +102,9 @@ module.exports = {
   deleteRent: async (req, res, next) => {
     const { id } = req.params;
     try {
-      await Rent.destroy({ where: { id } });
-      resSender("Rent deleted successfully", HttpStatusCodes.eliminado, null);
+      const rent = await Rent.findByPk(id);
+      await rent.destroy();
+      resSender("rent deleted", HttpStatusCodes.eliminado, null);
     } catch (error) {
       next(error);
     }

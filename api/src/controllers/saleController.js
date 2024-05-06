@@ -24,24 +24,39 @@ module.exports = {
     }
   },
 
-  createSale: async (req, res, next) => {
+  createSale: async(req, res, next) => {
     try {
-      const { apartmentId } = req.body;
-      const apartment = await Apartment.findByPk(apartmentId);
+      if (!req.body.userId) {
+        rejectSender("User ID is missing in the request body", HttpStatusCodes.sinContenido);
+      }
+      const apartment = await Apartment.findByPk(req.body.apartmentId);
       if (!apartment) {
         rejectSender("Apartment not found", HttpStatusCodes.noEncontrado);
       }
-      if (apartment.status !== "available") {
-        rejectSender("Apartment is not available for Sale", HttpStatusCodes.conflictivo);
+
+      const date = new Date(req.body.date);
+      date.setHours(date.getHours());
+      date.setDate(date.getDate());
+
+      try {
+        const sale = await Sale.create({
+          apartmentId: apartment.id,
+          userId: req.body.userId,
+          date: date,
+          totalPrice: req.body.totalPrice,
+          status: req.body.status,
+        });
+        apartment.status = "sold";
+        apartment.availability = false;
+        await apartment.save();
+        resSender("Apartment sold successfully", HttpStatusCodes.aceptado, sale);
+      } catch (error) {
+        next(error);
       }
-      const newSale = await Sale.create(req.body);
-      apartment.status = "sale";
-      await apartment.save();
-      resSender(null, HttpStatusCodes.creado, newSale);
     } catch (error) {
       next(error);
     }
-  },
+  }, 
 
   updateSale: async (req, res, next) => {
     const { id } = req.params;
@@ -50,7 +65,7 @@ module.exports = {
       if (!sale) {
         rejectSender("Sale not found", HttpStatusCodes.noEncontrado);
       }
-      const updatedSale = await sale.update(req.body);
+      const updatedSale = await sale.update(req.body.date);
       resSender(null ,HttpStatusCodes.actualizado, updatedSale);
     } catch (error) {
       next(error);

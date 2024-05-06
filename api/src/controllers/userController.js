@@ -23,42 +23,17 @@ module.exports = {
 
   getByEmail: async (req, res, next) => {
     try {
-      const user = await User.findOne({where: {email: email}});
-      resSender(null, HttpStatusCodes.creado, user);
-    } catch (error) {
-      next(error);
-    }
-  },
-
-  assignAdminRole: async (req, res, next) => {
-    const { id } = req.params;
-    const { role } = req.body
-    try {
-      const currentUser = await User.findOne({ where: { email: id } });
-      if (!currentUser) {
-        rejectSender("Usuario no encontrado", HttpStatusCodes.noEncontrado);
-      }
-      if (currentUser === "superAdmin") {
-        resSender(null, HttpStatusCodes.aceptado, {user: currentUser});
-      } 
-      const user = await User.findByPk(id);
-      if (!user) {
-        rejectSender("User not found", HttpStatusCodes.noEncontrado);
-      }
-      if (user.role === "superAdmin" && user.id === currentUser) {
-        rejectSender("No puedes cambiar tu propio rol", HttpStatusCodes.conflictivo);
-      }
-      user.role = role;
-      await user.save();
-      resSender("User role updated", HttpStatusCodes.actualizado);
+      const user = await User.findOne({where: {email: req.query.email}});
+      resSender(null, HttpStatusCodes.aceptado, user);
     } catch (error) {
       next(error);
     }
   },
 
   putUser: async (req, res, next) => {
+    const { email } = req.query;
     try {
-      const user = await User.findOne(email);
+      const user = await User.findOne({where: {email: email}});
       if (!user) {
         rejectSender("User not found", HttpStatusCodes.noEncontrado);
       }
@@ -70,9 +45,9 @@ module.exports = {
   },
 
   deleteUser: async (req, res, next) => {
-    const { id } = req.params;
+    const { email } = req.query;
     try {
-      const user = await User.findByPk(id);
+      const user = await User.findByPk(email);
       if (!user) {
         rejectSender("User not found", HttpStatusCodes.noEncontrado);
       }

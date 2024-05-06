@@ -5,17 +5,27 @@ const {
   updateApartment,
   deleteApartment,
   getApartmentById,
-  rentApartment,
-  saleApartment,
+  getApartmentByCity,
+  getApartmentByName,
+  getApartmentsByPriceRange,
+  getRatings,
+  updateRating,
+  getAllRentApartments,
+  getAllSaleApartments,
 } = require("../controllers/apartmentController");
 
 const router = Router();
 
 router.get("/", getAllApartments);
-router.get("/:id/rent", getApartmentById);
+router.get("/rent", getAllRentApartments);
+router.get("/sale", getAllSaleApartments);
+router.get("/rating", getRatings);
+router.get("/range", getApartmentsByPriceRange);
+router.get("/:id", getApartmentById);
+router.get("/city/:id", getApartmentByCity);
+router.get("/urbanizacion/:urbanizacion", getApartmentByName);
 router.post("/", createApartment);
-router.post("/:id/rent", rentApartment);
-router.post("/:id/sale", saleApartment);
+router.put("/rating", updateRating);
 router.put("/:id", updateApartment);
 router.delete("/:id", deleteApartment);
 

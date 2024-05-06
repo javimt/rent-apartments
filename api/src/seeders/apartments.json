@@ -1,680 +1,396 @@
 [
-    {
-        "id": "c62444ed-070d-4323-88c9-3015a1ce0836",
-        "images": [
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1699370549/PROYECTO%20PROPIEDADES/apartamento%20drive/High-Rise%2C%20Fully-Equipped%20Apartment%20for%20a%20remote%20worker%20in%20Patio%20Bonito%2C%20El%20Poblado%20with%20Stunning%20Views/3_vvo06u.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1699370552/PROYECTO%20PROPIEDADES/apartamento%20drive/High-Rise%2C%20Fully-Equipped%20Apartment%20for%20a%20remote%20worker%20in%20Patio%20Bonito%2C%20El%20Poblado%20with%20Stunning%20Views/dd35d4d0-d4e4-4d6d-876a-883794d53887_gdlpb2.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1699370551/PROYECTO%20PROPIEDADES/apartamento%20drive/High-Rise%2C%20Fully-Equipped%20Apartment%20for%20a%20remote%20worker%20in%20Patio%20Bonito%2C%20El%20Poblado%20with%20Stunning%20Views/8ae91f6f-00b2-4bb2-aeba-6c5690f94087_dhangl.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1699370552/PROYECTO%20PROPIEDADES/apartamento%20drive/High-Rise%2C%20Fully-Equipped%20Apartment%20for%20a%20remote%20worker%20in%20Patio%20Bonito%2C%20El%20Poblado%20with%20Stunning%20Views/c4b60340-99da-4fee-8ec6-c9b9591955aa_iw2a6g.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1699370550/PROYECTO%20PROPIEDADES/apartamento%20drive/High-Rise%2C%20Fully-Equipped%20Apartment%20for%20a%20remote%20worker%20in%20Patio%20Bonito%2C%20El%20Poblado%20with%20Stunning%20Views/735dfae5-b3f1-44fc-98da-f073f30c2225_j54ivq.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1699370550/PROYECTO%20PROPIEDADES/apartamento%20drive/High-Rise%2C%20Fully-Equipped%20Apartment%20for%20a%20remote%20worker%20in%20Patio%20Bonito%2C%20El%20Poblado%20with%20Stunning%20Views/5d8361d1-f7ae-4992-b489-e42245011583_z6bjxr.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1699370550/PROYECTO%20PROPIEDADES/apartamento%20drive/High-Rise%2C%20Fully-Equipped%20Apartment%20for%20a%20remote%20worker%20in%20Patio%20Bonito%2C%20El%20Poblado%20with%20Stunning%20Views/5bfaa490-dd86-420b-b22e-ade360fce765_uuobg3.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1699370550/PROYECTO%20PROPIEDADES/apartamento%20drive/High-Rise%2C%20Fully-Equipped%20Apartment%20for%20a%20remote%20worker%20in%20Patio%20Bonito%2C%20El%20Poblado%20with%20Stunning%20Views/555b4003-1979-42bb-a8f3-7e43297e8c18_uppbwy.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1699370550/PROYECTO%20PROPIEDADES/apartamento%20drive/High-Rise%2C%20Fully-Equipped%20Apartment%20for%20a%20remote%20worker%20in%20Patio%20Bonito%2C%20El%20Poblado%20with%20Stunning%20Views/3fe59de8-3c91-41ee-8ff0-13b2431c0f16_vygkjw.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1699370549/PROYECTO%20PROPIEDADES/apartamento%20drive/High-Rise%2C%20Fully-Equipped%20Apartment%20for%20a%20remote%20worker%20in%20Patio%20Bonito%2C%20El%20Poblado%20with%20Stunning%20Views/4be897d8-0a02-4b31-ac7f-f2eba86c069a_w3je1g.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1699370552/PROYECTO%20PROPIEDADES/apartamento%20drive/High-Rise%2C%20Fully-Equipped%20Apartment%20for%20a%20remote%20worker%20in%20Patio%20Bonito%2C%20El%20Poblado%20with%20Stunning%20Views/e1c7e51a-9ddc-4f41-887b-c0235dc8d74e_zvfzze.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1699370552/PROYECTO%20PROPIEDADES/apartamento%20drive/High-Rise%2C%20Fully-Equipped%20Apartment%20for%20a%20remote%20worker%20in%20Patio%20Bonito%2C%20El%20Poblado%20with%20Stunning%20Views/bf8ae14f-d12b-4207-abb6-db74a24b6ae2_wj8n3w.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1699370551/PROYECTO%20PROPIEDADES/apartamento%20drive/High-Rise%2C%20Fully-Equipped%20Apartment%20for%20a%20remote%20worker%20in%20Patio%20Bonito%2C%20El%20Poblado%20with%20Stunning%20Views/b8ad6c65-3365-4dff-8262-9b944f4a1fe4_kycsqe.jpg"
-        ],
-        "ubication": "Poblado-medellin",
-        "availability": false,
-        "price": 1050,
-        "description": "4 people max",
-        "bedrooms": 2,
-        "bathrooms": 2,
-        "apartmentNumber": "Patio bonito 1302",
-        "lat": "6.204085",
-        "lon": "-75.574586",
-        "status": "rent",
-        "userId": null
-    },
-    {
-        "id": "2bc111b2-cb53-4bc7-bb63-e3e02df5cf97",
-        "images": [
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
-        ],
-        "ubication": "Laureles-Medellin",
-        "availability": true,
-        "price": 65000,
-        "description": "4 people max",
-        "bedrooms": 3,
-        "bathrooms": 4,
-        "apartmentNumber": "Bosques del Rio 1709",
-        "lat": "6.220148",
-        "lon": "-75.574051",
-        "status": "rent",
-        "userId": null
-    },
-    {
-        "id": "808c4b91-c3b1-4a51-ab62-124a46881c9d",
-        "images": [
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939207/PROYECTO%20PROPIEDADES/ariari%20301/img2_rxfznu.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939224/PROYECTO%20PROPIEDADES/ariari%20301/img7_fa82vz.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939208/PROYECTO%20PROPIEDADES/ariari%20301/img5_clyenm.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939207/PROYECTO%20PROPIEDADES/ariari%20301/img3_szbxzb.jpg"
-        ],
-        "ubication": "Laureles-Medellin",
-        "availability": true,
-        "price": 65000,
-        "description": "4 people max",
-        "bedrooms": 3,
-        "bathrooms": 4,
-        "apartmentNumber": "Edificio Ariari",
-        "lat": "6.262601",
-        "lon": "-75.596294",
-        "status": "sale",
-        "userId": null
-    },
-    {
-        "id": "9543706e-d7c6-43e0-a3f5-a731b9fb89bc",
-        "images": [
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939381/PROYECTO%20PROPIEDADES/nueva%20alejandria%201905/apt1_t6xwgb.jpg"
-        ],
-        "ubication": "Sabaneta-medellin",
-        "availability": false,
-        "price": 1000,
-        "description": "4 people max",
-        "bedrooms": 2,
-        "bathrooms": 2,
-        "apartmentNumber": "Prueba-Sale",
-        "lat": "6.123457",
-        "lon": "75.123457",
-        "status": "rent",
-        "userId": null
-    },
-    {
-        "id": "5698eea2-d533-44be-a14d-40b3e939a4a7",
-        "images": [
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939269/PROYECTO%20PROPIEDADES/castropol%201308/apt1.1_gpkiks.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939271/PROYECTO%20PROPIEDADES/castropol%201308/apt1_fa5rdh.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939271/PROYECTO%20PROPIEDADES/castropol%201308/apt1.5_u5vrdz.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939271/PROYECTO%20PROPIEDADES/castropol%201308/apt1.4_tohfkw.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939270/PROYECTO%20PROPIEDADES/castropol%201308/apt1.3_uiflpr.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939269/PROYECTO%20PROPIEDADES/castropol%201308/apt1.2_awavmi.jpg"
-        ],
-        "ubication": "Poblado-Medellin",
-        "availability": false,
-        "price": 1100,
-        "description": "4 people max",
-        "bedrooms": 2,
-        "bathrooms": 2,
-        "apartmentNumber": "Edificio Castropol 1308",
-        "lat": "6.214168",
-        "lon": "-75.569281",
-        "status": "rent",
-        "userId": null
-    },
-    {
-        "id": "63145fa2-af25-42b6-bebe-8676ad3f5356",
-        "images": [
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
-        ],
-        "ubication": "Laureles-Medellin",
-        "availability": true,
-        "price": 65000,
-        "description": "4 people max",
-        "bedrooms": 3,
-        "bathrooms": 4,
-        "apartmentNumber": "Bosques del Rio 1709",
-        "lat": "6.220148",
-        "lon": "-75.574051",
-        "status": "rent",
-        "userId": null
-    },
-    {
-        "id": "11d9a992-b200-4885-809a-0233064aaf19",
-        "images": [
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
-        ],
-        "ubication": "Laureles-Medellin",
-        "availability": true,
-        "price": 100000,
-        "description": "4 people max",
-        "bedrooms": 3,
-        "bathrooms": 4,
-        "apartmentNumber": "Bosques del Rio 1709",
-        "lat": "6.220148",
-        "lon": "-75.574051",
-        "status": "sale",
-        "userId": null
-    },
-    {
-        "id": "908e454c-14c4-47e0-9757-f3409afc452b",
-        "images": [
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
-        ],
-        "ubication": "Laureles-Medellin",
-        "availability": true,
-        "price": 2000,
-        "description": "4 people max",
-        "bedrooms": 3,
-        "bathrooms": 4,
-        "apartmentNumber": "Bosques del Rio 1709",
-        "lat": "6.220148",
-        "lon": "-75.574051",
-        "status": "rent",
-        "userId": null
-    },
-    {
-        "id": "ab6bc77f-e0b5-4b2a-aa67-7d1417a54ae9",
-        "images": [
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
-        ],
-        "ubication": "Laureles-Medellin",
-        "availability": true,
-        "price": 900,
-        "description": "4 people max",
-        "bedrooms": 3,
-        "bathrooms": 4,
-        "apartmentNumber": "Bosques del Rio 1709",
-        "lat": "6.220148",
-        "lon": "-75.574051",
-        "status": "rent",
-        "userId": null
-    },
-    {
-        "id": "92b8bf82-c5c8-4d89-bb63-028220e41e93",
-        "images": [
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
-        ],
-        "ubication": "Laureles-Medellin",
-        "availability": true,
-        "price": 3000,
-        "description": "4 people max",
-        "bedrooms": 3,
-        "bathrooms": 4,
-        "apartmentNumber": "Bosques del Rio 1709",
-        "lat": "6.220148",
-        "lon": "-75.574051",
-        "status": "rent",
-        "userId": null
-    },
-    {
-        "id": "15a4825a-c839-4ff7-926c-0cefa0a9c23b",
-        "images": [
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
-        ],
-        "ubication": "Laureles-Medellin",
-        "availability": true,
-        "price": 65000,
-        "description": "4 people max",
-        "bedrooms": 3,
-        "bathrooms": 4,
-        "apartmentNumber": "Bosques del Rio 1709",
-        "lat": "6.220148",
-        "lon": "-75.574051",
-        "status": "sold",
-        "userId": null
-    },
-    {
-        "id": "dbeb1710-ce9c-4cf4-90a4-2560b520bf7e",
-        "images": [
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
-        ],
-        "ubication": "Laureles-Medellin",
-        "availability": true,
-        "price": 60000,
-        "description": "4 people max",
-        "bedrooms": 3,
-        "bathrooms": 4,
-        "apartmentNumber": "Bosques del Rio 1709",
-        "lat": "6.220148",
-        "lon": "-75.574051",
-        "status": "sold",
-        "userId": null
-    },
-    {
-        "id": "58d37807-981e-429f-8d81-b2f94ca5398c",
-        "images": [
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939263/PROYECTO%20PROPIEDADES/aves%20marias%20sabaneta/img4_mrddoo.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/aves%20marias%20sabaneta/img9_f9l8vm.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939264/PROYECTO%20PROPIEDADES/aves%20marias%20sabaneta/img8_dxc7zo.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939260/PROYECTO%20PROPIEDADES/aves%20marias%20sabaneta/img10_a5hxdq.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939263/PROYECTO%20PROPIEDADES/aves%20marias%20sabaneta/img5_v15njw.jpg"
-        ],
-        "ubication": "Sabaneta-Medellin",
-        "availability": true,
-        "price": 1050,
-        "description": "4 people max",
-        "bedrooms": 2,
-        "bathrooms": 1,
-        "apartmentNumber": "Aves Maria 401",
-        "lat": "6.151394",
-        "lon": "-75.615844",
-        "status": "rent",
-        "userId": null
-    },
-    {
-        "id": "2959bd57-3983-49b6-9b91-8c27dcd446b3",
-        "images": [
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
-        ],
-        "ubication": "Laureles-Medellin",
-        "availability": true,
-        "price": 3000,
-        "description": "4 people max",
-        "bedrooms": 3,
-        "bathrooms": 4,
-        "apartmentNumber": "Bosques del Rio 1709",
-        "lat": "6.220148",
-        "lon": "-75.574051",
-        "status": "rent",
-        "userId": null
-    },
-    {
-        "id": "ed15cc1c-1231-4f78-b2bd-d0d78b12c12a",
-        "images": [
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
-        ],
-        "ubication": "Laureles-Medellin",
-        "availability": true,
-        "price": 3000,
-        "description": "4 people max",
-        "bedrooms": 3,
-        "bathrooms": 4,
-        "apartmentNumber": "Bosques del Rio 1709",
-        "lat": "6.220148",
-        "lon": "-75.574051",
-        "status": "rent",
-        "userId": null
-    },
-    {
-        "id": "924c1b4f-9b8d-484e-99b6-f6181f69ed64",
-        "images": [
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
-        ],
-        "ubication": "Laureles-Medellin",
-        "availability": true,
-        "price": 3000,
-        "description": "4 people max",
-        "bedrooms": 3,
-        "bathrooms": 4,
-        "apartmentNumber": "Bosques del Rio 1709",
-        "lat": "6.220148",
-        "lon": "-75.574051",
-        "status": "rent",
-        "userId": null
-    },
-    {
-        "id": "8bcbce28-20fc-46eb-89dc-7365b0afdeac",
-        "images": [
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
-        ],
-        "ubication": "Laureles-Medellin",
-        "availability": true,
-        "price": 3000,
-        "description": "4 people max",
-        "bedrooms": 3,
-        "bathrooms": 4,
-        "apartmentNumber": "Bosques del Rio 1709",
-        "lat": "6.220148",
-        "lon": "-75.574051",
-        "status": "rent",
-        "userId": null
-    },
-    {
-        "id": "96250477-c842-49e3-996d-b779597cebcd",
-        "images": [
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
-        ],
-        "ubication": "Laureles-Medellin",
-        "availability": true,
-        "price": 3000,
-        "description": "4 people max",
-        "bedrooms": 3,
-        "bathrooms": 4,
-        "apartmentNumber": "Bosques del Rio 1709",
-        "lat": "6.220148",
-        "lon": "-75.574051",
-        "status": "rent",
-        "userId": null
-    },
-    {
-        "id": "77b08c30-b90b-4cd5-9c92-18ecb5b238fd",
-        "images": [
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
-        ],
-        "ubication": "Laureles-Medellin",
-        "availability": true,
-        "price": 3000,
-        "description": "4 people max",
-        "bedrooms": 3,
-        "bathrooms": 4,
-        "apartmentNumber": "Bosques del Rio 1709",
-        "lat": "6.220148",
-        "lon": "-75.574051",
-        "status": "rent",
-        "userId": null
-    },
-    {
-        "id": "6e43de28-babf-43b3-9e5c-745cc13338e4",
-        "images": [
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
-        ],
-        "ubication": "Laureles-Medellin",
-        "availability": true,
-        "price": 3000,
-        "description": "4 people max",
-        "bedrooms": 3,
-        "bathrooms": 4,
-        "apartmentNumber": "Bosques del Rio 1709",
-        "lat": "6.220148",
-        "lon": "-75.574051",
-        "status": "rent",
-        "userId": null
-    },
-    {
-        "id": "c8c546b0-8180-4ccf-bd1a-0b2d1c239cb5",
-        "images": [
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
-        ],
-        "ubication": "Laureles-Medellin",
-        "availability": true,
-        "price": 3000,
-        "description": "4 people max",
-        "bedrooms": 3,
-        "bathrooms": 4,
-        "apartmentNumber": "Bosques del Rio 1709",
-        "lat": "6.220148",
-        "lon": "-75.574051",
-        "status": "rent",
-        "userId": null
-    },
-    {
-        "id": "85a17914-bede-4be2-87cf-21d6d2951c68",
-        "images": [
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
-        ],
-        "ubication": "Laureles-Medellin",
-        "availability": true,
-        "price": 3000,
-        "description": "4 people max",
-        "bedrooms": 3,
-        "bathrooms": 4,
-        "apartmentNumber": "Bosques del Rio 1709",
-        "lat": "6.220148",
-        "lon": "-75.574051",
-        "status": "rent",
-        "userId": null
-    },
-    {
-        "id": "a141afe7-0a51-4ed4-9cb4-8b9d079c7b7f",
-        "images": [
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
-        ],
-        "ubication": "Laureles-Medellin",
-        "availability": true,
-        "price": 3000,
-        "description": "4 people max",
-        "bedrooms": 3,
-        "bathrooms": 4,
-        "apartmentNumber": "Bosques del Rio 1709",
-        "lat": "6.220148",
-        "lon": "-75.574051",
-        "status": "rent",
-        "userId": null
-    },
-    {
-        "id": "be5978bc-aafc-4028-bc37-422f93e2ef4d",
-        "images": [
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
-        ],
-        "ubication": "Laureles-Medellin",
-        "availability": true,
-        "price": 3000,
-        "description": "4 people max",
-        "bedrooms": 3,
-        "bathrooms": 4,
-        "apartmentNumber": "Bosques del Rio 1709",
-        "lat": "6.220148",
-        "lon": "-75.574051",
-        "status": "rent",
-        "userId": null
-    },
-    {
-        "id": "4ef63c8f-d25c-4626-8a43-cb24a25cebc3",
-        "images": [
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
-        ],
-        "ubication": "Laureles-Medellin",
-        "availability": true,
-        "price": 3000,
-        "description": "4 people max",
-        "bedrooms": 3,
-        "bathrooms": 4,
-        "apartmentNumber": "Bosques del Rio 1709",
-        "lat": "6.220148",
-        "lon": "-75.574051",
-        "status": "sale",
-        "userId": null
-    },
-    {
-        "id": "1bfd23f4-a80a-4b6b-9b5d-29cdd6fd896d",
-        "images": [
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
-        ],
-        "ubication": "Laureles-Medellin",
-        "availability": true,
-        "price": 3000,
-        "description": "4 people max",
-        "bedrooms": 3,
-        "bathrooms": 4,
-        "apartmentNumber": "Bosques del Rio 1709",
-        "lat": "6.220148",
-        "lon": "-75.574051",
-        "status": "sale",
-        "userId": null
-    },
-    {
-        "id": "c6f3d3bd-3356-44aa-927a-c92071ef7d8b",
-        "images": [
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
-        ],
-        "ubication": "Laureles-Medellin",
-        "availability": true,
-        "price": 3000,
-        "description": "4 people max",
-        "bedrooms": 3,
-        "bathrooms": 4,
-        "apartmentNumber": "Bosques del Rio 1709",
-        "lat": "6.220148",
-        "lon": "-75.574051",
-        "status": "sale",
-        "userId": null
-    },
-    {
-        "id": "d70b0c41-9c71-4dad-9fc7-c41e5c2dc558",
-        "images": [
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
-        ],
-        "ubication": "Laureles-Medellin",
-        "availability": true,
-        "price": 3000,
-        "description": "4 people max",
-        "bedrooms": 3,
-        "bathrooms": 4,
-        "apartmentNumber": "Bosques del Rio 1709",
-        "lat": "6.220148",
-        "lon": "-75.574051",
-        "status": "sale",
-        "userId": null
-    },
-    {
-        "id": "0f22e289-9c15-445b-8934-3821d53aa233",
-        "images": [
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
-        ],
-        "ubication": "Laureles-Medellin",
-        "availability": true,
-        "price": 3000,
-        "description": "4 people max",
-        "bedrooms": 3,
-        "bathrooms": 4,
-        "apartmentNumber": "Bosques del Rio 1709",
-        "lat": "6.220148",
-        "lon": "-75.574051",
-        "status": "sale",
-        "userId": null
-    },
-    {
-        "id": "9c0bb877-b4b1-46a6-a458-4713a9feb6b5",
-        "images": [
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939570/PROYECTO%20PROPIEDADES/nueva%20alejandria%20505/apt1.7_gw2mpz.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939423/PROYECTO%20PROPIEDADES/nueva%20alejandria%20505/apt1.5_vmoozt.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939435/PROYECTO%20PROPIEDADES/nueva%20alejandria%20505/apt1.6_zylczc.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939411/PROYECTO%20PROPIEDADES/nueva%20alejandria%20505/apt1.4_ygelui.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939387/PROYECTO%20PROPIEDADES/nueva%20alejandria%20505/apt1.2_snlnge.jpg"
-        ],
-        "ubication": "Poblado-medellin",
-        "availability": true,
-        "price": 820,
-        "description": "3 people max",
-        "bedrooms": 2,
-        "bathrooms": 2,
-        "apartmentNumber": "nueva Alejandría 9505",
-        "lat": "6.200521",
-        "lon": "-75.571367",
-        "status": "sold",
-        "userId": null
-    },
-    {
-        "id": "ad193fe6-f839-460f-af7f-ebf9c2d722d5",
-        "images": [
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939268/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img8_n4lt3s.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939267/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img5_kvt3n2.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img4_bmlkgp.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939266/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img3_e3s66f.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939265/PROYECTO%20PROPIEDADES/bosques%20del%20rio%201709/img1_opniyz.jpg"
-        ],
-        "ubication": "Laureles-Medellin",
-        "availability": true,
-        "price": 3000,
-        "description": "4 people max",
-        "bedrooms": 3,
-        "bathrooms": 4,
-        "apartmentNumber": "Bosques del Rio 1709",
-        "lat": "6.220148",
-        "lon": "-75.574051",
-        "status": "sold",
-        "userId": null
-    },
-    {
-        "id": "596f6795-e391-4188-ac7c-46f16babb57b",
-        "images": [
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939381/PROYECTO%20PROPIEDADES/nueva%20alejandria%201905/apt1_t6xwgb.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939379/PROYECTO%20PROPIEDADES/nueva%20alejandria%201905/apt1.5_nijjgf.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939379/PROYECTO%20PROPIEDADES/nueva%20alejandria%201905/apt1.4_jfzflg.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939380/PROYECTO%20PROPIEDADES/nueva%20alejandria%201905/apt1.6_jcml9z.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939379/PROYECTO%20PROPIEDADES/nueva%20alejandria%201905/apt1.3_lty1cd.jpg",
-            "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939378/PROYECTO%20PROPIEDADES/nueva%20alejandria%201905/apt1.1_o27kmp.jpg"
-        ],
-        "ubication": "Poblado-Medellin",
-        "availability": false,
-        "price": 1100,
-        "description": "4 people max",
-        "bedrooms": 2,
-        "bathrooms": 3,
-        "apartmentNumber": "Nueva Alejandria 1905",
-        "lat": "6.214168",
-        "lon": "-75.569281",
-        "status": "rent",
-        "userId": null
+  {
+    "id": "808c4b91-c3b1-4a51-ab62-124a46881c9d",
+    "images": [
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714077946/PROYECTO%20PROPIEDADES/edificio%20Hills%201203/WhatsApp_Image_2024-04-25_at_6.19.13_AM_p3cwtq.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714077970/PROYECTO%20PROPIEDADES/edificio%20Hills%201203/WhatsApp_Image_2024-04-25_at_6.19.12_AM_1_yhu67m.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714077940/PROYECTO%20PROPIEDADES/edificio%20Hills%201203/WhatsApp_Image_2024-04-25_at_6.19.12_AM_szmixc.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714077963/PROYECTO%20PROPIEDADES/edificio%20Hills%201203/WhatsApp_Image_2024-04-25_at_6.19.10_AM_4_nwzdgc.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714077956/PROYECTO%20PROPIEDADES/edificio%20Hills%201203/WhatsApp_Image_2024-04-25_at_6.19.09_AM_1_hdeer0.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714077959/PROYECTO%20PROPIEDADES/edificio%20Hills%201203/WhatsApp_Image_2024-04-25_at_6.19.09_AM_4_l7e8v9.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714077966/PROYECTO%20PROPIEDADES/edificio%20Hills%201203/WhatsApp_Image_2024-04-25_at_6.19.11_AM_jlasbl.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714077943/PROYECTO%20PROPIEDADES/edificio%20Hills%201203/WhatsApp_Image_2024-04-25_at_6.19.13_AM_2_oblui8.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714077937/PROYECTO%20PROPIEDADES/edificio%20Hills%201203/WhatsApp_Image_2024-04-25_at_6.19.12_AM_2_j1d0ok.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714077953/PROYECTO%20PROPIEDADES/edificio%20Hills%201203/WhatsApp_Image_2024-04-25_at_6.19.07_AM_1_b3nf3t.jpg"
+    ],
+    "size": 140,
+    "availability": true,
+    "price": 12000000,
+    "description": "Master bedroom with spacious walk-in closet and private bathroom, second bedroom with small balcony, 1 social bathroom with shower, laundry room, 12th floor, digital lock with key, coworking area, gym, mini-market within the unit (self-service), 24-hour security, small park in the building, guest parking, 1 parking space, high-speed wifi, sound system, large balcony, near Piazza Bella shopping center with D1, pharmacy, café, grocery store, 3 blocks from bars and restaurants. It's a closed street, super quiet, if you walk 7 minutes you will find all the bars and restaurants of Provenza, including high-speed WiFi and management. EPM has a limit of 300,000 cop. The price is negotiable depending on the length of stay.",
+    "bedrooms": 2,
+    "bathrooms": 3,
+    "urbanizacion": "Edificio Hills 1203",
+    "lat": "6.202610",
+    "lon": "-75.562340",
+    "status": "rent",
+    "userId": null,
+    "CityId": null,
+    "rating": {
+      "valorations": [
+        3
+      ],
+      "media": 3
     }
-
+  },
+  {
+    "id": "11d9a992-b200-4885-809a-0233064aaf19",
+    "images": [
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714080727/PROYECTO%20PROPIEDADES/Nueva%20alejandria%20apto%202004/WhatsApp_Image_2024-04-25_at_2.59.42_PM_4_g9vjod.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714080736/PROYECTO%20PROPIEDADES/Nueva%20alejandria%20apto%202004/WhatsApp_Image_2024-04-25_at_2.59.42_PM_n5qtow.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714080683/PROYECTO%20PROPIEDADES/Nueva%20alejandria%20apto%202004/WhatsApp_Image_2024-04-25_at_2.59.41_PM_1_ynjnrp.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714080692/PROYECTO%20PROPIEDADES/Nueva%20alejandria%20apto%202004/WhatsApp_Image_2024-04-25_at_2.59.41_PM_2_t68kz7.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714080701/PROYECTO%20PROPIEDADES/Nueva%20alejandria%20apto%202004/WhatsApp_Image_2024-04-25_at_2.59.41_PM_of1jqa.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714080654/PROYECTO%20PROPIEDADES/Nueva%20alejandria%20apto%202004/WhatsApp_Image_2024-04-25_at_2.59.39_PM_3_r4akd9.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714080663/PROYECTO%20PROPIEDADES/Nueva%20alejandria%20apto%202004/WhatsApp_Image_2024-04-25_at_2.59.39_PM_atoktt.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714080709/PROYECTO%20PROPIEDADES/Nueva%20alejandria%20apto%202004/WhatsApp_Image_2024-04-25_at_2.59.42_PM_1_jtenyo.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714080718/PROYECTO%20PROPIEDADES/Nueva%20alejandria%20apto%202004/WhatsApp_Image_2024-04-25_at_2.59.42_PM_3_lrl5on.jpg"
+    ],
+    "size": 74,
+    "availability": true,
+    "price": 7500000,
+    "description": "Located in the entire Golden Mile area, air conditioning, the building has all amenities and 24/7 security, 1 private parking space, pool, high-speed wifi, close to Santa Fe, Oviedo shopping centers, and Starbucks. Smart fit gym just 2 blocks away, 15 minutes from Aguacatala metro station, 5 minutes from El Poblado Park by car, close to restaurants, banks.",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "urbanizacion": "Nueva Alejandria 2004",
+    "lat": "6.200585",
+    "lon": "-75.571313",
+    "status": "rent",
+    "userId": null,
+    "CityId": null,
+    "rating": {
+      "valorations": [
+        3
+      ],
+      "media": 3
+    }
+  },
+  {
+    "id": "908e454c-14c4-47e0-9757-f3409afc452b",
+    "images": [
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714080881/PROYECTO%20PROPIEDADES/Nueva%20alejandria%20apto%202205/WhatsApp_Image_2024-04-25_at_6.43.19_AM_4_tttgu8.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714080890/PROYECTO%20PROPIEDADES/Nueva%20alejandria%20apto%202205/WhatsApp_Image_2024-04-25_at_6.43.20_AM_2_mxtmrz.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714080859/PROYECTO%20PROPIEDADES/Nueva%20alejandria%20apto%202205/WhatsApp_Image_2024-04-25_at_6.43.19_AM_2_nxyiv4.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714080847/PROYECTO%20PROPIEDADES/Nueva%20alejandria%20apto%202205/WhatsApp_Image_2024-04-25_at_6.43.19_AM_1_j6ggzy.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714080847/PROYECTO%20PROPIEDADES/Nueva%20alejandria%20apto%202205/WhatsApp_Image_2024-04-25_at_6.43.19_AM_1_j6ggzy.jpg"
+    ],
+    "size": 74,
+    "availability": true,
+    "price": 7800000,
+    "description": "Located in the entire Golden Mile area, air conditioning, the building has all amenities and 24/7 security, 1 private parking space, pool, high-speed wifi, close to Santa Fe, Oviedo shopping centers, and Starbucks. Smart fit gym just 2 blocks away, 15 minutes from Aguacatala metro station, 5 minutes from El Poblado Park by car, close to restaurants, banks",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "urbanizacion": "Nueva Alejandria 2205",
+    "lat": "6.200585",
+    "lon": "-75.571313",
+    "status": "rent",
+    "userId": null,
+    "CityId": null,
+    "rating": {
+      "valorations": [
+        3
+      ],
+      "media": 3
+    }
+  },
+  {
+    "id": "ab6bc77f-e0b5-4b2a-aa67-7d1417a54ae9",
+    "images": [
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714080395/PROYECTO%20PROPIEDADES/Nueva%20alejandria%20apto%20604/WhatsApp_Image_2024-04-25_at_6.45.20_AM_1_stf8ro.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714080417/PROYECTO%20PROPIEDADES/Nueva%20alejandria%20apto%20604/WhatsApp_Image_2024-04-25_at_6.45.22_AM_2_ghji1g.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714080489/PROYECTO%20PROPIEDADES/Nueva%20alejandria%20apto%20604/WhatsApp_Image_2024-04-25_at_6.45.22_AM_3_zdlv3s.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714080425/PROYECTO%20PROPIEDADES/Nueva%20alejandria%20apto%20604/WhatsApp_Image_2024-04-25_at_6.45.20_AM_4_trngmg.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714080387/PROYECTO%20PROPIEDADES/Nueva%20alejandria%20apto%20604/WhatsApp_Image_2024-04-25_at_6.45.19_AM_5_o6ctey.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714080506/PROYECTO%20PROPIEDADES/Nueva%20alejandria%20apto%20604/WhatsApp_Image_2024-04-25_at_6.45.23_AM_1_xewyqg.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714080402/PROYECTO%20PROPIEDADES/Nueva%20alejandria%20apto%20604/WhatsApp_Image_2024-04-25_at_6.45.21_AM_3_fbfyyt.jpg"
+    ],
+    "size": 74,
+    "availability": true,
+    "price": 5800000,
+    "description": "Located in the entire Golden Mile area, air conditioning, the building has all amenities and 24/7 security, 1 private parking space, pool, high-speed wifi, close to Santa Fe, Oviedo shopping centers, and Starbucks. Smart fit gym just 2 blocks away, 15 minutes from Aguacatala metro station, 5 minutes from El Poblado Park by car, close to restaurants, banks",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "urbanizacion": "Nueva Alejandría 604",
+    "lat": "6.200585",
+    "lon": "-75.571313",
+    "status": "rent",
+    "userId": null,
+    "CityId": null,
+    "rating": {
+      "valorations": [
+        3
+      ],
+      "media": 3
+    }
+  },
+  {
+    "id": "92b8bf82-c5c8-4d89-bb63-028220e41e93",
+    "images": [
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714080569/PROYECTO%20PROPIEDADES/Nueva%20alejandria%20apto%20701/WhatsApp_Image_2024-04-25_at_6.36.42_AM_5_dvwgcq.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714080602/PROYECTO%20PROPIEDADES/Nueva%20alejandria%20apto%20701/WhatsApp_Image_2024-04-25_at_6.36.44_AM_4_dcdvw8.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714169881/PROYECTO%20PROPIEDADES/Nueva%20alejandria%20apto%20701/WhatsApp_Image_2024-04-25_at_6.36.42_AM_cwk9kb.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714080577/PROYECTO%20PROPIEDADES/Nueva%20alejandria%20apto%20701/WhatsApp_Image_2024-04-25_at_6.36.44_AM_1_qezvo2.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714080585/PROYECTO%20PROPIEDADES/Nueva%20alejandria%20apto%20701/WhatsApp_Image_2024-04-25_at_6.36.44_AM_3_zuygdh.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714080610/PROYECTO%20PROPIEDADES/Nueva%20alejandria%20apto%20701/WhatsApp_Image_2024-04-25_at_6.36.44_AM_cpppna.jpg"
+    ],
+    "size": 74,
+    "availability": true,
+    "price": 6800000,
+    "description": "Located in the entire Golden Mile area, air conditioning, the building has all amenities and 24/7 security, 1 private parking space, pool, high-speed wifi, close to Santa Fe, Oviedo shopping centers, and Starbucks. Smart fit gym just 2 blocks away, 15 minutes from Aguacatala metro station, 5 minutes from El Poblado Park by car, close to restaurants, banks",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "urbanizacion": "Nueva Alejandría 701",
+    "lat": "6.200585",
+    "lon": "-75.571313",
+    "status": "rent",
+    "userId": null,
+    "CityId": null,
+    "rating": {
+      "valorations": [
+        3
+      ],
+      "media": 3
+    }
+  },
+  {
+    "id": "15a4825a-c839-4ff7-926c-0cefa0a9c23b",
+    "images": [
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714079185/PROYECTO%20PROPIEDADES/nueva%20alejandria%20901/WhatsApp_Image_2024-04-25_at_6.27.06_AM_4_bvr8kj.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714079167/PROYECTO%20PROPIEDADES/nueva%20alejandria%20901/WhatsApp_Image_2024-04-25_at_6.27.06_AM_3_jsrtea.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714079179/PROYECTO%20PROPIEDADES/nueva%20alejandria%20901/WhatsApp_Image_2024-04-25_at_6.27.07_AM_giyeyp.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714079198/PROYECTO%20PROPIEDADES/nueva%20alejandria%20901/WhatsApp_Image_2024-04-25_at_6.27.05_AM_2_lm5vom.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714079191/PROYECTO%20PROPIEDADES/nueva%20alejandria%20901/WhatsApp_Image_2024-04-25_at_6.27.10_AM_3_t2qnei.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714079156/PROYECTO%20PROPIEDADES/nueva%20alejandria%20901/WhatsApp_Image_2024-04-25_at_6.27.05_AM_3_cmlwf8.jpg"
+    ],
+    "size": 74,
+    "availability": true,
+    "price": 6800000,
+    "description": "Located in the entire Golden Mile area, air conditioning, the building has all amenities and 24/7 security, 1 private parking space, pool, high-speed wifi, close to Santa Fe, Oviedo shopping centers, and Starbucks. Smart fit gym just 2 blocks away, 15 minutes from Aguacatala metro station, 5 minutes from El Poblado Park by car, close to restaurants, banks",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "urbanizacion": "Nueva Alejandría 901",
+    "lat": "6.200585",
+    "lon": "-75.571313",
+    "status": "rent",
+    "userId": null,
+    "CityId": null,
+    "rating": {
+      "valorations": [
+        3
+      ],
+      "media": 3
+    }
+  },
+  {
+    "id": "924c1b4f-9b8d-484e-99b6-f6181f69ed64",
+    "images": [
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714080984/PROYECTO%20PROPIEDADES/Nueva%20alejandria%20apto%202306/WhatsApp_Image_2024-04-25_at_6.52.26_AM_3_q4pl2t.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714081006/PROYECTO%20PROPIEDADES/Nueva%20alejandria%20apto%202306/WhatsApp_Image_2024-04-25_at_6.52.27_AM_qfefcj.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714081016/PROYECTO%20PROPIEDADES/Nueva%20alejandria%20apto%202306/WhatsApp_Image_2024-04-25_at_6.52.21_AM_aj16jb.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714081036/PROYECTO%20PROPIEDADES/Nueva%20alejandria%20apto%202306/WhatsApp_Image_2024-04-25_at_6.52.23_AM_3_tz1d5b.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714081046/PROYECTO%20PROPIEDADES/Nueva%20alejandria%20apto%202306/WhatsApp_Image_2024-04-25_at_6.52.25_AM_1_ycqnzd.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714080974/PROYECTO%20PROPIEDADES/Nueva%20alejandria%20apto%202306/WhatsApp_Image_2024-04-25_at_6.52.26_AM_1_rf8tg7.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714081068/PROYECTO%20PROPIEDADES/Nueva%20alejandria%20apto%202306/WhatsApp_Image_2024-04-25_at_6.52.21_AM_5_rbpjch.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714081026/PROYECTO%20PROPIEDADES/Nueva%20alejandria%20apto%202306/WhatsApp_Image_2024-04-25_at_6.52.24_AM_4_seg7kp.jpg"
+    ],
+    "size": 54,
+    "availability": true,
+    "price": 5200000,
+    "description": "Located in the entire Golden Mile area, air conditioning, the building has all amenities and 24/7 security, 1 private parking space, pool, high-speed wifi, close to Santa Fe, Oviedo shopping centers, and Starbucks. Smart fit gym just 2 blocks away, 15 minutes from Aguacatala metro station, 5 minutes from El Poblado Park by car, close to restaurants, banks",
+    "bedrooms": 1,
+    "bathrooms": 2,
+    "urbanizacion": "Nueva alejandria 2306",
+    "lat": "6.200585",
+    "lon": "-75.571313",
+    "status": "rent",
+    "userId": null,
+    "CityId": null,
+    "rating": {
+      "valorations": [
+        3
+      ],
+      "media": 3
+    }
+  },
+  {
+    "id": "8bcbce28-20fc-46eb-89dc-7365b0afdeac",
+    "images": [
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714078257/PROYECTO%20PROPIEDADES/Laureles%20turcal/WhatsApp_Image_2024-04-25_at_6.56.15_AM_a4jiks.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714078253/PROYECTO%20PROPIEDADES/Laureles%20turcal/WhatsApp_Image_2024-04-25_at_6.56.14_AM_vuvdsn.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714078265/PROYECTO%20PROPIEDADES/Laureles%20turcal/WhatsApp_Image_2024-04-25_at_6.56.10_AM_1_i6dpsu.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714078038/PROYECTO%20PROPIEDADES/Laureles%20turcal/WhatsApp_Image_2024-04-25_at_6.56.11_AM_dtvkgo.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714078042/PROYECTO%20PROPIEDADES/Laureles%20turcal/WhatsApp_Image_2024-04-25_at_6.56.12_AM_jjis5i.jpg"
+    ],
+    "size": 87,
+    "availability": true,
+    "price": 650000000,
+    "description": "The building features a BBQ area, children's playground, close to the second park of Laureles, La 70, Mondongos, UPB, restaurants, 15 minutes from Unicentro, with a utility room and 1 parking space, Studio, Laundry area, Balcony.",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "urbanizacion": "Turcal de Laureles 405",
+    "lat": "6.246454",
+    "lon": "-75.591152",
+    "status": "sale",
+    "userId": null,
+    "CityId": null,
+    "rating": {
+      "valorations": [
+        3
+      ],
+      "media": 3
+    }
+  },
+  {
+    "id": "96250477-c842-49e3-996d-b779597cebcd",
+    "images": [
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714078386/PROYECTO%20PROPIEDADES/Marat%20Plus%201201/WhatsApp_Image_2024-04-25_at_6.29.36_AM_3_h6w5dr.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714078381/PROYECTO%20PROPIEDADES/Marat%20Plus%201201/WhatsApp_Image_2024-04-25_at_6.29.35_AM_1_hrgzkl.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714078376/PROYECTO%20PROPIEDADES/Marat%20Plus%201201/WhatsApp_Image_2024-04-25_at_6.29.33_AM_iunkwh.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714078367/PROYECTO%20PROPIEDADES/Marat%20Plus%201201/WhatsApp_Image_2024-04-25_at_6.29.32_AM_1_vp92j6.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714078372/PROYECTO%20PROPIEDADES/Marat%20Plus%201201/WhatsApp_Image_2024-04-25_at_6.29.32_AM_kiigo7.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714078344/PROYECTO%20PROPIEDADES/Marat%20Plus%201201/WhatsApp_Image_2024-04-25_at_6.29.39_AM_2_nieq36.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714078391/PROYECTO%20PROPIEDADES/Marat%20Plus%201201/WhatsApp_Image_2024-04-25_at_6.29.39_AM_1_kinzo9.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714078348/PROYECTO%20PROPIEDADES/Marat%20Plus%201201/WhatsApp_Image_2024-04-25_at_6.29.39_AM_3_mhnwnd.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714078353/PROYECTO%20PROPIEDADES/Marat%20Plus%201201/WhatsApp_Image_2024-04-25_at_6.29.39_AM_4_ixeex6.jpg"
+    ],
+    "size": 120,
+    "availability": true,
+    "price": 6400000,
+    "description": "With excellent view on the 12th floor. The building has 24/7 security and offers a pool, sauna, gym. The apartment includes parking, high-speed internet, TV, and utilities. Just 5 meters from Sabaneta Park, 10 minutes from Aves Maria shopping center, 8 minutes from Sabaneta's Exito",
+    "bedrooms": 3,
+    "bathrooms": 3,
+    "urbanizacion": "Marat Plus 1201",
+    "lat": "6.145301",
+    "lon": "-75.609208",
+    "status": "rent",
+    "userId": null,
+    "CityId": null,
+    "rating": {
+      "valorations": [
+        3
+      ],
+      "media": 3
+    }
+  },
+  {
+    "id": "77b08c30-b90b-4cd5-9c92-18ecb5b238fd",
+    "images": [
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714081162/PROYECTO%20PROPIEDADES/Terraverde%201308/WhatsApp_Image_2024-04-25_at_6.32.52_AM_5_itpfwt.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714081142/PROYECTO%20PROPIEDADES/Terraverde%201308/WhatsApp_Image_2024-04-25_at_6.32.53_AM_ny5bwq.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714081121/PROYECTO%20PROPIEDADES/Terraverde%201308/WhatsApp_Image_2024-04-25_at_6.32.52_AM_3_ikubuy.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714081131/PROYECTO%20PROPIEDADES/Terraverde%201308/WhatsApp_Image_2024-04-25_at_6.32.51_AM_qzrkwq.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714081152/PROYECTO%20PROPIEDADES/Terraverde%201308/WhatsApp_Image_2024-04-25_at_6.32.52_AM_ifvmgm.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714081100/PROYECTO%20PROPIEDADES/Terraverde%201308/WhatsApp_Image_2024-04-25_qdkf3r.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714081111/PROYECTO%20PROPIEDADES/Terraverde%201308/WhatsApp_Image_2024-04-25_at_6.32.52_AM_2_cftv1e.jpg",
+      ""
+    ],
+    "size": 85,
+    "availability": true,
+    "price": 5500000,
+    "description": "A complete unit with 24/7 security, in front of the Dan Carlton hotel, near the Industriales metro station, Homecenter, 10 minutes from Poblado Park, Monterrey shopping center, Carulla, 5 minutes from Premium Plaza shopping center. The apartment features 1 studio, laundry area, balcony, 1 parking space, high-speed internet, TV, and utilities",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "urbanizacion": "Terraverde 1308",
+    "lat": "6.219269",
+    "lon": "-75.568958",
+    "status": "rent",
+    "userId": null,
+    "CityId": null,
+    "rating": {
+      "valorations": [
+        3
+      ],
+      "media": 3
+    }
+  },
+  {
+    "id": "6e43de28-babf-43b3-9e5c-745cc13338e4",
+    "images": [
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714081184/PROYECTO%20PROPIEDADES/Torres%20del%20rio%20apto%201216/WhatsApp_Image_2024-04-25_at_6.47.05_AM_2_eizjlb.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714081195/PROYECTO%20PROPIEDADES/Torres%20del%20rio%20apto%201216/WhatsApp_Image_2024-04-25_at_6.47.05_AM_3_kjjuy6.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714081259/PROYECTO%20PROPIEDADES/Torres%20del%20rio%20apto%201216/WhatsApp_Image_2024-04-25_at_6.47.07_AM_wjkiek.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714081205/PROYECTO%20PROPIEDADES/Torres%20del%20rio%20apto%201216/WhatsApp_Image_2024-04-25_at_6.47.05_AM_4_uodbfh.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714081215/PROYECTO%20PROPIEDADES/Torres%20del%20rio%20apto%201216/WhatsApp_Image_2024-04-25_at_6.47.05_AM_5_lasg8t.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714081173/PROYECTO%20PROPIEDADES/Torres%20del%20rio%20apto%201216/WhatsApp_Image_2024-04-25_at_6.47.04_AM_2_mdeerg.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714081248/PROYECTO%20PROPIEDADES/Torres%20del%20rio%20apto%201216/WhatsApp_Image_2024-04-25_at_6.47.06_AM_thgtjb.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714081227/PROYECTO%20PROPIEDADES/Torres%20del%20rio%20apto%201216/WhatsApp_Image_2024-04-25_at_6.47.06_AM_3_onurnt.jpg"
+    ],
+    "size": 70,
+    "availability": true,
+    "price": 4900000,
+    "description": "The building has all the amenities and 24/7 security, swimming pool, sauna, Turkish, gym, Parking and utility room. Located right in Ciudad Del Rio, within walking distance of everything, supermarkets such as Éxito, Home Center, Banks, Restaurants.",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "urbanizacion": "Torres del Rio 1216",
+    "lat": "6.222049",
+    "lon": "-75.574242",
+    "status": "rent",
+    "userId": null,
+    "CityId": null,
+    "rating": {
+      "valorations": [
+        3
+      ],
+      "media": 3
+    }
+  },
+  {
+    "id": "9c0bb877-b4b1-46a6-a458-4713a9feb6b5",
+    "images": [
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714167836/PROYECTO%20PROPIEDADES/nueva%20alejandria%20505/WhatsApp_Image_2024-04-25_at_6.21.30_AM_h27pkd.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714168045/PROYECTO%20PROPIEDADES/nueva%20alejandria%20505/WhatsApp_Image_2024-04-25_at_6.21.31_AM_tw3omv.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714078430/PROYECTO%20PROPIEDADES/nueva%20alejandria%20505/WhatsApp_Image_2024-04-25_at_6.21.28_AM_2_htd5iq.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714078469/PROYECTO%20PROPIEDADES/nueva%20alejandria%20505/WhatsApp_Image_2024-04-25_at_6.21.31_AM_3_ticg4r.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714078446/PROYECTO%20PROPIEDADES/nueva%20alejandria%20505/WhatsApp_Image_2024-04-25_at_6.21.29_AM_hfbqyf.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714078435/PROYECTO%20PROPIEDADES/nueva%20alejandria%20505/WhatsApp_Image_2024-04-25_at_6.21.29_AM_1_be4yno.jpg"
+    ],
+    "size": 74,
+    "availability": true,
+    "price": 6800000,
+    "description": "Located in the entire Golden Mile area, air conditioning, the building has all amenities and 24/7 security, 1 private parking space, pool, high-speed wifi, close to Santa Fe, Oviedo shopping centers, and Starbucks. Smart fit gym just 2 blocks away, 15 minutes from Aguacatala metro station, 5 minutes from El Poblado Park by car, close to restaurants, banks",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "urbanizacion": "Nueva Alejandría 505",
+    "lat": "6.200585",
+    "lon": "-75.571313",
+    "status": "rent",
+    "userId": null,
+    "CityId": null,
+    "rating": {
+      "valorations": [
+        3
+      ],
+      "media": 3
+    }
+  },
+  {
+    "id": "596f6795-e391-4188-ac7c-46f16babb57b",
+    "images": [
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714080343/PROYECTO%20PROPIEDADES/nueva%20alejandria%201905/WhatsApp_Image_2024-04-25_at_6.40.05_AM_2_xcoe9x.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714080307/PROYECTO%20PROPIEDADES/nueva%20alejandria%201905/WhatsApp_Image_2024-04-25_at_6.40.01_AM_jbozaz.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714080337/PROYECTO%20PROPIEDADES/nueva%20alejandria%201905/WhatsApp_Image_2024-04-25_at_6.40.04_AM_1_gvfik1.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714080350/PROYECTO%20PROPIEDADES/nueva%20alejandria%201905/WhatsApp_Image_2024-04-25_at_6.40.03_AM_izzy9a.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714080314/PROYECTO%20PROPIEDADES/nueva%20alejandria%201905/WhatsApp_Image_2024-04-25_at_6.40.01_AM_2_rwxw3z.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714080300/PROYECTO%20PROPIEDADES/nueva%20alejandria%201905/WhatsApp_Image_2024-04-25_at_6.40.01_AM_1_pkjdia.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714080327/PROYECTO%20PROPIEDADES/nueva%20alejandria%201905/WhatsApp_Image_2024-04-25_at_6.40.03_AM_2_ibs2gn.jpg",
+      "https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1714080327/PROYECTO%20PROPIEDADES/nueva%20alejandria%201905/WhatsApp_Image_2024-04-25_at_6.40.03_AM_2_ibs2gn.jpg"
+    ],
+    "size": 74,
+    "availability": false,
+    "price": 7800000,
+    "description": "Located in the entire Golden Mile area, air conditioning, the building has all amenities and 24/7 security, 1 private parking space, pool, high-speed wifi, close to Santa Fe, Oviedo shopping centers, and Starbucks. Smart fit gym just 2 blocks away, 15 minutes from Aguacatala metro station, 5 minutes from El Poblado Park by car, close to restaurants, banks.",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "urbanizacion": "Nueva Alejandria 1905",
+    "lat": "6.200585",
+    "lon": "-75.571313",
+    "status": "rent",
+    "userId": null,
+    "CityId": null,
+    "rating": {
+      "valorations": [
+        3
+      ],
+      "media": 3
+    }
+  }
 ]

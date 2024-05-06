@@ -1,0 +1,34 @@
+
+
+[
+    {
+        "id":1,
+        "name":"Home",
+        "link":"home",
+        "offSet": 0
+    },
+    {
+        "id":2,
+        "name":"About",
+        "link":"about",
+        "offSet": 50
+    },
+    {
+        "id":3,
+        "name":"Services",
+        "link":"services",
+        "offSet": 50
+    },
+    {
+        "id":4,
+        "name":"Locations",
+        "link":"location",
+        "offSet": 50
+    },
+    {
+        "id":5,
+        "name":"Apartments",
+        "link":"apartments",
+        "offSet": 0
+    }
+]

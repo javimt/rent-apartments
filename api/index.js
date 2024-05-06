@@ -28,8 +28,13 @@ app.use(captureRes);
 
 app.use("/", router);
 
-app.get("/", (req, res) => {
-  res.status(200).send("Welcome to Furnished Apartments");
+app.get('/', (req, res) => {
+  res.status(200).json({
+    welcome: "WELCOME TO MEDELLIN FURNISHED APARTMENTS",
+    apartment: "https://api-rent-appartament.up.railway.app/apartment",
+    user: "https://api-rent-appartament.up.railway.app/user",
+    city: "https://api-rent-appartament.up.railway.app/city",
+  });
 });
 
 //manejo de errores

@@ -11,14 +11,7 @@ module.exports = (sequelize) => {
     date: {
       type: DataTypes.DATE,
       allowNull: false,
-    },
-    totalPrice: {
-      type: DataTypes.FLOAT,
-    },
-    status: {
-      type: DataTypes.ENUM("sale", "available"),
-      defaultValue: "available"
-    },
+    }
   }, {timestamps: false});
   Sale.associate = (models) => {
     Sale.belongsTo(models.User, { foreignKey: 'userId' });
