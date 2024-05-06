@@ -3,10 +3,8 @@ import { MdOutlinePriceChange } from "react-icons/md";
 import useOpenClose from "../../../../hooks/OpenCloseMenu";
 import { parseToDollarsMoney } from "../../../../utils/parseMoney";
 import { GoArrowSwitch } from "react-icons/go";
-import { IoInfinite } from "react-icons/io5";
 import { getApartmentsByPrice } from "../../../../redux/actions/apartmentActions";
 import { useDispatch } from "react-redux";
-import { useState } from "react";
 
 function SearchPricingRange() {
   const { toogleOpen, openStatus } = useOpenClose();

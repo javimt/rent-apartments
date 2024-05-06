@@ -13,7 +13,6 @@ function useGetApartments() {
   const length = apartments ? apartments.length : 8;
 
   function filterByCity(cityId) {
-   
     dispatch(filterSelectedCity(cityId))
   }
 

@@ -6,7 +6,6 @@ import { useDispatch } from "react-redux";
 
 function SearchProperty() {
   const { toogleOpen, openStatus } = useOpenClose();
-
   const dispatch = useDispatch();
 
   const handleRentClick = () => {

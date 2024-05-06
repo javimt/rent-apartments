@@ -4,6 +4,7 @@ const initialState = {
   apartments: [],
   filters: [],
   cities: [],
+  filters: {},
 };
 
 function apartmentReducer(state = initialState, action) {
@@ -38,8 +39,13 @@ function apartmentReducer(state = initialState, action) {
         ...state,
         apartments: action.payload
       }
+    case actionTypes.SET_FILTERS:
+      return {
+        ...state,
+        filters: action.payload,
+      };
     default:
-      return { ...state };
+      return state;
   }
 }
 

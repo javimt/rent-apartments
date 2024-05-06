@@ -92,3 +92,10 @@ export function getApartmentsByPrice(minPrice, maxPrice) {
       .catch((error) => console.error(error));
   };
 }
+
+export function setFilters(filters) {
+  return {
+    type: actionTypes.SET_FILTERS,
+    payload: filters,
+  }
+};
