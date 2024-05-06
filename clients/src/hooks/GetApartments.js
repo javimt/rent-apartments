@@ -4,6 +4,7 @@ import { getApatments, filterSelectedCity } from "../redux/actions/apartmentActi
 
 function useGetApartments() {
   const [apartments, setApartments] = useState([]);
+  const [slider, setSlider] = useState([])
   const dispatch = useDispatch();
   const allApartment = useSelector((state) => state.apartment.apartments);
 
@@ -23,13 +24,19 @@ function useGetApartments() {
 
   useEffect(() => {
     setApartments(allApartment.data);
+    if(!allApartment){
+      setSlider(allApartment.data)
+    }
+
   }, [allApartment]);
+
 
   return {
     apartments,
     resetApartmentsList,
     length,
     filterByCity,
+    slider
   };
 }
 
