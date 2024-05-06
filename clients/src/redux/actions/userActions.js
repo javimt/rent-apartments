@@ -36,5 +36,5 @@ export function loginOrRegisterUser(user) {
   } catch (error) {
     console.error(error);
     return error;
-  }
+  } 
 }
