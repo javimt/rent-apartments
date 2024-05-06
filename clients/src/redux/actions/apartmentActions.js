@@ -110,3 +110,18 @@ export function getRatings(rating) {
     .catch((error) => console.error(error));
   }
 }
+
+export async function updateRating(id, rating) {
+  try {
+    const data = await fetch("https://api-rent-appartament.up.railway.app/apartment/rating", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({id, rating}),
+    });
+    const parseResponse = await data.json();
+    return parseResponse;
+  } catch (error) {
+    console.error(error);
+    return error;
+  }
+}

@@ -44,8 +44,13 @@ function apartmentReducer(state = initialState, action) {
         ...state,
         filters: action.payload,
       };
+    case actionTypes.GET_RATINGS:
+      return {
+        ...state,
+        apartments: action.payload
+      }
     default:
-      return state;
+      return { ...state };
   }
 }
 
