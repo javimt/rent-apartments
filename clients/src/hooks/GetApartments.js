@@ -4,6 +4,8 @@ import { getApatments, filterSelectedCity } from "../redux/actions/apartmentActi
 
 function useGetApartments() {
   const [apartments, setApartments] = useState([]);
+  const [slider, setSlider] = useState([])
+  const [firstCharge, setFirstCharge] = useState(false)
   const dispatch = useDispatch();
   const allApartment = useSelector((state) => state.apartment.apartments);
 
@@ -17,18 +19,25 @@ function useGetApartments() {
   }
 
   useEffect(() => {
-    !allApartment.length && dispatch(getApatments());
+    dispatch(getApatments());
   }, []);
 
   useEffect(() => {
     setApartments(allApartment.data);
+    if(allApartment.data && !firstCharge){
+      setSlider(allApartment.data)
+      setFirstCharge(true)
+    }
+
   }, [allApartment]);
+
 
   return {
     apartments,
     resetApartmentsList,
     length,
     filterByCity,
+    slider
   };
 }
 

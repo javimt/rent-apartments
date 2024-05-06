@@ -7,7 +7,7 @@ import useGetApartments from '../../hooks/GetApartments';
 import { Link } from 'react-router-dom';
 
 function Slider() {
-  const { apartments } = useGetApartments();
+  const { slider } = useGetApartments();
 
   return (
     <Swiper
@@ -22,11 +22,11 @@ function Slider() {
       className="h-[240px] md:h-[380px] w-[380px] md:w-[700px] "
       grabCursor
     >
-      {apartments &&
-        apartments.map(({ images, id }) => (
+      {slider &&
+        slider.map(({ images, id }) => (
           <SwiperSlide className='w-100' key={id}>
             <Link to={`/apartment/${id}`} >
-              <div style={{ backgroundImage: `url('${images && images[0]}')` }} className="w-[100%] h-[90%] rounded-xl bg-cover object-fill" />
+              <img src={`${images && images[0]}`} className="w-[100%] h-[90%] rounded-xl bg- bg-center object-cover" alt="furnished, amoblados, apartments, apartamentos, alquiler, rent" />
             </Link>
           </SwiperSlide>
         ))}

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { getAnAppatment } from "../redux/actions/apartmentActions";
+import { getAllRentApartments, getAnAppatment } from "../redux/actions/apartmentActions";
 
 function useGetAnApartment(id) {
   const [apartment, setApartment] = useState({});
@@ -9,6 +9,12 @@ function useGetAnApartment(id) {
   function research() {
     setApartment(getAnAppatment(id));
   }
+
+  useEffect(()=>{
+    setTimeout(()=>{
+      dispatch(getAllRentApartments())
+    },400)
+  }, [])
 
   useEffect(() => {
     getAnAppatment(id).then((response) => setApartment(response));
