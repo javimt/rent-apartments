@@ -63,7 +63,7 @@ function Properties() {
                         </div>
                         <img
                           src={images && images[0]}
-                          alt=""
+                          alt="furnished, amoblados, apartments, apartamentos, alquiler, rent"
                           className="object-cover w-full max-h-full h-[280px] rounded-t-2xl"
                         />
                         <div className="px-3 py-5">

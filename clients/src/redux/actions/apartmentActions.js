@@ -42,23 +42,24 @@ export async function getAnAppatment(id) {
   }
 }
 
-export function getAllCties() {
-  return (dispatch) => {
-    fetch("https://api-rent-appartament.up.railway.app/city")
-      .then((response) => response.json())
-      .then((data) =>
-        dispatch({ type: actionTypes.GET_ALL_CITIES, payload: data })
-      )
-      .catch((error) => console.error(error));
+export  function getAllCties() {
+  return async (dispatch) => {
+    try {
+      const response = await fetch("https://api-rent-appartament.up.railway.app/city")
+      const data = await response.json()
+      dispatch({ type: actionTypes.GET_ALL_CITIES, payload: data })
+    } catch (error) {
+      console.error(error)
+    }
   };
 }
 
 export function filterSelectedCity(cityId) {
-  return function (dispatch){
+  return function (dispatch) {
     fetch(`https://api-rent-appartament.up.railway.app/apartment/city/${cityId}`)
-    .then(response => response.json())
-    .then( data => dispatch({type:actionTypes.SET_SELECTED_CITY, payload:data}) )
-    .catch((error) => console.error(error));
+      .then(response => response.json())
+      .then(data => dispatch({ type: actionTypes.SET_SELECTED_CITY, payload: data }))
+      .catch((error) => console.error(error));
   }
 };
 
@@ -77,7 +78,7 @@ export function getAllSaleApartments() {
     fetch("https://api-rent-appartament.up.railway.app/apartment/sale")
       .then((response) => response.json())
       .then((data) =>
-        dispatch({ type: actionTypes.GET_ALL_SALE_APARTMENTS, payload: data }) 
+        dispatch({ type: actionTypes.GET_ALL_SALE_APARTMENTS, payload: data })
       )
       .catch((error) => console.error(error));
   };

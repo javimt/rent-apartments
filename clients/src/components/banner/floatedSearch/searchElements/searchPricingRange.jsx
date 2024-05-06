@@ -30,8 +30,8 @@ function SearchPricingRange() {
       </div>
       <div>{openStatus ? <GrFormUp /> : <GrFormDown />}</div>
       {openStatus && (
-        <div className="absolute top-[60px] py-3 px-2 bg-white text-secondary shadow-light w-full left-0 z-[50]">
-          <div className="font-semibold flex p-1 hover:cursor-pointer text-start hover:bg-gray-300 text-gray-400 text-[15px]">
+        <div className="absolute top-[60px] py-3 px-2 bg-white text-secondary shadow-light w-full left-0 z-[50] ">
+          <div className="font- flex p-1 hover:cursor-pointer text-start hover:bg-gray-300 text-gray-400 text-[13px]">
             <span
               onClick={() => handleRangeClick(4000000, 6000000)}
               className="cursor-pointer flex w-full justify-center items-center"
@@ -40,7 +40,7 @@ function SearchPricingRange() {
               {parseToDollarsMoney(6000000)}
             </span>
           </div>
-          <div className="font-semibold flex p-1 hover:cursor-pointer text-start hover:bg-gray-300 text-gray-400 text-[15px]">
+          <div className="font- flex p-1 hover:cursor-pointer text-start hover:bg-gray-300 text-gray-400 text-[13px]">
             <span
               onClick={() => handleRangeClick(6000000, 9000000)}
               className="cursor-pointer flex w-full justify-center items-center"
@@ -49,7 +49,7 @@ function SearchPricingRange() {
               {parseToDollarsMoney(9000000)}
             </span>
           </div>
-          <div className="font-semibold flex p-1 hover:cursor-pointer text-start hover:bg-gray-300 text-gray-400 text-[15px]">
+          <div className="font- flex p-1 hover:cursor-pointer text-start hover:bg-gray-300 text-gray-400 text-[13px]">
             <span
               onClick={() => handleRangeClick(9000000, 13000000)}
               className="cursor-pointer flex w-full justify-center items-center"
@@ -58,7 +58,7 @@ function SearchPricingRange() {
               {parseToDollarsMoney(13000000)}
             </span>
           </div>
-          <div className="font-semibold flex p-1 hover:cursor-pointer text-start hover:bg-gray-300 text-gray-400 text-[15px]">
+          <div className="font- flex p-1 hover:cursor-pointer text-start hover:bg-gray-300 text-gray-400 text-[13px]">
             <span
               onClick={() => handleRangeClick(13000000, 20000000)}
               className="cursor-pointer flex w-full justify-center items-center"

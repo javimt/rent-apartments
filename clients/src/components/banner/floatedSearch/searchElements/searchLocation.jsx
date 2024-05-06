@@ -15,13 +15,13 @@ function SearchLocation() {
   return (
     <div
       onClick={toogleOpen}
-      className=" font-quicksand relative mb-2 md:mb-0 flex items-center gap-4 border-[1px] rounded-lg px-3 py-2 justify-between cursor-pointer"
+      className=" font-quicksand relative mb-2 md:mb-0 flex items-center gap-4 border-[1px] rounded-lg px-3 py-2 justify-between cursor-pointer shadow-xl"
     >
       <GrLocation />
       <div>
-        <p className="md:text-sm ">Location</p>
+        <p className="md:text-sm ">Fiter by location</p>
         <p className="md:text-[10px] xl:text-xs ">
-          Select Location
+          Select a location in medellin
         </p>
       </div>
       {openStatus ? <GrFormUp /> : <GrFormDown />}
@@ -32,7 +32,7 @@ function SearchLocation() {
               key={e.id}
               onClick={() => handleCitySelect(e.id)}
               value={e.id}
-              className="p-1 hover:cursor-pointer text-start w-full block hover:bg-gray-300 text-gray-400 text-[16px]"
+              className="p-1 hover:cursor-pointer text-start w-full block hover:bg-gray-300 text-gray-400 text-[13px]"
             >{`${e.city} - ${e.barrio}`}</button>
           );
         })}

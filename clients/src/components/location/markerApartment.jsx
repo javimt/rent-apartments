@@ -37,7 +37,7 @@ function MarkerAppartment({ selectMarker }) {
                   </p>
                 </div>
                 <div
-                  style={{ backgroundImage: `url(${images[0]})` }}
+                  style={{ backgroundImage: `url(${images && images[0]})` }}
                   className="mx-auto w-[150px] h-[200px] bg-cover object-fill bg-center rounded-xl"
                 ></div>
                 <Link
