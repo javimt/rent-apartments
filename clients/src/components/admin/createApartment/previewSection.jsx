@@ -2,7 +2,7 @@ import Transition from "../../complements/transition";
 import { LiaBathSolid, LiaBedSolid, LiaRulerCombinedSolid, LiaRulerSolid } from 'react-icons/lia'
 import { MdAddHomeWork } from "react-icons/md";
 import { parseToColombianMoney } from "../../../utils/parseMoney";
-import useGetAllCities from "../../../hooks/getAllCities";
+import useGetAllCities from "../../../hooks/custom/getAllCities";
 
 
 function RenderNewApartSection({ input, submit }) {

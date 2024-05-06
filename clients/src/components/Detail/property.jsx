@@ -7,7 +7,7 @@ import {
 } from "react-icons/lia";
 import Form from "./form";
 import { useState } from "react";
-import useGetAllCities from "../../hooks/getAllCities";
+import useGetAllCities from "../../hooks/custom/getAllCities";
 
 function Property({ apartment }) {
   const [imagePos, setImagePos] = useState(0);

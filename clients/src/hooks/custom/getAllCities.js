@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllCties } from "../redux/actions/apartmentActions";
+import { getAllCties } from "../../redux/actions/apartmentActions";
 
 function useGetAllCities() {
   const [city, setCities] = useState([]);

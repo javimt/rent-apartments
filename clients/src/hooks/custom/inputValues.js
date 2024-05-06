@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios'
-import { parseInput } from '../utils/parseInput';
+import { parseInput } from '../../utils/parseInput';
 
 function useHandleInput() {
 

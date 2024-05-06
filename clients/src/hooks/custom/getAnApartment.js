@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { getAllRentApartments, getAnAppatment } from "../redux/actions/apartmentActions";
+import { getAllRentApartments, getAnAppatment } from "../../redux/actions/apartmentActions";
 
 function useGetAnApartment(id) {
   const [apartment, setApartment] = useState({});

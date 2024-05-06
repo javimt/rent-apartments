@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import useGetApartments from '../../hooks/GetApartments';
+import useGetApartments from '../../hooks/custom/GetApartments';
 import { Link } from 'react-router-dom';
 
 function Slider() {

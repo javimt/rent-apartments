@@ -1,6 +1,6 @@
 import { GrFormDown, GrFormUp } from "react-icons/gr";
 import { MdOutlinePriceChange } from "react-icons/md";
-import useOpenClose from "../../../../hooks/OpenCloseMenu";
+import useOpenClose from "../../../../hooks/custom/OpenCloseMenu";
 import { parseToDollarsMoney } from "../../../../utils/parseMoney";
 import { GoArrowSwitch } from "react-icons/go";
 import { getApartmentsByPrice } from "../../../../redux/actions/apartmentActions";

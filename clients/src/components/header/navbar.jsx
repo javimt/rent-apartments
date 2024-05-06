@@ -2,7 +2,7 @@ import { AnimatePresence, animate, motion } from "framer-motion";
 import dataLink from "./navContenLinks.json";
 import { Link } from "react-scroll";
 import { useEffect, useState } from "react";
-import useHandleScroll from "../../hooks/HandleScroll";
+import useHandleScroll from "../../hooks/custom/HandleScroll";
 import LoginButton from "../Auth0Buttons/LoginButton";
 import LogoutButton from "../Auth0Buttons/LogoutButton";
 import { useAuth0 } from "@auth0/auth0-react";

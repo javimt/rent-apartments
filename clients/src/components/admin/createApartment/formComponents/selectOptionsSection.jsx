@@ -3,8 +3,8 @@
 
 
 import { GrFormDown, GrFormUp } from "react-icons/gr";
-import useOpenClose from "../../../../hooks/OpenCloseMenu";
-import useGetAllCities from '../../../../hooks/getAllCities'
+import useOpenClose from "../../../../hooks/custom/OpenCloseMenu";
+import useGetAllCities from '../../../../hooks/custom/getAllCities'
 
 
 function SelectOptionsSection({name, selectName, label, handle, options=[]}) {

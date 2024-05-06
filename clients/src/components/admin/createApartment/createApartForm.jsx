@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import useHandleInput from "../../../hooks/inputValues";
+import useHandleInput from "../../../hooks/custom/inputValues";
 import InputNumberSection from "./formComponents/inputNumberSextion";
 import InputTextSection from "./formComponents/inputTextSection";
 import SelectOptionsSection from "./formComponents/selectOptionsSection";

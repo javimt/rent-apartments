@@ -1,6 +1,6 @@
 import { GrFormDown, GrFormUp } from "react-icons/gr";
 import { MdApartment } from "react-icons/md";
-import useOpenClose from "../../../../hooks/OpenCloseMenu";
+import useOpenClose from "../../../../hooks/custom/OpenCloseMenu";
 import { getAllRentApartments, getAllSaleApartments } from "../../../../redux/actions/apartmentActions";
 import { useDispatch } from "react-redux";
 import { GiHouseKeys } from "react-icons/gi";

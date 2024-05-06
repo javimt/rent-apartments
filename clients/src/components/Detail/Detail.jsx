@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import useGetAnApartment from "../../hooks/getAnApartment";
+import useGetAnApartment from "../../hooks/custom/getAnApartment";
 import { useEffect, useState } from "react";
 import Transition from "../complements/transition";
 import TransitionPage from "../transitionPage/transitionPage";

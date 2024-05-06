@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getApatments, filterSelectedCity } from "../redux/actions/apartmentActions";
+import { getApatments, filterSelectedCity, getAllRentApartments } from "../../redux/actions/apartmentActions";
 
 function useGetApartments() {
   const [apartments, setApartments] = useState([]);
@@ -16,6 +16,10 @@ function useGetApartments() {
 
   function filterByCity(cityId) {
     dispatch(filterSelectedCity(cityId))
+  }
+
+  function filterByRent(){
+    dispatch(getAllRentApartments())
   }
 
   useEffect(() => {
@@ -37,7 +41,7 @@ function useGetApartments() {
     resetApartmentsList,
     length,
     filterByCity,
-    slider
+    slider,
   };
 }
 
