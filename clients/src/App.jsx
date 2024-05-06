@@ -1,7 +1,6 @@
 import React, { useState, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Element } from 'react-scroll'; // Importa Element desde react-scroll
-import './global.css';
 import Header from './components/header/header';
 import Banner from './components/banner/banner';
 import Properties from './components/properties/propiedades';

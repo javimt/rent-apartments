@@ -121,6 +121,27 @@ module.exports = {
     }
   },
 
+  updateRating: async (req, res, next) => {
+    const { id, rating } = req.body;
+    try {
+      const apartment = await Apartment.findByPk(id);
+      if (!apartment) {
+        rejectSender("No se encontró el apartamento", HttpStatusCodes.noEncontrado);
+      }
+      const valorations = [...apartment.rating.valorations, rating]; 
+      const media = valorations.reduce((acum, current) => acum + current, 0) / valorations.length; 
+      const apartUpdated = await apartment.update({
+        rating: {
+          valorations: valorations,
+          media: +media.toFixed(1)
+        }
+      });
+      resSender(null, HttpStatusCodes.actualizado, apartUpdated);
+    } catch (error) {
+      next(error);
+    }
+  },
+
   getApartmentsByPriceRange: async (req, res, next) => {
     const minPrice = req.query.minPrice;
     const maxPrice = req.query.maxPrice;
@@ -169,27 +190,6 @@ module.exports = {
       next(error);
     }
   },
-
-  updateRating: async (req, res, next) => {
-    const { id, rating } = req.query;
-    try {
-      const apartment = await Apartment.findByPk(id);
-      if (!apartment) {
-        rejectSender("No se encontró el apartamento", HttpStatusCodes.noEncontrado);
-      }
-      const valorations = [...apartment.rating.valorations, rating]; 
-      const media = valorations.reduce((acum, current) => acum + current, 0) / valorations.length; 
-      const apartUpdated = await apartment.update({
-        rating: {
-          valorations: valorations,
-          media: +media.toFixed(1)
-        }
-      });
-      resSender(null, HttpStatusCodes.actualizado, apartUpdated);
-    } catch (error) {
-      next(error);
-    }
-},
 
   deleteApartment: async (req, res, next) => {
     const { id } = req.params;
