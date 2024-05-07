@@ -10,14 +10,15 @@ function useAdeminApartDetail() {
             .then(response => response.json())
             .then(data => setDetail(data.data))
     }
-    
+
     function resetDetail(){
         setDetail(null)
     }
 
     return {
         detail,
-        resetDetail
+        resetDetail,
+        getDetail
     };
 }
 

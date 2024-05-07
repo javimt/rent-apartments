@@ -5,7 +5,7 @@ import CardApartAdmin from "../cardApartmentAdmin";
 
 
 
-function RentSection({ apartments }) {
+function RentSection({ apartments, getDetail }) {
     
 
     return (
@@ -15,7 +15,7 @@ function RentSection({ apartments }) {
                     <p className="text-gray-400 text-center p-2">Rents Apartment List</p>
                 </div>
                 {apartments && apartments.map(ap => {
-                    return <CardApartAdmin apartment={ap} />
+                    return <CardApartAdmin getDetail={getDetail} apartment={ap} />
                 })}
             </div>
         </Transition>
