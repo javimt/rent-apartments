@@ -5,7 +5,7 @@ import CardApartAdmin from "../cardApartmentAdmin";
 
 
 
-function RentSection({ apartments, getDetail }) {
+function RentSection({ apartments, getDetail, deleteApartment, resetData}) {
     
 
     return (
@@ -15,7 +15,7 @@ function RentSection({ apartments, getDetail }) {
                     <p className="text-gray-400 text-center p-2">Rents Apartment List</p>
                 </div>
                 {apartments && apartments.map(ap => {
-                    return <CardApartAdmin getDetail={getDetail} apartment={ap} />
+                    return <CardApartAdmin resetData={resetData} deleteApartment={deleteApartment} getDetail={getDetail} apartment={ap} />
                 })}
             </div>
         </Transition>

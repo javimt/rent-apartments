@@ -12,7 +12,8 @@ import SelectSection from "../../createApartment/formComponents/selectSection";
 
 
 function EditApartment({detail, sendInput}) {
-    const { handleInputs, input, addImages, deleteImage, error, submit, editApartment } = useHandleInput()
+    const { handleInputs, input, addImages, deleteImage, error, editApartment } = useHandleInput()
+    const {updateApartment} = useAdeminApartDetail()
 
 
 
@@ -23,7 +24,7 @@ function EditApartment({detail, sendInput}) {
     },[detail])
 
     useEffect(() => {
-        sendInput({input:input, submit: submit })
+        sendInput({input:{...input, id: detail.id}, submit: updateApartment })
     }, [input])
    
 

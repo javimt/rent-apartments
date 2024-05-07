@@ -119,7 +119,7 @@ export function setFilters(filters) {
   };
 }
 
-export function getRatings(rating) {
+export function getRatings(rating) { 
   return (dispatch) => {
     fetch(
       `https://api-rent-appartament.up.railway.app/apartment/rating/?rating=${rating}`

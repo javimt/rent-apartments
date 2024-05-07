@@ -1,8 +1,16 @@
 import { MdDelete, MdEditSquare } from "react-icons/md";
 
 
-function CardApartAdmin({ apartment, getDetail }) {
+function CardApartAdmin({ apartment, getDetail, deleteApartment, resetData }) {
     const { images, urbanizacion, description, status, id } = apartment
+
+    function deleteApart(){
+        deleteApartment(id)
+
+        setTimeout(()=>{
+            resetData()
+        }, 500)
+    }
     return (
         <div className=" w-full justify-between flex items-center font-quicksand text-gray-400 gap-2 border mt-2 p-1 rounded-lg">
             <img src={images && images[0]} alt="" className="h-[50px] w-[80px] object-cover bg-center rounded-lg " />
@@ -15,7 +23,7 @@ function CardApartAdmin({ apartment, getDetail }) {
                     <MdEditSquare className="hover:text-white" />
                     <span className="text-gray-400 text-[10px]">Edit</span>
                 </div>
-                <div className=" w-[40px] flex flex-col justify-center border p-1 rounded-lg items-center hover:bg-black text-red-500 hover:text-white transition-all delay-300 cursor-pointer">
+                <div onClick={deleteApart} className=" w-[40px] flex flex-col justify-center border p-1 rounded-lg items-center hover:bg-black text-red-500 hover:text-white transition-all delay-300 cursor-pointer">
                     <MdDelete className="hover:text-white" />
                     <span className="text-gray-400 text-[10px]">Delete</span>
                 </div>

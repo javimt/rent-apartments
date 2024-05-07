@@ -6,8 +6,10 @@ import useGetAllCities from "../../../hooks/custom/getAllCities";
 
 
 function RenderNewApartSection({ input, submit }) {
-    const { images, urbanizacion, bathrooms, bedrooms, size, description, status, price, cityId } = input
+    const { images, urbanizacion, bathrooms, bedrooms, size, description, status, price, CityId } = input
     const {getOneCity} = useGetAllCities()
+
+    console.log(input)
     return (
         <Transition className="flex flex-col items-center h-full shadow-2xl rounded-lg xl:mx-auto p-1 font-quicksand relative">
             <div>
@@ -16,7 +18,7 @@ function RenderNewApartSection({ input, submit }) {
             <div className="grid grid-cols-2  py-5 text-gray-400 font-bold text-xl w-[400px]">
                 <div className="flex flex-col">
                     <h2>{urbanizacion ? urbanizacion : 'Title Here'}</h2>
-                    {cityId &&<span className="text-gray-400 text-sm font-extralight">{getOneCity(cityId).city + ' - ' + getOneCity(cityId).barrio}</span>}
+                    {CityId &&<span className="text-gray-400 text-sm font-extralight">{getOneCity(CityId).city + ' - ' + getOneCity(CityId).barrio}</span>}
                 </div>
                 <h2 className="text-end">{parseToColombianMoney(price)}</h2>
 
@@ -52,7 +54,7 @@ function RenderNewApartSection({ input, submit }) {
                     <p className="text-xs text-gray-400 ">{description ? description : 'description here....'}</p>
 
                 </div>
-                <div onClick={ submit } className="text-white flex justify-center absolute bottom-3 right-[calc(50%-100px)] ">
+                <div onClick={()=>submit(input,input.id ) } className="text-white flex justify-center absolute bottom-3 right-[calc(50%-100px)] ">
                     <div className="bg-secondary flex gap-2  px-3 py-2 rounded-lg mt-5 hover:bg-black cursor-pointer transition-all delay-200">
                         <MdAddHomeWork />
                         <span>Create Apartment</span>

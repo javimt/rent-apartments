@@ -6,7 +6,7 @@ export function parseInput(input){
           3
         ],
         "media": 3
-      }, CityId: input.cityId}
+      }, CityId: input.CityId}
     return newInput
 }
 
