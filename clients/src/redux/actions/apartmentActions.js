@@ -19,11 +19,14 @@ export function getApatments() {
 
 export async function createAnApartment(apartment) {
   try {
-    const response = await fetch("https://api-rent-appartament.up.railway.app/apartment", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(apartment),
-    });
+    const response = await fetch(
+      "https://api-rent-appartament.up.railway.app/apartment",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(apartment),
+      }
+    );
     const parseResponse = await response.json();
     return parseResponse;
   } catch (error) {
@@ -34,7 +37,9 @@ export async function createAnApartment(apartment) {
 
 export async function getAnAppatment(id) {
   try {
-    const response = await fetch(`https://api-rent-appartament.up.railway.app/apartment/${id}`);
+    const response = await fetch(
+      `https://api-rent-appartament.up.railway.app/apartment/${id}`
+    );
     const apartment = await response.json();
     return apartment;
   } catch (error) {
@@ -42,33 +47,40 @@ export async function getAnAppatment(id) {
   }
 }
 
-export  function getAllCties() {
+export function getAllCties() {
   return async (dispatch) => {
     try {
-      const response = await fetch("https://api-rent-appartament.up.railway.app/city")
-      const data = await response.json()
-      dispatch({ type: actionTypes.GET_ALL_CITIES, payload: data })
+      const response = await fetch(
+        "https://api-rent-appartament.up.railway.app/city"
+      );
+      const data = await response.json();
+      dispatch({ type: actionTypes.GET_ALL_CITIES, payload: data });
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
   };
 }
 
 export function filterSelectedCity(cityId) {
   return function (dispatch) {
-    fetch(`https://api-rent-appartament.up.railway.app/apartment/city/${cityId}`)
-      .then(response => response.json())
-      .then(data => dispatch({ type: actionTypes.SET_SELECTED_CITY, payload: data }))
+    fetch(
+      `https://api-rent-appartament.up.railway.app/apartment/city/${cityId}`
+    )
+      .then((response) => response.json())
+      .then((data) =>
+        dispatch({ type: actionTypes.SET_SELECTED_CITY, payload: data })
+      )
       .catch((error) => console.error(error));
-  }
-};
+  };
+}
 
 export function getAllRentApartments() {
   return (dispatch) => {
     fetch("https://api-rent-appartament.up.railway.app/apartment/rent")
       .then((response) => response.json())
       .then((data) =>
-        dispatch({ type: actionTypes.GET_ALL_RENT_APARTMENTS, payload: data }))
+        dispatch({ type: actionTypes.GET_ALL_RENT_APARTMENTS, payload: data })
+      )
       .catch((error) => console.error(error));
   };
 }
@@ -86,10 +98,16 @@ export function getAllSaleApartments() {
 
 export function getApartmentsByPrice(minPrice, maxPrice) {
   return (dispatch) => {
-    fetch(`https://api-rent-appartament.up.railway.app/apartment/range?minPrice=${minPrice}&maxPrice=${maxPrice}`)
+    fetch(
+      `https://api-rent-appartament.up.railway.app/apartment/range?minPrice=${minPrice}&maxPrice=${maxPrice}`
+    )
       .then((response) => response.json())
       .then((data) =>
-        dispatch({ type: actionTypes.GET_APARTMENTS_BY_PRICE_RANGE, payload: data }))
+        dispatch({
+          type: actionTypes.GET_APARTMENTS_BY_PRICE_RANGE,
+          payload: data,
+        })
+      )
       .catch((error) => console.error(error));
   };
 }
@@ -98,30 +116,38 @@ export function setFilters(filters) {
   return {
     type: actionTypes.SET_FILTERS,
     payload: filters,
-  }
-};
+  };
+}
 
 export function getRatings(rating) {
   return (dispatch) => {
-    fetch(`https://api-rent-appartament.up.railway.app/apartment/rating/?rating=${rating}`)
-    .then(response => response.json())
-    .then(data => 
-      dispatch({type: actionTypes.GET_RATINGS, payload: data}))
-    .catch((error) => console.error(error));
-  }
+    fetch(
+      `https://api-rent-appartament.up.railway.app/apartment/rating/?rating=${rating}`
+    )
+      .then((response) => response.json())
+      .then((data) =>
+        dispatch({ type: actionTypes.GET_RATINGS, payload: data })
+      )
+      .catch((error) => console.error(error));
+  };
 }
 
-export async function updateRating(id, rating) {
-  try {
-    const data = await fetch("https://api-rent-appartament.up.railway.app/apartment/rating", {
+export function updateRating(id, rating) {
+  return (dispatch) => {
+    fetch("https://api-rent-appartament.up.railway.app/apartment/rating", {
       method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({id, rating}),
-    });
-    const parseResponse = await data.json();
-    return parseResponse;
-  } catch (error) {
-    console.error(error);
-    return error;
-  }
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id, rating }),
+    })
+      .then((response) => response.json())
+      .then((data) =>
+        dispatch({
+          type: actionTypes.GET_APARTMENTS_BY_PRICE_RANGE,
+          payload: data,
+        })
+      )
+      .catch((error) => console.error(error));
+  };
 }
