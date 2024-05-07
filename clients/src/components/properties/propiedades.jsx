@@ -60,7 +60,7 @@ function Properties(rating) {
                         <div className="absolute text-secondary flex items-center px-2 rounded-lg bg-slate-50 top-2 right-2">
                           <Rating apartmentId={id} initialRating={rating} className="text-yellow-400" />
                           <span className=" text-sm ml-1 font-semibold py-1">
-                            {rating.media}
+                            {rating && rating.media}
                           </span>
                         </div>
                         <img
