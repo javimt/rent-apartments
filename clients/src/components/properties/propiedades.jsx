@@ -13,8 +13,9 @@ import {
   parseToDollarsMoney,
 } from "../../utils/parseMoney";
 import useCounterHouses from "../../redux/actions/counterHauses";
+import Rating from "./Rating";
 
-function Properties() {
+function Properties(rating) {
   const { apartments, length } = useGetApartments();
   const { counter, handleCounter } = useCounterHouses();
 
@@ -41,6 +42,7 @@ function Properties() {
                 price,
                 size,
                 status,
+                rating,
                 ubication,
                 userId,
               },
@@ -56,9 +58,9 @@ function Properties() {
                     <div className="relative ">
                       <div className="relative">
                         <div className="absolute text-secondary flex items-center px-2 rounded-lg bg-slate-50 top-2 right-2">
-                          <LiaStarSolid className="text-yellow-400" />
+                          <Rating apartmentId={id} initialRating={rating} className="text-yellow-400" />
                           <span className=" text-sm ml-1 font-semibold py-1">
-                            4.1
+                            {rating.media}
                           </span>
                         </div>
                         <img
