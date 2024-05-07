@@ -119,7 +119,7 @@ export function setFilters(filters) {
   };
 }
 
-export function getRatings(rating) {
+export function getRatings(rating) { 
   return (dispatch) => {
     fetch(
       `https://api-rent-appartament.up.railway.app/apartment/rating/?rating=${rating}`
@@ -142,12 +142,7 @@ export function updateRating(id, rating) {
       body: JSON.stringify({ id, rating }),
     })
       .then((response) => response.json())
-      .then((data) =>
-        dispatch({
-          type: actionTypes.GET_APARTMENTS_BY_PRICE_RANGE,
-          payload: data,
-        })
-      )
+      .then((data) => console.log(data))
       .catch((error) => console.error(error));
   };
 }

@@ -74,7 +74,7 @@ function useHandleInput() {
                                 lat: "",
                                 lon: "",
                                 status: "rent",
-                                cityId: ''
+                                CityId: ''
                             }
                         )
                     })

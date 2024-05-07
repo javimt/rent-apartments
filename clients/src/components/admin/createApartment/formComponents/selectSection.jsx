@@ -23,6 +23,7 @@ function SelectSection({ name, value, label, handle }) {
         >
           {city &&
             city.map((e) => {
+              console.log()
               return (
                 <button
                   key={e.id}

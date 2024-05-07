@@ -18,15 +18,15 @@ function ListApartmentSection() {
         setHookState(state)
     }
 
-    const { apartments} = useAdminApartments()
+    const { apartments, resetData} = useAdminApartments()
 
-    const {detail, getDetail, resetDetail} = useAdeminApartDetail()
+    const {detail, getDetail, resetDetail, deleteApartment} = useAdeminApartDetail()
     
     return (
             <dir className="grid h-[60%] md:grid-cols-1 xl:grid-cols-2 gap-2  ">
-                {detail ? <EditApartment sendInput ={setHookState} detail={detail}/>:<RentSection getDetail={getDetail} apartments={apartments.rent} />}
+                {detail ? <EditApartment sendInput ={setHookState} detail={detail}/>:<RentSection resetData={resetData} getDetail={getDetail} deleteApartment= {deleteApartment} apartments={apartments.rent} />}
                 
-                {detail  ? <RenderNewApartSection input={hookState.input} submit={hookState.submit}/> : <SaleSection apartments={apartments.sale} />}
+                {detail  ? <RenderNewApartSection input={hookState.input} submit={hookState.submit}/> : <SaleSection resetData={resetData} deleteApartment= {deleteApartment} getDetail={getDetail} apartments={apartments.sale} />}
             </dir>
     );
 }

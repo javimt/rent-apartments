@@ -48,7 +48,7 @@ function Property({ apartment }) {
                 {parseToColombianMoney(price)}
               </span>
               <p className="text-sm mt-2">
-                imagen: <span>{imagePos + 1 + " - " + images.length}</span>
+                imagen: <span>{imagePos + 1 + " - " +images && images.length}</span>
               </p>
             </div>
           </h1>

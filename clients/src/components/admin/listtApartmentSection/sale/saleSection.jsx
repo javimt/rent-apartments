@@ -1,9 +1,10 @@
+import useGetApartments from "../../../../hooks/custom/GetApartments";
 import Transition from "../../../complements/transition";
 import CardApartAdmin from "../cardApartmentAdmin";
 
 
 
-function SaleSection({ apartments }) {
+function SaleSection({ apartments, getDetail, deleteApartment, resetData}) {
     return (
         <Transition className='h-full'>
             <div className="md:h-[70%]  shadow-xl p-3 overflow-x-scroll">
@@ -11,7 +12,7 @@ function SaleSection({ apartments }) {
                     <p className="text-gray-400 text-center p-2">Rents Apartment List</p>
                 </div>
                 {apartments && apartments.map(ap => {
-                    return <CardApartAdmin apartment={ap} />
+                    return <CardApartAdmin resetData={resetData} deleteApartment={deleteApartment} getDetail={getDetail} apartment={ap} />
                 })}
             </div>
         </Transition>
