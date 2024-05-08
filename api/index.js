@@ -24,7 +24,7 @@ const app = express();
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(cors({
-  origin: "https://api-rent-appartament.up.railway.app/*",
+  origin: "*",
   methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
   preflightContinue: false,
   optionsSuccessStatus: 204
