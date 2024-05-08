@@ -13,8 +13,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <HashRouter>
     <Provider store={store}>
       <Auth0Provider 
-        domain="rentapartmentsmedellin.us.auth0.com"
-        clientId="4iut0kg2nX6PF8CCPoLh4b7LeERAF4pc"
+        domain="medellinfurnishedapartments.us.auth0.com"
+        clientId="KKLguo9hEm5BOuDQDz3T6hl1TfBXiYmd"
         authorizationParams={{
           redirect_uri: window.location.origin
         }}
