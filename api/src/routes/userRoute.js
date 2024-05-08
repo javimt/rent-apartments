@@ -5,8 +5,8 @@ const router = Router();
 
 router.get('/', getAllUsers); 
 router.get('/email', getByEmail);
-router.post('/login', loginOrRegister); 
-router.put('/', putUser);
-router.delete('/', deleteUser); 
+router.post('/', loginOrRegister); 
+router.put('/email', putUser);
+router.delete('/email', deleteUser); 
 
 module.exports = router;

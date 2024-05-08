@@ -11,20 +11,31 @@ module.exports = {
     }
   },
 
-  loginOrRegister: async (req, res, next) => {
-    const { email } = req.body;
+  getByEmail: async (req, res, next) => {
+    const { email } = req.query;
     try {
-      const user = await User.findOrCreate({ where: { email: email }, defaults: req.body});
-      resSender(null, HttpStatusCodes.creado, user);
+      if(!email) {
+        rejectSender("no existen usuarios en la base de datos", HttpStatusCodes.aceptado)
+      }
+      const user = await User.findOne({ where: { email: email } });
+      resSender(null, HttpStatusCodes.aceptado, user);
     } catch (error) {
       next(error);
     }
-  },
+  }, 
 
-  getByEmail: async (req, res, next) => {
+  loginOrRegister: async (req, res, next) => {
+    const { email } = req.body;
     try {
-      const user = await User.findOne({where: {email: req.query.email}});
-      resSender(null, HttpStatusCodes.aceptado, user);
+      const [user, created] = await User.findOrCreate({ 
+        where: { email: email }, 
+        defaults: req.body 
+      });
+      if(created) {
+        resSender(null, HttpStatusCodes.creado, user);
+      } else {
+        resSender(null, HttpStatusCodes.aceptado, false);
+      }
     } catch (error) {
       next(error);
     }
