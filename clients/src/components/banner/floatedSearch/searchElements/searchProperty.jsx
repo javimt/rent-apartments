@@ -20,7 +20,7 @@ function SearchProperty() {
   return (
     <div
       onClick={toogleOpen}
-      className=" font-quicksand relative mb-2 md:mb-0 flex items-center gap-4 border-[1px] rounded-lg px-3 py-2 justify-between cursor-pointer"
+      className=" font-quicksand relative mb-2 md:mb-0 flex items-center gap-4 border-[1px] rounded-lg px-3 py-2 justify-between cursor-pointer shadow-xl"
     >
       <MdApartment />
       <div>
@@ -31,13 +31,13 @@ function SearchProperty() {
       <div className={`${openStatus ? "absolute  z-[110]" : "hidden"}  rounded-sm  bg-white w-full left-0 top-[60px] border `}>
         {openStatus && (
           <div>
-            <div onClick={handleRentClick} className="p-2 hover:cursor-pointer text-start hover:bg-gray-300 text-gray-400 text-[13px] flex gap-1">
+            <div onClick={handleRentClick} className="p-2 hover:cursor-pointer text-start hover:bg-gray-300 text-gray-400 text-[13px] flex justify-between gap-1">
               <div className="px-2 text-left" >For Rent...</div>
-              <GiHouseKeys className="text-yellow-400" />
+              <GiHouseKeys className="text-yellow-400 text-[15px]" />
             </div>
-            <div onClick={handleSaleClick} className="p-2 hover:cursor-pointer text-start hover:bg-gray-300 text-gray-400 text-[13px] flex gap-1">
+            <div onClick={handleSaleClick} className="p-2 hover:cursor-pointer text-start hover:bg-gray-300 text-gray-400 text-[13px] flex justify-between gap-1">
               <div className="px-2 text-left" >For Sale...</div>
-              <GiHouseKeys className="text-yellow-400" />
+              <GiHouseKeys className="text-yellow-400 text-[15px]" />
             </div>
           </div>
         )}

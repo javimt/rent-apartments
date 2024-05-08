@@ -1,6 +1,7 @@
 import useGetApartments from "../../hooks/custom/GetApartments";
 import Transition from "../complements/transition";
 import { Link } from "react-router-dom";
+import { MdOutlineMoreTime } from "react-icons/md";
 import {
   LiaStarSolid,
   LiaCommentsDollarSolid,
@@ -91,6 +92,9 @@ function Properties(rating) {
                               <div className="flex items-center justify-center px-2 my-2 py-1 rounded-lg bg-slate-300/30">
                                 <LiaRulerCombinedSolid />
                                 <span className="ml-2 text-xs">{size}</span>
+                              </div>
+                              <div className="flex items-center justify-center px-2 my-2 py-1 rounded-lg bg-black">
+                                <span className="text-xs font-bold text-white">{status}</span>
                               </div>
                             </div>
                           </div>
