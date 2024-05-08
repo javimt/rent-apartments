@@ -17,18 +17,30 @@ function useAuth0GetData() {
 
   useEffect(() => {
     if (user) {
-      setControledUser(user);
+      const adaptedUser = {
+        email: user.email,
+        name: user.name, 
+        lastName: user.nickname, 
+        image: user.picture,
+      };
+      setControledUser(adaptedUser);
+      if (isAuthenticated) {
+        loginOrRegisterUser(adaptedUser);
+      }
+  //console.log(adaptedUser)
     }
-  }, [
-    user,
-    isAuthenticated,
-    getAccessTokenSilently,
-    isLoading,
-    logout,
-    error,
-    loginWithPopup,
-    loginWithRedirect,
-  ]);
+  }, [user, isAuthenticated]);
+
+  function loginOrRegisterUser(user) {
+    fetch("http://localhost:3001/user", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(user),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.log(error));
+  }
 
   return {
     controledUser,
@@ -39,6 +51,7 @@ function useAuth0GetData() {
     error,
     loginWithPopup,
     loginWithRedirect,
+    loginOrRegisterUser,
   };
 }
 

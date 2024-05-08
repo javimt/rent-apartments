@@ -32,9 +32,9 @@ module.exports = {
         defaults: req.body 
       });
       if(created) {
-        resSender(null, HttpStatusCodes.creado, user);
+        res.json("usuario creado", HttpStatusCodes.creado, user);
       } else {
-        resSender(null, HttpStatusCodes.aceptado, false);
+        res.json("el usuario se encuentra en la base de datos", HttpStatusCodes.aceptado, false);
       }
     } catch (error) {
       next(error);

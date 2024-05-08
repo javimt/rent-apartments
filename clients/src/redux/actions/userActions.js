@@ -23,18 +23,3 @@ export function getOneUser(email) {
     }
   }
 }
-
-export function loginOrRegisterUser(user) {
-  try {
-    const response = fetch("https://api-rent-appartament.up.railway.app/user", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(user),
-    });
-    const parseResponse = response.json();
-    return parseResponse;
-  } catch (error) {
-    console.error(error);
-    return error;
-  } 
-}
