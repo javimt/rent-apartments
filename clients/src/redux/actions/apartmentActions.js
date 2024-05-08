@@ -7,13 +7,19 @@ const productionHandler = {
 };
 
 export function getApatments() {
-  return (dispatch) => {
-    fetch("https://api-rent-appartament.up.railway.app/apartment")
-      .then((response) => response.json())
-      .then((data) =>
-        dispatch({ type: actionTypes.GET_ALL_APARTMENTS, payload: data })
-      )
-      .catch((error) => console.error(error));
+  return async (dispatch) => {
+    try {
+      const response = await fetch("https://api-rent-appartament.up.railway.app/apartment", {
+        headers:{
+          'Content-Type':"application/json"
+        }
+      })
+      const parsed = await response.json()
+      dispatch({ type: actionTypes.GET_ALL_APARTMENTS, payload: parsed })
+    } catch (error) {
+      console.error(error)
+    }
+    
   };
 }
 

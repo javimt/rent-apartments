@@ -23,7 +23,12 @@ const sendResponse = (req, res, next) => {
 const app = express();
 app.use(morgan("dev"));
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: "http://rent-apartments-medellin.up.railway.app/*",
+  methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
+  preflightContinue: false,
+  optionsSuccessStatus: 204
+}));
 app.use(captureRes);
 
 app.use("/", router);
