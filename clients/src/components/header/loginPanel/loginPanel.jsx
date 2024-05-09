@@ -1,15 +1,28 @@
-import { useAuth0 } from "@auth0/auth0-react";
 import useAuth0GetData from "../../../hooks/custom/auth0getinData";
 import LogoutButton from "../../Auth0Buttons/LogoutButton";
 import LoginButton from "../../Auth0Buttons/LoginButton";
 import useOpenClose from "../../../hooks/custom/OpenCloseMenu";
 import AlertComponent from "./alertComponent";
 import LogedMenu from "./logedMenu";
+import { useEffect } from "react";
 
 function LoginPanel({ showMessage }) {
-  const { controledUser, isAuthenticated } = useAuth0GetData();
+  const { controledUser, isAuthenticated, loginOrRegisterUser  } = useAuth0GetData();
   const { openStatus, toogleOpen } = useOpenClose();
 
+  useEffect(() => {
+    const registerUser = () => {
+      try {
+        if (isAuthenticated && controledUser.email) {
+          const data = loginOrRegisterUser(controledUser);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    registerUser();
+  }, [isAuthenticated, controledUser, loginOrRegisterUser]);
 
   return (
     <div className="relative">
