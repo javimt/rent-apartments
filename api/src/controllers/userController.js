@@ -27,15 +27,11 @@ module.exports = {
   loginOrRegister: async (req, res, next) => {
     const { email } = req.body;
     try {
-      const [user, created] = await User.findOrCreate({ 
+      const user = await User.findOrCreate({ 
         where: { email: email }, 
         defaults: req.body 
       });
-      if(created) {
-        res.json("usuario creado", HttpStatusCodes.creado, user);
-      } else {
-        res.json("el usuario se encuentra en la base de datos", HttpStatusCodes.aceptado, false);
-      }
+      resSender(null, HttpStatusCodes.creado, user);
     } catch (error) {
       next(error);
     }

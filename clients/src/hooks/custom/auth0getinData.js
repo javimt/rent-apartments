@@ -1,8 +1,10 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 function useAuth0GetData() {
   const [controledUser, setControledUser] = useState({});
+  const users = useSelector((state) => state.user.users);
 
   const {
     user,
@@ -15,6 +17,28 @@ function useAuth0GetData() {
     loginWithRedirect,
   } = useAuth0();
 
+  function loginOrRegisterUser(user) {
+    fetch("https://api-rent-appartament.up.railway.app/user", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(user),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.log(error));
+  }
+
+  function updateUser(user) {
+    fetch("http://localhost:3001/user", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(user),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.log(error));
+  }
+
   useEffect(() => {
     if (user) {
       const adaptedUser = {
@@ -24,23 +48,8 @@ function useAuth0GetData() {
         image: user.picture,
       };
       setControledUser(adaptedUser);
-      if (isAuthenticated) {
-        loginOrRegisterUser(adaptedUser);
-      }
-  //console.log(adaptedUser)
     }
   }, [user, isAuthenticated]);
-
-  function loginOrRegisterUser(user) {
-    fetch("http://localhost:3001/user", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(user),
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.log(error));
-  }
 
   return {
     controledUser,
@@ -52,6 +61,7 @@ function useAuth0GetData() {
     loginWithPopup,
     loginWithRedirect,
     loginOrRegisterUser,
+    updateUser
   };
 }
 
