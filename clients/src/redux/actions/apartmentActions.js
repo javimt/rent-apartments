@@ -104,9 +104,7 @@ export function getAllSaleApartments() {
 
 export function getApartmentsByPrice(minPrice, maxPrice) {
   return (dispatch) => {
-    fetch(
-      `https://api-rent-appartament.up.railway.app/apartment/range?minPrice=${minPrice}&maxPrice=${maxPrice}`
-    )
+    fetch(`https://api-rent-appartament.up.railway.app/apartment/range?minPrice=${minPrice}&maxPrice=${maxPrice}`)
       .then((response) => response.json())
       .then((data) =>
         dispatch({
@@ -127,9 +125,7 @@ export function setFilters(filters) {
 
 export function getRatings(rating) { 
   return (dispatch) => {
-    fetch(
-      `https://api-rent-appartament.up.railway.app/apartment/rating/?rating=${rating}`
-    )
+    fetch(`https://api-rent-appartament.up.railway.app/apartment/rating/?rating=${rating}`)
       .then((response) => response.json())
       .then((data) =>
         dispatch({ type: actionTypes.GET_RATINGS, payload: data })

@@ -1,10 +1,12 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getOneUser } from "../../redux/actions/userActions";
 
 function useAuth0GetData() {
   const [controledUser, setControledUser] = useState({});
   const users = useSelector((state) => state.user.users);
+  const dispatch = useDispatch()
 
   const {
     user,
@@ -24,7 +26,7 @@ function useAuth0GetData() {
       body: JSON.stringify(user),
     })
       .then((response) => response.json())
-      .then((data) => console.log(data))
+      //.then((data) => console.log(data))
       .catch((error) => console.log(error));
   }
 
@@ -37,6 +39,14 @@ function useAuth0GetData() {
       .then((response) => response.json())
       .then((data) => console.log(data))
       .catch((error) => console.log(error));
+  }
+
+  function hasAdminRole() {
+  console.log("este son los usuarios", users)
+    //const currentUser = users.find((u) => u.email === user.email);
+    //console.log(currentUser)
+    //dispatch(getOneUser())
+    //return currentUser && (currentUser.role === "admin" || currentUser.role === "superAdmin");
   }
 
   useEffect(() => {
@@ -61,7 +71,8 @@ function useAuth0GetData() {
     loginWithPopup,
     loginWithRedirect,
     loginOrRegisterUser,
-    updateUser
+    updateUser,
+    hasAdminRole
   };
 }
 
