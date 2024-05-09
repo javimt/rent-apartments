@@ -13,13 +13,13 @@ export function getAllUser() {
 }
 
 export function getOneUser(email) {
-  return async(dispatch) => {
-    try {
-      const data = await fetch(`https://api-rent-appartament.up.railway.app/user/email/?email=${email}`);
-      const result = await data.response.json();
-      dispatch({ type: actionTypes.GET_ONE_USER_DETAIL, payload: result });
-    } catch (error) {
-      console.error(error);
-    }
+  return (dispatch) => {
+      fetch(`http://localhost:3001/user/email?email=${email}`)
+      .then((response) => response.json())
+      .then((data) =>
+        dispatch({ type: actionTypes.GET_ONE_USER_DETAIL, payload: data })
+      )
+      .then((info) => console.log(info))
+      .catch(error => console.error(error));
   }
 }
