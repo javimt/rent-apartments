@@ -10,7 +10,8 @@ function Complementary() {
       <div className="mx-auto mt-5 ">
         <button className="flex gap-2 items-center justify-between text-white bg-black px-5 py-5 rounded-xl">
           <FaRegPaperPlane />
-          <span>Contact the commercial area</span>
+          <span></span>
+          <a href="https://api.whatsapp.com/send?phone=+573024470241&text=hola">Contact the commercial area</a>
         </button>
       </div>
     </Transition>

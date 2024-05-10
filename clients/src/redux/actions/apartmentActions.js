@@ -1,5 +1,4 @@
 import { actionTypes } from "./actionTypes";
-import axios from "axios";
 
 const productionHandler = {
   urlProduction: "https://api-rent-appartament.up.railway.app/apartment",
