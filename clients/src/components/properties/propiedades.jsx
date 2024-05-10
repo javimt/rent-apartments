@@ -78,7 +78,7 @@ function Properties(rating) {
                                 {parseToColombianMoney(price)}
                               </p>
                             </div>
-                            <div className="gap-4 mt-2 lg:flex">
+                            <div className="gap-1 xl-gap-4 mt-2 lg:flex">
                               <div className="flex items-center justify-center px-2 my-2 py-1 rounded-lg bg-slate-300/30">
                                 <LiaBedSolid />
                                 <span className="ml-2 text-xs">{bedrooms}</span>
