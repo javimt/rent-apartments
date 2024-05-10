@@ -11,7 +11,7 @@ function userReducer(state = initialState, action) {
         ...state,
         users: action.payload,
       };
-    case actionTypes.GET_ONE_USER_DETAIL:
+    case actionTypes.USER_ROLE:
       return {
         ...state,
         users: action.payload,

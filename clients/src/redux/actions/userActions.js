@@ -16,10 +16,15 @@ export function getOneUser(email) {
   return (dispatch) => {
       fetch(`http://localhost:3001/user/email?email=${email}`)
       .then((response) => response.json())
-      .then((data) =>
-        dispatch({ type: actionTypes.GET_ONE_USER_DETAIL, payload: data })
-      )
+      .then((data) => dispatch({ type: actionTypes.GET_ONE_USER_DETAIL, payload: data }))
       .then((info) => console.log(info))
       .catch(error => console.error(error));
+  }
+}
+
+export function userRole(role) {
+  return {
+    type: actionTypes.USER_ROLE,
+    payload: role
   }
 }
