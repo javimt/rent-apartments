@@ -67,12 +67,12 @@ function Property({ apartment }) {
             </h2>
             <div className="flex items-center px-2 py-1 rounded-lg bg-secondary top-2 right-2 text-white">
               <LiaStarSolid />
-              <span>{rating.media && rating.media}</span>
+              <span>{rating && rating.media}</span>
             </div>
           </div>
 
           <div
-            style={{ backgroundImage: `url(${images[imagePos]})` }}
+            style={{ backgroundImage: `url(${images ? images[imagePos]: ''})` }}
             className="relative w-full h-[500px] rounded-xl bg-cover bg-center object-fill"
           >
             <button

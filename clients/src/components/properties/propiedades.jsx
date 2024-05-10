@@ -26,7 +26,7 @@ function Properties(rating) {
         " min-w-[400px]  px-4 mb-0 ms:mt-0 mt-[300px] md:mt-20  md:px-10 xl:px-40"
       }
     >
-      <section className="grid grid-cols-2 gap-4 md:gap-4 md:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-4">
+      <section className="grid grid-cols-2 gap-4 md:gap-4 md:grid-cols-3  xl:grid-cols-4 2xl:grid-cols-4">
         {apartments &&
           apartments.map(
             (
@@ -78,7 +78,7 @@ function Properties(rating) {
                                 {parseToColombianMoney(price)}
                               </p>
                             </div>
-                            <div className="gap-4 mt-2 lg:flex">
+                            <div className="gap-1 md:gap-4 xl:gap-2 mt-2 flex flex-wrap flex-col md:flex-row">
                               <div className="flex items-center justify-center px-2 my-2 py-1 rounded-lg bg-slate-300/30">
                                 <LiaBedSolid />
                                 <span className="ml-2 text-xs">{bedrooms}</span>

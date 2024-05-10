@@ -1,4 +1,4 @@
-const { Rent, Apartment } = require("../../db");
+const { Rent, Apartment, User } = require("../../db");
 const { resSender, HttpStatusCodes, rejectSender } = require('../helpers/resSender');
 
 module.exports = {
@@ -25,61 +25,101 @@ module.exports = {
   },
 
   createRent: async (req, res, next) => {
+
+    const { apartmentId, userId, startDate, endDate } = req.body
+    console.log("🚀 ~ createRent: ~ body:", req.body)
     try {
-      if (!req.body.userId) {
-        rejectSender("User ID is missing in the request body", HttpStatusCodes.sinContenido);
+      //validations parametros
+      if(!userId || !apartmentId || !startDate || !endDate){
+        rejectSender(`faltan parametros recuerda que los parametros requeridos son -> apartmentId:${apartmentId}, userId:${userId}, startDate:${startDate}, endDate:${endDate}`, HttpStatusCodes.badRequest)
       }
-      const apartment = await Apartment.findByPk(req.body.apartmentId);
-  console.log(apartment)
-      if (!apartment) {
-        rejectSender("Apartment not found", HttpStatusCodes.noEncontrado);
-      }
-      if (!apartment.availability) {
-        rejectSender("Apartment is not available for rent", HttpStatusCodes.entidadNoProcesable );
+      //requerir entidades
+      const user = await User.findByPk(userId)
+      const apartment = await Apartment.findByPk(apartmentId)
+
+      if(!user || !apartment){
+        rejectSender(`no se encontraron las entidades user: ${user} apartment: ${apartment}` , HttpStatusCodes.badRequest)
       }
 
-      const currentDate = new Date();
-      currentDate.setHours(currentDate.getHours() - 5);
+      //validando disponibilidad del apartamento
+      if(!apartment.availability){
+        rejectSender('el apartamento que se intenta rentar no se encuentra disponible.', HttpStatusCodes.noAutorizado)
+      }
 
-      const startDate = new Date(req.body.startDate);
-      startDate.setHours(startDate.getHours());
-      startDate.setDate(startDate.getDate());
+      //creacion de renta
+      const rent = await Rent.create(req.body)
+      //validar Renta 
+      if(!rent){
+        rejectSender('no se pudo crear la renta.', HttpStatusCodes.conflictivo)
+      }
 
-      const endDate = new Date(req.body.endDate);
-      endDate.setHours(endDate.getHours());
-      endDate.setDate(endDate.getDate());
-      
-      if (!startDate || !endDate) {
-        rejectSender("no se pueden generar rentas sin fecha de inicio y finalizacion", HttpStatusCodes.conflictivo);
-      }
-      if(startDate < currentDate) {
-        rejectSender("la fecha de inicio debe ser mayor a la actual", HttpStatusCodes.conflictivo);
-      }
-      if(startDate > endDate) {
-        rejectSender("la fecha de inicio no puede ser igual a la de finalizacion", HttpStatusCodes.conflictivo);
-      }
-      if(endDate < currentDate) {
-        rejectSender("la fecha de finalizacion no puede ser menor a la actual", HttpStatusCodes.conflictivo);
-      }
-      try {
-        const rent = await Rent.create({
-          apartmentId: apartment.id,
-          userId: req.body.userId,
-          startDate: startDate,
-          endDate: endDate,
-          totalPrice: req.body.totalPrice,
-          status: req.body.status,
-        });
-        apartment.availability = false;
-        await apartment.save();
-        resSender("Apartment rented successfully", HttpStatusCodes.aceptado, rent );
-      } catch (error) {
-        next(error);
-      }
+      apartment.availability = false
+      await apartment.save()
+      resSender(null, HttpStatusCodes.creado, rent)
+
     } catch (error) {
-      next(error);
+      next(error)
     }
-  }, 
+
+    // version javier
+    // try {
+    //   if (!userId) {
+    //     rejectSender("User ID is missing in the request body", HttpStatusCodes.sinContenido);
+    //   }
+
+      
+    //   const apartment = await Apartment.findByPk(req.body.apartmentId);
+    //   console.log("🚀 ~ createRent: ~ apartment:", apartment)
+
+    //   if (!apartment) {
+    //     rejectSender("Apartment not found", HttpStatusCodes.noEncontrado);
+    //   }
+    //   if (!apartment.availability) {
+    //     rejectSender("Apartment is not available for rent", HttpStatusCodes.entidadNoProcesable);
+    //   }
+
+    //   const currentDate = new Date();
+    //   //currentDate.setHours(currentDate.getHours() - 5);
+
+    //   const startDate = new Date(req.body.startDate);
+    //   //startDate.setHours(startDate.getHours());
+    //   //startDate.setDate(startDate.getDate());
+
+    //   const endDate = new Date(req.body.endDate);
+    //   endDate.setHours(endDate.getHours());
+    //   endDate.setDate(endDate.getDate());
+
+    //   if (!startDate || !endDate) {
+    //     rejectSender("no se pueden generar rentas sin fecha de inicio y finalizacion", HttpStatusCodes.conflictivo);
+    //   }
+    //   if (startDate < currentDate) {
+    //     rejectSender("la fecha de inicio debe ser mayor a la actual", HttpStatusCodes.conflictivo);
+    //   }
+    //   if (startDate > endDate) {
+    //     rejectSender("la fecha de inicio no puede ser igual a la de finalizacion", HttpStatusCodes.conflictivo);
+    //   }
+    //   if (endDate < currentDate) {
+    //     rejectSender("la fecha de finalizacion no puede ser menor a la actual", HttpStatusCodes.conflictivo);
+    //   }
+    //   try {
+    //     const rent = await Rent.create({
+    //       apartmentId: apartment.id,
+    //       userId: req.body.userId,
+    //       startDate: startDate,
+    //       endDate: endDate,
+    //       totalPrice: req.body.totalPrice,
+    //       status: req.body.status,
+    //     });
+    //     apartment.availability = false;
+    //     await apartment.save();
+    //     resSender("Apartment rented successfully", HttpStatusCodes.aceptado, rent);
+    //   } catch (error) {
+    //     next(error);
+    //   }
+    // } catch (error) {
+    //   next(error);
+    // }
+  },
 
   updateRent: async (req, res, next) => {
     const { id } = req.params;
@@ -92,7 +132,7 @@ module.exports = {
       if (startDate > endDate) {
         rejectSender("la fecha de inicio no puede ser mayor a la de finalizacion", HttpStatusCodes.conflictivo);
       }
-      const updatedRent = await rent.update({startDate, endDate});
+      const updatedRent = await rent.update({ startDate, endDate });
       resSender(null, HttpStatusCodes.actualizado, updatedRent);
     } catch (error) {
       next(error);

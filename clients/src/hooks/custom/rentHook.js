@@ -14,6 +14,17 @@ function useGenerateRent() {
         }
 
     }
+
+    function generateRent(rent){
+        fetch('', {
+            method:'PUT',
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body:JSON.stringify(rent)
+        })
+
+    }
     
     return {
         date,
