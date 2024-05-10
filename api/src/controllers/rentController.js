@@ -41,6 +41,11 @@ module.exports = {
         rejectSender(`no se encontraron las entidades user: ${user} apartment: ${apartment}` , HttpStatusCodes.badRequest)
       }
 
+      //validando disponibilidad del apartamento
+      if(!apartment.availability){
+        rejectSender('el apartamento que se intenta rentar no se encuentra disponible.', HttpStatusCodes.noAutorizado)
+      }
+
       //creacion de renta
       const rent = await Rent.create(req.body)
       //validar Renta 

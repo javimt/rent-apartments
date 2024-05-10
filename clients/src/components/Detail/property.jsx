@@ -72,7 +72,7 @@ function Property({ apartment }) {
           </div>
 
           <div
-            style={{ backgroundImage: `url(${images[imagePos]})` }}
+            style={{ backgroundImage: `url(${images ? images[imagePos]: ''})` }}
             className="relative w-full h-[500px] rounded-xl bg-cover bg-center object-fill"
           >
             <button

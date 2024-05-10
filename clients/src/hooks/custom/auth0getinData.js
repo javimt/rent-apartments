@@ -20,7 +20,7 @@ function useAuth0GetData() {
   } = useAuth0();
 
   function loginOrRegisterUser(user) {
-    fetch("http://localhost:3001/user/", {
+    fetch("https://api-rent-appartament.up.railway.app/user", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user),
