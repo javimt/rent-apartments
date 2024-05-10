@@ -10,7 +10,12 @@ function userReducer(state = initialState, action) {
       case actionTypes.SET_AN_USER:
       return {
         ...state,
-        user: {user:action.payload.data[0], registred:action.payload.data[1]},
+        users: action.payload,
+      };
+    case actionTypes.USER_ROLE:
+      return {
+        ...state,
+        users: action.payload,
       };
     default:
       return { ...state };
