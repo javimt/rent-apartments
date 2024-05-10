@@ -6,7 +6,7 @@ import AlertComponent from "./alertComponent";
 import LogedMenu from "./logedMenu";
 import { useEffect } from "react";
 
-function LoginPanel({ showMessage }) {
+function LoginPanel() {
   const { controledUser, isAuthenticated, loginOrRegisterUser  } = useAuth0GetData();
   const { openStatus, toogleOpen } = useOpenClose();
 
@@ -14,7 +14,7 @@ function LoginPanel({ showMessage }) {
     const registerUser = () => {
       try {
         if (isAuthenticated && controledUser.email) {
-          const data = loginOrRegisterUser(controledUser);
+          loginOrRegisterUser(controledUser);
         }
       } catch (error) {
         console.error(error);
@@ -22,7 +22,7 @@ function LoginPanel({ showMessage }) {
     };
 
     registerUser();
-  }, [isAuthenticated, controledUser, loginOrRegisterUser]);
+  }, [isAuthenticated, controledUser]);
 
   return (
     <div className="relative">
