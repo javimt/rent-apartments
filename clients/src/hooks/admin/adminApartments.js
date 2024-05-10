@@ -18,8 +18,7 @@ function useAdminApartments() {
             const saleList = [...data.data].filter(ap => ap.status =='sale')
             const rentList = [...data.data].filter(ap => ap.status =='rent')
             setApartments({...apartments, rent: rentList, sale: saleList})         
-        })
-        
+        })     
     }
 
     useEffect(()=>{

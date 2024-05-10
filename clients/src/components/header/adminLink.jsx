@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { GrUserAdmin } from "react-icons/gr";
 import useAuth0GetData from "../../hooks/custom/auth0getinData";
+import { useSelector } from "react-redux";
 
 function AdminLink({ className }) {
   const { users } = useAuth0GetData();

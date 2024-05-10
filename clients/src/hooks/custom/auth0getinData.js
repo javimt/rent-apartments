@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { userRole } from "../../redux/actions/userActions";
 
 function useAuth0GetData() {
-  const [controledUser, setControledUser] = useState({});
+  const [controledUser, setControledUser] = useState({}); //logear o regstrar
   const users = useSelector((state) => state.user.users);
   const dispatch = useDispatch()
 

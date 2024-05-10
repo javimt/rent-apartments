@@ -28,7 +28,7 @@ function LoginPanel() {
     <div className="relative">
       <div className="flex justify-between items-center px-5 md:px-0 text-sm">
         {isAuthenticated ? (
-          <LogedMenu toogleOpen={toogleOpen} openStatus={openStatus}/>
+          <LogedMenu toogleOpen={toogleOpen} openStatus={openStatus} />
         ) : (
           <LoginButton />
         )}
@@ -44,13 +44,13 @@ function LoginPanel() {
                 />
               </div>
               {controledUser.email_verified ? null : (
-                <AlertComponent/>
+                <AlertComponent />
               )}
             </>
           ) : null}
         </div>
       )}
-      
+
     </div>
   );
 }
