@@ -1,10 +1,11 @@
 import Transition from "../complements/transition";
 import { TiSocialFacebook, TiSocialInstagram } from "react-icons/ti";
-import { FaWhatsapp } from "react-icons/fa";
+import { FaWhatsapp} from "react-icons/fa";
 
 function Footer() {
+   
   return (
-    <div className=" min-w-[400px] px-4 py-8 md:py-44 md:px-36 flex items-center justify-around bg-black font-quicksand">
+    <div className=" min-w-[400px] px-4 py-8 md:py-44 md:px-36 flex justify-around items-center bg-black font-quicksand">
       <div className="flex text-gray-400 gap-4 flex-col items-center justify-center">
         <p className="text-xs"> Copyright © 2023. </p>
         <a href="http://www.medellinfurnishedapartment.com">
@@ -20,7 +21,7 @@ function Footer() {
           <TiSocialFacebook className=" size-9"/>
         </a>
         <a href="https://api.whatsapp.com/send?phone=+573024470241&text=hola">
-          <FaWhatsapp className="size-9" />
+          <FaWhatsapp className="size-9 "  />
         </a>
       </div>
     </div>
