@@ -27,15 +27,15 @@ function SearchLocation() {
       </div>
       {openStatus ? <GrFormUp /> : <GrFormDown />}
       <div className={`${openStatus ? "absolute  z-[110]" : "hidden"}  rounded-sm  bg-white w-full left-0 top-[60px] border `}>
-        {city.map((e) => {
+        {city.map((e, i) => {
           return (
-            <div className="p-1 hover:cursor-pointer text-start w-full  hover:bg-gray-300 text-gray-400 text-[13px] px-2 flex justify-between"> 
+                
+            <div onClick={() => handleCitySelect(e.id)}  key={i} className="p-1 hover:cursor-pointer text-start w-full  hover:bg-gray-300 text-gray-400 text-[13px] px-2 flex justify-between"> 
             
-              <button
+              <div
                 key={e.id}
-                onClick={() => handleCitySelect(e.id)}
                 value={e.id}
-              >{`${e.city} - ${e.barrio}`}</button>
+              >{`${e.city} - ${e.barrio}`}</div>
 
               <FaMapMarkedAlt className="w-[15px] h-[15px] text-green-500"/>
             </div>

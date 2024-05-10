@@ -5,9 +5,12 @@ import { getAllRentApartments, getAllSaleApartments } from "../../../../redux/ac
 import { useDispatch } from "react-redux";
 import { GiHouseKeys } from "react-icons/gi";
 
+
 function SearchProperty() {
   const { toogleOpen, openStatus } = useOpenClose();
   const dispatch = useDispatch();
+
+ 
 
   const handleRentClick = () => {
     dispatch(getAllRentApartments());

@@ -1,15 +1,11 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-<<<<<<< HEAD
-import {  setAnUser } from "../../redux/actions/userActions";
-=======
 import { userRole } from "../../redux/actions/userActions";
->>>>>>> refs/remotes/origin/main
 
 function useAuth0GetData() {
   const [controledUser, setControledUser] = useState({}); //logear o regstrar
-  const logedUser = useSelector((state) => state.user.user);
+  const users = useSelector((state) => state.user.users);
   const dispatch = useDispatch()
 
   const {
@@ -24,11 +20,7 @@ function useAuth0GetData() {
   } = useAuth0();
 
   function loginOrRegisterUser(user) {
-<<<<<<< HEAD
-    fetch("https://api-rent-appartament.up.railway.app/user", { //
-=======
     fetch("http://localhost:3001/user/", {
->>>>>>> refs/remotes/origin/main
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user),
@@ -60,12 +52,7 @@ function useAuth0GetData() {
     loginWithPopup,
     loginWithRedirect,
     loginOrRegisterUser,
-<<<<<<< HEAD
-    logedUser,
-    updateUser,
-=======
     users
->>>>>>> refs/remotes/origin/main
   };
 }
 
