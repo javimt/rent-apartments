@@ -8,6 +8,7 @@ import {
 import Form from "./form";
 import { useState } from "react";
 import useGetAllCities from "../../hooks/custom/getAllCities";
+import RentComponent from "./rent/rentComponent";
 
 function Property({ apartment }) {
   const [imagePos, setImagePos] = useState(0);
@@ -15,6 +16,7 @@ function Property({ apartment }) {
 
   function handleImagePos(e) {
     if (e.target.name == "next") {
+      
       if (apartment.data.images.length > imagePos + 1) {
         setImagePos((prev) => prev + 1);
       }
@@ -26,6 +28,7 @@ function Property({ apartment }) {
   }
 
   const {
+    id,
     bedrooms,
     urbanizacion,
     price,
@@ -36,7 +39,6 @@ function Property({ apartment }) {
     description,
     CityId,
   } = apartment.data;
-
   return (
     <main className="max-w-5xl mx-auto font-quicksand">
       <div className=" grid md:grid-cols-[70%,1fr] my-3 py-5">
@@ -65,7 +67,7 @@ function Property({ apartment }) {
             </h2>
             <div className="flex items-center px-2 py-1 rounded-lg bg-secondary top-2 right-2 text-white">
               <LiaStarSolid />
-              <span>{rating.media}</span>
+              <span>{rating.media && rating.media}</span>
             </div>
           </div>
 
@@ -131,7 +133,8 @@ function Property({ apartment }) {
             </div>
           </div>
         </div>
-        <Form />
+        <Form apartmentId={id} />
+       
       </div>
     </main>
   );
