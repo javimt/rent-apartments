@@ -7,28 +7,23 @@ import LogedMenu from "./logedMenu";
 import { useEffect } from "react";
 
 function LoginPanel({ showMessage }) {
-  const { controledUser, isAuthenticated, loginOrRegisterUser  } = useAuth0GetData();
+  const { controledUser, isAuthenticated, loginOrRegisterUser, logedUser } = useAuth0GetData();
   const { openStatus, toogleOpen } = useOpenClose();
 
-  useEffect(() => {
-    const registerUser = () => {
-      try {
-        if (isAuthenticated && controledUser.email) {
-          const data = loginOrRegisterUser(controledUser);
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    };
 
-    registerUser();
-  }, [isAuthenticated, controledUser, loginOrRegisterUser]);
+  useEffect(() => {
+    if (controledUser.email) {
+      console.log('se ejecuta el login') // se deberia ejecutar
+      loginOrRegisterUser(controledUser);
+
+    }
+  }, [controledUser]);
 
   return (
     <div className="relative">
       <div className="flex justify-between items-center px-5 md:px-0 text-sm">
         {isAuthenticated ? (
-          <LogedMenu toogleOpen={toogleOpen} openStatus={openStatus}/>
+          <LogedMenu toogleOpen={toogleOpen} openStatus={openStatus} />
         ) : (
           <LoginButton />
         )}
@@ -44,13 +39,13 @@ function LoginPanel({ showMessage }) {
                 />
               </div>
               {controledUser.email_verified ? null : (
-                <AlertComponent/>
+                <AlertComponent />
               )}
             </>
           ) : null}
         </div>
       )}
-      
+
     </div>
   );
 }
