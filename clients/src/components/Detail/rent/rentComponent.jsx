@@ -6,7 +6,7 @@ import useGenerateRent from '../../../hooks/custom/rentHook';
 
 
 function RentComponent({apartmentId}) {
-console.log("🚀 ~ RentComponent ~ apartmentId:", apartmentId)
+// console.log("🚀 ~ RentComponent ~ apartmentId:", apartmentId)
 
 
     const { dateHandler, date } = useGenerateRent()
@@ -39,7 +39,7 @@ console.log("🚀 ~ RentComponent ~ apartmentId:", apartmentId)
                 />
             </div>
             <div className='border p-1 text-white bg-black text-sm rounded-md hover:border-blue-500'>
-                <button>Generate Rent</button>
+                <button onClick={''}>Generate Rent</button>
             </div>
         </div>
     );
