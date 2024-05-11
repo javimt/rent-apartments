@@ -3,13 +3,20 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { FaCalendarDay, FaCalendarWeek } from "react-icons/fa";
 import useGenerateRent from "../../../hooks/custom/rentHook";
-import useAuth0GetData from "../../../hooks/custom/auth0getinData";
-import useGetApartments from "../../../hooks/custom/GetApartments";
 import { useAuth0 } from "@auth0/auth0-react";
 
 function RentComponent({ apartmentId }) {
   const { dateHandler, dates, generateRent } = useGenerateRent();
-  const { user, isAuthenticated } = useAuth0();
+  const { user, isAuthenticated, loginWithPopup } = useAuth0();
+
+  const handleGenerateRent = () => {
+    if (isAuthenticated && user) {
+      generateRent(apartmentId, user.email);
+    } else {
+      // Redirigir al usuario al inicio de sesión
+      loginWithPopup();
+    }
+  };
 
   return (
     <div className="flex flex-col items-center justify-center gap-2 ">
@@ -37,10 +44,9 @@ function RentComponent({ apartmentId }) {
           className="w-full p-2 rounded border text-xs border-gray-300 focus:outline-none focus:border-blue-500"
         />
       </div>
-      {isAuthenticated && user && 
       <div className="border p-1 text-white bg-black text-sm rounded-md hover:border-blue-500">
-        <button onClick={() => generateRent(apartmentId, user.email)}>Generate Rent</button>
-      </div>}
+        <button onClick={handleGenerateRent}>Generate Rent</button>
+      </div>
     </div>
   );
 }
