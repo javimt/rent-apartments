@@ -4,17 +4,34 @@ import "react-datepicker/dist/react-datepicker.css";
 import { FaCalendarDay, FaCalendarWeek } from "react-icons/fa";
 import useGenerateRent from "../../../hooks/custom/rentHook";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useSelector } from "react-redux";
 
 function RentComponent({ apartmentId }) {
   const { dateHandler, dates, generateRent } = useGenerateRent();
   const { user, isAuthenticated, loginWithPopup } = useAuth0();
+  const [error, setError] = useState("");
+  const userRole = useSelector((state) => state.user.users);
 
-  const handleGenerateRent = () => {
-    if (isAuthenticated && user) {
-      generateRent(apartmentId, user.email);
-    } else {
-      // Redirigir al usuario al inicio de sesión
+  const handleGenerateRent = async () => {
+    if (!isAuthenticated || !user) {
+      // Si el usuario no está logueado, pumm, redirigir al inicio de sesión
       loginWithPopup();
+      return;
+    }
+
+    if (!dates.start || !dates.end) {
+      // Si las fechas no están completas, mostrar error y salir
+      setError("Por favor seleccione las fechas de inicio y fin.");
+      return;
+    }
+
+    // Verificar si el usuario tiene el rol de "admin" o "superAdmin"
+    if (userRole !== "admin" && userRole !== "superAdmin") {
+      const message = `Nuevo alquiler generado:\n\nEmail: ${user.name}\n\nUser_Name: ${user.nickname}\n\nApartamento:\nID: ${apartmentId}\nFechas: ${dates.start} - ${dates.end}`;
+      window.open(`https://wa.me/+573024470241/?text=${encodeURIComponent(message)}`);
+      return;
+    } else {
+      generateRent(apartmentId, user.email);
     }
   };
 
@@ -44,6 +61,7 @@ function RentComponent({ apartmentId }) {
           className="w-full p-2 rounded border text-xs border-gray-300 focus:outline-none focus:border-blue-500"
         />
       </div>
+      {error && <div className="text-red-500">{error}</div>}
       <div className="border p-1 text-white bg-black text-sm rounded-md hover:border-blue-500">
         <button onClick={handleGenerateRent}>Generate Rent</button>
       </div>
