@@ -42,7 +42,8 @@ function MarkerAppartment({ selectMarker }) {
                 ></div>
                 <Link
                   to={`/apartment/${id}`}
-                  className="text-white mx-auto block rounded-md text-center mt-2 px-3 py-2 bg-secondary hover:bg-black hover:text-white active:text-white"
+                  className="mx-auto block rounded-md text-center mt-2 px-3 py-2 bg-secondary hover:bg-black hover:text-white active:text-white"
+                  style={{ color: "white" }}
                 >
                   view property
                 </Link>

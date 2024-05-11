@@ -1,18 +1,13 @@
 import useGetApartments from "../../hooks/custom/GetApartments";
 import Transition from "../complements/transition";
 import { Link } from "react-router-dom";
-import { MdOutlineMoreTime } from "react-icons/md";
 import {
-  LiaStarSolid,
   LiaCommentsDollarSolid,
   LiaBedSolid,
   LiaBathSolid,
   LiaRulerCombinedSolid,
 } from "react-icons/lia";
-import {
-  parseToColombianMoney,
-  parseToDollarsMoney,
-} from "../../utils/parseMoney";
+import { parseToColombianMoney } from "../../utils/parseMoney";
 import useCounterHouses from "../../redux/actions/counterHauses";
 import Rating from "./Rating";
 
