@@ -8,7 +8,7 @@ function Footer() {
     <div className=" min-w-[400px] px-4 py-8 md:py-44 md:px-36 flex justify-around items-center bg-black font-quicksand">
       <div className="flex text-gray-400 gap-4 flex-col items-center justify-center">
         <p className="text-xs"> Copyright © 2023. </p>
-        <a href="http://www.medellinfurnishedapartment.com">
+        <a href="https://www.medellinfurnishedapartment.com">
           <p className=" text-white text-sm"> www.medellinfurnishedapartment.com </p>
         </a>
         <p className=" text-xs"> All right reserved </p>

@@ -20,12 +20,11 @@ function RentComponent({ apartmentId }) {
     }
 
     if (!dates.start || !dates.end) {
-      // Si las fechas no están completas, mostrar error y salir
       setError("Por favor seleccione las fechas de inicio y fin.");
       return;
     }
 
-    // Verificar si el usuario tiene el rol de "admin" o "superAdmin"
+    // Verificar si el usuario tiene el rol de "admin" o "superAdmin" para generar la renta
     if (userRole !== "admin" && userRole !== "superAdmin") {
       const message = `Nuevo alquiler generado:\n\nEmail: ${user.name}\n\nUser_Name: ${user.nickname}\n\nApartamento:\nID: ${apartmentId}\nFechas: ${dates.start} - ${dates.end}`;
       window.open(`https://wa.me/+573024470241/?text=${encodeURIComponent(message)}`);
