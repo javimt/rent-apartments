@@ -15,7 +15,7 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING
     },
     image: {
-      type: DataTypes.STRING
+      type: DataTypes.TEXT
     },
     role: {
       type: DataTypes.ENUM("user", "admin", "superAdmin"),
