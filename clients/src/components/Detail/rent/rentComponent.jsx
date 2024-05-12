@@ -31,6 +31,7 @@ function RentComponent({ apartmentId }) {
       return;
     } else {
       generateRent(apartmentId, user.email);
+      alert("Renta creada")
     }
   };
 
