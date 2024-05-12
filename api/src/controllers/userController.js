@@ -25,13 +25,12 @@ module.exports = {
   }, 
 
   loginOrRegister: async (req, res, next) => {
-    const { email } = req.body;
     try {
       const user = await User.findOrCreate({ 
-        where: { email: email }, 
+        where: { email: req.body.email }, 
         defaults: req.body 
       });
-      resSender(null, HttpStatusCodes.creado, user);
+      resSender(null, HttpStatusCodes.creado, user); 
     } catch (error) {
       next(error);
     }

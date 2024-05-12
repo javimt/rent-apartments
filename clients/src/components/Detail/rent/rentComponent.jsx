@@ -26,11 +26,12 @@ function RentComponent({ apartmentId }) {
 
     // Verificar si el usuario tiene el rol de "admin" o "superAdmin" para generar la renta
     if (userRole !== "admin" && userRole !== "superAdmin") {
-      const message = `Nuevo alquiler generado:\n\nEmail: ${user.name}\n\nUser_Name: ${user.nickname}\n\nApartamento:\nID: ${apartmentId}\nFechas: ${dates.start} - ${dates.end}`;
+      const message = `Nuevo alquiler generado:\n\nEmail: ${user.email}\n\nUser_Name: ${user.name}\n\nApartamento:\nID: ${apartmentId}\nFechas: ${dates.start} - ${dates.end}`;
       window.open(`https://wa.me/+573024470241/?text=${encodeURIComponent(message)}`);
       return;
     } else {
       generateRent(apartmentId, user.email);
+      alert("Renta creada")
     }
   };
 
