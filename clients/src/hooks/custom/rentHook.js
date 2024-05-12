@@ -15,7 +15,7 @@ function useGenerateRent() {
       endDate: dates.end,
     };
 
-    fetch("http://localhost:3001/rent", {
+    fetch("https://api-rent-appartament.up.railway.app/rent", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -23,7 +23,7 @@ function useGenerateRent() {
       body: JSON.stringify(rentData),
     })
     .then((response) => response.json())
-    .then((info) => console.log(info))
+    //.then((info) => console.log(info))
     .catch(error => console.error(error));
   } 
 
