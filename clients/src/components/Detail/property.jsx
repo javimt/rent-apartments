@@ -8,11 +8,10 @@ import {
 import Form from "./form";
 import { useState } from "react";
 import useGetAllCities from "../../hooks/custom/getAllCities";
-import RentComponent from "./rent/rentComponent";
 
 function Property({ apartment }) {
   const [imagePos, setImagePos] = useState(0);
-  const { city, getOneCity } = useGetAllCities();
+  const { getOneCity } = useGetAllCities();
 
   function handleImagePos(e) {
     if (e.target.name == "next") {
@@ -39,6 +38,7 @@ function Property({ apartment }) {
     description,
     CityId,
   } = apartment.data;
+  
   return (
     <main className="max-w-5xl mx-auto font-quicksand">
       <div className=" grid md:grid-cols-[70%,1fr] my-3 py-5">

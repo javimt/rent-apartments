@@ -17,17 +17,20 @@ function useAuth0GetData() {
     error,
     loginWithPopup,
     loginWithRedirect,
+    getIdTokenClaims
   } = useAuth0();
 
   function loginOrRegisterUser(user) {
-    fetch("https://api-rent-appartament.up.railway.app/user", {
+    fetch("https://api-rent-appartament.up.railway.app/user/", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(user),
     })
       .then((response) => response.json())
       .then((data) => {dispatch(userRole(data.data[0].role))})
-      .catch((error) => console.log(error));
+      .catch((error) => console.error(error));
   }
 
   useEffect(() => {

@@ -1,18 +1,13 @@
 import useGetApartments from "../../hooks/custom/GetApartments";
 import Transition from "../complements/transition";
 import { Link } from "react-router-dom";
-import { MdOutlineMoreTime } from "react-icons/md";
 import {
-  LiaStarSolid,
   LiaCommentsDollarSolid,
   LiaBedSolid,
   LiaBathSolid,
   LiaRulerCombinedSolid,
 } from "react-icons/lia";
-import {
-  parseToColombianMoney,
-  parseToDollarsMoney,
-} from "../../utils/parseMoney";
+import { parseToColombianMoney } from "../../utils/parseMoney";
 import useCounterHouses from "../../redux/actions/counterHauses";
 import Rating from "./Rating";
 
@@ -96,6 +91,14 @@ function Properties(rating) {
                               <div className="flex items-center justify-center px-2 my-2 py-1 rounded-lg bg-black">
                                 <span className="text-xs font-bold text-white">{status}</span>
                               </div>
+                              {availability === true ? ( 
+                                <div className="flex items-center justify-center px-2 my-2 py-1 rounded-lg bg-black">
+                                  <span className="text-xs font-bold text-white">Available</span>
+                                </div>) : 
+                                <div className="flex items-center justify-center px-2 my-2 py-1 rounded-lg bg-yellow-400">
+                                  <span className="text-xs font-bold text-black">Not Available</span>
+                                </div>
+                              }
                             </div>
                           </div>
                         </div>
