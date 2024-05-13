@@ -26,8 +26,6 @@ function useGetApartments() {
     dispatch(getApatments())
   }
 
-
-
   //slider
   useEffect(() => {
     setApartments(allApartment);
@@ -37,7 +35,6 @@ function useGetApartments() {
     }
 
   }, [allApartment]);
-
 
   return {
     apartments,
