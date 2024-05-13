@@ -30,7 +30,7 @@ function useAuth0GetData() {
     })
       .then((response) => response.json())
       .then((data) => {dispatch(userRole(data.data[0].role))})
-      .catch((error) => console.log(error));
+      .catch((error) => console.error(error));
   }
 
   useEffect(() => {

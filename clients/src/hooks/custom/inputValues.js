@@ -91,7 +91,6 @@ function useHandleInput() {
   function submit() {
     if (!error.submit) {
       if (Object.keys(error).length == 1) {
-        console.log(parseInput(input), "<--");
         axios
           .post(
             "https://api-rent-appartament.up.railway.app/apartment",
