@@ -15,7 +15,6 @@ import NavBar from './components/header/navbar';
 import useGetApartments from './hooks/custom/GetApartments';
 import useGetAllCities from './hooks/custom/getAllCities';
 
-
 // Importa el componente de ubicación de manera dinámica usando React.lazy
 const LocationMap = React.lazy(() => import('./components/location/location'));
 
@@ -27,6 +26,7 @@ function App() {
     dispatchApartments()
     dispatchCities()
   },[])
+
   return (
     <>
       <Routes>
