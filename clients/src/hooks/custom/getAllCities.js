@@ -15,12 +15,11 @@ function useGetAllCities() {
     }
     return {};
   }
-  useEffect(() => {
+  function dispatchCities(){
     setTimeout(()=>{
-
       dispatch(getAllCties());
-    },500)
-  }, []);
+    },100)
+  }
 
   useEffect(() => {
     setCities(citiesByRedux);
@@ -29,6 +28,7 @@ function useGetAllCities() {
   return {
     city,
     getOneCity,
+    dispatchCities
   };
 }
 

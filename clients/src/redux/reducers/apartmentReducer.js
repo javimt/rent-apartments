@@ -22,22 +22,22 @@ function apartmentReducer(state = initialState, action) {
     case actionTypes.SET_SELECTED_CITY:
       return {
         ...state,
-        apartments: action.payload
+        apartments: action.payload.data
       };
       case actionTypes.GET_ALL_RENT_APARTMENTS:
       return {
         ...state,
-        apartments: action.payload,
+        apartments: action.payload.data,
       };
     case actionTypes.GET_ALL_SALE_APARTMENTS:
       return {
         ...state,
-        apartments: action.payload,
+        apartments: action.payload.data,
       };
     case actionTypes.GET_APARTMENTS_BY_PRICE_RANGE:
       return {
         ...state,
-        apartments: action.payload
+        apartments: action.payload.data
       }
     case actionTypes.SET_FILTERS:
       return {

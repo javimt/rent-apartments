@@ -22,19 +22,19 @@ function useGetApartments() {
     dispatch(getAllRentApartments())
   }
 
-  useEffect(() => {
-    dispatch(getApatments());
-  }, []);
+  function dispatchApartments(){
+    dispatch(getApatments())
+  }
 
+  //slider
   useEffect(() => {
-    setApartments(allApartment.data);
-    if(allApartment.data && !firstCharge){
-      setSlider(allApartment.data)
+    setApartments(allApartment);
+    if(allApartment.length && !firstCharge){
+      setSlider(allApartment)
       setFirstCharge(true)
     }
 
   }, [allApartment]);
-
 
   return {
     apartments,
@@ -42,6 +42,7 @@ function useGetApartments() {
     length,
     filterByCity,
     slider,
+    dispatchApartments
   };
 }
 

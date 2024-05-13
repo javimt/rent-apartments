@@ -14,7 +14,7 @@ export function getAllUser() {
 
 export function getOneUser(email) {
   return (dispatch) => {
-      fetch(`http://localhost:3001/user/email?email=${email}`)
+      fetch(`https://api-rent-appartament.up.railway.app/user/email?email=${email}`)
       .then((response) => response.json())
       .then((data) => dispatch({ type: actionTypes.GET_ONE_USER_DETAIL, payload: data }))
       .then((info) => console.log(info))
