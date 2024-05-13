@@ -19,7 +19,6 @@ function RentSection({ apartments, getDetail, deleteApartment, resetData}) {
                 })}
             </div>
         </Transition>
-
     );
 }
 
