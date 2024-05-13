@@ -8,13 +8,13 @@ const productionHandler = {
 export function getApatments() {
   return async (dispatch) => {
     try {
-      const response = await fetch("https://api-rent-appartament.up.railway.app/apartment", {
+      const response = await fetch("http://localhost:3001/apartment", { //https://api-rent-appartament.up.railway.app/apartment
         headers:{
           'Content-Type':"application/json"
         }
       })
       const parsed = await response.json()
-      dispatch({ type: actionTypes.GET_ALL_APARTMENTS, payload: parsed })
+      dispatch({ type: actionTypes.GET_ALL_APARTMENTS, payload: parsed.data })
     } catch (error) {
       console.error(error)
     }

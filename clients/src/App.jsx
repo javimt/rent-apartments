@@ -1,4 +1,4 @@
-import React, { useState, Suspense } from 'react';
+import React, { useState, Suspense, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Element } from 'react-scroll'; // Importa Element desde react-scroll
 import Header from './components/header/header';
@@ -12,12 +12,21 @@ import Footer from './components/footer/footer';
 import CardDetail from './components/Detail/Detail';
 import AdminPanel from './components/admin/adminPanel';
 import NavBar from './components/header/navbar';
+import useGetApartments from './hooks/custom/GetApartments';
+import useGetAllCities from './hooks/custom/getAllCities';
 
 
 // Importa el componente de ubicación de manera dinámica usando React.lazy
 const LocationMap = React.lazy(() => import('./components/location/location'));
 
 function App() {
+
+  const {dispatchApartments} = useGetApartments()
+  const {dispatchCities} = useGetAllCities()
+  useEffect(()=>{
+    dispatchApartments()
+    dispatchCities()
+  },[])
   return (
     <>
       <Routes>
