@@ -10,10 +10,10 @@ function ListUserSection() {
 
     
     return (
-            <dir className="grid h-[60%] md:grid-cols-1 xl:grid-cols-2 gap-2  ">
+            <div className="grid h-[60%] md:grid-cols-1 xl:grid-cols-2 gap-2  ">
                 <UserList users={users} findUser={findUser }/>
                 <UserRenderSection user={user}/>              
-            </dir>
+            </div>
     );
 }
 
