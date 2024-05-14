@@ -7,7 +7,6 @@ module.exports = {
       const currentDate = new Date();
       const expiredRents = await Rent.findAll({ 
         where: {
-          status: "not available",
           endDate: {
             [Op.lte]: currentDate, 
           },
