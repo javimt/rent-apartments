@@ -15,7 +15,7 @@ function MarkerAppartment({ selectMarker }) {
   
   return (
     <div className="font-quicksand">
-      {apartments &&
+      {apartments.length &&
         apartments.map(({ lon, lat, images, urbanizacion, id }) => {
           return (
             <Marker

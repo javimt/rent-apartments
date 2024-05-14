@@ -60,65 +60,6 @@ module.exports = {
     } catch (error) {
       next(error)
     }
-
-    // version javier
-    // try {
-    //   if (!userId) {
-    //     rejectSender("User ID is missing in the request body", HttpStatusCodes.sinContenido);
-    //   }
-
-      
-    //   const apartment = await Apartment.findByPk(req.body.apartmentId);
-    //   console.log("🚀 ~ createRent: ~ apartment:", apartment)
-
-    //   if (!apartment) {
-    //     rejectSender("Apartment not found", HttpStatusCodes.noEncontrado);
-    //   }
-    //   if (!apartment.availability) {
-    //     rejectSender("Apartment is not available for rent", HttpStatusCodes.entidadNoProcesable);
-    //   }
-
-    //   const currentDate = new Date();
-    //   //currentDate.setHours(currentDate.getHours() - 5);
-
-    //   const startDate = new Date(req.body.startDate);
-    //   //startDate.setHours(startDate.getHours());
-    //   //startDate.setDate(startDate.getDate());
-
-    //   const endDate = new Date(req.body.endDate);
-    //   endDate.setHours(endDate.getHours());
-    //   endDate.setDate(endDate.getDate());
-
-    //   if (!startDate || !endDate) {
-    //     rejectSender("no se pueden generar rentas sin fecha de inicio y finalizacion", HttpStatusCodes.conflictivo);
-    //   }
-    //   if (startDate < currentDate) {
-    //     rejectSender("la fecha de inicio debe ser mayor a la actual", HttpStatusCodes.conflictivo);
-    //   }
-    //   if (startDate > endDate) {
-    //     rejectSender("la fecha de inicio no puede ser igual a la de finalizacion", HttpStatusCodes.conflictivo);
-    //   }
-    //   if (endDate < currentDate) {
-    //     rejectSender("la fecha de finalizacion no puede ser menor a la actual", HttpStatusCodes.conflictivo);
-    //   }
-    //   try {
-    //     const rent = await Rent.create({
-    //       apartmentId: apartment.id,
-    //       userId: req.body.userId,
-    //       startDate: startDate,
-    //       endDate: endDate,
-    //       totalPrice: req.body.totalPrice,
-    //       status: req.body.status,
-    //     });
-    //     apartment.availability = false;
-    //     await apartment.save();
-    //     resSender("Apartment rented successfully", HttpStatusCodes.aceptado, rent);
-    //   } catch (error) {
-    //     next(error);
-    //   }
-    // } catch (error) {
-    //   next(error);
-    // }
   },
 
   updateRent: async (req, res, next) => {

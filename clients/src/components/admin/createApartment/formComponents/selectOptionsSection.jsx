@@ -20,8 +20,8 @@ function SelectOptionsSection({name, selectName, label, handle, options=[]}) {
                 {openStatus ? <GrFormUp/> :<GrFormDown/>}
                 <div  className={`${openStatus ? 'absolute' : 'hidden'} rounded-sm z-100 bg-white w-full left-0 top-[25px] border`}>
                     {
-                       options.length && options.map (opt => {
-                        return <button onClick={(e)=> handle(e)} value={opt} name={name} className="p-1 hover:cursor-pointer w-full block hover:bg-gray-300 text-gray-400 text-[12px]">{opt}</button>
+                       options.length && options.map ((opt, i) => {
+                        return <button key={i} onClick={(e)=> handle(e)} value={opt} name={name} className="p-1 hover:cursor-pointer w-full block hover:bg-gray-300 text-gray-400 text-[12px]">{opt}</button>
                        })
                     }
                 </div>
