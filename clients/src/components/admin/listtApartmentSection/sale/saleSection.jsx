@@ -12,7 +12,7 @@ function SaleSection({ apartments, getDetail, deleteApartment, resetData}) {
                     <p className="text-gray-400 text-center p-2">Rents Apartment List</p>
                 </div>
                 {apartments && apartments.map(ap => {
-                    return <CardApartAdmin resetData={resetData} deleteApartment={deleteApartment} getDetail={getDetail} apartment={ap} />
+                    return <CardApartAdmin key={ap.id} resetData={resetData} deleteApartment={deleteApartment} getDetail={getDetail} apartment={ap} />
                 })}
             </div>
         </Transition>

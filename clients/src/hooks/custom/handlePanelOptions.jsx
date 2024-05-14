@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CreateApartSect from "../../components/admin/createApartment/createApartmentSection";
 import ListApartmentSection from "../../components/admin/listtApartmentSection/listApartmentSection";
+import ListUserSection from "../../components/admin/userSection/listUserSection";
 
 const optionTypes = {
   CREATE_SECTION: "CREATE_SECTION",
@@ -20,7 +21,7 @@ function useHandlePanelOptions() {
         setSection(<ListApartmentSection />);
         break;
       case optionTypes.GET_USERS_SECTION:
-        setSection(<CreateApartSect />);
+        setSection(<ListUserSection/>);
         break;
       default:
         break;
