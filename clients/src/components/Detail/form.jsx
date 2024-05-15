@@ -29,8 +29,8 @@ function Form({ apartmentId }) {
             className="border-spacing-1 border-[1px] rounded-full border-slate-400 border-solid"
           />
           <div>
-            <p>Persona de prueba</p>
-            <p className="text-secondary font-semibold ">Comercial</p>
+            <p>Commercial Advisor</p>
+            <p className="text-secondary font-semibold ">Viviana</p>
           </div>
         </div>
         <span className=" text-center text-sm w-full block p-1 rounded-t-lg  bg-secondary text-white mt-10 ">
@@ -93,10 +93,10 @@ function Form({ apartmentId }) {
           {/* Buttons Section */}
           <div className="flex justify-around items-center">
             <button onClick={submitWap} className="bg-secondary py-2 px-3 hover:black text-white rounded-xl mt-2">
-              Consultar
+              Query
             </button>
             <button  className="bg-black py-2 px-3 hover:black text-white rounded-xl mt-2">
-              Rentar
+              Rent
             </button>
           </div>
         </div>

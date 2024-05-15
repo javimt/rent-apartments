@@ -63,10 +63,10 @@ function useInputQuery() {
 
   function submitWap() {
     if (Object.keys(errors).length == 1 && !errors.blocked) {
-      alert("sera redirigido a whats app");
+      alert("You will be redirected to WhatsApp.");
       window.location.href = link;
     } else {
-      alert("faltan campos");
+      alert("Please fill out all required fields before submitting your query");
     }
   }
 
