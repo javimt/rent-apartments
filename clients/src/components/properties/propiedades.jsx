@@ -10,6 +10,7 @@ import {
 import { parseToColombianMoney } from "../../utils/parseMoney";
 import useCounterHouses from "../../redux/actions/counterHauses";
 import Rating from "./Rating";
+import { MdApartment } from "react-icons/md";
 
 function Properties(rating) {
   const { apartments, length } = useGetApartments();

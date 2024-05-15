@@ -15,7 +15,7 @@ function CardDetail() {
   return (
     <>
       <TransitionPage />
-      <Header />
+      <Header main={false}/>
       <Transition>
         {apartment.hasOwnProperty("data") ? (
           <Property apartment={apartment} />

@@ -9,20 +9,20 @@ function formatDate(date) {
   }
 
 export function useWhatsapp(input) {
-    console.log("🚀 ~ useWhatsapp ~ input:", input)
     const [link, setLink] = useState(null)
 
 
+    console.log("🚀 ~ useEffect ~ formatDate:", input.startDate)
 
     useEffect(()=>{
 
         let template = `::::::RENT-APARTMENTS-MEDELLIN::::::%0A`;
-        template += `name: ${input.name}%0A`
+        template += `client: ${input.name}%0A`
         template += `email: ${input.email}%0A`
         template += `apartment id: ${input.id}%0A`
-        template += `start date: ${input.formatDate && formatDate(input.startDate)}   end date: ${input.formatDate && formatDate(input.endDate)}%0A`
+        template += `start date: ${input.startDate ? formatDate(input.startDate) : ''}   end date: ${input.endDate ? formatDate(input.endDate):''}%0A`
         template += `----------------------%0A`
-        template += `consult:%0A ${input.consult}%0A`
+        template += `consult:%0A0A ${input.consult}%0A%0A`
         template += `----------------------%0A`
         setLink(`https://api.whatsapp.com/send?phone=+541125063297&text=${template}`)
     }, [input])

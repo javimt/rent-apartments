@@ -8,8 +8,6 @@ import { useSelector } from "react-redux";
 
 function RentComponent({ apartmentId, handleInput, input }) {
 
-
-
   return (
     <div className="flex flex-col items-center justify-center gap-2 ">
       <div className="flex gap-2 items-center">

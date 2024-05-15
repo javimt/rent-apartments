@@ -12,9 +12,9 @@ const url =
 
 function Form({ apartmentId }) {
 
-  const { controledUser, isAuthenticated } = useAuth0GetData()
+  const { controledUser, isAuthenticated, role } = useAuth0GetData()
   const { handleInput, input, errors, link, submitWap, setId } = useInputQuery(apartmentId)
-  console.log("🚀 ~ Form ~ apartmentId:", apartmentId)
+
   
 
   useEffect(()=>{
@@ -98,7 +98,7 @@ function Form({ apartmentId }) {
           </div>
           {/* Buttons Section */}
           <div className="flex justify-around items-center">
-            <button onClick={()=>{isAuthenticated ? submitWap() :alert('you will be redirected to the main page to login'); window.location.href='https://rent-apartments-medellin.up.railway.app/'}} className="bg-secondary py-2 px-3 hover:black text-white rounded-xl mt-2">
+            <button onClick={submitWap} className="bg-secondary py-2 px-3 hover:black text-white rounded-xl mt-2">
               Consultar
             </button>
             <button  className="bg-black py-2 px-3 hover:black text-white rounded-xl mt-2">

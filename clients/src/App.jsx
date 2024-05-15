@@ -14,18 +14,22 @@ import AdminPanel from './components/admin/adminPanel';
 import NavBar from './components/header/navbar';
 import useGetApartments from './hooks/custom/GetApartments';
 import useGetAllCities from './hooks/custom/getAllCities';
+import { useSelector } from 'react-redux';
+import UnautorizedAdmin from './components/admin/unautorizedAdmin';
 
 // Importa el componente de ubicación de manera dinámica usando React.lazy
 const LocationMap = React.lazy(() => import('./components/location/location'));
 
 function App() {
 
-  const {dispatchApartments} = useGetApartments()
-  const {dispatchCities} = useGetAllCities()
-  useEffect(()=>{
+  const { dispatchApartments } = useGetApartments()
+  const { dispatchCities } = useGetAllCities()
+  useEffect(() => {
     dispatchApartments()
     dispatchCities()
-  },[])
+  }, [])
+
+  const role = useSelector(state => state.user.role)
 
   return (
     <>
@@ -33,39 +37,46 @@ function App() {
         <Route
           path="/"
           element={
-              <Element name="home">
-            <>
-              <TransitionPage />
+            <Element name="home">
+              <>
+                <TransitionPage />
                 <Header />
-              <Banner />
-              <Element name="apartments">
-                <Properties />
-              </Element>
-              <Element name="services">
-                <Services />
-              </Element>
-              <Suspense fallback={<div>Loading...</div>}>
-                <Element name="location">
-                  <LocationMap />
+                <Banner />
+                <Element name="apartments">
+                  <Properties />
                 </Element>
-              </Suspense>
-              <Element name="about">
-                <About />
-              </Element>
-              <Complementary />
-              <Footer />
-            </>
-        </Element>
+                <Element name="services">
+                  <Services />
+                </Element>
+                <Suspense fallback={<div>Loading...</div>}>
+                  <Element name="location">
+                    <LocationMap />
+                  </Element>
+                </Suspense>
+                <Element name="about">
+                  <About />
+                </Element>
+                <Complementary />
+                <Footer />
+              </>
+            </Element>
           }
         />
-        <Route path="/apartment/:id" element={<CardDetail/>}/>
+        <Route path="/apartment/:id" element={<CardDetail />} />
+
         <Route path='/admin' element={
-          <>
-            <TransitionPage/>
-            <Header/>
-            <AdminPanel/>
-          </>
-        }/>
+          role == 'admin' || role == 'superAdmin' ? <>
+
+            <TransitionPage />
+            <Header main={false} />
+            <AdminPanel />
+          </> :
+            <>
+              <TransitionPage />
+              <Header main={false} />
+              <UnautorizedAdmin/>
+            </>
+        } />
       </Routes>
     </>
   );
