@@ -8,10 +8,12 @@ import {
 import Form from "./form";
 import { useState } from "react";
 import useGetAllCities from "../../hooks/custom/getAllCities";
+import useInputQuery from "../../hooks/custom/inpurtQueryForm";
 
 function Property({ apartment }) {
   const [imagePos, setImagePos] = useState(0);
   const { getOneCity } = useGetAllCities();
+  const {handleInput} = useInputQuery()
 
   function handleImagePos(e) {
     if (e.target.name == "next") {
@@ -25,7 +27,6 @@ function Property({ apartment }) {
       }
     }
   }
-
   const {
     id,
     bedrooms,
