@@ -1,7 +1,7 @@
 import { actionTypes } from "../actions/actionTypes";
 
 const initialState = {
-  users: [],
+  role: null,
   user:null // {status: 200, data: [{user}, boolean]} {user: user, registred: boolean}
 };
 
@@ -15,7 +15,7 @@ function userReducer(state = initialState, action) {
     case actionTypes.USER_ROLE:
       return {
         ...state,
-        users: action.payload,
+        role: action.payload,
       };
     default:
       return { ...state };

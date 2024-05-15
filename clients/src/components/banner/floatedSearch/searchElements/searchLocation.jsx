@@ -16,7 +16,7 @@ function SearchLocation() {
   return (
     <div
       onClick={toogleOpen}
-      className=" font-quicksand relative mb-2 px-3 md:mb-0 flex items-center gap-4 border-[1px] rounded-lg   justify-between cursor-pointer shadow-xl"
+      className=" font-quicksand relative mb-2 px-3 py-2 md:mb-0 flex items-center gap-4 border-[1px] rounded-lg   justify-between cursor-pointer shadow-xl"
     >
       <GrLocation />
       <div>

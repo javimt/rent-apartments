@@ -27,13 +27,14 @@ module.exports = {
   },
 
   createTransaction: async (req, res, next) => {
-    const { apartmentId, email, date } = req.body;
+    const { apartmentId, email } = req.body;
     try {
       const apartment = await Apartment.findByPk(apartmentId);
       if(!apartment) {
         rejectSender("no se encontró el apartamento", HttpStatusCodes.noEncontrado);
       }
-      const transaction = await Transaction.create({amount: {price: apartment.price, exchange: "dolar"}, date});
+      const date = new Date()
+      const transaction = await Transaction.create({amount: {price: apartment.price, exchange: "COP"}, date});
       const user = await User.findByPk(email);
       if(!user) {
         rejectSender("usuario no encontrado", HttpStatusCodes.noEncontrado);

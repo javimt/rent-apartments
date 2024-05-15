@@ -6,7 +6,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import LoginPanel from "./loginPanel/loginPanel";
 import useOpenClose from "../../hooks/custom/OpenCloseMenu";
 
-function Header() {
+function Header({main = true}) {
   const { openStatus, toogleOpen } = useOpenClose();
   const { isAuthenticated, user } = useAuth0();
 
@@ -24,7 +24,7 @@ function Header() {
           className="block text-2xl md:hidden cursor-pointer hover:text-red-300"
           onClick={toogleOpen}
         />
-        <NavBar openStatus={openStatus} />
+        <NavBar main={main} openStatus={openStatus} />
         <div className="flex items-center gap-2 md:gap-5 relative">
          <LoginPanel/>
         </div>

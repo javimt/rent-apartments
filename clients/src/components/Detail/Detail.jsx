@@ -11,11 +11,11 @@ import Footer from "../footer/footer";
 function CardDetail() {
   const { id } = useParams();
   const { apartment } = useGetAnApartment(id);
-
+  
   return (
     <>
       <TransitionPage />
-      <Header />
+      <Header main={false}/>
       <Transition>
         {apartment.hasOwnProperty("data") ? (
           <Property apartment={apartment} />

@@ -6,7 +6,7 @@ function AlertComponent({ errors, property }) {
   return (
     <>
       {error ? (
-        <div className="text-[10px] ml-2 text-red-400 flex gap-1 w-[100px]">
+        <div className="text-[12px] ml-2 text-red-400 flex gap-1 w-[200px]">
           <LuAlertOctagon className="text-yellow-500" />
           <span>{error && error.message}</span>
         </div>

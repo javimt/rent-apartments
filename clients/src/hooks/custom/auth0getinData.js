@@ -5,7 +5,7 @@ import { userRole } from "../../redux/actions/userActions";
 
 function useAuth0GetData() {
   const [controledUser, setControledUser] = useState({}); //logear o regstrar
-  const users = useSelector((state) => state.user.users);
+  const role = useSelector((state) => state.user.role);
   const dispatch = useDispatch()
 
   const {
@@ -55,7 +55,7 @@ function useAuth0GetData() {
     loginWithPopup,
     loginWithRedirect,
     loginOrRegisterUser,
-    users
+    role
   };
 }
 

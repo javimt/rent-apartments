@@ -13,7 +13,8 @@ module.exports = (sequelize) => {
     },
     amount: {
       type: DataTypes.JSON
-    }
+    },
+    
   },{timestamps: false});
   Transaction.associate = (models) => {
     Transaction.belongsTo(models.User);
