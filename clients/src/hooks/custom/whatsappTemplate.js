@@ -1,37 +1,35 @@
 import { useEffect, useState } from "react";
 
 function formatDate(date) {
-    // Obtener día, mes y año
-    const day = String(date.getDate()).padStart(2, '0');
-    const month = String(date.getMonth() + 1).padStart(2, '0'); 
-    const year = date.getFullYear();
-    return `${day}/${month}/${year}`;
-  }
+  // Obtener día, mes y año
+  const day = String(date.getDate()).padStart(2, "0");
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const year = date.getFullYear();
+  return `${day}/${month}/${year}`;
+}
 
 export function useWhatsapp(input) {
-    const [link, setLink] = useState(null)
+  const [link, setLink] = useState(null);
 
+  useEffect(() => {
+    let template = `::::::RENT-APARTMENTS-MEDELLIN::::::%0A`;
+    template += `client: ${input.name}%0A`;
+    template += `email: ${input.email}%0A`;
+    template += `apartment id: ${input.id}%0A`;
+    template += `start date: ${
+      input.startDate ? formatDate(input.startDate) : ""
+    }   end date: ${input.endDate ? formatDate(input.endDate) : ""}%0A`;
+    template += `----------------------%0A`;
+    template += `consult:%0A0A ${input.consult}%0A%0A`;
+    template += `----------------------%0A`;
+    setLink(
+      `https://api.whatsapp.com/send?phone=+573024470241&text=${template}`
+    );
+  }, [input]);
 
-    console.log("🚀 ~ useEffect ~ formatDate:", input.startDate)
-
-    useEffect(()=>{
-
-        let template = `::::::RENT-APARTMENTS-MEDELLIN::::::%0A`;
-        template += `client: ${input.name}%0A`
-        template += `email: ${input.email}%0A`
-        template += `apartment id: ${input.id}%0A`
-        template += `start date: ${input.startDate ? formatDate(input.startDate) : ''}   end date: ${input.endDate ? formatDate(input.endDate):''}%0A`
-        template += `----------------------%0A`
-        template += `consult:%0A0A ${input.consult}%0A%0A`
-        template += `----------------------%0A`
-        setLink(`https://api.whatsapp.com/send?phone=+541125063297&text=${template}`)
-    }, [input])
-
-
-    return {
-        link
-    }
-    
+  return {
+    link,
+  };
 }
 
 export default useWhatsapp;
