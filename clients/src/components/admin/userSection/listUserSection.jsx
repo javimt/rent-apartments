@@ -3,8 +3,6 @@ import NonUserPreview from "./nonUserPreview";
 import UserRenderSection from "./renderUserSection";
 import UserList from "./userList";
 
-
-
 function ListUserSection() {
     
     const {deleteUser, editUser, getUserDetail,getUsers,resetUsers,users, findUser,user} = useAdminGetUser()
