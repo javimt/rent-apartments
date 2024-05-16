@@ -2,7 +2,10 @@
 
 
 function SearchBar() {
-    return ( <div>
+    return ( 
+    
+    
+    <div>
         
     </div> );
 }

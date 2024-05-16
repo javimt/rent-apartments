@@ -16,7 +16,7 @@ function ListUserSection() {
   } = useAdminGetUser();
 
   return (
-    <dir className="grid h-[100%] md:grid-cols-1 xl:grid-cols-2 gap-2  ">
+    <dir className="grid h-full xl:h-[70%] md:grid-cols-1 xl:grid-cols-2 gap-2 p-0  ">
       <UserList users={users} findUser={findUser} />
       {user.email ? <UserRenderSection user={user} /> : <NonUserPreview />}
     </dir>

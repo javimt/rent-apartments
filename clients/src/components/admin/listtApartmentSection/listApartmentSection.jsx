@@ -23,7 +23,7 @@ function ListApartmentSection() {
     const {detail, getDetail, resetDetail, deleteApartment} = useAdeminApartDetail()
     
     return (
-            <dir className="grid h-[60%] md:grid-cols-1 xl:grid-cols-2 gap-2  ">
+            <dir className="grid h-[60%] md:grid-cols-1 xl:grid-cols-2 gap-2 p-0  ">
                 {detail ? <EditApartment sendInput ={setHookState} detail={detail}/>:<RentSection resetData={resetData} getDetail={getDetail} deleteApartment= {deleteApartment} apartments={apartments.rent} />}
                 
                 {detail  ? <RenderNewApartSection input={hookState.input} submit={hookState.submit}/> : <SaleSection resetData={resetData} deleteApartment= {deleteApartment} getDetail={getDetail} apartments={apartments.sale} />}
