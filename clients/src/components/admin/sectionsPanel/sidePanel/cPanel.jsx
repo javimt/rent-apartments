@@ -5,7 +5,7 @@ import { FaUsers } from "react-icons/fa";
 function CPanel({ handleOption }) {
 
   return (
-    <div className="p-2 xl:px-10 xl:py-10 flex gap-2 justify-around md:block overflow-x-scroll">
+    <div className="p-2 xl:px-10 xl:py-10 flex gap-2 justify-around md:block xs:overflow-x-scroll sm:overflow-x-scroll">
       {panelOptions &&
         panelOptions.map((opt) => {
           return (
@@ -24,8 +24,8 @@ function CPanel({ handleOption }) {
                 }
 
                 <div className="flex flex-col items-start ">
-                  <span className=" font-semibold text-sm">{opt.name}</span>
-                  <span className="text-xs md:text-xs text-secondary">
+                  <span className=" font-semibold text-sm sm:max-w-[100px] xs:text-xs sm:text-xs truncate">{opt.name}</span>
+                  <span className="text-xs md:text-xs text-secondary xs:text-xs sm:text-xs truncate">
                     {opt.description}
                   </span>
                 </div>

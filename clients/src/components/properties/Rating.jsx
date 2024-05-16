@@ -17,7 +17,7 @@ function Rating({ apartmentId, initialRating }) {
 
   return (
     <div className="flex items-center gap-1">
-      {[1, 2, 3, 4, 5].map((e) => (
+      {[1].map((e) => (
         <LiaStarSolid
           key={e}
           className={`text-yellow-400 cursor-pointer ${
