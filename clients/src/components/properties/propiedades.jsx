@@ -92,14 +92,16 @@ function Properties(rating) {
                               <div className="flex items-center justify-center px-2 my-2 py-1 rounded-lg bg-black">
                                 <span className="text-xs font-bold text-white">{status}</span>
                               </div>
-                              {availability === true ? ( 
-                                <div className="flex items-center justify-center px-2 my-2 py-1 rounded-lg bg-black">
-                                  <span className="text-xs font-bold text-white">Available</span>
-                                </div>) : 
-                                <div className="flex items-center justify-center px-2 my-2 py-1 rounded-lg bg-yellow-400">
-                                  <span className="text-xs font-bold text-black">Not Available</span>
-                                </div>
-                              }
+                              <div className="absolute top-0 left-[10px]">
+                                {availability === true ? (
+                                  <div className="flex items-center justify-center px-2 my-2 py-1 rounded-lg bg-green-500">
+                                    <span className="text-xs font-bold text-white">Available</span>
+                                  </div>) :
+                                  <div className="flex items-center justify-center px-2 my-2 py-1 rounded-lg bg-yellow-400">
+                                    <span className="text-xs font-bold text-black">Not Available</span>
+                                  </div>
+                                }
+                              </div>
                             </div>
                           </div>
                         </div>
