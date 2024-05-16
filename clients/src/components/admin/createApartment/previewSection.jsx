@@ -42,7 +42,7 @@ function RenderNewApartSection({ input, submit }) {
       </div>
       <div className="flex flex-col justify-center mt-2">
         <div
-          className="w-[400px] h-[250px]  bg-cover bg-center rounded-lg object-fill relative border"
+          className="w-[400px] h-[250px] bg-cover bg-center rounded-lg object-fill relative border"
           style={{
             backgroundImage: `url(${
               images && images[0]
