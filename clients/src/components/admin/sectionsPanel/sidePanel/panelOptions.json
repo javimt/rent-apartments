@@ -7,7 +7,7 @@
         "name": "Create Apart",
         "value": "CREATE_SECTION",
         "description": "crea un apartamento",
-        "icon":"MdApartment"
+        "icon":"FaBuildingFlag"
     },
     {
         "id": 2,
@@ -22,5 +22,13 @@
         "value": "GET_USERS_SECTION",
         "description": "Lista todos los usuarios",
         "icon":"FaUsers"
+    },
+    {
+        "id": 4,
+        "name": "Generate Rent",
+        "value": "GENERATE_RENT",
+        "description": "Genera una renta",
+        "icon":"FaBuildingUser"
     }
+    
 ]

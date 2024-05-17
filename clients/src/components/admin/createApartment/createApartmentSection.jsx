@@ -13,7 +13,7 @@ function CreateApartSect() {
   }
 
   return (
-    <div className="grid h-[100%] md:grid-cols-1 xl:grid-cols-2 gap-2 overflow-x-hidden ">
+    <div className="grid  md:grid-cols-1 xl:grid-cols-2 gap-2  ">
       <CreateApartForm render={getinput} />
       <RenderNewApartSection
         input={hookState.input}

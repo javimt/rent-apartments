@@ -95,7 +95,7 @@ function Form({ apartmentId }) {
             <button onClick={submitWap} className="bg-secondary py-2 px-3 hover:black text-white rounded-xl mt-2">
               Query
             </button>
-            <button  className="bg-black py-2 px-3 hover:black text-white rounded-xl mt-2">
+            <button onClick={submitWap} className="bg-black py-2 px-3 hover:black text-white rounded-xl mt-2">
               Rent
             </button>
           </div>
