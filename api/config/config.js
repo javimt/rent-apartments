@@ -1,3 +1,6 @@
+//crear migracion: npx sequelize-cli migration:generate --name add-status-to-rent
+//ejecutar migraciones: npx sequelize-cli db:migrate
+
 require('dotenv').config();
 
 module.exports = {
