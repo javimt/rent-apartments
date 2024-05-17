@@ -10,6 +10,7 @@ module.exports = {
           endDate: {
             [Op.lte]: currentDate, 
           },
+          status: 'active' // Verifica solo las rentas activas
         },
       });
 
@@ -18,7 +19,7 @@ module.exports = {
       if (apartment) {
         apartment.availability = true;
         await apartment.save();
-        rent.status = "available";
+        rent.status = "completed"; // Actualiza el estado a 'completed'
         await rent.save();
       }
     }

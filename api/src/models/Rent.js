@@ -14,6 +14,10 @@ module.exports = (sequelize) => {
     endDate: {
       type: DataTypes.DATE,
       allowNull: false,
+    },
+    status: {
+      type: DataTypes.ENUM('pending', 'active', 'expired', 'cancelled'),
+      defaultValue: 'pending'
     }
   }, {timestamps: false});
   Rent.associate = (models) => {
