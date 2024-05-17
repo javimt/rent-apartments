@@ -25,12 +25,10 @@ module.exports = {
   },
 
   createRent: async (req, res, next) => {
-
     const { apartmentId, userId, startDate, endDate } = req.body
-    console.log("🚀 ~ createRent: ~ body:", req.body)
     try {
       //validations parametros
-      if(!userId || !apartmentId || !startDate || !endDate){
+      if(!apartmentId || !startDate || !endDate){
         rejectSender(`faltan parametros recuerda que los parametros requeridos son -> apartmentId:${apartmentId}, userId:${userId}, startDate:${startDate}, endDate:${endDate}`, HttpStatusCodes.badRequest)
       }
       //requerir entidades
@@ -52,11 +50,7 @@ module.exports = {
       if(!rent){
         rejectSender('no se pudo crear la renta.', HttpStatusCodes.conflictivo)
       }
-
-      apartment.availability = false
-      await apartment.save()
       resSender(null, HttpStatusCodes.creado, rent)
-
     } catch (error) {
       next(error)
     }
@@ -64,7 +58,7 @@ module.exports = {
 
   updateRent: async (req, res, next) => {
     const { id } = req.params;
-    const { startDate, endDate } = req.body;
+    const { startDate, endDate, status } = req.body;
     try {
       const rent = await Rent.findByPk(id);
       if (!rent) {
@@ -73,7 +67,22 @@ module.exports = {
       if (startDate > endDate) {
         rejectSender("la fecha de inicio no puede ser mayor a la de finalizacion", HttpStatusCodes.conflictivo);
       }
-      const updatedRent = await rent.update({ startDate, endDate });
+      if (status === 'active' && rent.status !== 'active') { // q el status d la solicitud sea "active" y q el status actual no sea "active"
+        const apartment = await Apartment.findByPk(rent.apartmentId);
+        if (!apartment) {
+          rejectSender("Apartment not found", HttpStatusCodes.noEncontrado);
+          return;
+        }
+  
+        if (!apartment.availability) {
+          rejectSender('el apartamento no está disponible', HttpStatusCodes.noAutorizado);
+          return;
+        }
+  
+        apartment.availability = false;
+        await apartment.save();
+      }
+      const updatedRent = await rent.update({ startDate, endDate, status });
       resSender(null, HttpStatusCodes.actualizado, updatedRent);
     } catch (error) {
       next(error);
