@@ -48,7 +48,9 @@ module.exports = {
         rejectSender("la fecha final no puede ser menor a la de inicio", HttpStatusCodes.conflictivo);
       }
       //creacion de renta
-      const rent = await Rent.create(req.body)
+      const rent = await Rent.create(req.body);
+      await user.addRent(rent);
+      await apartment.addRent(rent);
       //validar Renta 
       if(!rent){
         rejectSender('no se pudo crear la renta.', HttpStatusCodes.conflictivo)
