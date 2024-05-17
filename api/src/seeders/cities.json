@@ -1,20 +1,17 @@
 [
   {
-    "id": "cbde6e20-b980-4a11-938b-2da7d87919cf",
+    "id": "45892da6-1009-42cd-b6ff-3d010c2fbb2f",
+    "city": "Medellin",
+    "barrio": "Laureles"
+  },
+  {
+    "id": "f29f2b54-0402-4974-b290-9928c8bfe8a9",
     "city": "Medellin",
     "barrio": "Poblado"
   },
   {
-    "id": "631a6815-c9fb-4d52-888f-c4bf71ea9287",
-    "city": "Medellin",
-    "barrio": "Laureles"
-   
-  },
-  {
-    "id": "da37b071-4b48-47b0-bc1f-0d73d624d0b0",
+    "id": "a3005176-9c20-43fe-a627-8e2f386ac1d3",
     "city": "Sabaneta",
     "barrio": "Aves Maria"
-    
   }
 ]
-
