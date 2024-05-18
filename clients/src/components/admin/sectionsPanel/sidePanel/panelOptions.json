@@ -25,10 +25,18 @@
     },
     {
         "id": 4,
-        "name": "Generate Rent",
-        "value": "GENERATE_RENT",
-        "description": "Genera una renta",
+        "name": "Change apart status",
+        "value": "CHANGE_APARTMENT_STATUS",
+        "description": "change the apartment status",
         "icon":"FaBuildingUser"
+    },
+    {
+        "id": 5,
+        "name": "Administrate Rents",
+        "value": "ADMINISTRATE_RENT_PETITIONS",
+        "description": "change the apartment status",
+        "icon":"FaBuildingCircleCheck"
     }
+
     
 ]

@@ -3,7 +3,7 @@ import useAuth0GetData from "./auth0getinData";
 import useWhatsapp from "./whatsappTemplate";
 
 function useInputQuery() {
-  const { controledUser } = useAuth0GetData();
+  const {controledUser} = useAuth0GetData()
   const [errors, setError] = useState({
     blocked: true,
   });

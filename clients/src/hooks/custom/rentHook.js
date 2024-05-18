@@ -1,36 +1,49 @@
 import { useState } from "react";
+import useAuth0GetData from "./auth0getinData";
 
-function useGenerateRent() {
-  const [dates, setDates] = useState({ start: null, end: null });
+function useGenerateRent(input, errors) {
+  //apartmentId, userId, startDate, endDate
+  const { controledUser } = useAuth0GetData()
+  const [inputRent, setInputRent] = useState({
+    name: "",
+    email: "",
+    consult: "",
+    startDate: "",
+    endDate: "",
+    id: "" //apartmentId
+  })
 
-  function dateHandler(type, date) {
-    setDates({ ...dates, [type]: date });
+
+  function setInput(input) {
+    setInputRent(input)
   }
 
-  function generateRent(apartmentId, userId) {
-    const rentData = {
-      apartmentId,
-      userId,
-      startDate: dates.start,
-      endDate: dates.end,
-    };
-
-    fetch("https://api-rent-appartament.up.railway.app/rent", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(rentData),
-    })
-    .then((response) => response.json())
-    //.then((info) => console.log(info))
-    .catch(error => console.error(error));
-  } 
+  function generateRent() {
+    const parsedInput = {
+      apartmentId: input.id,
+      userId: input.email,
+      startDate: input.startDate,
+      endDate: input.endDate
+    }
+    if (Object.keys(errors).length == 1 && !errors.blocked) {
+      
+      fetch("https://api-rent-appartament.up.railway.app/rent", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(parsedInput),
+      })
+        .then((response) => response.json())
+        .then(response => {response.status < 300 ? alert('se ha generado una peticion de renta, sera evaluada en las proximas horas') : alert('la peticion de renta no se pudo realizar pongase en contacto con el administrador')})
+        .catch(error => console.error(error));
+    }
+  }
 
   return {
-    dates,
-    dateHandler,
     generateRent,
+    setInputRent
+
   };
 }
 
