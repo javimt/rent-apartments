@@ -39,7 +39,7 @@ function RentComponent({ apartmentId, handleInput, input }) {
             selectsEnd
             startDate={input.startDate}
             endDate={input.endDate}
-            minDate={input.endDate}
+            minDate={input.startDate}
             placeholderText="End Date"
             className="w-full p-2 rounded border text-xs border-gray-300 focus:outline-none focus:border-blue-500"
           />

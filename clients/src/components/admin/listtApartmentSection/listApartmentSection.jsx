@@ -5,7 +5,7 @@ import Transition from '../../complements/transition'
 import EditApartment from "./edit/editSection";
 import useAdeminApartDetail from "../../../hooks/admin/AdminApartmentDetail";
 import RenderNewApartSection from "../createApartment/previewSection";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useHandleInput from "../../../hooks/custom/inputValues";
 
 
@@ -18,10 +18,10 @@ function ListApartmentSection() {
         setHookState(state)
     }
 
-    const { apartments, resetData} = useAdminApartments()
-
+    const { apartments, resetData, getApartments} = useAdminApartments()
     const {detail, getDetail, resetDetail, deleteApartment} = useAdeminApartDetail()
-    
+    useEffect(()=>{getApartments()},[])
+
     return (
             <dir className="grid h-[60%] md:grid-cols-1 xl:grid-cols-2 gap-2 p-0  ">
                 {detail ? <EditApartment sendInput ={setHookState} detail={detail}/>:<RentSection resetData={resetData} getDetail={getDetail} deleteApartment= {deleteApartment} apartments={apartments.rent} />}

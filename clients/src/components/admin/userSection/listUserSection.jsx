@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import useAdminGetUser from "../../../hooks/admin/adminUserDetail";
 import NonUserPreview from "./nonUserPreview";
 import UserRenderSection from "./renderUserSection";
@@ -13,7 +14,12 @@ function ListUserSection() {
     users,
     findUser,
     user,
+    getAllUsers
   } = useAdminGetUser();
+
+  useEffect(()=>{
+    getAllUsers()
+  },[])
 
   return (
     <dir className="grid h-full xl:h-[70%] md:grid-cols-1 xl:grid-cols-2 gap-2 p-0  ">

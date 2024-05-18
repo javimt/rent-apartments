@@ -4,7 +4,11 @@ const { resSender, HttpStatusCodes, rejectSender } = require('../helpers/resSend
 module.exports = {
   getAllRents: async (req, res, next) => {
     try {
-      const rents = await Rent.findAll();
+      const rents = await Rent.findAll({include:[
+        {model:User},
+        {model:Apartment}
+      ]});
+
       resSender(null, HttpStatusCodes.aceptado, rents);
     } catch (error) {
       next(error);
