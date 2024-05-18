@@ -3,7 +3,7 @@ import TransactionCard from "./transactionCard";
 
 
 
-function TransactionActive({ transactions, users }) {
+function TransactionActive({ transactions }) {
     return (
         <Transition className="overflow-y-scroll flex flex-col items-center h-full shadow-2xl rounded-lg xl:mx-auto p-1 font-quicksand relative ">
             <div>
@@ -12,8 +12,8 @@ function TransactionActive({ transactions, users }) {
             <dir className='pt-5 w-full p-0'>
                 {
                      transactions && transactions.map(tr => {
-                        const user =  users.length && users.find(e => e.email.includes(tr.userId))
-                        return <TransactionCard key={tr.id} transaction={tr} user={user} />
+                     
+                        return <TransactionCard key={tr.id} transaction={tr} />
                     })
                 }
             </dir>

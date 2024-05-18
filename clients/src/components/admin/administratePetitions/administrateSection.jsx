@@ -13,23 +13,14 @@ function AdministrateSection() {
   
   
   const {getTransactions,transactions } = useAdminTransaction()
-  const {getAllUsers, users} = useAdminGetUser()
-  const {apartments, getApartments, pending} = useAdminApartments()
-  useEffect(()=> {
-    getTransactions()
-    getApartments()
-  },[])
+ 
   
-  useEffect(()=>{
-    getAllUsers()
-    
-  },[pending == false])
-
+  useEffect(()=>{getTransactions()},[])
 
   return (
     <div className="grid md:grid-cols-1 xl:grid-cols-2   "> 
-      <TransactionPending transactions={transactions.pending} apartments={apartments} users={users}/>
-      <TransactionActive transactions={transactions.active} apartments={apartments} users={users}/>
+      <TransactionPending transactions={transactions.pending} />
+      <TransactionActive transactions={transactions.active}/>
     </div>
   );
 }
