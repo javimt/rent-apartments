@@ -32,7 +32,7 @@ module.exports = {
     const { apartmentId, userId, startDate, endDate } = req.body
     try {
       //validations parametros
-      if(!apartmentId || !startDate || !endDate){
+      if(!userId || !apartmentId || !startDate || !endDate){
         rejectSender(`faltan parametros recuerda que los parametros requeridos son -> apartmentId:${apartmentId}, userId:${userId}, startDate:${startDate}, endDate:${endDate}`, HttpStatusCodes.badRequest)
       }
       //requerir entidades
@@ -47,9 +47,14 @@ module.exports = {
       if(!apartment.availability){
         rejectSender('el apartamento que se intenta rentar no se encuentra disponible.', HttpStatusCodes.noAutorizado)
       }
-
+      //validar que la fecha inicial sea mayor a la final
+      if (endDate < startDate) {
+        rejectSender("la fecha final no puede ser menor a la de inicio", HttpStatusCodes.conflictivo);
+      }
       //creacion de renta
-      const rent = await Rent.create(req.body)
+      const rent = await Rent.create(req.body);
+      await user.addRent(rent);
+      await apartment.addRent(rent);
       //validar Renta 
       if(!rent){
         rejectSender('no se pudo crear la renta.', HttpStatusCodes.conflictivo)
@@ -68,8 +73,9 @@ module.exports = {
       if (!rent) {
         rejectSender("Rent not found", HttpStatusCodes.noEncontrado);
       }
-      if (startDate > endDate) {
-        rejectSender("la fecha de inicio no puede ser mayor a la de finalizacion", HttpStatusCodes.conflictivo);
+      //validar que la fecha inicial sea mayor a la final
+      if (endDate < startDate) {
+        rejectSender("la fecha final no puede ser menor a la de inicio", HttpStatusCodes.conflictivo);
       }
       if (status === 'active' && rent.status !== 'active') { // q el status d la solicitud sea "active" y q el status actual no sea "active"
         const apartment = await Apartment.findByPk(rent.apartmentId);
@@ -77,13 +83,12 @@ module.exports = {
           rejectSender("Apartment not found", HttpStatusCodes.noEncontrado);
           return;
         }
-  
         if (!apartment.availability) {
           rejectSender('el apartamento no está disponible', HttpStatusCodes.noAutorizado);
           return;
         }
-  
         apartment.availability = false;
+        rent.status = "active";
         await apartment.save();
       }
       const updatedRent = await rent.update({ startDate, endDate, status });

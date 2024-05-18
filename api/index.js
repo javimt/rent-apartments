@@ -10,7 +10,7 @@ const { captureRes } = require("./src/helpers/midlewareRes");
 
 const port = process.env.PORT || 3000
 
-cron.schedule("0 12 * * *", () => {
+cron.schedule("08 13 * * *", () => {
   console.log("Verifying expired rentals...");
   checkExpiredRents();
 });
