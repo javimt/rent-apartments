@@ -12,7 +12,7 @@ const url =
 function Form({ apartmentId }) {
 
   const { controledUser, isAuthenticated, role } = useAuth0GetData()
-  const { handleInput, input, errors, link, submitWap, setId, userRent } = useInputQuery(apartmentId)
+  const { handleInput, input, errors, link, submitWap, setId } = useInputQuery(apartmentId)
   const  {generateRent, setInputRent} = useGenerateRent(input, errors)
 
   useEffect(()=>{
@@ -97,7 +97,7 @@ function Form({ apartmentId }) {
             <button onClick={submitWap} className="bg-secondary py-2 px-3 hover:black text-white rounded-xl mt-2">
               Query
             </button>
-            <button onClick={userRent} className="bg-black py-2 px-3 hover:black text-white rounded-xl mt-2">
+            <button onClick={generateRent} className="bg-black py-2 px-3 hover:black text-white rounded-xl mt-2">
               Rent
             </button>
           </div>
