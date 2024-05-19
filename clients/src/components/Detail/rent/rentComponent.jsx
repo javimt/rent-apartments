@@ -44,10 +44,6 @@ function RentComponent({ apartmentId, handleInput, input }) {
             className="w-full p-2 rounded border text-xs border-gray-300 focus:outline-none focus:border-blue-500"
           />
         </div>
-      {/* {error && <div className="text-red-500">{error}</div>}
-      <div className="border p-1 text-white bg-black text-sm rounded-md hover:border-blue-500">
-        <button onClick={handleGenerateRent}>Generate Rent</button>
-      </div> */}
     </div>
   );
 }

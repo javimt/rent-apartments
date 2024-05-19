@@ -4,9 +4,7 @@ import useWhatsapp from "./whatsappTemplate";
 
 function useInputQuery() {
   const {controledUser} = useAuth0GetData()
-  const [errors, setError] = useState({
-    blocked: true,
-  });
+  const [errors, setError] = useState({blocked: true,});
   const [input, setInput] = useState({
     name: "",
     email: "",
@@ -15,6 +13,13 @@ function useInputQuery() {
     endDate: "",
     id: "",
   });
+  const [inputRent, setInputRent] = useState({
+    startDate: "",
+    endDate: "",
+    id: "",
+  });
+
+
   function setId(id) {
     setInput({ ...input, id: id });
   }
@@ -37,6 +42,18 @@ function useInputQuery() {
     setError(error);
   }
 
+  function validateRent(inputRent) {
+    const error = {
+      blocked: false,
+    };
+    function handleError(errorName, message) {
+      error[errorName] = { message };
+    }
+    if (!inputRent.startDate) handleError("startDate", "expected a start date");
+    if (!inputRent.endDate) handleError("endDate", "expected a end date");
+    setError(error);
+  }
+
   useEffect(() => {
     setInput({
       ...input,
@@ -48,6 +65,11 @@ function useInputQuery() {
   function handleInput(e) {
     const event = e.target;
     validate({
+      ...input,
+      [event.name]: event.value,
+    });
+
+    validateRent({
       ...input,
       [event.name]: event.value,
     });
@@ -70,6 +92,15 @@ function useInputQuery() {
     }
   }
 
+  function userRent() {
+    if (Object.keys(errors).length == 1 && !errors.blocked) {
+      alert("You will be redirected to WhatsApp.");
+      window.location.href = link;
+    } else {
+      alert("Please fill out all required fields before generate rent");
+    }
+  }
+
   return {
     input,
     handleInput,
@@ -77,6 +108,7 @@ function useInputQuery() {
     link,
     submitWap,
     setId,
+    userRent
   };
 }
 
