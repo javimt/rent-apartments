@@ -68,7 +68,7 @@ function Property({ apartment }) {
             </h2>
             <div className="flex items-center px-2 py-1 rounded-lg bg-secondary top-2 right-2 text-white">
               <LiaStarSolid />
-              <span>{rating && rating.media}</span>
+              <span>5</span>
             </div>
           </div>
 
