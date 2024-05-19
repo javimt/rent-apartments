@@ -2,6 +2,7 @@ import useGetApartments from "../../hooks/custom/GetApartments";
 import Transition from "../complements/transition";
 import { Link } from "react-router-dom";
 import {
+  LiaStarSolid,
   LiaCommentsDollarSolid,
   LiaBedSolid,
   LiaBathSolid,
@@ -55,10 +56,14 @@ function Properties(rating) {
                     <div className="relative ">
                       <div className="relative">
                         <div className="absolute text-secondary flex items-center px-2 rounded-lg bg-slate-50 top-2 right-2">
-                          <Rating apartmentId={id} initialRating={rating} className="text-yellow-400" />
+                        <LiaStarSolid className="text-yellow-400" />
+                        <span className=" text-sm ml-1 font-semibold py-1">
+                          5
+                        </span>
+                          {/* <Rating apartmentId={id} initialRating={rating} className="text-yellow-400" />
                           <span className=" text-sm ml-1 font-semibold py-1">
                             {rating && rating.media}
-                          </span>
+                          </span> */}
                         </div>
                         <img
                           src={images && images[0]}

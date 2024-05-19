@@ -4,9 +4,7 @@ import useWhatsapp from "./whatsappTemplate";
 
 function useInputQuery() {
   const {controledUser} = useAuth0GetData()
-  const [errors, setError] = useState({
-    blocked: true,
-  });
+  const [errors, setError] = useState({blocked: true,});
   const [input, setInput] = useState({
     name: "",
     email: "",
