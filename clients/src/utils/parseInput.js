@@ -1,16 +1,18 @@
-
-
-export function parseInput(input){
-    const newInput = {...input, price: +input.price, bedrooms: +input.bedrooms, bathrooms: +input.bathrooms, size: +input.size, rating:{
-        "valorations": [
-          3
-        ],
-        "media": 3
-      }, CityId: input.CityId}
-    return newInput
+export function parseInput(input) {
+  const newInput = {
+    ...input,
+    price: +input.price,
+    bedrooms: +input.bedrooms,
+    bathrooms: +input.bathrooms,
+    size: +input.size,
+    rating: {
+      valorations: [5],
+      media: 5,
+    },
+    CityId: input.CityId,
+  };
+  return newInput;
 }
-
-
 
 // images: [],
 //         price: 0,
