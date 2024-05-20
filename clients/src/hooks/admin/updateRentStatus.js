@@ -1,8 +1,10 @@
 import { useState } from "react";
+import useAdminTransaction from "./adminTransacion";
 
 function useUpdateRentStatus(reloadTransactions) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const {getTransactions} = useAdminTransaction()
 
   const updateRentStatus = async (rentId, status) => {
     setLoading(true);

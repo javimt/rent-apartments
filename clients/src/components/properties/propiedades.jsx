@@ -12,6 +12,8 @@ import { parseToColombianMoney } from "../../utils/parseMoney";
 import useCounterHouses from "../../redux/actions/counterHauses";
 import Rating from "./Rating";
 import { MdApartment } from "react-icons/md";
+import { PiBuildingApartmentFill } from "react-icons/pi";
+
 
 function Properties(rating) {
   const { apartments, length } = useGetApartments();
@@ -122,9 +124,11 @@ function Properties(rating) {
         <div className="text-center my-7 rounded-3xl">
           <button
             onClick={handleCounter}
-            className="mx-auto block xl:mt-20 mt-5 text-xl  bg-secondary rounded-xl px-5 py-5 font-quicksand  text-white hover:bg-black"
+            className="mx-auto flex items-center justify-center gap-2 xl:mt-20 mt-5 text-xl  bg-secondary rounded-xl px-3 py-3 font-quicksand  text-white hover:bg-black"
           >
             See more
+            <PiBuildingApartmentFill className="text-[30px]"/>
+
           </button>
         </div>
       )}

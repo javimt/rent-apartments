@@ -22,7 +22,7 @@ function ListUserSection() {
   },[])
 
   return (
-    <dir className="grid h-full xl:h-[70%] md:grid-cols-1 xl:grid-cols-2 gap-2 p-0  ">
+    <dir className="grid h-full xl:grid-cols-[2fr,1fr] md:grid-cols-1  gap-2 p-0  ">
       <UserList users={users} findUser={findUser} />
       {user.email ? <UserRenderSection user={user} /> : <NonUserPreview />}
     </dir>

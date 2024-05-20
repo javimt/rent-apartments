@@ -5,15 +5,16 @@ import { RiMenuFoldFill } from "react-icons/ri";
 import { useAuth0 } from "@auth0/auth0-react";
 import LoginPanel from "./loginPanel/loginPanel";
 import useOpenClose from "../../hooks/custom/OpenCloseMenu";
+import useGetApartments from "../../hooks/custom/GetApartments";
 
 function Header({main = true}) {
   const { openStatus, toogleOpen } = useOpenClose();
   const { isAuthenticated, user } = useAuth0();
-
+  const {resetApartmentsList} = useGetApartments()
   return (
     <div className="container min-w-[400px] xl:px-0 px-5 mx-auto realtive z-[100]  font-quicksand">
       <div className="flex justify-between items-center px-5 md:px-0 text-sm">
-        <Link to={"/"} className="flex justify-center items-center relative z-[110]">
+        <Link to={"/"} onClick={resetApartmentsList} className="flex justify-center items-center relative z-[110]">
           <img
             src={image}
             alt="furnished apartments medellin"
