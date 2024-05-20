@@ -6,21 +6,15 @@ import TransitionActive from "./transactonActive";
 import useAdminGetUser from "../../../hooks/admin/adminUserDetail";
 import useAdminApartments from "../../../hooks/admin/adminApartments";
 
-
-
 function AdministrateSection() {
-
-  
-  
-  const {getTransactions,transactions } = useAdminTransaction()
- 
+  const {getTransactions, transactions } = useAdminTransaction()
   
   useEffect(()=>{getTransactions()},[])
 
   return (
     <div className="grid md:grid-cols-1 xl:grid-cols-2   "> 
-      <TransactionPending transactions={transactions.pending} />
-      <TransactionActive transactions={transactions.active}/>
+      <TransactionPending transactions={transactions.pending} reloadTransactions={getTransactions}/>
+      <TransactionActive transactions={transactions.active} reloadTransactions={getTransactions}/>
     </div>
   );
 }

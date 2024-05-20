@@ -25,7 +25,7 @@ function useAdeminApartDetail() {
 
   function updateApartment(input, id) {
     const parsedInput = parseInput(input);
-    console.log(parsedInput);
+  console.log(parsedInput);
     fetch(`https://api-rent-appartament.up.railway.app/apartment/${id}`, {
       method: "PUT",
       headers: {

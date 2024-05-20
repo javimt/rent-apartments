@@ -48,7 +48,7 @@ module.exports = {
         rejectSender('el apartamento que se intenta rentar no se encuentra disponible.', HttpStatusCodes.noAutorizado)
       }
       //validar que la fecha inicial sea mayor a la final
-      if (endDate < startDate) {
+      if (endDate && startDate && endDate < startDate) {
         rejectSender("la fecha final no puede ser menor a la de inicio", HttpStatusCodes.conflictivo);
       }
       //creacion de renta
@@ -74,7 +74,7 @@ module.exports = {
         rejectSender("Rent not found", HttpStatusCodes.noEncontrado);
       }
       //validar que la fecha inicial sea mayor a la final
-      if (endDate < startDate) {
+      if (endDate && startDate && endDate < startDate) {
         rejectSender("la fecha final no puede ser menor a la de inicio", HttpStatusCodes.conflictivo);
       }
       if (status === 'active' && rent.status !== 'active') { // q el status d la solicitud sea "active" y q el status actual no sea "active"
