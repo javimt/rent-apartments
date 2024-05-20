@@ -8,12 +8,12 @@ function TransactionActive({ transactions, reloadTransactions }) {
       <div>
         <p className="text-gray-400 text-center">Actives Rents</p>
       </div>
-      <dir className="pt-5 w-full p-0">
+      <div className="pt-5 w-full p-0">
         {transactions &&
           transactions.map((tr) => {
             return <TransactionCard key={tr.id} transaction={tr} reloadTransactions={reloadTransactions} />;
           })}
-      </dir>
+      </div>
     </Transition>
   );
 }
