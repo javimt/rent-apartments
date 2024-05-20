@@ -8,12 +8,13 @@ function TransactionPending({ transactions, reloadTransactions }) {
       <div>
         <p className="text-gray-400 text-center">Rents to Confirm</p>
       </div>
-      <dir className="pt-5 flex w-full p-0 flex-col gap-2">
+      <div className="pt-5 flex w-full p-0 flex-col gap-2">
         {transactions &&
           transactions.map((tr) => {
             return <TransactionCard key={tr.id} transaction={tr} reloadTransactions={reloadTransactions}/>;
-          })}
-      </dir>
+          })
+        }
+      </div>
     </Transition>
   );
 }

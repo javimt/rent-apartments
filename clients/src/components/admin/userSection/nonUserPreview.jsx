@@ -8,7 +8,7 @@ function NonUserPreview() {
              <div>
              <p className="text-gray-400 font-semibold text-center pt-2 pb-4">Preview User</p>
             </div>
-            <img src={url} className="size-[50%]"  alt="" />
+            <img src={url} className="size-[200px]"  alt="" />
         </div>
      );
 }

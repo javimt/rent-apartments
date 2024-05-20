@@ -67,7 +67,7 @@ module.exports = {
 
   updateRent: async (req, res, next) => {
     const { id } = req.params;
-    const { startDate, endDate, status } = req.body;
+    const { startDate, endDate, status } = req.body;   // 12/05 14/06 , active
     try {
       const rent = await Rent.findByPk(id);
       if (!rent) {
@@ -88,8 +88,6 @@ module.exports = {
           return;
         }
         apartment.availability = false;
-        rent.status = "active";
-        await apartment.save();
       }
       const updatedRent = await rent.update({ startDate, endDate, status });
       resSender(null, HttpStatusCodes.actualizado, updatedRent);
