@@ -11,13 +11,7 @@ function LogedMenu({ toogleOpen, openStatus }) {
       onClick={toogleOpen}
       className="relative flex items-center text-gray-400 text-[13px] py-3 px-3 rounded-full shadow-xl focus:outline-none cursor-pointer border "
     >
-      {/* <p className="flex flex-col text-center p-2">
-        <div className="flex justify-center items-center gap-1">
-          <span>Hi</span>
-          <FaRegFaceSmileBeam />
-        </div>
-        <span className="ml-1">{user.nickname}</span>
-      </p> */}
+     
       <img
         width={40}
         src={user.picture}
