@@ -26,7 +26,7 @@ function LoginPanel() {
 
   return (
     <div className="relative">
-      <div className="flex justify-between items-center px-5 md:px-0 text-sm">
+      <div className="flex md:px-0 text-sm">
         {isAuthenticated ? (
           <LogedMenu toogleOpen={toogleOpen} openStatus={openStatus} />
         ) : (

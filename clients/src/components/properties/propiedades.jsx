@@ -97,7 +97,7 @@ function Properties(rating) {
                                 <span className="ml-2 text-xs">{size}</span>
                               </div>
                               <div className="flex items-center justify-center px-2 my-2 py-1 rounded-lg bg-black">
-                                <span className="text-xs font-bold text-white">{status}</span>
+                                <span className="text-xs font-bold text-white">{status.includes('sale') ? 'Buy' : status}</span>
                               </div>
                               <div className="absolute top-0 left-[10px]">
                                 {availability === true ? (

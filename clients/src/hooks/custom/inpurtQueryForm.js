@@ -65,6 +65,7 @@ function useInputQuery() {
       window.location.href = link;
     } else {
       alert("Please fill out all required fields before submitting your query");
+      validate()
     }
   }
 
@@ -75,6 +76,7 @@ function useInputQuery() {
     link,
     submitWap,
     setId,
+    validate
   };
 }
 
