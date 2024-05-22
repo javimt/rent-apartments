@@ -12,7 +12,7 @@ import { parseToColombianMoney } from "../../utils/parseMoney";
 import useCounterHouses from "../../redux/actions/counterHauses";
 import Rating from "./Rating";
 import { MdApartment } from "react-icons/md";
-import { PiBuildingApartmentFill } from "react-icons/pi";
+import { PiBuildingApartmentFill, PiBuildingApartment } from "react-icons/pi";
 
 
 function Properties(rating) {
@@ -34,6 +34,7 @@ function Properties(rating) {
                 bathrooms,
                 bedrooms,
                 description,
+                urbanizacion,
                 id,
                 images,
                 lat,
@@ -58,10 +59,10 @@ function Properties(rating) {
                     <div className="relative ">
                       <div className="relative">
                         <div className="absolute text-secondary flex items-center px-2 rounded-lg bg-slate-50 top-2 right-2">
-                        <LiaStarSolid className="text-yellow-400" />
-                        <span className=" text-sm ml-1 font-semibold py-1">
-                          5
-                        </span>
+                          <LiaStarSolid className="text-yellow-400" />
+                          <span className=" text-sm ml-1 font-semibold py-1">
+                            5
+                          </span>
                           {/* <Rating apartmentId={id} initialRating={rating} className="text-yellow-400" />
                           <span className=" text-sm ml-1 font-semibold py-1">
                             {rating && rating.media}
@@ -75,11 +76,15 @@ function Properties(rating) {
                         <div className="px-3 py-5">
                           <p className="text-secondary">{ubication}</p>
                           <div className="">
-                            <div className="flex">
-                              <LiaCommentsDollarSolid className="mr-2 text-green-800" />
+                            <div className="flex gap-2">
+                              <span className="text-[15px] block font-semibold mb-2">{urbanizacion}</span>
+                              <PiBuildingApartment/>
+                            </div>
+                            <div className="flex gap-2">
                               <p className=" font-bold">
                                 {parseToColombianMoney(price)}
                               </p>
+                              <LiaCommentsDollarSolid className="mr-2 text-green-800" />
                             </div>
                             <div className="gap-1 md:gap-4 xl:gap-2 mt-2 flex flex-wrap flex-col md:flex-row">
                               <div className="flex items-center justify-center px-2 my-2 py-1 rounded-lg bg-slate-300/30">
@@ -127,7 +132,7 @@ function Properties(rating) {
             className="mx-auto flex items-center justify-center gap-2 xl:mt-20 mt-5 text-xl  bg-secondary rounded-xl px-3 py-3 font-quicksand  text-white hover:bg-black"
           >
             See more
-            <PiBuildingApartmentFill className="text-[30px]"/>
+            <PiBuildingApartmentFill className="text-[30px]" />
 
           </button>
         </div>

@@ -30,13 +30,19 @@ function useAdminTransaction() {
             .catch(error => console.error(error))
     }
 
+
+    function okStatus(){
+        getTransactions()
+        alert('deleted rent')
+    }
+
     function deleteTransaction(id){
         fetch(`https://api-rent-appartament.up.railway.app/rent/${id}`,{
             method:'DELETE'
         })
-        .then(response => {response.status < 300 ? alert('deleted Rent') : alert('cant delete the rent')})
+        .then(response => {response.status < 300 ?  okStatus() : alert('cant delete the rent')})
         .catch(error => console.error(error))
-        .finally(getTransactions())
+        
         
     }
     return {
