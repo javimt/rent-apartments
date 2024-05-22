@@ -1,5 +1,6 @@
 import Transition from "../complements/transition";
 import { useState } from "react";
+import { FaFacebookMessenger } from "react-icons/fa";
 
 function About() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -37,10 +38,11 @@ function About() {
             we strive to exceed expectations with every stay.
           </p>
         </div>
-        <div>
-          <button className="mx-auto block xl:mt-8 xl:mb-0  my-5 text-xl  bg-secondary rounded-xl px-5 py-5 font-quicksand  text-white hover:bg-black">
+        <div className="flex justify-center items-center gap-2  mx-auto  xl:mt-8 xl:mb-0  my-5 text-xl  bg-secondary rounded-xl px-3 py-3 font-quicksand  text-white hover:bg-black hover:text-green-500 transition-all delay-200 cursor-pointer">
+          <span className="text-white">
             Contact
-          </button>
+          </span>
+          <FaFacebookMessenger/>
         </div>
       </div>
       <div>

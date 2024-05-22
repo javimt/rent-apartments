@@ -12,13 +12,13 @@ function Header({main = true}) {
   const { isAuthenticated, user } = useAuth0();
   const {resetApartmentsList} = useGetApartments()
   return (
-    <div className="container min-w-[400px] xl:px-0 px-5 mx-auto realtive z-[100]  font-quicksand">
+    <div className="container min-w-[400px] xl:px-5 2xl-px-0  mx-auto realtive z-[100]  font-quicksand">
       <div className="flex justify-between items-center px-5 md:px-0 text-sm">
         <Link to={"/"} onClick={resetApartmentsList} className="flex justify-center items-center relative z-[110]">
           <img
             src={image}
             alt="furnished apartments medellin"
-            className="w-20 py-1 flex justify-center items-center rounded-full"
+            className="w-20 py-2  flex justify-center items-center rounded-full"
           />
         </Link>
         <RiMenuFoldFill

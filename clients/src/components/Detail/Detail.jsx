@@ -7,11 +7,12 @@ import Header from "../header/header";
 import Property from "./property";
 import Error404 from "./error404";
 import Footer from "../footer/footer";
+import { scrollTop } from "../../utils/scrollTop";
 
 function CardDetail() {
   const { id } = useParams();
   const { apartment } = useGetAnApartment(id);
-  
+  scrollTop()
   return (
     <>
       <TransitionPage />

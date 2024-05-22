@@ -3,7 +3,7 @@ import { FaRegPaperPlane } from "react-icons/fa";
 
 function Complementary() {
   return (
-    <Transition className="grid items-center  min-w-[400px] px-4 py-8 md:py-16 md:px-10 md:gap-3 md:grid-cols-2 xl:px-48 bg-secondary font-quicksand">
+    <Transition className="grid items-center  min-w-[400px] px-4 py-8 md:py-48 md:px-10 md:gap-3 md:grid-cols-2 xl:px-48 bg-secondary font-quicksand">
       <h3 className="max-w-3xl text-4xl text-c font font-semibold text-white">
         Do you want to rent or sell your property?
       </h3>

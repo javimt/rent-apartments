@@ -13,11 +13,11 @@ import useInputQuery from "../../hooks/custom/inpurtQueryForm";
 function Property({ apartment }) {
   const [imagePos, setImagePos] = useState(0);
   const { getOneCity } = useGetAllCities();
-  const {handleInput} = useInputQuery()
+  const { handleInput } = useInputQuery()
 
   function handleImagePos(e) {
     if (e.target.name == "next") {
-      
+
       if (apartment.data.images.length > imagePos + 1) {
         setImagePos((prev) => prev + 1);
       }
@@ -38,11 +38,12 @@ function Property({ apartment }) {
     size,
     description,
     CityId,
+    availability
   } = apartment.data;
-  
+
   return (
     <main className="max-w-5xl mx-auto font-quicksand">
-      <div className=" grid md:grid-cols-[70%,1fr] my-3 py-5">
+      <div className=" grid md:grid-cols-[65%,1fr] 2xl:grid-cols-[70%,1fr] my-3 py-5">
         <div className="px-6">
           <h1 className="text-2xl mb-1 text-secondary flex justify-between">
             <span className="text-3xl">{urbanizacion}</span>
@@ -51,7 +52,7 @@ function Property({ apartment }) {
                 {parseToColombianMoney(price)}
               </span>
               <p className="text-sm mt-2">
-              imagen: {  images ? <span>{imagePos + 1 + " - " +  images.length}</span> : 'no images'}
+                imagen: {images ? <span>{imagePos + 1 + " - " + images.length}</span> : 'no images'}
               </p>
             </div>
           </h1>
@@ -71,9 +72,9 @@ function Property({ apartment }) {
               <span>5</span>
             </div>
           </div>
-
+          {/* imagen */}
           <div
-            style={{ backgroundImage: `url(${images ? images[imagePos]: ''})` }}
+            style={{ backgroundImage: `url(${images ? images[imagePos] : ''})` }}
             className="relative w-full h-[500px] rounded-xl bg-cover bg-center object-fill"
           >
             <button
@@ -90,6 +91,9 @@ function Property({ apartment }) {
             >
               {">"}
             </button>
+            <div>
+              {availability ? <span className="p-2 absolute rounded-lg top-[10px] left-[10px] bg-green-500 text-white">available</span>: <span className="p-2 absolute rounded-lg font-semibold  top-[10px] left-[10px] bg-yellow-400">not Available</span>}
+            </div>
           </div>
           <div className="gap-4 lg:flex mt-4">
             <div className="flex items-center justify-center mt-2 md:mt-0 px-2 py-1 rounded-lg bg-slate-300">
@@ -134,8 +138,8 @@ function Property({ apartment }) {
             </div>
           </div>
         </div>
-        <Form apartmentId={id} />
-       
+        <Form apartmentId={id} availability={availability} />
+
       </div>
     </main>
   );
