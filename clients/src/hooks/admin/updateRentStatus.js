@@ -4,7 +4,6 @@ import useAdminTransaction from "./adminTransacion";
 function useUpdateRentStatus(reloadTransactions) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const {getTransactions} = useAdminTransaction()
 
   const updateRentStatus = async (rentId, status) => {
     setLoading(true);
@@ -34,10 +33,21 @@ function useUpdateRentStatus(reloadTransactions) {
     }
   };
 
+  function deleteTransaction(id){
+    fetch(`https://api-rent-appartament.up.railway.app/rent/${id}`,{
+        method:'DELETE'
+    })
+    .then(response => {response.status < 300 ? alert('deleted Rent') : alert('cant delete the rent')})
+    .catch(error => console.error(error))
+    
+}
+  
+
   return { 
     updateRentStatus, 
     loading,
-    error 
+    error,
+    deleteTransaction 
   };
 };
 

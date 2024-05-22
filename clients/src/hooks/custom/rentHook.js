@@ -25,8 +25,7 @@ function useGenerateRent(input, errors, validate) {
       startDate: input.startDate,
       endDate: input.endDate
     }
-    if (Object.keys(errors).length == 1 && !errors.blocked) {
-
+    if (!errors.endDate && !errors.startDate && errors.blocked == false) {
       fetch("https://api-rent-appartament.up.railway.app/rent", {
         method: "POST",
         headers: {

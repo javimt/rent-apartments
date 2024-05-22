@@ -3,8 +3,9 @@ import { GrStatusGood } from "react-icons/gr";
 import { MdCloudDone, MdDeleteForever } from "react-icons/md";
 import useUpdateRentStatus from "../../../hooks/admin/updateRentStatus";
 
-function TransactionCard({ transaction, reloadTransactions  }) {
-  const { status, User, Apartment } = transaction;
+function TransactionCard({deleteTransaction, transaction, reloadTransactions,  }) {
+  const { status, User, Apartment, id } = transaction;
+  
 
   return (
     <div className="flex justify-between w-[500] items-center border p-2 rounded gap-2 font-quicksand md:px-5">
@@ -39,14 +40,14 @@ function TransactionCard({ transaction, reloadTransactions  }) {
         />
         <span className="text-xs text-center text-gray-400">{Apartment.urbanizacion}</span>
       </div>
-      <PendingPanel rentId={transaction.id} reloadTransactions={reloadTransactions}/>
+     {status.includes('pending') && <PendingPanel rentId={transaction.id} transactionId={id} deleteTransaction={deleteTransaction} reloadTransactions={reloadTransactions}/>}
     </div>
   );
 }
 
 export default TransactionCard;
 
-function PendingPanel({rentId, reloadTransactions }) {
+function PendingPanel({rentId, reloadTransactions, deleteTransaction, transactionId }) {
   const { updateRentStatus, loading, error } = useUpdateRentStatus(reloadTransactions);
 
   const handleUpdate = () => {
@@ -67,7 +68,7 @@ function PendingPanel({rentId, reloadTransactions }) {
           <MdCloudDone className="text-[30px] text-black hover:text-green-500 transition-all delay-200 cursor-pointer hover:scale-125" />
         }
       </button>
-      <button>
+      <button onClick={()=> {deleteTransaction(transactionId)}}>
         {
           <MdDeleteForever className="text-[30px] text-black hover:text-red-500 transition-all delay-200 cursor-pointer hover:scale-125" />
         }
@@ -76,3 +77,5 @@ function PendingPanel({rentId, reloadTransactions }) {
     </div>
   );
 }
+
+

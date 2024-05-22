@@ -10,19 +10,23 @@ function useGetAnApartment(id) {
     setApartment(getAnAppatment(id));
   }
 
-  useEffect(()=>{
-    setTimeout(()=>{
+  useEffect(() => {
+    setTimeout(() => {
       dispatch(getAllRentApartments())
-    },400)
+    }, 400)
   }, [])
 
-  useEffect(() => {
-    getAnAppatment(id).then((response) => setApartment(response));
-  }, []);
+  function getApartment() {
+    fetch(`https://api-rent-appartament.up.railway.app/apartment/${id}`)
+    .then(response => response.json())
+    .then(response => setApartment(response))
+    .catch(error => console.error(error))
+  }
 
   return {
     apartment,
     research,
+    getApartment
   };
 }
 

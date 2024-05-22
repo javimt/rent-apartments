@@ -84,7 +84,7 @@ function NavBar({ openStatus, main = true }) {
                      offset={offSet} // Usar offset negativo cuando scrolling es true, de lo contrario, usar 0
                      duration={1000}
                      onSetActive={handleSetActive}
-                     className="block border-b-[1px] border-white hover:text-secondary hover:border-b-[1px] hover:border-b-secondary md:mb-0 mb-4 cursor-pointer"
+                     className="block border-b-[1px] p-1 bg-cover border-white font-bold hover:bg-[url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXoxq8E9MtXI2V61bu-3OmRTjv-USkAyIO8w&s')] rounded-lg  hover:text-white hover:border-b-[1px]  md:mb-0 mb-4 cursor-pointer"
                    >
                      {name}
                    </Link>
