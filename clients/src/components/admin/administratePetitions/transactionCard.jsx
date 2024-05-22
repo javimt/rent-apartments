@@ -5,7 +5,6 @@ import useUpdateRentStatus from "../../../hooks/admin/updateRentStatus";
 
 function TransactionCard({deleteTransaction, transaction, reloadTransactions,  }) {
   const { status, User, Apartment, id } = transaction;
-  // console.log("🚀 ~ TransactionCard ~ id:", id)
   
 
   return (
@@ -49,7 +48,6 @@ function TransactionCard({deleteTransaction, transaction, reloadTransactions,  }
 export default TransactionCard;
 
 function PendingPanel({rentId, reloadTransactions, deleteTransaction, transactionId }) {
-  console.log("🚀 ~ PendingPanel ~ deleteTransaction:", deleteTransaction)
   const { updateRentStatus, loading, error } = useUpdateRentStatus(reloadTransactions);
 
   const handleUpdate = () => {

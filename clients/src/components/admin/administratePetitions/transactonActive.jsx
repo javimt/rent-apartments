@@ -2,8 +2,6 @@ import Transition from "../../complements/transition";
 import TransactionCard from "./transactionCard";
 
 function TransactionActive({ transactions, reloadTransactions, deleteTransaction }) {
-console.log("🚀 ~ TransactionActive ~ deleteTransaction:", deleteTransaction)
-
   return (
     <Transition className="overflow-y-scroll flex flex-col items-center h-full shadow-2xl rounded-lg xl:mx-auto p-1 font-quicksand relative ">
       <div>
