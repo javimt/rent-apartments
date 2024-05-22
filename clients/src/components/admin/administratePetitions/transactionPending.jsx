@@ -1,7 +1,7 @@
 import Transition from "../../complements/transition";
 import TransactionCard from "./transactionCard";
 
-function TransactionPending({ transactions, reloadTransactions }) {
+function TransactionPending({ transactions, reloadTransactions ,deleteTransaction}) {
 
   return (
     <Transition className="overflow-y-scroll flex flex-col items-center h-[70vh] shadow-2xl rounded-lg xl:mx-auto p-1 font-quicksand relative ">
@@ -11,7 +11,7 @@ function TransactionPending({ transactions, reloadTransactions }) {
       <div className="pt-5 flex w-full p-0 flex-col gap-2">
         {transactions &&
           transactions.map((tr) => {
-            return <TransactionCard key={tr.id} transaction={tr} reloadTransactions={reloadTransactions}/>;
+            return <TransactionCard key={tr.id} transaction={tr} reloadTransactions={reloadTransactions} deleteTransaction={deleteTransaction}/>;
           })
         }
       </div>
