@@ -11,8 +11,12 @@ import { scrollTop } from "../../utils/scrollTop";
 
 function CardDetail() {
   const { id } = useParams();
-  const { apartment } = useGetAnApartment(id);
-  scrollTop()
+  const { apartment, getApartment } = useGetAnApartment(id);
+  
+  useState(()=>{
+    scrollTop()
+    getApartment()
+  },[])
   return (
     <>
       <TransitionPage />

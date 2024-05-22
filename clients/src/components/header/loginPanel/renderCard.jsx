@@ -22,7 +22,7 @@ function RenderCard() {
     const user = useSelector(state => state.user.user)
     const navigate = useNavigate()
     let template = ''
-    template += `hola 👋 necesito informacion %0A${controledUser.email}%0Aconsulta: %0A`
+    template += `hola 👋 necesito informacion %0A${controledUser.email}%0Aconsulta: %0A>`
     const options = [
         {title:'Log out', icon:<TbLogout/>, status:'user', cb:logout},
         {title:'Contact us', icon:<ImWhatsapp/>, status:'user', cb :()=> redirectTo(`https://api.whatsapp.com/send?phone=+573024470241&text=${template}`)},
