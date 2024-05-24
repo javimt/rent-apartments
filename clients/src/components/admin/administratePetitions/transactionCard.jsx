@@ -30,7 +30,7 @@ function TransactionCard({deleteTransaction, transaction, reloadTransactions,  }
           src={User.email && User.image}
           alt=""
         />
-        <span className="text-xs text-center text-gray-400">{User.name}</span>
+        <span className="text-xs text-center text-gray-400">{User.email}</span>
       </div>
       <div className="flex flex-col items-center justify-center">
         <img
