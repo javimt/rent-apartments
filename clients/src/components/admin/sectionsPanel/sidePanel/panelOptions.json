@@ -25,7 +25,7 @@
     },
     {
         "id": 4,
-        "name": "Change apart status",
+        "name": "Set apart status",
         "value": "CHANGE_APARTMENT_STATUS",
         "description": "change the apartment status",
         "icon":"FaBuildingUser"
