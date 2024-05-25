@@ -1,5 +1,7 @@
-function NonApartment() {
+import useUpdateRentStatus from "../../../hooks/admin/updateRentStatus";
+import { useState } from "react";
 
+function NonApartment() {
   return (
     <div className="flex  h-full justify-around items-center  mx-2 font-quicksand">
       <img
@@ -16,7 +18,28 @@ function NonApartment() {
   );
 }
 
-function ApartCard({ apartment }) {
+function ApartCard({ apartment, rentId, onRentSelect }) {
+  console.log("🚀 ~ ApartCard ~ rentId:", rentId)
+  const { updateRentStatus, loading, error } = useUpdateRentStatus();
+
+  const handleCancelRent = () => {  // 808c4b91-c3b1-4a51-ab62-124a46881c9d
+    if (rentId) {
+      updateRentStatus(rentId, "cancelled")
+        .then(() => {
+          alert("Rent status updated to cancelled successfully");
+        })
+        .catch((error) => {
+          console.error(error);
+          alert("Failed to update rent status");
+        });
+    } else {
+      alert("No rent ID provided");
+    }
+  };
+
+  const handleRentSelect = () => {
+    onRentSelect(rentId);
+  };
 
   return (
     <>
@@ -36,8 +59,11 @@ function ApartCard({ apartment }) {
               ? apartment.urbanizacion
               : "inrese id para obtener apartamento"}
           </span>
-          <button className="bg-yellow-500 p-1 rounded hover:bg-black hover:text-white cursor-pointer transition-all delay-200 ">
-            chanage availability
+          <button
+            onClick={handleCancelRent}
+            className="bg-yellow-500 p-1 rounded hover:bg-black hover:text-white cursor-pointer transition-all delay-200"
+          >
+            cancelar renta
           </button>
           {apartment && (
             <div className="absolute top-[-20px] left-0">
@@ -56,6 +82,8 @@ function ApartCard({ apartment }) {
       ) : (
         <NonApartment />
       )}
+      {loading && <p>Loading...</p>}
+      {error && <p>Error: {error}</p>}
     </>
   );
 }

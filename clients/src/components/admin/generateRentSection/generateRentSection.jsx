@@ -7,7 +7,7 @@ function GenerateRentSection() {
   const reference = useRef(null);
 
   return (
-    <dir className="flex justify-center flex-col items-center shadow-xl h-[70%] p-0  font-quicksand">
+    <div className="flex justify-center flex-col items-center shadow-xl h-[70%] p-0  font-quicksand">
       <div className="flex  gap-2 w-full justify-center">
         <input
           ref={reference}
@@ -29,7 +29,7 @@ function GenerateRentSection() {
               <img
                 className="size-[300px]"
                 src="https://i.pinimg.com/originals/f9/6f/bf/f96fbf44a4cc955f01be77edf67f8b57.jpg"
-                alt=""
+                alt="alquiler, amoblados, furnished, apartments, medellin"
               />
             </div>
             <div className="flex justify-center">
@@ -40,7 +40,7 @@ function GenerateRentSection() {
           </div>
         }
       </div>
-    </dir>
+    </div>
   );
 }
 
