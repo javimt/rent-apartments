@@ -90,6 +90,12 @@ module.exports = {
         }
         apartment.availability = false
         apartment.save()
+      } else if (status === 'cancelled' && rent.status === 'active') {
+        const apartment = await Apartment.findByPk(rent.apartmentId);
+        if (apartment) {
+          apartment.availability = true;
+          await apartment.save();
+        }
       }
       const updatedRent = await rent.update({ startDate, endDate, status });
       resSender(null, HttpStatusCodes.actualizado, updatedRent);
