@@ -1,5 +1,5 @@
 const { User, Rent, Apartment } = require("../../db");
-const { sendMail } = require("../helpers/mailer");
+const { sendMail } = require("./mailer");
 const { Op } = require('sequelize');
 const moment = require('moment-timezone');
 
