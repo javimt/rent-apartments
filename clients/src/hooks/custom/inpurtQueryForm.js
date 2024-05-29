@@ -12,9 +12,15 @@ function useInputQuery() {
     startDate: "",
     endDate: "",
     id: "",
+    urbanizacion: ""
   });
+
   function setId(id) {
     setInput({ ...input, id: id });
+  }
+
+  function setUrbanizacion(urbanizacion) {
+    setInput({ ...input, urbanizacion: urbanizacion });
   }
 
   const { link } = useWhatsapp(input, errors);
@@ -76,7 +82,8 @@ function useInputQuery() {
     link,
     submitWap,
     setId,
-    validate
+    validate,
+    setUrbanizacion
   };
 }
 

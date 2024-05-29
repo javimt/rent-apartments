@@ -21,7 +21,7 @@ cron.schedule("0 0 * * *", () => {
   checkExpiredRents();
 });
 
-cron.schedule('0 12 * * *', () => {
+cron.schedule('03 14 * * *', () => {
   console.log('Ejecutando tarea cron para enviar correos electrónicos de recordatorio...');
   sendReminderEmails();
 });
