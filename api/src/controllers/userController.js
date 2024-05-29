@@ -1,5 +1,6 @@
-const { User } = require("../../db");
+const { User, Rent, Apartment } = require("../../db");
 const { resSender, HttpStatusCodes, rejectSender } = require('../helpers/resSender');
+const { sendMail } = require('../helpers/mailer');
 
 module.exports = {
   getAllUsers: async (req, res, next) => {
@@ -23,6 +24,32 @@ module.exports = {
       next(error);
     }
   }, 
+
+  sendEmails: async (req, res, next) => {
+    try {
+      const activeRents = await Rent.findAll({
+        where: { status: 'active' },
+        include: [{ model: User }]
+      });
+
+      const apartment = await Apartment.findOne({where: {id}})
+
+      const mailPromises = activeRents.map(rent => {
+        const user = rent.User;
+        const subject = 'Calificación de tu apartamento rentado';
+        const text = `Hola ${user.name},\n\nPor favor califica el apartamento que rentaste.`;
+        const html = `<p>Hola <strong>${user.name}</strong>,</p><p>Por favor califica el apartamento que rentaste. <a href="https://www.medellinfurnishedapartment.com/apartment/${apartment}">Calificar</a></p>`;
+
+        return sendMail(user.email, subject, text, html);
+      });
+
+      await Promise.all(mailPromises);
+
+      resSender(null, HttpStatusCodes.aceptado, 'Correos enviados a los usuarios con rentas activas');
+    } catch (error) {
+      next(error);
+    }
+  },
 
   loginOrRegister: async (req, res, next) => {
     try {
