@@ -29,16 +29,19 @@ module.exports = {
     try {
       const activeRents = await Rent.findAll({
         where: { status: 'active' },
-        include: [{ model: User }]
+        include: [
+          { model: User },
+          { model: Apartment }
+        ]
       });
 
-      const apartment = await Apartment.findOne({where: {id}})
+      //const apartment = await Apartment.findOne({where: {id}})
 
       const mailPromises = activeRents.map(rent => {
         const user = rent.User;
         const subject = 'Calificación de tu apartamento rentado';
         const text = `Hola ${user.name},\n\nPor favor califica el apartamento que rentaste.`;
-        const html = `<p>Hola <strong>${user.name}</strong>,</p><p>Por favor califica el apartamento que rentaste. <a href="https://www.medellinfurnishedapartment.com/apartment/${apartment}">Calificar</a></p>`;
+        const html = `<p>Hola <strong>${user.name}</strong>,</p><p>Por favor califica el apartamento que rentaste. <a href="https://www.medellinfurnishedapartment.com/#/apartment/${rent.apartmentId}">Calificar</a></p>`;
 
         return sendMail(user.email, subject, text, html);
       });
