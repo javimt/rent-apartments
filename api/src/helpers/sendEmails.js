@@ -1,6 +1,7 @@
 const { User, Rent, Apartment } = require("../../db");
-const { sendMail } = require("../helpers/mailer");
-const { Op } = require("sequelize");
+const { sendMail } = require("./mailer");
+const { Op } = require('sequelize');
+const moment = require('moment-timezone');
 
 module.exports = {
   sendReminderEmails: async () => {
@@ -51,11 +52,12 @@ module.exports = {
         return sendMail(user.email, subject, text, html);
       });
 
-      await Promise.all(mailPromises);
-
-      console.log(
-        "Correos electrónicos de recordatorio enviados a los usuarios con rentas próximas a finalizar."
-      );
+      Promise.all(mailPromises).then(() => {
+        console.log(
+          "Correos electrónicos de recordatorio enviados a los usuarios con rentas próximas a finalizar."
+        );
+      })
+      
     } catch (error) {
       console.error(
         "Error al enviar los correos electrónicos de recordatorio:",
