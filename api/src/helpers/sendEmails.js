@@ -1,7 +1,6 @@
 const { User, Rent, Apartment } = require("../../db");
 const { sendMail } = require("./mailer");
 const { Op } = require('sequelize');
-const moment = require('moment-timezone');
 
 module.exports = {
   sendReminderEmails: async () => {
@@ -24,7 +23,6 @@ module.exports = {
       const mailPromises = upcomingRents.map((rent) => {
         const user = rent.User;
         const subject = "Recordatorio: Calificación de tu apartamento rentado";
-        const text = `Hola ${user.name},\n\nTu renta finalizará en menos de un dia. Por favor califica el apartamento que rentaste.`;
         const html = `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #e0e0e0;">
           <div style="text-align: center; padding-bottom: 20px;">
@@ -49,7 +47,7 @@ module.exports = {
           </div>
         </div>`;
 
-        return sendMail(user.email, subject, text, html);
+        return sendMail(user.email, subject, html);
       });
 
       Promise.all(mailPromises).then(() => {
