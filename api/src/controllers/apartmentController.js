@@ -1,6 +1,6 @@
 const { Op } = require("sequelize");
 const { Apartment, Rent, City } = require("../../db");
-const { resSender, HttpStatusCodes, rejectSender } = require("../helpers/resSender");
+const { resSender, HttpStatusCodes, rejectSender } = require("../helpers/resSender"); 
 
 module.exports = {
   getAllApartments: async (req, res, next) => {

@@ -4,15 +4,31 @@ const cors = require("cors");
 const { connection } = require("./db");
 const router = require("./src/routes/index");
 const cron = require("node-cron");
-const { checkExpiredRents } = require("./src/controllers/rentExpiration");
+const { checkExpiredRents } = require("./src/helpers/rentExpiration");
 const { resSender} = require('./src/helpers/resSender');
 const { captureRes } = require("./src/helpers/midlewareRes");
+const { sendReminderEmails } = require("./src/helpers/sendEmails");
 
 const port = process.env.PORT || 3000
 
-cron.schedule("08 13 * * *", () => {
+cron.schedule("0 12 * * *", () => {
   console.log("Verifying expired rentals...");
   checkExpiredRents();
+});
+
+cron.schedule("0 0 * * *", () => {
+  console.log("Verifying expired rentals...");
+  checkExpiredRents();
+});
+
+cron.schedule('40 18 * * *', () => {
+  console.log('Ejecutando tarea cron para enviar correos electrónicos de recordatorio...');
+  sendReminderEmails();
+});
+
+cron.schedule('0 0 * * *', () => {
+  console.log('Ejecutando tarea cron para enviar correos electrónicos de recordatorio...');
+  sendReminderEmails();
 });
 
 const sendResponse = (req, res, next) => {

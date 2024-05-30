@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calificar Apartamento</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 600px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #e0e0e0;
+      }
+      .star {
+        font-size: 24px;
+        color: #ffd700;
+        cursor: pointer;
+      }
+      .star.inactive {
+        color: #e0e0e0;
+      }
+      button {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="text-align: center; padding-bottom: 20px">
+      <img
+        src="https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939333/PROYECTO%20PROPIEDADES/logo_rent_yurhr6.png"
+        alt="Logo"
+        style="max-width: 200px"
+      />
+    </div>
+    <div style="padding: 20px; background-color: #f9f9f9">
+      <h2 style="color: #333">Hola,</h2>
+      <p>Queremos recordarte que tu renta finalizará en menos de 24 horas.</p>
+      <p>
+        Por favor, toma un momento para calificar el apartamento que rentaste.
+        Tu opinión es muy importante para nosotros y para futuros inquilinos.
+      </p>
+      <form id="ratingForm">
+        <input type="hidden" name="apartmentId" id="apartmentId" />
+        <input type="hidden" name="userId" id="userId" />
+        <div style="font-size: 24px; color: #ffd700" id="starContainer">
+          ${[1, 2, 3, 4, 5].map(rating => `
+          <span class="star" data-value="${rating}">&#9733;</span>
+          `).join('')}
+        </div>
+        <button type="submit">Enviar calificación</button>
+      </form>
+    </div>
+    <div style="padding-top: 20px; text-align: center; color: #888">
+      <p>Gracias por elegir Medellin Furnished Apartments.</p>
+      <p>
+        <small
+          >&copy; 2024 Medellin Furnished Apartments. Todos los derechos
+          reservados.</small
+        >
+      </p>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", (event) => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const apartmentId = urlParams.get("apartmentId");
+        const userId = urlParams.get("userId");
+
+        document.getElementById("apartmentId").value = apartmentId;
+        document.getElementById("userId").value = userId;
+
+        const stars = document.querySelectorAll(".star");
+        stars.forEach((star) => {
+          star.addEventListener("click", () => {
+            const rating = star.getAttribute("data-value");
+            stars.forEach((s) => s.classList.add("inactive"));
+            star.classList.remove("inactive");
+            star.classList.add("active");
+
+            fetch("http://localhost:3001/apartment/rating", {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ id: apartmentId, rating }),
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                alert("Calificación enviada exitosamente");
+              })
+              .catch((error) => {
+                console.error("Error:", error);
+              });
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

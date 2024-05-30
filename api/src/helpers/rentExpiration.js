@@ -19,7 +19,7 @@ module.exports = {
       if (apartment) {
         apartment.availability = true;
         await apartment.save();
-        rent.status = "expired"; // Actualiza el estado a 'expired'
+        rent.status = "expired"; // actualiza el status de la renta a 'expired'
         await rent.save();
       }
     }
