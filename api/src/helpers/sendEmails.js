@@ -26,7 +26,7 @@ module.exports = {
         const html = `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #e0e0e0;">
           <div style="text-align: center; padding-bottom: 20px;">
-            <img src="../../../clients/src/assets/logo rent.png" alt="Logo" style="max-width: 200px;">
+            <img src="https://res.cloudinary.com/dlwjdmlpx/image/upload/q_100/v1693939333/PROYECTO%20PROPIEDADES/logo_rent_yurhr6.png" alt="Logo" style="max-width: 200px;">
           </div>
           <div style="padding: 20px; background-color: #f9f9f9;">
             <h2 style="color: #333;">Hola <strong>${user.name}</strong>,</h2>
