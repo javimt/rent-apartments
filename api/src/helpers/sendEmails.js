@@ -1,5 +1,5 @@
 const { User, Rent, Apartment } = require("../../db");
-const { sendMail } = require("../helpers/mailer");
+const { sendMail } = require("./mailer");
 const { Op } = require('sequelize');
 const moment = require('moment-timezone');
 
@@ -7,8 +7,7 @@ module.exports = {
   sendReminderEmails: async () => {
     try {
       const currentDate = new Date();
-      const oneDayLater = new Date(currentDate);
-      //threeDaysLater.setDate(currentDate.getDate() + 2);
+      currentDate.setDate(currentDate.getDate() - 1);
       //const oneHourLater = new Date(currentDate);
       //oneHourLater.setHours(currentDate.getHours() - 12);
       //const oneHourBefore = new Date(currentTime.getTime() - (1 * 60 * 60 * 1000)); // una horan antes de finalizar la renta
@@ -16,8 +15,12 @@ module.exports = {
       const upcomingRents = await Rent.findAll({
         where: {
           endDate: {
+<<<<<<< HEAD:api/src/controllers/sendEmails.js
             [Op.lte]: oneDayLater,
             [Op.gt]: currentDate, // asegura que la fecha de finalización esté en los próximos 2 días
+=======
+            [Op.lte]: currentDate, // asegura que el email se envie faltando un dia o menos
+>>>>>>> refs/remotes/origin/dev:api/src/helpers/sendEmails.js
           },
           status: "active",
         },

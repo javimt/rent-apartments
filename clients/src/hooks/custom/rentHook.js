@@ -13,7 +13,6 @@ function useGenerateRent(input, errors, validate) {
     id: "" //apartmentId
   })
 
-
   function setInput(input) {
     setInputRent(input)
   }
@@ -24,6 +23,7 @@ function useGenerateRent(input, errors, validate) {
       userId: input.email,
       startDate: input.startDate,
       endDate: input.endDate
+
     }
     if (!errors.endDate && !errors.startDate && errors.blocked == false) {
       fetch("https://api-rent-appartament.up.railway.app/rent", {
