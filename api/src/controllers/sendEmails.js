@@ -16,7 +16,7 @@ module.exports = {
       const upcomingRents = await Rent.findAll({
         where: {
           endDate: {
-            [Op.lte]: oneDayLater, 
+            [Op.lte]: oneDayLater,
             [Op.gt]: currentDate, // asegura que la fecha de finalización esté en los próximos 2 días
           },
           status: "active",
@@ -36,11 +36,12 @@ module.exports = {
         return sendMail(user.email, subject, text, html);
       });
 
-      await Promise.all(mailPromises);
-
-      console.log(
-        "Correos electrónicos de recordatorio enviados a los usuarios con rentas próximas a finalizar."
-      );
+      Promise.all(mailPromises).then(() => {
+        console.log(
+          "Correos electrónicos de recordatorio enviados a los usuarios con rentas próximas a finalizar."
+        );
+      })
+      
     } catch (error) {
       console.error(
         "Error al enviar los correos electrónicos de recordatorio:",
