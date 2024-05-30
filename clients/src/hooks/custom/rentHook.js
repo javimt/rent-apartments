@@ -44,8 +44,8 @@ function useGenerateRent(input, errors, validate) {
 
   return {
     generateRent,
-    setInputRent
-
+    setInputRent,
+    setInput
   };
 }
 
