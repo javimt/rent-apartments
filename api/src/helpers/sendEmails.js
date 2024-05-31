@@ -12,12 +12,7 @@ module.exports = {
       const upcomingRents = await Rent.findAll({
         where: {
           endDate: {
-<<<<<<< HEAD
-            [Op.lte]: oneDayLater,
-            [Op.gt]: currentDate, // asegura que la fecha de finalización esté en los próximos 2 días
-=======
             [Op.lte]: oneDayBefore, // asegura que el email se envie faltando un dia o menos
->>>>>>> refs/remotes/origin/dev
           },
           status: "active",
         },
