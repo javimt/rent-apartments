@@ -10,7 +10,7 @@ function About() {
   };
 
   return (
-    <Transition className="grid w-full  min-w-[400px] py-3 px-4 md:py-16 md:px-10 md:grid-cols-2 bg-slate-200/60 xl:px-48  font-quicksand  ">
+    <Transition className="grid w-full  min-w-[400px] py-3 px-4 md:py-16 md:px-10 md:grid-cols-2 bg-slate-200/60 xl:px-48  font-quicksand">
       <div className="max-w-[100%] flex justify-center flex-col ">
         <h4 className="text-secondary font-semibold ">About us...</h4>
         <h2 className="my-4 text-3xl font-semibold">
