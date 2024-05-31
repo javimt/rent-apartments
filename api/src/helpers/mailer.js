@@ -16,12 +16,11 @@ transporter.verify((error, success) => {
   }
 });
 
-const sendMail = (to, subject, text, html) => {
+const sendMail = (to, subject, html) => {
   const mailOptions = {
     from: process.env.EMAIL,
     to,
     subject,
-    text,
     html
   };
 
