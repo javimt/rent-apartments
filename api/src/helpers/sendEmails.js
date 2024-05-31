@@ -1,7 +1,6 @@
 const { User, Rent, Apartment } = require("../../db");
 const { sendMail } = require("./mailer");
 const { Op } = require('sequelize');
-const moment = require('moment-timezone');
 
 module.exports = {
   sendReminderEmails: async () => {
@@ -13,7 +12,12 @@ module.exports = {
       const upcomingRents = await Rent.findAll({
         where: {
           endDate: {
+<<<<<<< HEAD
+            [Op.lte]: oneDayLater,
+            [Op.gt]: currentDate, // asegura que la fecha de finalización esté en los próximos 2 días
+=======
             [Op.lte]: oneDayBefore, // asegura que el email se envie faltando un dia o menos
+>>>>>>> refs/remotes/origin/dev
           },
           status: "active",
         },
@@ -24,7 +28,6 @@ module.exports = {
       const mailPromises = upcomingRents.map((rent) => {
         const user = rent.User;
         const subject = "Recordatorio: Calificación de tu apartamento rentado";
-        const text = `Hola ${user.name},\n\nTu renta finalizará en menos de un dia. Por favor califica el apartamento que rentaste.`;
         const html = `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #e0e0e0;">
           <div style="text-align: center; padding-bottom: 20px;">
@@ -36,11 +39,11 @@ module.exports = {
             <p>Por favor, toma un momento para calificar el apartamento que rentaste. Tu opinión es muy importante para nosotros y para futuros inquilinos.</p>
             <p style="text-align: center;">
               [1, 2, 3, 4, 5].map(rating => 
-                <a href="http://localhost:3001/apartment/rating?apartmentId=${rent.apartmentId}&rating=${rating}" 
+                <a href="https://www.medellinfurnishedapartment.com/#/apartment/${rent.apartmentId}" 
                   style="text-decoration: none; color: #FFD700; font-size: 24px;">
                   &#9733;
                 </a>
-              ).join('')}
+              ).join('')
             </p>
           </div>
           <div style="padding-top: 20px; text-align: center; color: #888;">
@@ -49,7 +52,7 @@ module.exports = {
           </div>
         </div>`;
 
-        return sendMail(user.email, subject, text, html);
+        return sendMail(user.email, subject, html);
       });
 
       Promise.all(mailPromises).then(() => {

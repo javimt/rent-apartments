@@ -14,14 +14,15 @@ function useInputQuery() {
     id: "",
     urbanizacion: ""
   });
+  const [inputUrbanizacion, setInputUrbanizacion] = useState()
 
   function setId(id) {
     setInput({ ...input, id: id });
   }
 
-  function setUrbanizacion(urbanizacion) {
+  /* function setUrbanizacion(urbanizacion) {
     setInput({ ...input, urbanizacion: urbanizacion });
-  }
+  } */
 
   const { link } = useWhatsapp(input, errors);
 
@@ -83,7 +84,7 @@ function useInputQuery() {
     submitWap,
     setId,
     validate,
-    setUrbanizacion
+    //setUrbanizacion
   };
 }
 
