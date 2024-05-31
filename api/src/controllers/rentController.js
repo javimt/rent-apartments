@@ -1,5 +1,6 @@
 const { Rent, Apartment, User } = require("../../db");
 const { resSender, HttpStatusCodes, rejectSender } = require('../helpers/resSender');
+const { Op } = require('sequelize');
 
 module.exports = {
   getAllRents: async (req, res, next) => {
@@ -110,6 +111,63 @@ module.exports = {
       const rent = await Rent.findByPk(id);
       await rent.destroy();
       resSender("rent deleted", HttpStatusCodes.eliminado, null);
+    } catch (error) {
+      next(error);
+    }
+  },
+
+  getMonthlyEarnings: async (req, res, next) => {
+    const { year, month } = req.query;
+
+    if (!year || !month) {
+      return rejectSender("Year and month are required", HttpStatusCodes.badRequest);
+    }
+
+    try {
+      const startDate = new Date(year, month - 1, 1);
+      const endDate = new Date(year, month, 0);
+
+      const rents = await Rent.findAll({
+        where: {
+          [Op.or]: [
+            {
+              startDate: {
+                [Op.between]: [startDate, endDate],
+              },
+            },
+            {
+              endDate: {
+                [Op.between]: [startDate, endDate],
+              },
+            },
+            {
+              startDate: {
+                [Op.lte]: startDate,
+              },
+              endDate: {
+                [Op.gte]: endDate,
+              },
+            },
+          ],
+          status: {
+            [Op.in]: ["active", "expired"]
+          }
+        },
+        include: {
+          model: Apartment,
+        },
+      });
+
+      let totalApartmentPrice = 0;
+
+      for (const rent of rents) {
+        const apartment = rent.Apartment;
+        totalApartmentPrice += apartment.price;
+      }
+
+      const totalEarnings = totalApartmentPrice * 0.1;
+
+      resSender(null, HttpStatusCodes.aceptado, { totalEarnings });
     } catch (error) {
       next(error);
     }
