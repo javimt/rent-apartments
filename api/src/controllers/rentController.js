@@ -129,26 +129,9 @@ module.exports = {
 
       const rents = await Rent.findAll({
         where: {
-          [Op.or]: [
-            {
-              startDate: {
-                [Op.between]: [startDate, endDate],
-              },
-            },
-            {
-              endDate: {
-                [Op.between]: [startDate, endDate],
-              },
-            },
-            {
-              startDate: {
-                [Op.lte]: startDate,
-              },
-              endDate: {
-                [Op.gte]: endDate,
-              },
-            },
-          ],
+          startDate: {
+            [Op.between]: [startDate, endDate],
+          },
           status: {
             [Op.in]: ["active", "expired"]
           }
