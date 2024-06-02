@@ -20,8 +20,6 @@ module.exports = {
       let user = usersJson.map((e) => {
         return User.create(e);
       });
-
-   console.log(user);
       Promise.all(user).then(() => {
         /* response.forEach((empresa, index) => {
           const userId = usersJson[index].userId;

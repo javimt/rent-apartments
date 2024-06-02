@@ -141,13 +141,12 @@ module.exports = {
         },
       });
 
-      let totalApartmentPrice = 0;
+      let totalApartmentPrice   = 0;
 
       for (const rent of rents) {
         const apartment = rent.Apartment;
         totalApartmentPrice += apartment.price;
       }
-
       const totalEarnings = totalApartmentPrice * 0.1;
 
       resSender(null, HttpStatusCodes.aceptado, { totalEarnings });

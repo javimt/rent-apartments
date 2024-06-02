@@ -19,8 +19,8 @@ function setWorkSeting(production = false, ssl= false){
     // }, 
   }                                     //true                        false
     let url = production ? process.env.PRODUCTION_URL_DATABASE : process.env.DATABASE_URL
-  let sequelize;
-   return new Sequelize(url, options)
+    let sequelize;
+    return new Sequelize(url, options)
 }
 
 const sequelize = setWorkSeting(true);
