@@ -45,6 +45,11 @@ module.exports = (sequelize) => {
       type: DataTypes.ENUM("rent", "sale", "sold"),
       allowNull: false,
     },
+    rentalType: {
+      type: DataTypes.ENUM("monthly", "daily"),
+      allowNull: false,
+      defaultValue: "monthly"
+    },
   },{timestamps: false});
   Apartment.associate = (models) => {
     Apartment.belongsTo(models.User, { foreignKey: 'userId' });
@@ -52,6 +57,7 @@ module.exports = (sequelize) => {
     Apartment.hasMany(models.Sale, { foreignKey: 'apartmentId' });
     Apartment.hasMany(models.Transaction);
     Apartment.belongsTo(models.City);
+    Apartment.hasMany(models.Anotations);
   }
   return Apartment;
 };

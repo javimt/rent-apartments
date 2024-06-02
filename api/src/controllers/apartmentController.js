@@ -1,11 +1,11 @@
 const { Op } = require("sequelize");
-const { Apartment, Rent, City } = require("../../db");
+const { Apartment, Rent, City, Anotations } = require("../../db");
 const { resSender, HttpStatusCodes, rejectSender } = require("../helpers/resSender"); 
 
 module.exports = {
   getAllApartments: async (req, res, next) => {
     try {
-      const apartments = await Apartment.findAll();
+      const apartments = await Apartment.findAll({include: {model: Anotations}});
       resSender(null, HttpStatusCodes.aceptado, apartments);
     } catch (error) {
       next(error);
@@ -17,7 +17,10 @@ module.exports = {
     try {
       const apartment = await Apartment.findOne({
         where: { id },
-        include: { model: Rent },
+        include: [
+          { model: Rent },
+          { model: Anotations },
+        ],
       });
       if (!apartment) {
         rejectSender("Apartamento no encontrado", HttpStatusCodes.noEncontrado);
@@ -41,13 +44,11 @@ module.exports = {
               id: id,
             },
           },
+          { model: Anotations },
         ],
       });
       if (!apartment) {
-        rejectSender(
-          "no se encontró el modelo CITY",
-          HttpStatusCodes.noEncontrado
-        );
+        rejectSender("no se encontró el modelo CITY", HttpStatusCodes.noEncontrado);
       }
       resSender(null, HttpStatusCodes.aceptado, apartment);
     } catch (error) {
@@ -90,10 +91,7 @@ module.exports = {
         },
       });
       if (!nameApartment) {
-        rejectSender(
-          "no se encontro el apartamento por el nombre",
-          HttpStatusCodes.noEncontrado
-        );
+        rejectSender("no se encontro el apartamento por el nombre", HttpStatusCodes.noEncontrado);
       }
       resSender(null, HttpStatusCodes.aceptado, nameApartment);
     } catch (error) {
