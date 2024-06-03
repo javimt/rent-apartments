@@ -6,10 +6,10 @@ function useAdminTransaction() {
     active: [],
   });
   const [loading, setLoading] = useState(false);
-
+  const VITE_API_RENT = import.meta.env.VITE_API_RENT_GENERATE
   function getTransactions() {
     setLoading(true);
-    fetch("https://api-rent-appartament.up.railway.app/rent", {
+    fetch(VITE_API_RENT, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -33,7 +33,7 @@ function useAdminTransaction() {
   }
 
   function deleteTransaction(id) {
-    fetch(`https://api-rent-appartament.up.railway.app/rent/${id}`, {
+    fetch(`${VITE_API_RENT}${id}`, {
       method: "DELETE",
     })
       .then((response) => {

@@ -17,7 +17,7 @@ function useGetAnApartment(id) {
   }, [])
 
   function getApartment() {
-    fetch(`https://api-rent-appartament.up.railway.app/apartment/${id}`)
+    fetch(`${import.meta.env.VITE_API_USER_APARTMENT}${id}`)
     .then(response => response.json())
     .then(response => setApartment(response))
     .catch(error => console.error(error))

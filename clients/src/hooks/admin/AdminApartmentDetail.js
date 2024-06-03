@@ -4,14 +4,15 @@ import { parseInput } from "../../utils/parseInput";
 function useAdeminApartDetail() {
   const [detail, setDetail] = useState(null);
 
+  const VITE_API_USER_APARTMENT = import.meta.env.VITE_API_USER_APARTMENT
   function getDetail(id) {
-    fetch(`https://api-rent-appartament.up.railway.app/apartment/${id}`)
+    fetch(`${VITE_API_USER_APARTMENT}${id}`)
       .then((response) => response.json())
       .then((data) => setDetail(data.data));
   }
 
   function deleteApartment(id) {
-    fetch(`https://api-rent-appartament.up.railway.app/apartment/${id}`, {
+    fetch(`${VITE_API_USER_APARTMENT}${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -25,7 +26,7 @@ function useAdeminApartDetail() {
 
   function updateApartment(input, id) {
     const parsedInput = parseInput(input);
-    fetch(`https://api-rent-appartament.up.railway.app/apartment/${id}`, {
+    fetch(`${VITE_API_USER_APARTMENT}${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

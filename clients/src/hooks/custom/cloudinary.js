@@ -1,38 +1,39 @@
-import {useEffect, useState} from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios';
 
-const useCloudinary = () => {
+function useCloudinary(addUrl) {
+
+  //const [file, setFiles] = useState(null);
+
+  const CLOUDINARY_URL = import.meta.env.VITE_CLOUDINARY_URL
+  const CLOUDINARY_PRESET = import.meta.env.VITE_CLOUDINARY_PRESET
   
-  const [file, setFiles] = useState(null);
-  const [images, setImages] = useState([])
-  const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/dg7galjwj/image/upload'
-  const CLOUDINARY_PRESET = 'xa8l6w7k'
 
-
-
-
-  function addFiles(file){
+  function addFiles(file) {
     setFiles(file)
   }
 
-  useEffect(()=>{
+  function uploadToCloudinary(file) {
+    console.log(file)
     const formData = new FormData()
     formData.append('file', file)
     formData.append('upload_preset', CLOUDINARY_PRESET)
-    if(file){
+    if (file) {
       axios.post(CLOUDINARY_URL, formData, {
-        headers:{
+        headers: {
           'Content-Type': 'multipart/form-data'
         }
       })
-      .then(response => console.log(response))
+        .then(response => addUrl(response.data.url))
+        .catch(err => console.log(err))
+        
     }
-  }, [file])
-
+  }
 
   return {
     addFiles,
-    images
+    uploadToCloudinary
   }
+
 }
-export { useCloudinary };
+export default useCloudinary

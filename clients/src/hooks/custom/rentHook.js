@@ -26,7 +26,7 @@ function useGenerateRent(input, errors, validate) {
 
     }
     if (!errors.endDate && !errors.startDate && errors.blocked == false) {
-      fetch("https://api-rent-appartament.up.railway.app/rent", {
+      fetch(import.meta.env.VITE_API_RENT_GENERATE, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
