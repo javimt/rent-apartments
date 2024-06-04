@@ -7,10 +7,11 @@ function useAdminApartments() {
   });
 
   const [pending, setPending] = useState(true)
+  const VITE_API_USER_APARTMENT = import.meta.env.VITE_API_USER_APARTMENT
 
   function resetData() {
     if(!pending){setPending(true)}
-    fetch("https://api-rent-appartament.up.railway.app/apartment")
+    fetch(VITE_API_USER_APARTMENT)
       .then((response) => response.json())
       .then((data) => {
         const saleList = [...data.data].filter((ap) => ap.status == "sale");

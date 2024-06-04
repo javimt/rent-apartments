@@ -1,14 +1,17 @@
 import { actionTypes } from "./actionTypes";
 
+const VITE_API_USER_CITIES = import.meta.env.VITE_API_USER_CITIES
+const VITE_API_USER_APARTMENT = import.meta.env.VITE_API_USER_APARTMENT
+const VITE_API_RENT = import.meta.env.VITE_API_RENT
 const productionHandler = {
-  urlProduction: "https://api-rent-appartament.up.railway.app/apartment",
+  urlProduction: VITE_API_USER_APARTMENT,
   urlDevelopment: "http://localhost:3000/apartment",
 };
 
 export function getApatments() {
   return async (dispatch) => {
     try {
-      const response = await fetch("https://api-rent-appartament.up.railway.app/apartment", { 
+      const response = await fetch(productionHandler.urlProduction, { 
         headers:{
           'Content-Type':"application/json"
         }
@@ -25,7 +28,7 @@ export function getApatments() {
 export async function createAnApartment(apartment) {
   try {
     const response = await fetch(
-      "https://api-rent-appartament.up.railway.app/apartment",
+      productionHandler.urlProduction,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -43,7 +46,7 @@ export async function createAnApartment(apartment) {
 export async function getAnAppatment(id) {
   try {
     const response = await fetch(
-      `https://api-rent-appartament.up.railway.app/apartment/${id}`
+      productionHandler.urlProduction + id
     );
     const apartment = await response.json();
     return apartment;
@@ -56,7 +59,7 @@ export function getAllCties() {
   return async (dispatch) => {
     try {
       const response = await fetch(
-        "https://api-rent-appartament.up.railway.app/city"
+        VITE_API_USER_CITIES
       );
       const data = await response.json();
       dispatch({ type: actionTypes.GET_ALL_CITIES, payload: data });
@@ -69,7 +72,7 @@ export function getAllCties() {
 export function filterSelectedCity(cityId) {
   return function (dispatch) {
     fetch(
-      `https://api-rent-appartament.up.railway.app/apartment/city/${cityId}`
+      `${VITE_API_USER_APARTMENT}/city/${cityId}`
     )
       .then((response) => response.json())
       .then((data) =>
@@ -81,7 +84,7 @@ export function filterSelectedCity(cityId) {
 
 export function getAllRentApartments() {
   return (dispatch) => {
-    fetch("https://api-rent-appartament.up.railway.app/apartment/rent")
+    fetch(VITE_API_RENT)
       .then((response) => response.json())
       .then((data) =>
         dispatch({ type: actionTypes.GET_ALL_RENT_APARTMENTS, payload: data })
@@ -92,7 +95,7 @@ export function getAllRentApartments() {
 
 export function getAllSaleApartments() {
   return (dispatch) => {
-    fetch("https://api-rent-appartament.up.railway.app/apartment/sale")
+    fetch(VITE_API_USER_APARTMENT+"sale")
       .then((response) => response.json())
       .then((data) =>
         dispatch({ type: actionTypes.GET_ALL_SALE_APARTMENTS, payload: data })
@@ -103,7 +106,7 @@ export function getAllSaleApartments() {
 
 export function getApartmentsByPrice(minPrice, maxPrice) {
   return (dispatch) => {
-    fetch(`https://api-rent-appartament.up.railway.app/apartment/range?minPrice=${minPrice}&maxPrice=${maxPrice}`)
+    fetch(`${VITE_API_USER_APARTMENT}range?minPrice=${minPrice}&maxPrice=${maxPrice}`)
       .then((response) => response.json())
       .then((data) =>
         dispatch({
@@ -124,7 +127,7 @@ export function setFilters(filters) {
 
 export function getRatings(rating) { 
   return (dispatch) => {
-    fetch(`https://api-rent-appartament.up.railway.app/apartment/rating/?rating=${rating}`)
+    fetch(`${VITE_API_USER_APARTMENT}rating/?rating=${rating}`)
       .then((response) => response.json())
       .then((data) =>
         dispatch({ type: actionTypes.GET_RATINGS, payload: data })
@@ -135,7 +138,7 @@ export function getRatings(rating) {
 
 export function updateRating(id, rating) {
   return (dispatch) => {
-    fetch("https://api-rent-appartament.up.railway.app/apartment/rating", {
+    fetch(VITE_API_USER_APARTMENT+"rating", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

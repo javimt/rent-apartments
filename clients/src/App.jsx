@@ -16,12 +16,12 @@ import useGetApartments from './hooks/custom/GetApartments';
 import useGetAllCities from './hooks/custom/getAllCities';
 import { useSelector } from 'react-redux';
 import UnautorizedAdmin from './components/admin/unautorizedAdmin';
+import { importEnvironment } from './utils/importEnvironments';
 
 // Importa el componente de ubicación de manera dinámica usando React.lazy
 const LocationMap = React.lazy(() => import('./components/location/location'));
 
 function App() {
-
   const { dispatchApartments } = useGetApartments()
   const { dispatchCities } = useGetAllCities()
   useEffect(() => {
@@ -65,24 +65,24 @@ function App() {
         <Route path="/apartment/:id" element={<CardDetail />} />
 
         <Route path='/admin' element={
-          // role == 'admin' || role == 'superAdmin' ? 
-          // <>
-
-          //   <TransitionPage />
-          //   <Header main={false} />
-          //   <AdminPanel />
-          // </> :
-          //   <>
-          //     <TransitionPage />
-          //     <Header main={false} />
-          //     <UnautorizedAdmin/>
-          //   </>
+          role == 'admin' || role == 'superAdmin' ? 
           <>
 
             <TransitionPage />
             <Header main={false} />
             <AdminPanel />
-          </>
+          </> :
+            <>
+              <TransitionPage />
+              <Header main={false} />
+              <UnautorizedAdmin/>
+            </>
+          // <>
+
+          //   <TransitionPage />
+          //   <Header main={false} />
+          //   <AdminPanel />
+          // </>
         } />
       </Routes>
     </>

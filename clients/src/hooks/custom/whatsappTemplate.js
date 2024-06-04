@@ -24,7 +24,7 @@ export function useWhatsapp(input) {
     template += `consult:%0A0A ${input.consult}%0A%0A`;
     template += `----------------------%0A`;
     setLink(
-      `https://api.whatsapp.com/send?phone=+573024470241&text=${template}`
+      `${'https://api.whatsapp.com/send?phone='+import.meta.env.VITE_WHATSAPP_PHONE+'&text='}${template}`
     );
   }, [input]);
 

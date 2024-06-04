@@ -5,12 +5,13 @@ function useUpdateRentStatus(reloadTransactions) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  const VITE_API_RENT = import.meta.env.VITE_API_RENT_GENERATE
   const updateRentStatus = async (rentId, status) => {
     setLoading(true);
     setError(null);
     
     try {
-      const response = await fetch(`https://api-rent-appartament.up.railway.app/rent/${rentId}`, {
+      const response = await fetch(`${VITE_API_RENT}${rentId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -34,7 +35,7 @@ function useUpdateRentStatus(reloadTransactions) {
   };
 
   function deleteTransaction(id){
-    fetch(`https://api-rent-appartament.up.railway.app/rent/${id}`,{
+    fetch(`${VITE_API_RENT}${id}`,{
         method:'DELETE'
     })
     .then(response => {response.status < 300 ? alert('deleted Rent') : alert('cant delete the rent')})

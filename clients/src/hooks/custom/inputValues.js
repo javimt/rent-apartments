@@ -121,16 +121,23 @@ function useHandleInput() {
     }
   }
 
+  function addUrl(url){
+    setInput({
+      ...input,
+      images: [...input.images, url],
+    });
+  }
+
   function addImages(e) {
-    if (!input.images.includes(e.current.value)) {
-      if (e.current.value) {
+    if (!input.images.includes(e)) {
+      if (e) {
         setInput({
           ...input,
-          images: [...input.images, e.current.value],
+          images: [...input.images, e],
         });
         verifyInputValidation({
           ...input,
-          images: [...input.images, e.current.value],
+          images: [...input.images, e],
         });
       }
     }
@@ -155,6 +162,7 @@ function useHandleInput() {
     error,
     submit,
     editApartment,
+    addUrl
   };
 }
 

@@ -1,4 +1,6 @@
+const { Op } = require("sequelize");
 const { Anotations, Apartment } = require("../../db");
+const { sendMail } = require('../helpers/mailer');
 const { resSender, HttpStatusCodes, rejectSender } = require('../helpers/resSender');
 
 module.exports = {
@@ -27,9 +29,12 @@ module.exports = {
   createAnotation: async (req, res, next) => {
     const { apartmentId } = req.body;
     try {
-      const apartment = await Apartment.findByPk(apartmentId)
+      const apartment = await Apartment.findByPk(apartmentId);
+      if(!apartment) {
+        rejectSender("No se puede crear la anotacion sin un apartamento asociado", HttpStatusCodes.noEncontrado);
+      }
       const anotation = await Anotations.create(req.body);
-      await apartment.addAnotation(anotation)
+      await apartment.addAnotation(anotation);
       resSender(null, HttpStatusCodes.creado, anotation);
     } catch (error) {
       next(error);
@@ -63,4 +68,5 @@ module.exports = {
       next(error);
     }
   },
+
 };

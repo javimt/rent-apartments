@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { userRole } from "../../redux/actions/userActions";
 
 function useAuth0GetData() {
+  const VITE_API_USER = import.meta.env.VITE_API_USER
   const [controledUser, setControledUser] = useState({}); //logear o regstrar
   const role = useSelector((state) => state.user.role);
   const dispatch = useDispatch()
@@ -21,7 +22,7 @@ function useAuth0GetData() {
   } = useAuth0();
 
   function loginOrRegisterUser(user) {
-    fetch("https://api-rent-appartament.up.railway.app/user/", {
+    fetch(VITE_API_USER, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

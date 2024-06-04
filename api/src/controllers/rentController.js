@@ -124,7 +124,7 @@ module.exports = {
     }
 
     try {
-      const startDate = new Date(year, month - 1, 1);
+      const startDate = new Date(year, month - 1, 0);
       const endDate = new Date(year, month, 0);
 
       const rents = await Rent.findAll({
@@ -141,14 +141,14 @@ module.exports = {
         },
       });
 
-      let totalApartmentPrice   = 0;
+      let totalApartmentPrice = 0;
 
       for (const rent of rents) {
         const apartment = rent.Apartment;
         totalApartmentPrice += apartment.price;
       }
+      
       const totalEarnings = totalApartmentPrice * 0.1;
-
       resSender(null, HttpStatusCodes.aceptado, { totalEarnings });
     } catch (error) {
       next(error);

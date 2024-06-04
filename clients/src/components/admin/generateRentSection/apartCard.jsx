@@ -19,7 +19,6 @@ function NonApartment() {
 }
 
 function ApartCard({ apartment, rentId, onRentSelect }) {
-  console.log("🚀 ~ ApartCard ~ rentId:", rentId)
   const { updateRentStatus, loading, error } = useUpdateRentStatus();
 
   const handleCancelRent = () => {  // 808c4b91-c3b1-4a51-ab62-124a46881c9d

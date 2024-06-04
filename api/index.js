@@ -8,6 +8,7 @@ const { checkExpiredRents } = require("./src/helpers/rentExpiration");
 const { resSender} = require('./src/helpers/resSender');
 const { captureRes } = require("./src/helpers/midlewareRes");
 const { sendReminderEmails } = require("./src/helpers/sendEmails");
+const { sendMailPending } = require("./src/helpers/sendMailPending");
 
 const port = process.env.PORT || 3000
 
@@ -31,6 +32,11 @@ cron.schedule('0 0 * * *', () => {
   sendReminderEmails();
 });
 
+cron.schedule('015 14 * * *', () => {
+  console.log('Ejecutando tarea cron para enviar correos electrónicos de pendientes...');
+  sendMailPending();
+});
+
 const sendResponse = (req, res, next) => {
   res.resSender = resSender
   next();
@@ -49,14 +55,14 @@ app.use(captureRes);
 
 app.use("/", router);
 
-app.get('/', (req, res) => {
-  res.status(200).json({
+/* app.get('/', (req, res) => {
+ res.status(200).json({
     welcome: "WELCOME TO MEDELLIN FURNISHED APARTMENTS",
     apartment: "https://api-rent-appartament.up.railway.app/apartment",
     user: "https://api-rent-appartament.up.railway.app/user",
     city: "https://api-rent-appartament.up.railway.app/city",
   });
-});
+}); */
 
 //manejo de errores
 app.use((err, req, res, next) => {
