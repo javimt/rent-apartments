@@ -126,6 +126,10 @@ function useHandleInput() {
       ...input,
       images: [...input.images, url],
     });
+    verifyInputValidation({
+      ...input,
+      images: [...input.images, url],
+    });
   }
 
   function addImages(e) {
