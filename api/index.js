@@ -8,7 +8,7 @@ const { checkExpiredRents } = require("./src/helpers/rentExpiration");
 const { resSender} = require('./src/helpers/resSender');
 const { captureRes } = require("./src/helpers/midlewareRes");
 const { sendReminderEmails } = require("./src/helpers/sendEmails");
-const { sendMailPending } = require("./src/controllers/anotationsController");
+const { sendMailPending } = require("./src/helpers/sendMailPending");
 
 const port = process.env.PORT || 3000
 
@@ -32,7 +32,7 @@ cron.schedule('0 0 * * *', () => {
   sendReminderEmails();
 });
 
-cron.schedule('0 12 * * *', () => {
+cron.schedule('015 14 * * *', () => {
   console.log('Ejecutando tarea cron para enviar correos electrónicos de pendientes...');
   sendMailPending();
 });

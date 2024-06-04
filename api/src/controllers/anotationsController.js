@@ -1,7 +1,7 @@
 const { Op } = require("sequelize");
 const { Anotations, Apartment } = require("../../db");
-const { resSender, HttpStatusCodes, rejectSender } = require('../helpers/resSender');
 const { sendMail } = require('../helpers/mailer');
+const { resSender, HttpStatusCodes, rejectSender } = require('../helpers/resSender');
 
 module.exports = {
   getAnotations: async (req, res, next) => {
@@ -69,31 +69,4 @@ module.exports = {
     }
   },
 
-  sendMailPending: async (req, res, next) => {
-    try {
-      const anotations = await Anotations.findAll({
-        where: {
-          status: 'pending',
-        },
-        attributes: ['pending'],
-        include: {
-          model: Apartment,
-          attributes: ['urbanizacion']
-        },
-      })
-
-      if(anotations.length === 0) {
-        rejectSender("no hay anotaciones pendientes", HttpStatusCodes.noEncontrado);
-      } else {
-        // Enviar correo al administrador con las anotaciones pendientes
-        const adminEmail = 'javiergarciaplata69@gmail.com'; 
-        const subject = 'Anotaciones Pendientes';
-        const html = `Aquí están las anotaciones pendientes: ${JSON.stringify(anotations)}`;
-        await sendMail(adminEmail, subject, html);
-      }
-      resSender(null, HttpStatusCodes.aceptado, anotations);
-    } catch (error) {
-      next(error);
-    }
-  }
 };
