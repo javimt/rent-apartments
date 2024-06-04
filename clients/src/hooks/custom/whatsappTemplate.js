@@ -16,7 +16,7 @@ export function useWhatsapp(input) {
     template += `client: ${input.name}%0A`;
     template += `email: ${input.email}%0A`;
     template += `apartment id: ${input.id}%0A`;
-    template += `urbanizacion: ${input.urbanizacion}%0A`;
+    //template += `urbanizacion: ${input.urbanizacion}%0A`;
     template += `start date: ${
       input.startDate ? formatDate(input.startDate) : ""
     }   end date: ${input.endDate ? formatDate(input.endDate) : ""}%0A`;

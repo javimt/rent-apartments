@@ -14,7 +14,7 @@ function useInputQuery() {
     id: "",
     urbanizacion: ""
   });
-  const [inputUrbanizacion, setInputUrbanizacion] = useState()
+  //const [inputUrbanizacion, setInputUrbanizacion] = useState()
 
   function setId(id) {
     setInput({ ...input, id: id });
