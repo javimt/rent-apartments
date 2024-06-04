@@ -14,7 +14,6 @@ function useCloudinary(addUrl) {
   }
 
   function uploadToCloudinary(file) {
-    console.log(file)
     const formData = new FormData()
     formData.append('file', file)
     formData.append('upload_preset', CLOUDINARY_PRESET)

@@ -58,7 +58,10 @@ module.exports = {
 
   getAllRentApartments: async (req, res, next) => {
     try {
-      const rentalApartments = await Apartment.findAll({ where: { status: 'rent' } });
+      const rentalApartments = await Apartment.findAll({ 
+        where: { status: 'rent' },
+        include: {model: Rent}
+      });
       if(!rentalApartments) {
         rejectSender("no se encontraron apartamentos para alquilar", HttpStatusCodes.noEncontrado);
       }

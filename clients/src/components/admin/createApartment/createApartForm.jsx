@@ -13,7 +13,6 @@ import useCloudinary from "../../../hooks/custom/cloudinary";
 function CreateApartForm({ render }) {
   const { handleInputs, input, addImages, deleteImage, error, submit,addUrl } = useHandleInput();
   const {uploadToCloudinary} = useCloudinary(addUrl)
-  console.log(input)
 
   useEffect(() => {
     render({ input: input, submit: submit });
