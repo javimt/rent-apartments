@@ -21,6 +21,13 @@ function useAdminApartments() {
       .finally(()=> setPending(false))
   }
 
+  function getAnApartment(apartId){
+    fetch(import.meta.env.VITE_API_USER_APARTMENT+apartId)
+    .then(response => response.json())
+    .then(response => response.data)
+    .catch(err => console.error(err))
+  }
+
   function getApartments(){
     resetData();
   }
@@ -29,7 +36,8 @@ function useAdminApartments() {
     apartments,
     resetData,
     getApartments,
-    pending
+    pending,
+    getAnApartment
   };
 }
 

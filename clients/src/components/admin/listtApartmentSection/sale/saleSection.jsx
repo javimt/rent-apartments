@@ -15,6 +15,7 @@ function SaleSection({ apartments, getDetail, deleteApartment, resetData }) {
             return (
               <CardApartAdmin
                 key={ap.id}
+                type={'sale'}
                 resetData={resetData}
                 deleteApartment={deleteApartment}
                 getDetail={getDetail}

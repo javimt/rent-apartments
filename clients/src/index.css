@@ -2,3 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Estilo para la barra de desplazamiento (scrollbar) completa */
+::-webkit-scrollbar {
+    width: 3px; /* Ancho de la barra de desplazamiento vertical */
+    height: 2px; /* Alto de la barra de desplazamiento horizontal */
+}
+
+/* Estilo para la parte de la barra de desplazamiento */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color del fondo de la pista */
+}
+
+/* Estilo para el thumb (la parte de la barra que se puede mover) */
+::-webkit-scrollbar-thumb {
+    background: #888; /* Color del thumb */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+/* Estilo para el thumb cuando el usuario lo está presionando */
+::-webkit-scrollbar-thumb:active {
+    background: black; /* Color del thumb cuando está activo */
+}
+
+/* Estilo para los botones de incremento y decremento */
+::-webkit-scrollbar-button {
+    background: #ddd; /* Color de los botones */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+/* Estilo para la esquina entre barras de desplazamiento horizontal y vertical */
+::-webkit-scrollbar-corner {
+    background: #ccc; /* Color de la esquina */
+}

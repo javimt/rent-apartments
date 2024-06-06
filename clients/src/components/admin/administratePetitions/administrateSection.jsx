@@ -15,6 +15,7 @@ function AdministrateSection() {
     <div className="grid md:grid-cols-1 xl:grid-cols-2   "> 
       <TransactionPending transactions={transactions.pending} reloadTransactions={getTransactions} deleteTransaction={deleteTransaction}/>
       <TransactionActive transactions={transactions.active} reloadTransactions={getTransactions} deleteTransaction={deleteTransaction}/>
+    
     </div>
   );
 }
