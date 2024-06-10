@@ -32,7 +32,7 @@ cron.schedule('0 0 * * *', () => {
   sendReminderEmails();
 });
 
-cron.schedule('015 14 * * *', () => {
+cron.schedule('15 14 * * *', () => {
   console.log('Ejecutando tarea cron para enviar correos electrónicos de pendientes...');
   sendMailPending();
 });
