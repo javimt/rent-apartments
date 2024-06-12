@@ -18,7 +18,7 @@ function Header({main = true}) {
           <img
             src={image}
             alt="furnished apartments medellin"
-            className="w-20 py-2  flex justify-center items-center rounded-full"
+            className="w-20 h-20 py-2 px-[6px]   flex justify-center items-center rounded-full"
           />
         </Link>
         <RiMenuFoldFill
