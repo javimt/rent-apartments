@@ -22,17 +22,17 @@ cron.schedule("0 0 * * *", () => {
   checkExpiredRents();
 });
 
-cron.schedule('0 12 * * *', () => {
+cron.schedule('01 12 * * *', () => {
   console.log('Ejecutando tarea cron para enviar correos electrónicos de recordatorio...');
   sendReminderEmails();
 });
 
-cron.schedule('0 0 * * *', () => {
+cron.schedule('01 0 * * *', () => {
   console.log('Ejecutando tarea cron para enviar correos electrónicos de recordatorio...');
   sendReminderEmails();
 });
 
-cron.schedule('015 14 * * *', () => {
+cron.schedule('32 13 * * *', () => {
   console.log('Ejecutando tarea cron para enviar correos electrónicos de pendientes...');
   sendMailPending();
 });
