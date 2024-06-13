@@ -53,7 +53,10 @@ module.exports = {
         rejectSender("la fecha final no puede ser menor a la de inicio", HttpStatusCodes.conflictivo);
       }
       //creacion de renta
-      const rent = await Rent.create({...req.body, priceAtRent: apartment.price}); // Guardar el precio del apartamento en el momento de la renta
+      const rent = await Rent.create({
+        ...req.body, 
+        priceAtRent: apartment.price
+      }); // Guardar el precio del apartamento en el momento de la renta
       await user.addRent(rent);
       await apartment.addRent(rent);
       //validar Renta 
@@ -142,13 +145,16 @@ module.exports = {
       });
 
       let totalApartmentPrice = 0;
+      let totalServices = 0;
 
       for (const rent of rents) {
         const apartment = rent.Apartment;
-        totalApartmentPrice += apartment.price;
+        totalApartmentPrice += rent.priceAtRent;
+        totalServices += apartment.services;
       }
       
-      const totalEarnings = totalApartmentPrice * 0.1;
+      let totalEarnings = totalApartmentPrice * 0.1;
+      totalEarnings += totalServices; // agregar el precio del servicio al total de las ganancias
       resSender(null, HttpStatusCodes.aceptado, { totalEarnings });
     } catch (error) {
       next(error);
