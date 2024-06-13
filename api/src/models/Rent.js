@@ -18,6 +18,10 @@ module.exports = (sequelize) => {
     status: {
       type: DataTypes.ENUM('pending', 'active', 'expired', 'cancelled'),
       defaultValue: 'pending'
+    },
+    priceAtRent: {
+      type: DataTypes.FLOAT,
+      allowNull: false,
     }
   }, {timestamps: false});
   Rent.associate = (models) => {

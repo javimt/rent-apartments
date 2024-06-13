@@ -1,11 +1,4 @@
 {
     "IDX.aI.enableInlineCompletion": true,
-    "IDX.aI.enableCodebaseIndexing": true,
-    "git.autofetch": true,
-    "git.confirmSync": false,
-    "git.enableSmartCommit": true,
-    "git.postCommitCommand": "sync",
-    "git.promptToSaveFilesBeforeCommit": "always",
-    "git.showPushSuccessNotification": true,
-    "git.enableStatusBarSync": true
+    "IDX.aI.enableCodebaseIndexing": true
 }
