@@ -1,11 +1,18 @@
 const { Op } = require("sequelize");
 const { Apartment, Rent, City, Anotations } = require("../../db");
-const { resSender, HttpStatusCodes, rejectSender } = require("../helpers/resSender"); 
+const { resSender, HttpStatusCodes, rejectSender } = require("../helpers/resSender");
 
 module.exports = {
   getAllApartments: async (req, res, next) => {
+    const { anotations } = req.query
+
     try {
-      const apartments = await Apartment.findAll({include: {model: Anotations}});
+      let apartments;
+      if (anotations && anotations == 'true') {
+        apartments = await Apartment.findAll({ include: { model: Anotations } });
+      } else {
+        apartments = await Apartment.findAll();
+      }
       resSender(null, HttpStatusCodes.aceptado, apartments);
     } catch (error) {
       next(error);
@@ -58,11 +65,11 @@ module.exports = {
 
   getAllRentApartments: async (req, res, next) => {
     try {
-      const rentalApartments = await Apartment.findAll({ 
+      const rentalApartments = await Apartment.findAll({
         where: { status: 'rent' },
-        include: {model: Rent}
+        include: { model: Rent }
       });
-      if(!rentalApartments) {
+      if (!rentalApartments) {
         rejectSender("no se encontraron apartamentos para alquilar", HttpStatusCodes.noEncontrado);
       }
       resSender(null, HttpStatusCodes.aceptado, rentalApartments);
@@ -74,7 +81,7 @@ module.exports = {
   getAllSaleApartments: async (req, res, next) => {
     try {
       const saleApartments = await Apartment.findAll({ where: { status: 'sale' } });
-      if(!saleApartments) {
+      if (!saleApartments) {
         rejectSender("no se encontraron apartamentos para vender", HttpStatusCodes.noEncontrado);
       }
       resSender(null, HttpStatusCodes.aceptado, saleApartments);
@@ -129,8 +136,8 @@ module.exports = {
       if (!apartment) {
         rejectSender("No se encontró el apartamento", HttpStatusCodes.noEncontrado);
       }
-      const valorations = [...apartment.rating.valorations, rating]; 
-      const media = valorations.reduce((acum, current) => acum + current, 0) / valorations.length; 
+      const valorations = [...apartment.rating.valorations, rating];
+      const media = valorations.reduce((acum, current) => acum + current, 0) / valorations.length;
       const apartUpdated = await apartment.update({
         rating: {
           valorations: valorations,
@@ -167,7 +174,7 @@ module.exports = {
     const { CityId } = req.body;
     try {
       const city = await City.findByPk(CityId);
-      if(!city) {
+      if (!city) {
         rejectSender("No se encontró la ciudad", HttpStatusCodes.noEncontrado);
       }
       const newApartment = await Apartment.create(req.body);

@@ -9,7 +9,6 @@ function useUpdateRentStatus(reloadTransactions) {
   const updateRentStatus = async (rentId, status) => {
     setLoading(true);
     setError(null);
-    
     try {
       const response = await fetch(`${VITE_API_RENT}${rentId}`, {
         method: "PUT",
@@ -34,21 +33,21 @@ function useUpdateRentStatus(reloadTransactions) {
     }
   };
 
-  function deleteTransaction(id){
-    fetch(`${VITE_API_RENT}${id}`,{
-        method:'DELETE'
+  function deleteTransaction(id) {
+    fetch(`${VITE_API_RENT}${id}`, {
+      method: 'DELETE'
     })
-    .then(response => {response.status < 300 ? alert('deleted Rent') : alert('cant delete the rent')})
-    .catch(error => console.error(error))
-    
-}
-  
+      .then(response => { response.status < 300 ? alert('deleted Rent') : alert('cant delete the rent') })
+      .catch(error => console.error(error))
 
-  return { 
-    updateRentStatus, 
+  }
+
+
+  return {
+    updateRentStatus,
     loading,
     error,
-    deleteTransaction 
+    deleteTransaction
   };
 };
 
