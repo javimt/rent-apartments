@@ -53,7 +53,7 @@ module.exports = {
         rejectSender("la fecha final no puede ser menor a la de inicio", HttpStatusCodes.conflictivo);
       }
       //creacion de renta
-      const rent = await Rent.create(req.body);
+      const rent = await Rent.create({...req.body, priceAtRent: apartment.price}); // Guardar el precio del apartamento en el momento de la renta
       await user.addRent(rent);
       await apartment.addRent(rent);
       //validar Renta 
