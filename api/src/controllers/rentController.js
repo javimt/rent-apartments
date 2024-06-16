@@ -1,6 +1,7 @@
 const { Rent, Apartment, User } = require("../../db");
 const { resSender, HttpStatusCodes, rejectSender } = require('../helpers/resSender');
 const { Op } = require('sequelize');
+const sendMailRentApproval = require("../sendEmails/sendMailRentApproval ");
 
 module.exports = {
   getAllRents: async (req, res, next) => {
@@ -55,8 +56,8 @@ module.exports = {
       //creacion de renta
       const rent = await Rent.create({
         ...req.body, 
-        priceAtRent: apartment.price
-      }); // Guardar el precio del apartamento en el momento de la renta
+        priceAtRent: apartment.price // Guardar el precio del apartamento al momento de crear la renta
+      }); 
       await user.addRent(rent);
       await apartment.addRent(rent);
       //validar Renta 
@@ -71,7 +72,7 @@ module.exports = {
 
   updateRent: async (req, res, next) => {
     const { id } = req.params;
-    const { startDate, endDate, status } = req.body;   // 12/05 14/06 , active
+    const { startDate, endDate, status } = req.body;
     
     try {
       const rent = await Rent.findByPk(id);
@@ -92,8 +93,9 @@ module.exports = {
           rejectSender('el apartamento no está disponible', HttpStatusCodes.noAutorizado);
           return;
         }
-        apartment.availability = false
-        apartment.save()
+        apartment.availability = false;
+        await apartment.save();
+        await sendMailRentApproval(rent)
       } else if (status === 'cancelled' && rent.status === 'active') {
         const apartment = await Apartment.findByPk(rent.apartmentId);
         if (apartment) {

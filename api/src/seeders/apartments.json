@@ -208,7 +208,7 @@
     "lat": "6.200585",
     "lon": "-75.571313",
     "status": "rent",
-    "services": 0,
+    "services": 150000,
     "userId": null,
     "CityId": null,
     "rating": {
@@ -237,7 +237,7 @@
     "lat": "6.246454",
     "lon": "-75.591152",
     "status": "sale",
-    "services": 150000,
+    "services": 0,
     "userId": null,
     "CityId": null,
     "rating": {

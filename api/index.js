@@ -4,11 +4,11 @@ const cors = require("cors");
 const { connection } = require("./db");
 const router = require("./src/routes/index");
 const cron = require("node-cron");
-const { checkExpiredRents } = require("./src/helpers/rentExpiration");
+const { checkExpiredRents } = require("./src/sendEmails/rentExpiration");
 const { resSender} = require('./src/helpers/resSender');
 const { captureRes } = require("./src/helpers/midlewareRes");
-const { sendReminderEmails } = require("./src/helpers/sendEmails");
-const { sendMailPending } = require("./src/helpers/sendMailPending");
+const { sendReminderEmails } = require("./src/sendEmails/sendEmails");
+const { sendMailPending } = require("./src/sendEmails/sendMailPending");
 
 const port = process.env.PORT || 3000
 
