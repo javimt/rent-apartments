@@ -2,21 +2,16 @@ const { sendMail } = require('./mailer');
 const { User, Apartment, Rent } = require("../../db");
 
 module.exports = {
-  sendMailRentApproval: async (rentId) => {
+  sendMailRentApproval: async (rent) => {
     try {
-      const rent = await Rent.findByPk(rentId, {
-        include: [User, Apartment],
-      });
 
-      if (!rent) {
-        throw new Error('Rent not found');
+      const user = await User.findByPk(rent.userId);
+      const apartment = await Apartment.findByPk(rent.apartmentId);
+
+      if (!user || !apartment) {
+        throw new Error('User or Apartment not found');
       }
 
-      const user = rent.User;
-      console.log("🚀 ~ sendMailRentApproval: ~ user:", user)
-      const apartment = rent.Apartment;
-      console.log("🚀 ~ sendMailRentApproval: ~ apartment:", apartment)
-      const adminEmail = 'javiergarciaplata69@gmail.com';
       const subject = "Solicitud de Alquiler Aprobada";
       const html = `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #e0e0e0;">
@@ -41,7 +36,7 @@ module.exports = {
           </div>
         </div>`;
 
-      await sendMail(adminEmail, subject, html);
+      await sendMail(user.email, subject, html);
     } catch (error) {
       console.error('Error al enviar el correo de aprobación de renta:', error);
     }

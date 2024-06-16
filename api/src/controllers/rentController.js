@@ -1,7 +1,7 @@
 const { Rent, Apartment, User } = require("../../db");
 const { resSender, HttpStatusCodes, rejectSender } = require('../helpers/resSender');
 const { Op } = require('sequelize');
-const sendMailRentApproval = require("../sendEmails/sendMailRentApproval ");
+const {sendMailRentApproval} = require("../sendEmails/sendMailRentApproval ");
 
 module.exports = {
   getAllRents: async (req, res, next) => {
@@ -75,14 +75,17 @@ module.exports = {
     const { startDate, endDate, status } = req.body;
     
     try {
+
       const rent = await Rent.findByPk(id);
       if (!rent) {
         rejectSender("Rent not found", HttpStatusCodes.noEncontrado);
       }
-      //validar que la fecha inicial sea mayor a la final
+
+      //validar q la fecha inicial sea mayor a la final
       if (endDate && startDate && endDate < startDate) {
         rejectSender("la fecha final no puede ser menor a la de inicio", HttpStatusCodes.conflictivo);
       }
+
       if (status === 'active' && rent.status !== 'active') { // q el status d la solicitud sea "active" y q el status actual no sea "active"
         const apartment = await Apartment.findByPk(rent.apartmentId);
         if (!apartment) {
@@ -93,9 +96,10 @@ module.exports = {
           rejectSender('el apartamento no está disponible', HttpStatusCodes.noAutorizado);
           return;
         }
+
         apartment.availability = false;
         await apartment.save();
-        await sendMailRentApproval(rent)
+
       } else if (status === 'cancelled' && rent.status === 'active') {
         const apartment = await Apartment.findByPk(rent.apartmentId);
         if (apartment) {
@@ -103,6 +107,12 @@ module.exports = {
           await apartment.save();
         }
       }
+
+      if (rent.status === 'pending' && status === 'active') {
+        // Enviar correo al usuario confirmando que su solicitud de alquiler fue aprobada
+        await sendMailRentApproval(rent);
+      }
+
       const updatedRent = await rent.update({ startDate, endDate, status });
       resSender(null, HttpStatusCodes.actualizado, updatedRent);
     } catch (error) {
