@@ -23,6 +23,7 @@
     "lat": "6.202610",
     "lon": "-75.562340",
     "status": "rent",
+    "services": 100000,
     "userId": null,
     "CityId": null,
     "rating": {
@@ -55,6 +56,7 @@
     "lat": "6.200585",
     "lon": "-75.571313",
     "status": "rent",
+    "services": 80000,
     "userId": null,
     "CityId": null,
     "rating": {
@@ -83,6 +85,7 @@
     "lat": "6.200585",
     "lon": "-75.571313",
     "status": "rent",
+    "services": 0,
     "userId": null,
     "CityId": null,
     "rating": {
@@ -113,6 +116,7 @@
     "lat": "6.200585",
     "lon": "-75.571313",
     "status": "rent",
+    "services": 0,
     "userId": null,
     "CityId": null,
     "rating": {
@@ -142,6 +146,7 @@
     "lat": "6.200585",
     "lon": "-75.571313",
     "status": "rent",
+    "services": 0,
     "userId": null,
     "CityId": null,
     "rating": {
@@ -171,6 +176,7 @@
     "lat": "6.200585",
     "lon": "-75.571313",
     "status": "rent",
+    "services": 0,
     "userId": null,
     "CityId": null,
     "rating": {
@@ -202,6 +208,7 @@
     "lat": "6.200585",
     "lon": "-75.571313",
     "status": "rent",
+    "services": 150000,
     "userId": null,
     "CityId": null,
     "rating": {
@@ -230,6 +237,7 @@
     "lat": "6.246454",
     "lon": "-75.591152",
     "status": "sale",
+    "services": 0,
     "userId": null,
     "CityId": null,
     "rating": {
@@ -262,6 +270,7 @@
     "lat": "6.145301",
     "lon": "-75.609208",
     "status": "rent",
+    "services": 0,
     "userId": null,
     "CityId": null,
     "rating": {
@@ -293,6 +302,7 @@
     "lat": "6.219269",
     "lon": "-75.568958",
     "status": "rent",
+    "services": 0,
     "userId": null,
     "CityId": null,
     "rating": {
@@ -324,6 +334,7 @@
     "lat": "6.222049",
     "lon": "-75.574242",
     "status": "rent",
+    "services": 0,
     "userId": null,
     "CityId": null,
     "rating": {
@@ -353,6 +364,7 @@
     "lat": "6.200585",
     "lon": "-75.571313",
     "status": "rent",
+    "services": 0,
     "userId": null,
     "CityId": null,
     "rating": {
@@ -384,6 +396,7 @@
     "lat": "6.200585",
     "lon": "-75.571313",
     "status": "rent",
+    "services": 0,
     "userId": null,
     "CityId": null,
     "rating": {

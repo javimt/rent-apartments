@@ -1,6 +1,7 @@
 const { Rent, Apartment, User } = require("../../db");
 const { resSender, HttpStatusCodes, rejectSender } = require('../helpers/resSender');
 const { Op } = require('sequelize');
+const {sendMailRentApproval} = require("../sendEmails/sendMailRentApproval ");
 
 module.exports = {
   getAllRents: async (req, res, next) => {
@@ -53,7 +54,10 @@ module.exports = {
         rejectSender("la fecha final no puede ser menor a la de inicio", HttpStatusCodes.conflictivo);
       }
       //creacion de renta
-      const rent = await Rent.create({...req.body, priceAtRent: apartment.price}); // Guardar el precio del apartamento en el momento de la renta
+      const rent = await Rent.create({
+        ...req.body, 
+        priceAtRent: apartment.price // Guardar el precio del apartamento al momento de crear la renta
+      }); 
       await user.addRent(rent);
       await apartment.addRent(rent);
       //validar Renta 
@@ -68,17 +72,20 @@ module.exports = {
 
   updateRent: async (req, res, next) => {
     const { id } = req.params;
-    const { startDate, endDate, status } = req.body;   // 12/05 14/06 , active
+    const { startDate, endDate, status } = req.body;
     
     try {
+
       const rent = await Rent.findByPk(id);
       if (!rent) {
         rejectSender("Rent not found", HttpStatusCodes.noEncontrado);
       }
-      //validar que la fecha inicial sea mayor a la final
+
+      //validar q la fecha inicial sea mayor a la final
       if (endDate && startDate && endDate < startDate) {
         rejectSender("la fecha final no puede ser menor a la de inicio", HttpStatusCodes.conflictivo);
       }
+
       if (status === 'active' && rent.status !== 'active') { // q el status d la solicitud sea "active" y q el status actual no sea "active"
         const apartment = await Apartment.findByPk(rent.apartmentId);
         if (!apartment) {
@@ -89,8 +96,10 @@ module.exports = {
           rejectSender('el apartamento no está disponible', HttpStatusCodes.noAutorizado);
           return;
         }
-        apartment.availability = false
-        apartment.save()
+
+        apartment.availability = false;
+        await apartment.save();
+
       } else if (status === 'cancelled' && rent.status === 'active') {
         const apartment = await Apartment.findByPk(rent.apartmentId);
         if (apartment) {
@@ -98,6 +107,12 @@ module.exports = {
           await apartment.save();
         }
       }
+
+      if (rent.status === 'pending' && status === 'active') {
+        // Enviar correo al usuario confirmando que su solicitud de alquiler fue aprobada
+        await sendMailRentApproval(rent);
+      }
+
       const updatedRent = await rent.update({ startDate, endDate, status });
       resSender(null, HttpStatusCodes.actualizado, updatedRent);
     } catch (error) {
@@ -142,13 +157,16 @@ module.exports = {
       });
 
       let totalApartmentPrice = 0;
+      let totalServices = 0;
 
       for (const rent of rents) {
         const apartment = rent.Apartment;
-        totalApartmentPrice += apartment.price;
+        totalApartmentPrice += rent.priceAtRent;
+        totalServices += apartment.services;
       }
       
-      const totalEarnings = totalApartmentPrice * 0.1;
+      let totalEarnings = totalApartmentPrice * 0.1;
+      totalEarnings += totalServices; // agregar el precio del servicio al total de las ganancias
       resSender(null, HttpStatusCodes.aceptado, { totalEarnings });
     } catch (error) {
       next(error);

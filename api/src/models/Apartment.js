@@ -50,6 +50,9 @@ module.exports = (sequelize) => {
       allowNull: false,
       defaultValue: "monthly"
     },
+    services: {
+      type: DataTypes.FLOAT
+    }
   },{timestamps: false});
   Apartment.associate = (models) => {
     Apartment.belongsTo(models.User, { foreignKey: 'userId' });
