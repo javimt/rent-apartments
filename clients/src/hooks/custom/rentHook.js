@@ -25,6 +25,8 @@ function useGenerateRent(input, errors, validate) {
       endDate: input.endDate
 
     }
+    console.log("🚀 ~ generateRent ~ parsedInput:", parsedInput)
+
     if (!errors.endDate && !errors.startDate && errors.blocked == false) {
       fetch(import.meta.env.VITE_API_RENT_GENERATE, {
         method: "POST",
