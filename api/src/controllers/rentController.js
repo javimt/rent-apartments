@@ -31,7 +31,7 @@ module.exports = {
   },
 
   createRent: async (req, res, next) => {
-    const { apartmentId, userId, startDate, endDate } = req.body
+    const { apartmentId, userId, startDate, endDate } = req.body // id apart, user id , start D, end D ? precio {consulta} 
     try {
       //validations parametros
       if(!userId || !apartmentId || !startDate || !endDate){
