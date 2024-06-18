@@ -22,6 +22,11 @@ function CardApartAdmin({ apartment, getDetail, deleteApartment, resetData, toog
         toogleOpen()
 
     }
+    function handleDetail2() {
+        getDetail(id)
+        toogleOpen2()
+
+    }
     return (
         <div className=" w-full justify-between flex items-center font-quicksand text-gray-400 gap-2 border mt-2 p-1 rounded-lg">
             <img src={images && images[0]} alt="" className="h-[50px] w-[80px] object-cover bg-center rounded-lg " />
@@ -31,12 +36,12 @@ function CardApartAdmin({ apartment, getDetail, deleteApartment, resetData, toog
             </div>
             <div className="flex gap-2">
                 {type.includes('rent') && apartment.Anotations.length > 0 ?
-                    <div onClick={handleDetail} className=" w-[40px] flex flex-col justify-center border p-1 rounded-lg items-center hover:bg-black text-blue-500 hover:text-white transition-all delay-300 cursor-pointer">
+                    <div onClick={handleDetail} className=" animate-pulse  w-[40px] flex flex-col justify-center border border-yellow-500 p-1 rounded-lg items-center hover:bg-black  bg-yellow-200 text-yellow-500 hover:text-white transition-all delay-300 cursor-pointer">
                         <TbListDetails className="hover:text-white" />
                         <span className="text-gray-400 text-[10px]">Obser</span>
-                    </div> : <div onClick={toogleOpen2} className=" w-[40px] flex flex-col justify-center border p-1 rounded-lg items-center hover:bg-black text-blue-500 hover:text-white transition-all delay-300 cursor-pointer">
+                    </div> : <div onClick={handleDetail2} className=" w-[40px] flex flex-col justify-center border p-1 rounded-lg items-center hover:bg-black text-blue-500 hover:text-white transition-all delay-300 cursor-pointer">
                         <LuFileEdit className="hover:text-white" />
-                        <span className="text-gray-400 text-[10px]">+ Obs</span>
+                        <span className="text-gray-400 text-[10px]">+Obs</span>
                     </div>
                 }
                 <div onClick={handleDetailEdit} className=" w-[40px] flex flex-col justify-center border p-1 rounded-lg items-center hover:bg-black text-blue-500 hover:text-white transition-all delay-300 cursor-pointer">

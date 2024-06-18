@@ -36,14 +36,25 @@ function useAdminApartments() {
   function changeStatusFromAnotations(id, type) {
     ///1/?email=nestornovellafullstackdev@gmail.com
     if (type == 'update') {
-      return axios.put(`${VITE_API_APARTMENT_ANOTATIONS + id}/?email=${controledUser.email}`, { status: 'resolved' })
-        .then(response => response.data.status < 300 && 'se actualizo correctamente')
-        .catch(error => console.error(error))
+      return axios.get(`${VITE_API_APARTMENT_ANOTATIONS + id}/?email=${controledUser.email}`)
+        .then(response => response.data)
+        .then(response => response.data)
+        .then(response => response.status)
+        .then((status)=>{
+          return axios.put(`${VITE_API_APARTMENT_ANOTATIONS + id}/?email=${controledUser.email}`, { status: status == 'pending' ? 'resolved' : 'pending' })
+          .then(response => response.data.status < 300 && 'se actualizo correctamente')
+          .catch(error => console.error(error))
+        })
+   
     } else {
       return axios.delete(`${VITE_API_APARTMENT_ANOTATIONS + id}/?email=${controledUser.email}`)
         .then(response => response.data.status < 300 && 'se actualizo correctamente')
         .catch(error => console.error(error))
     }
+  }
+
+  function anotate(id, input){
+     axios.post(`${VITE_API_APARTMENT_ANOTATIONS + id}/?email=${controledUser.email}`, input)
   }
 
 

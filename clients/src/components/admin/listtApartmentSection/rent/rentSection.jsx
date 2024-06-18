@@ -26,7 +26,7 @@ function RentSection({ apartments, getDetail, deleteApartment, resetData, detail
                 })}
 
                 <ModalMainContainer detail={detail} getDetail={getDetail} close={close} openStatus={openStatus} height={200} width={300}/>
-                <ModalAddAnotations toogleOpen={otherModalTogle.toogleOpen} openStatus={otherModalTogle.openStatus}/>
+                <ModalAddAnotations resetData={resetData} detail={detail} toogleOpen={otherModalTogle.toogleOpen} openStatus={otherModalTogle.openStatus}/>
             </div>
         </Transition>
     );
