@@ -20,13 +20,13 @@ module.exports = {
           </div>
           <div style="padding: 20px; background-color: #f9f9f9;">
             <h2 style="color: #333;">Hola <strong>${user.name}</strong>,</h2>
-            <p>Nos complace informarte que tu solicitud de alquiler para el apartamento <strong>${apartment.urbanizacion}</strong> ha sido aprobada.</p>
+            <p>Nos complace informarte que tu solicitud de alquiler para el apartamento <br/> <strong>${apartment.urbanizacion}</strong> ha sido aprobada.</p>
             <p>Detalles de la renta:</p>
             <ul>
               <li><strong>Fecha de Inicio:</strong> ${new Date(rent.startDate).toLocaleDateString()}</li>
               <li><strong>Fecha de Fin:</strong> ${new Date(rent.endDate).toLocaleDateString()}</li>
               <li><strong>Precio:</strong> ${rent.priceAtRent}</li>
-              <li><strong>Servicios:</strong> ${rent.servicesAtRent}</li>
+              <li><strong>Servicios:</strong> ${rent.servicesAtRent ? rent.servicesAtRent : "no services selected"}</li>
             </ul>
             <p>Gracias por elegirnos.</p>
           </div>
