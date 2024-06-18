@@ -25,7 +25,7 @@ function RentSection({ apartments, getDetail, deleteApartment, resetData, detail
                     return <CardApartAdmin key={ap.id} type={'rent'} setEdit={setEdit} toogleOpen={toogleOpen} toogleOpen2={otherModalTogle.toogleOpen}  resetData={resetData} deleteApartment={deleteApartment} getDetail={getDetail} apartment={ap} />
                 })}
 
-                <ModalMainContainer detail={detail} getDetail={getDetail} close={close} openStatus={openStatus} height={200} width={300}/>
+                <ModalMainContainer resetData={resetData} detail={detail} getDetail={getDetail} close={close} openStatus={openStatus} height={200} width={300}/>
                 <ModalAddAnotations resetData={resetData} detail={detail} toogleOpen={otherModalTogle.toogleOpen} openStatus={otherModalTogle.openStatus}/>
             </div>
         </Transition>

@@ -1,8 +1,13 @@
 import { TiDocumentDelete } from "react-icons/ti";
 import { MdFactCheck, MdDeleteSweep } from "react-icons/md";
 import useAdminApartments from "../../../hooks/admin/adminApartments";
-function ModalMainContainer({ width, height, close, openStatus, getDetail, detail }) {
+function ModalMainContainer({ width, height, close, openStatus, getDetail, detail, resetData}) {
     const { changeStatusFromAnotations } = useAdminApartments()
+
+    function handleClose(){
+        resetData()
+        .then(() => close())
+    }
 
     function handleAnotation(id, status) {
 
@@ -14,7 +19,7 @@ function ModalMainContainer({ width, height, close, openStatus, getDetail, detai
         <section className={`bg-gray-600/45  top-0 right-0 w-full h-full ${openStatus ? 'fixed' : 'hidden'}`} >
             <div className={`w-[${width}px] min-h-[${height}px] max-h-[500px] overflow-scroll` + ` border bg-white rounded-lg absolute top-[100px] right-[calc(50%-150px)] p-1 shadow-xl`}>
                 <div className="flex justify-end">
-                    <button onClick={close} className="p-1 bg-red-500 rounded text-xs text-white  hover:bg-red-400">close</button>
+                    <button onClick={handleClose} className="p-1 bg-red-500 rounded text-xs text-white  hover:bg-red-400">close</button>
                 </div>
                 <div className="flex flex-col">
 

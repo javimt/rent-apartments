@@ -35,15 +35,16 @@ function CardApartAdmin({ apartment, getDetail, deleteApartment, resetData, toog
                 <span className={`border p-1 rounded-lg text-xs ${status.includes('rent') ? 'bg-green-500' : 'bg-red-500'}  text-white`}>{status}</span>
             </div>
             <div className="flex gap-2">
-                {type.includes('rent') && apartment.Anotations.length > 0 ?
+                {type.includes('rent') && apartment.Anotations.length > 0 &&
                     <div onClick={handleDetail} className=" animate-pulse  w-[40px] flex flex-col justify-center border border-yellow-500 p-1 rounded-lg items-center hover:bg-black  bg-yellow-200 text-yellow-500 hover:text-white transition-all delay-300 cursor-pointer">
                         <TbListDetails className="hover:text-white" />
                         <span className="text-gray-400 text-[10px]">Obser</span>
-                    </div> : <div onClick={handleDetail2} className=" w-[40px] flex flex-col justify-center border p-1 rounded-lg items-center hover:bg-black text-blue-500 hover:text-white transition-all delay-300 cursor-pointer">
-                        <LuFileEdit className="hover:text-white" />
-                        <span className="text-gray-400 text-[10px]">+Obs</span>
                     </div>
                 }
+                <div onClick={handleDetail2} className=" w-[40px] flex flex-col justify-center border p-1 rounded-lg items-center hover:bg-black text-blue-500 hover:text-white transition-all delay-300 cursor-pointer">
+                    <LuFileEdit className="hover:text-white" />
+                    <span className="text-gray-400 text-[10px]">+Obs</span>
+                </div>
                 <div onClick={handleDetailEdit} className=" w-[40px] flex flex-col justify-center border p-1 rounded-lg items-center hover:bg-black text-blue-500 hover:text-white transition-all delay-300 cursor-pointer">
                     <MdEditSquare className="hover:text-white" />
                     <span className="text-gray-400 text-[10px]">Edit</span>

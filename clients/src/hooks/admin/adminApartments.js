@@ -16,7 +16,7 @@ function useAdminApartments() {
 
   function resetData() {
     if (!pending) { setPending(true) }
-    fetch(`${VITE_API_USER_APARTMENT}?anotations=true`)
+    return fetch(`${VITE_API_USER_APARTMENT}?anotations=true`)
       .then((response) => response.json())
       .then((data) => {
         const saleList = [...data.data].filter((ap) => ap.status == "sale");
