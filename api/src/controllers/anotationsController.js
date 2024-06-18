@@ -5,8 +5,8 @@ module.exports = {
   getAnotations: async (req, res, next) => {
     try {
       const anotations = await Anotations.findAll({
-        attributes: ['id'], // Select only the 'id' field
-        order: [['id', 'DESC']] // Order by 'id' in descending order
+        attributes: ['id'], 
+        order: [['id', 'DESC']] 
       });
       resSender(null, HttpStatusCodes.aceptado, anotations);
     } catch (error) {
