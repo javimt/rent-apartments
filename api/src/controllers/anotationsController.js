@@ -1,12 +1,13 @@
-const { Op } = require("sequelize");
 const { Anotations, Apartment } = require("../../db");
-const { sendMail } = require('../sendEmails/mailer');
 const { resSender, HttpStatusCodes, rejectSender } = require('../helpers/resSender');
 
 module.exports = {
   getAnotations: async (req, res, next) => {
     try {
-      const anotations = await Anotations.findAll();
+      const anotations = await Anotations.findAll({
+        attributes: ['id'], // Select only the 'id' field
+        order: [['id', 'DESC']] // Order by 'id' in descending order
+      });
       resSender(null, HttpStatusCodes.aceptado, anotations);
     } catch (error) {
       next(error);
