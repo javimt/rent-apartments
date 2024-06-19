@@ -5,7 +5,7 @@ import useGetAllCities from "../../../../hooks/custom/getAllCities";
 import { FaMapMarkedAlt } from "react-icons/fa";
 
 function SearchLocation() {
-  const { toogleOpen, openStatus } = useOpenClose();
+  const { toogleOpen, openStatus } = useOpenClose(true, 8000);
   const {filterByCity} = useGetApartments();
   const {city} = useGetAllCities();
 

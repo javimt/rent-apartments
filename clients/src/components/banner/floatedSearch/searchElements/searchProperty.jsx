@@ -7,7 +7,7 @@ import { GiHouseKeys } from "react-icons/gi";
 
 
 function SearchProperty() {
-  const { toogleOpen, openStatus } = useOpenClose();
+  const { toogleOpen, openStatus } = useOpenClose(true, 4000);
   const dispatch = useDispatch();
 
  
