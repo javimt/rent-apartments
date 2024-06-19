@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { MdPriceChange } from "react-icons/md";
 
 function SearchPricingRange() {
-  const { toogleOpen, openStatus } = useOpenClose();
+  const { toogleOpen, openStatus } = useOpenClose(true, 8000);
   const dispatch = useDispatch();
 
   const handleRangeClick = (minPrice, maxPrice) => {

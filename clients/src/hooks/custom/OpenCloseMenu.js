@@ -1,7 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-function useOpenClose() {
+function useOpenClose(autoclose, delay) {
   const [openStatus, setOpenStatus] = useState(false);
+
+  useEffect(()=>{
+    if(autoclose && openStatus){
+      setTimeout(()=>{
+        close()
+      },delay)
+    }
+  },[openStatus])
 
   function toogleOpen() {
     setOpenStatus((prev) => !prev);
