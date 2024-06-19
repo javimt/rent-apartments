@@ -1,5 +1,5 @@
 const { User, Rent, Apartment } = require("../../db");
-const { resSender, HttpStatusCodes, rejectSender } = require('../helpers/resSender');
+const { resSender, HttpStatusCodes, rejectSender } = require('../helpers/resSender.helper');
 const { sendMail } = require('../sendEmails/mailer');
 
 module.exports = {

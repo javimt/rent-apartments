@@ -1,5 +1,5 @@
 const { Sale, Apartment } = require("../../db");
-const { resSender, HttpStatusCodes, rejectSender } = require('../helpers/resSender');
+const { resSender, HttpStatusCodes, rejectSender } = require('../helpers/resSender.helper');
 
 module.exports = {
   getAllSales: async (req, res, next) => {

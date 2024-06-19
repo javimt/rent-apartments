@@ -2,11 +2,11 @@ const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
 const { connection } = require("./db");
-const router = require("./src/routes/index");
+const router = require("./src/routes/index.routes.js");
 const cron = require("node-cron");
 const { checkExpiredRents } = require("./src/sendEmails/rentExpiration");
-const { resSender} = require('./src/helpers/resSender');
-const { captureRes } = require("./src/helpers/midlewareRes");
+const { resSender} = require('./src/helpers/resSender.helper.js');
+const { captureRes } = require("./src/helpers/midlewareRes.helper.js");
 const { sendReminderEmails } = require("./src/sendEmails/sendEmails");
 const { sendMailPending } = require("./src/sendEmails/sendMailPending");
 

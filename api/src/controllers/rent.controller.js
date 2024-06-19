@@ -1,5 +1,5 @@
 const { Rent, Apartment, User } = require("../../db");
-const { resSender, HttpStatusCodes, rejectSender } = require('../helpers/resSender');
+const { resSender, HttpStatusCodes, rejectSender } = require('../helpers/resSender.helper');
 const { Op } = require('sequelize');
 const {sendMailRentApproval} = require("../sendEmails/sendMailRentApproval ");
 
@@ -157,7 +157,7 @@ module.exports = {
       });
 
       let totalApartmentPrice = 0;
-      let totalServices = 0;
+      let totalServices = 0;    
 
       for (const rent of rents) {
         const apartment = rent.Apartment;
