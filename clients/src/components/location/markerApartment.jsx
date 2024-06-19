@@ -15,12 +15,12 @@ function MarkerAppartment({ selectMarker }) {
   
   return (
     <div className="font-quicksand">
-      {apartments.length &&
+      {apartments.length > 0 &&
         apartments.map(({ lon, lat, images, urbanizacion, id }) => {
           return (
             <Marker
               key={id}
-              position={{ lon, lat }}
+              position={lon && lat ? {lon, lat} : {lon:10.000000, lat:10.000000}}
               icon={customIcon}
               eventHandlers={{
                 click: () => {
