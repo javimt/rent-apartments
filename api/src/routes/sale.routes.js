@@ -5,7 +5,7 @@ const {
   updateSale,
   deleteSale,
   getSaleById,
-} = require("../controllers/saleController");
+} = require("../controllers/sale.controller");
 
 const router = Router(); 
 

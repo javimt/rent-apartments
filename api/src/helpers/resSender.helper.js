@@ -1,4 +1,4 @@
-const { getGlobalRes } = require("./midlewareRes");
+const { getGlobalRes } = require("./midlewareRes.helper");
 
 const HttpStatusCodes = {
   aceptado: 202,

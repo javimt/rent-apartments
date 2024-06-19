@@ -1,5 +1,5 @@
 const {Router} = require('express')
-const { seedUser, seedApartment} = require('../controllers/seedDB')
+const { seedUser, seedApartment} = require('../controllers/seedDB.controller')
 
 const router = Router()
 

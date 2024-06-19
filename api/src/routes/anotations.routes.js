@@ -1,6 +1,6 @@
 const { Router } = require("express");
-const { getAnotations, getAnotationsById, createAnotation, updateAnotation, deleteAnotation } = require("../controllers/anotationsController");
-const { authorizeRoles } = require('../middleware/authorizeRoles');
+const { getAnotations, getAnotationsById, createAnotation, updateAnotation, deleteAnotation } = require("../controllers/anotations.controller");
+const { authorizeRoles } = require('../middleware/authorizeRoles.middleware');
 
 const router = Router();
 

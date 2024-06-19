@@ -6,7 +6,7 @@ const {
   deleteRent,
   getRentById,
   getMonthlyEarnings,
-} = require("../controllers/rentController");
+} = require("../controllers/rent.controller");
 
 const router = Router(); 
 

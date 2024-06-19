@@ -1,7 +1,7 @@
 const apartmentJson = require("../seeders/apartments.json");
 const usersJson = require("../seeders/users.json");
 const { Apartment, User } = require("../../db");
-const { resSender, HttpStatusCodes } = require("../helpers/resSender");
+const { resSender, HttpStatusCodes } = require("../helpers/resSender.helper");
 
 module.exports = {
   seedApartment: async (req, res, next) => {

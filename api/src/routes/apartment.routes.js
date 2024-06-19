@@ -12,7 +12,7 @@ const {
   updateRating,
   getAllRentApartments,
   getAllSaleApartments,
-} = require("../controllers/apartmentController");
+} = require("../controllers/apartment.controller");
 
 const router = Router();
 

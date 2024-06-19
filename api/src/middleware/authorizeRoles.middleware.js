@@ -1,5 +1,5 @@
 const { User } = require("../../db");
-const { resSender, HttpStatusCodes, rejectSender } = require('../helpers/resSender');
+const { resSender, HttpStatusCodes, rejectSender } = require('../helpers/resSender.helper');
 
 const authorizeRoles = (roles) => {
   return async (req, res, next) => {

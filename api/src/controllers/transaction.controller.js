@@ -1,5 +1,5 @@
 const { Transaction, Apartment, User } = require('../../db');
-const { resSender, HttpStatusCodes, rejectSender } = require('../helpers/resSender');
+const { resSender, HttpStatusCodes, rejectSender } = require('../helpers/resSender.helper');
 
 module.exports = {
   getAllTransactions: async (req, res, next) => {

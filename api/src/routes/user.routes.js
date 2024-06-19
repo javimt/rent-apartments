@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { getAllUsers, getByEmail, putUser, loginOrRegister, deleteUser, /* sendEmails */ } = require('../controllers/userController');
+const { getAllUsers, getByEmail, putUser, loginOrRegister, deleteUser, /* sendEmails */ } = require('../controllers/user.controller');
 
 const router = Router();
 
@@ -11,3 +11,4 @@ router.put('/email', putUser);
 router.delete('/email', deleteUser); 
 
 module.exports = router;
+ 
