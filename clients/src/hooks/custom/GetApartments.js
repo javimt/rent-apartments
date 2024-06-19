@@ -4,10 +4,12 @@ import { getApatments, filterSelectedCity, getAllRentApartments } from "../../re
 
 function useGetApartments() {
   const [apartments, setApartments] = useState([]);
-  const [slider, setSlider] = useState([])
-  const [firstCharge, setFirstCharge] = useState(false)
   const dispatch = useDispatch();
   const allApartment = useSelector((state) => state.apartment.apartments);
+
+  useEffect(()=>{
+    setApartments(allApartment)
+  },[allApartment])
 
   function resetApartmentsList() {
     dispatch(getApatments());
@@ -27,22 +29,21 @@ function useGetApartments() {
   }
 
   //slider
-  useEffect(() => {
-    setApartments(allApartment);
-    if(allApartment.length && !firstCharge){
-      setSlider(allApartment)
-      setFirstCharge(true)
-    }
-
-  }, [allApartment]);
+  function getapartmentsToSlider(){
+    return fetch(import.meta.env.VITE_API_USER_APARTMENT)
+    .then(response => response.json())
+    .then(response => response.status < 300 && response.data)
+    
+  }
+  
 
   return {
     apartments,
     resetApartmentsList,
     length,
     filterByCity,
-    slider,
-    dispatchApartments
+    dispatchApartments,
+    getapartmentsToSlider
   };
 }
 

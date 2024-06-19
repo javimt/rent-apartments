@@ -5,10 +5,16 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import useGetApartments from '../../hooks/custom/GetApartments';
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 function Slider() {
-  const { slider } = useGetApartments();
+  const { getapartmentsToSlider } = useGetApartments();
+  const [slider, setSlider] = useState([])
 
+  useEffect(() => {
+    getapartmentsToSlider()
+      .then((response) => setSlider(response))
+  }, [])
   return (
     <Swiper
       slidesPerView={2.5}

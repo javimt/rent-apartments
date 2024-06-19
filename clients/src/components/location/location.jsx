@@ -1,5 +1,4 @@
 import Transition from "../complements/transition";
-import { map } from "leaflet";
 import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import MarkerAppartment from "./markerApartment";
