@@ -16,6 +16,7 @@ module.exports = (sequelize) => {
   Sale.associate = (models) => {
     Sale.belongsTo(models.User, { foreignKey: 'userId' });
     Sale.belongsTo(models.Apartment, { foreignKey: 'apartmentId' });
+    Sale.hasMany(models.Transaction)
   }
   return Sale;
 };

@@ -8,6 +8,9 @@ module.exports = (sequelize) => {
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true
     },
+    paypalId:{
+      type:DataTypes.STRING
+    },
     date: {
       type: DataTypes.DATEONLY
     },
@@ -17,8 +20,8 @@ module.exports = (sequelize) => {
     
   },{timestamps: false});
   Transaction.associate = (models) => {
-    Transaction.belongsTo(models.User);
-    Transaction.belongsTo(models.Apartment);
+    Transaction.belongsTo(models.Rent)
+    Transaction.belongsTo(models.Sale)
   }
   return Transaction;
 }

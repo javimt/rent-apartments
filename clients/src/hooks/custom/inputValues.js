@@ -93,7 +93,7 @@ function useHandleInput() {
       if (Object.keys(error).length == 1) {
         axios
           .post(
-            "https://api-rent-appartament.up.railway.app/apartment",
+            import.meta.env.VITE_API_USER_APARTMENT,
             parseInput(input)
           )
           .then((response) => {

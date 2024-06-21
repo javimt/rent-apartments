@@ -27,6 +27,7 @@ module.exports = (sequelize) => {
   Rent.associate = (models) => {
     Rent.belongsTo(models.User, { foreignKey: 'userId' });
     Rent.belongsTo(models.Apartment, { foreignKey: 'apartmentId' });
+    Rent.hasMany(models.Transaction)
   }
   return Rent;
 };

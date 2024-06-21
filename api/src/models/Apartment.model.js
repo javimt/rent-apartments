@@ -58,7 +58,6 @@ module.exports = (sequelize) => {
     Apartment.belongsTo(models.User, { foreignKey: 'userId' });
     Apartment.hasMany(models.Rent, { foreignKey: 'apartmentId' });
     Apartment.hasMany(models.Sale, { foreignKey: 'apartmentId' });
-    Apartment.hasMany(models.Transaction);
     Apartment.belongsTo(models.City);
     Apartment.hasMany(models.Anotations);
   }
