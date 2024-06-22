@@ -33,8 +33,8 @@ module.exports = {
       if(!apartment) {
         rejectSender("no se encontró el apartamento", HttpStatusCodes.noEncontrado);
       }
-      const date = new Date()
-      const transaction = await Transaction.create({amount: {price: apartment.price, exchange: "COP"}, date});
+     
+      const transaction = await Transaction.create({amount: {price: apartment.price, exchange: "COP"}});
       const user = await User.findByPk(email);
       if(!user) {
         rejectSender("usuario no encontrado", HttpStatusCodes.noEncontrado);

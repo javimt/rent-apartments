@@ -28,6 +28,7 @@ module.exports = (sequelize) => {
     Rent.belongsTo(models.User, { foreignKey: 'userId' });
     Rent.belongsTo(models.Apartment, { foreignKey: 'apartmentId' });
     Rent.hasMany(models.Transaction)
+    Rent.belongsToMany(models.Exchange,{through: 'rent-exchange'}) 
   }
   return Rent;
 };

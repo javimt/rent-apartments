@@ -1,6 +1,7 @@
 const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
+  const date = new Date()
   const Transaction = sequelize.define("Transaction", {
 
     id: {
@@ -8,17 +9,25 @@ module.exports = (sequelize) => {
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true
     },
-    paypalId:{
-      type:DataTypes.STRING
+    paypalToken: {
+      type: DataTypes.STRING
     },
-    date: {
-      type: DataTypes.DATEONLY
+    payerID:{
+      type:DataTypes.STRING,
+      allowNull:false,
     },
-    amount: {
+    date: { //fecha en la que se genera la transaccion!
+      type: DataTypes.DATEONLY,
+      defaultValue: date
+    },
+    amount: { //monto de la transaccion
       type: DataTypes.JSON
     },
-    
-  },{timestamps: false});
+    status:{
+      type: DataTypes.ENUM('success')
+    }
+
+  }, { timestamps: false });
   Transaction.associate = (models) => {
     Transaction.belongsTo(models.Rent)
     Transaction.belongsTo(models.Sale)
