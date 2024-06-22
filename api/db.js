@@ -39,6 +39,9 @@ Object.keys(models).forEach((e) => {
   }
 });
 
+console.log(sequelize.models)
+
+
 module.exports = {
   ...sequelize.models,
   connection: sequelize,

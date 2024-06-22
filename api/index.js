@@ -3,39 +3,13 @@ const morgan = require("morgan");
 const cors = require("cors");
 const { connection } = require("./db");
 const router = require("./src/routes/index.routes.js");
-const cron = require("node-cron");
-const { checkExpiredRents } = require("./src/sendEmails/rentExpiration");
 const { resSender} = require('./src/helpers/resSender.helper.js');
 const { captureRes } = require("./src/helpers/midlewareRes.helper.js");
-const { sendReminderEmails } = require("./src/sendEmails/sendEmails");
-const { sendMailPending } = require("./src/sendEmails/sendMailPending");
+const { startCron } = require("./src/helpers/cronSchudelizer.helper.js");
 
 const port = process.env.PORT || 3000
 
-cron.schedule("0 12 * * *", () => {
-  console.log("Verifying expired rentals...");
-  checkExpiredRents();
-});
-
-cron.schedule("0 0 * * *", () => {
-  console.log("Verifying expired rentals...");
-  checkExpiredRents();
-});
-
-cron.schedule('01 12 * * *', () => {
-  console.log('Ejecutando tarea cron para enviar correos electrónicos de recordatorio...');
-  sendReminderEmails();
-});
-
-cron.schedule('01 0 * * *', () => {
-  console.log('Ejecutando tarea cron para enviar correos electrónicos de recordatorio...');
-  sendReminderEmails();
-});
-
-cron.schedule('32 13 * * *', () => {
-  console.log('Ejecutando tarea cron para enviar correos electrónicos de pendientes...');
-  sendMailPending();
-});
+startCron()
 
 const sendResponse = (req, res, next) => {
   res.resSender = resSender
@@ -54,15 +28,6 @@ app.use(cors({
 app.use(captureRes);
 
 app.use("/", router);
-
-/* app.get('/', (req, res) => {
- res.status(200).json({
-    welcome: "WELCOME TO MEDELLIN FURNISHED APARTMENTS",
-    apartment: "https://api-rent-appartament.up.railway.app/apartment",
-    user: "https://api-rent-appartament.up.railway.app/user",
-    city: "https://api-rent-appartament.up.railway.app/city",
-  });
-}); */
 
 //manejo de errores
 app.use((err, req, res, next) => {
