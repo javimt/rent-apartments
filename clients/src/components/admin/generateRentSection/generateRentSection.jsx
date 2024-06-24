@@ -1,9 +1,12 @@
 import { useRef } from "react";
 import useAdeminApartDetail from "../../../hooks/admin/AdminApartmentDetail";
 import ApartCard from "./apartCard";
+import useAdminTransaction from "../../../hooks/admin/adminTransacion";
 
 function GenerateRentSection() {
   const { getDetail, detail } = useAdeminApartDetail();
+  console.log("🚀 ~ GenerateRentSection ~ detail:", detail)
+  const {deleteTransaction} = useAdminTransaction()
   const reference = useRef(null);
 
   return (
@@ -34,7 +37,7 @@ function GenerateRentSection() {
             </div>
             <div className="flex justify-center">
               <div className=" w-full md:w-full h-[90px] border rounded-lg shadow-xl">
-                <ApartCard apartment={detail} />
+                <ApartCard getDetail={getDetail} apartment={detail} />
               </div>
             </div>
           </div>

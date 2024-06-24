@@ -4,7 +4,7 @@ import useGetAllCities from "../../../../hooks/custom/getAllCities";
 
 function SelectSection({ name, value, label, handle }) {
   const { openStatus, toogleOpen } = useOpenClose();
-  const { city } = useGetAllCities();
+  const { cities } = useGetAllCities();
 
 
   return (
@@ -21,8 +21,8 @@ function SelectSection({ name, value, label, handle }) {
             openStatus ? "absolute" : "hidden"
           } rounded-sm z-100 bg-white w-full left-0 top-[25px] border`}
         >
-          {city &&
-            city.map((e) => {
+          {cities &&
+            cities.map((e) => {
               return (
                 <button
                   key={e.id}
