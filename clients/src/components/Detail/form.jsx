@@ -14,16 +14,15 @@ const url =
 function Form({ apartmentId, availability, urbanizacion }) {
 
   const { controledUser, isAuthenticated, role } = useAuth0GetData()
-  const { handleInput, input, errors, link, submitWap, setId, validate, /* setUrbanizacion */ } = useInputQuery(apartmentId)
+  const { handleInput, input, errors, link, submitWap, setId, validate, setUrbanizacion } = useInputQuery(apartmentId)
   const { generateRent, setInputRent } = useGenerateRent(input, errors, validate)
 
   useEffect(() => {
     setId(apartmentId)
+    setUrbanizacion(urbanizacion)
   }, [apartmentId])
 
-  /* useEffect(() => {
-    setUrbanizacion(urbanizacion)
-  }, [urbanizacion]) */
+  
 
   function checkAvailability() {
     if (availability) {

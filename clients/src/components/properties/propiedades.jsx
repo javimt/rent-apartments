@@ -14,11 +14,14 @@ import { PiBuildingApartmentFill, PiBuildingApartment } from "react-icons/pi";
 import useGetApartments from "../../hooks/custom/GetApartments";
 import useGetAllCities from "../../hooks/custom/getAllCities";
 import Transition from "../complements/transition";
+import { useSelector } from "react-redux";
 
 function Properties() {
   const { apartments, length, getApartments } = useGetApartments();
   const { counter, handleCounter } = useCounterHouses();
   const { dispatchCities } = useGetAllCities();
+  const role = useSelector(store => store.user.role)
+
 
   useEffect(() => {
     getApartments();
@@ -55,24 +58,33 @@ function Properties() {
               delayMult > 7 ? delayMult = 1 : delayMult++
               return (
                 index < counter && (
-                  <Link
-                    className="shadow-light hover:shadow-xl font-quicksand rounded-2xl transition-all duration-300 cursor-pointer"
-                    key={id}
-                    to={`/apartment/${id}`}
-                  >
-                    <AnimatedBox
-                      availability={availability}
-                      bathrooms={bathrooms}
-                      bedrooms={bedrooms}
-                      urbanizacion={urbanizacion}
-                      images={images}
-                      price={price}
-                      size={size}
-                      status={status}
-                      ubication={ubication}
-                      delay={delayMult * 0.2}
-                    />
-                  </Link>
+                  <div className="shadow-light hover:shadow-xl font-quicksand rounded-2xl transition-all duration-300 ">
+                    {role == 'admin' &&
+                      <span className="mx-2 text-xs text-gray-400 ">
+                        {`id: ${id}`}
+                      </span>
+                    }
+                    <Link
+                      className="cursor-pointer"
+                      key={id}
+                      to={`/apartment/${id}`}
+                    >
+                      <AnimatedBox
+                        availability={availability}
+                        bathrooms={bathrooms}
+                        bedrooms={bedrooms}
+                        urbanizacion={urbanizacion}
+                        images={images}
+                        price={price}
+                        size={size}
+                        status={status}
+                        ubication={ubication}
+                        id={id}
+                        role={role}
+                        delay={delayMult * 0.2}
+                      />
+                    </Link>
+                  </div>
                 )
               );
             }
@@ -103,13 +115,16 @@ const AnimatedBox = ({
   size,
   status,
   ubication,
+  id,
   delay,
+  role
 }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
   return (
     <motion.div
+      key={id}
       ref={ref}
       initial={{ opacity: 0, scale: 0.9 }}
       animate={isInView ? { opacity: 1, scale: 1 } : {}}
@@ -139,6 +154,7 @@ const AnimatedBox = ({
               <p className="font-bold">{parseToColombianMoney(price)}</p>
               <LiaCommentsDollarSolid className="mr-2 text-green-800" />
             </div>
+
             <div className="gap-1 md:gap-4 xl:gap-2 mt-2 flex flex-wrap flex-col md:flex-row">
               <div className="flex items-center justify-center px-2 my-2 py-1 rounded-lg bg-slate-300/30">
                 <LiaBedSolid />

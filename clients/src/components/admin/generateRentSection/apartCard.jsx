@@ -18,14 +18,15 @@ function NonApartment() {
   );
 }
 
-function ApartCard({ apartment, rentId, onRentSelect }) {
+function ApartCard({ apartment, onRentSelect, getDetail }) {
   const { updateRentStatus, loading, error } = useUpdateRentStatus();
 
   const handleCancelRent = () => {  // 808c4b91-c3b1-4a51-ab62-124a46881c9d
-    if (rentId) {
-      updateRentStatus(rentId, "cancelled")
+    if (apartment.Rents.length) {
+      updateRentStatus(apartment.Rents[0].id, "cancelled")
         .then(() => {
           alert("Rent status updated to cancelled successfully");
+          getDetail(apartment.id)
         })
         .catch((error) => {
           console.error(error);
@@ -58,20 +59,21 @@ function ApartCard({ apartment, rentId, onRentSelect }) {
               ? apartment.urbanizacion
               : "inrese id para obtener apartamento"}
           </span>
-          <button
+          { !apartment.availability ?
+            <button
             onClick={handleCancelRent}
-            className="bg-yellow-500 p-1 rounded hover:bg-black hover:text-white cursor-pointer transition-all delay-200"
+            className="bg-yellow-500 p-1 rounded hover:bg-black text-xs text-white hover:text-white cursor-pointer transition-all delay-200"
           >
             cancelar renta
-          </button>
+          </button>: <span className="bg-red-500 p-1 rounded hover:bg-black text-xs text-white delay-200">not rented</span>}
           {apartment && (
-            <div className="absolute top-[-20px] left-0">
+            <div className="absolute top-[0px] -left-6">
               {apartment.availability ? (
-                <span className="bg-blue-500 p-1 rounded text-white">
+                <span className="bg-green-500 p-1 rounded text-white block text-xs transform -rotate-45">
                   Available
                 </span>
               ) : (
-                <span className="bg-blue-500 p-1 rounded text-white">
+                <span className="bg-blue-500 p-1 rounded block text-white text-xs  transform -rotate-45">
                   Not Available
                 </span>
               )}

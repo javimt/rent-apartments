@@ -10,7 +10,7 @@ function userReducer(state = initialState, action) {
       case actionTypes.SET_AN_USER:
       return {
         ...state,
-        users: action.payload,
+        user: action.payload,
       };
     case actionTypes.USER_ROLE:
       return {

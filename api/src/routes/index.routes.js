@@ -8,6 +8,7 @@ const transactionRoute = require('./transaction.routes');
 const cityRoute = require('./city.routes');
 const anotationsRoute = require('./anotations.routes');
 const paypalRoutes = require('./paypal.routes')
+const exchangeRoutes = require('./exchange.routes')
 
 const router = Router();
 
@@ -20,5 +21,6 @@ router.use('/transaction', transactionRoute);
 router.use('/city', cityRoute);
 router.use('/anotations', anotationsRoute);
 router.use('/paypal', paypalRoutes)
+router.use('/exchange', exchangeRoutes)
 
 module.exports = router; 

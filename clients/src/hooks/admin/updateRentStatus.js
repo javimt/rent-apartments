@@ -6,6 +6,7 @@ function useUpdateRentStatus(reloadTransactions) {
   const [error, setError] = useState(null);
 
   const VITE_API_RENT = import.meta.env.VITE_API_RENT_GENERATE
+  
   const updateRentStatus = async (rentId, status) => {
     setLoading(true);
     setError(null);

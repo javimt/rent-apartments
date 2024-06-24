@@ -3,8 +3,8 @@ import useAuth0GetData from "./auth0getinData";
 import useWhatsapp from "./whatsappTemplate";
 
 function useInputQuery() {
-  const {controledUser} = useAuth0GetData()
-  const [errors, setError] = useState({blocked: true,});
+  const { controledUser } = useAuth0GetData()
+  const [errors, setError] = useState({ blocked: true, });
   const [input, setInput] = useState({
     name: "",
     email: "",
@@ -17,12 +17,14 @@ function useInputQuery() {
   //const [inputUrbanizacion, setInputUrbanizacion] = useState()
 
   function setId(id) {
-    setInput({ ...input, id: id });
+    setInput(prev => {
+      return { ...prev, id: id }
+    });
   }
 
-  /* function setUrbanizacion(urbanizacion) {
-    setInput({ ...input, urbanizacion: urbanizacion });
-  } */
+  function setUrbanizacion(urbanizacion) {
+    setInput(prev =>{return { ...prev, urbanizacion: urbanizacion }});
+  }
 
   const { link } = useWhatsapp(input, errors);
 
@@ -59,10 +61,10 @@ function useInputQuery() {
 
     setInput(
       (prev) =>
-        (prev = {
-          ...input,
-          [event.name]: event.value,
-        })
+      (prev = {
+        ...input,
+        [event.name]: event.value,
+      })
     );
   }
 
@@ -84,7 +86,7 @@ function useInputQuery() {
     submitWap,
     setId,
     validate,
-    //setUrbanizacion
+    setUrbanizacion
   };
 }
 
