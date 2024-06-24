@@ -4,7 +4,7 @@ function useCounterHouses() {
   const [counter, setCounter] = useState(8);
 
   function handleCounter() {
-    setCounter((prev) => prev + 4);
+    setCounter((prev) => prev + 8);
   }
 
   return {

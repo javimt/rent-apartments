@@ -15,7 +15,7 @@ import { MdApartment } from "react-icons/md";
 import { PiBuildingApartmentFill, PiBuildingApartment } from "react-icons/pi";
 import { useEffect } from "react";
 import useGetAllCities from "../../hooks/custom/getAllCities";
-
+import {animate, motion} from 'framer-motion'
 
 function Properties(rating) {
   const { apartments, length, getApartments } = useGetApartments();
@@ -25,7 +25,7 @@ function Properties(rating) {
   useEffect(()=>{
     getApartments()
   },[])
-
+  let mult = 1
   return (
     <Transition
       className={
@@ -56,14 +56,18 @@ function Properties(rating) {
               },
               index
             ) => {
+              {
+                mult > 8 ? mult=0 : mult++
+              }
               return (
+                
                 index < counter && (
                   <Link
                     className="shadow-light hover:shadow-xl font-quicksand rounded-2xl transition-all duration-300 cursor-pointer"
                     key={id}
                     to={`/apartment/${id}`}
                   >
-                    <div className="relative ">
+                    <motion.div initial={{opacity:0, scale:0.9}}  animate={{opacity:1, scale:1}} transition={{duration:0.5, delay:mult * 0.2}} className="relative ">
                       <div className="relative">
                         <div className="absolute text-secondary flex items-center px-2 rounded-lg bg-slate-50 top-2 right-2">
                           <LiaStarSolid className="text-yellow-400" />
@@ -125,7 +129,7 @@ function Properties(rating) {
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </motion.div>
                   </Link>
                 )
               );
