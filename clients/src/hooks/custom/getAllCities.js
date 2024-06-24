@@ -3,13 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllCties } from "../../redux/actions/apartmentActions";
 
 function useGetAllCities() {
-  const [city, setCities] = useState([]);
-  const dispatch = useDispatch();
 
-  const citiesByRedux = useSelector((store) => store.apartment.cities);
+  const dispatch = useDispatch();
+  const cities = useSelector((store) => store.apartment.cities);
 
   function getOneCity(cityId) {
-    const city = citiesByRedux.find((ct) => ct.id.includes(cityId));
+    const city = cities.find((ct) => ct.id.includes(cityId));
     if (city) {
       return city;
     }
@@ -21,12 +20,10 @@ function useGetAllCities() {
     },100)
   }
 
-  useEffect(() => {
-    setCities(citiesByRedux);
-  }, [citiesByRedux]);
+
 
   return {
-    city,
+    cities,
     getOneCity,
     dispatchCities
   };

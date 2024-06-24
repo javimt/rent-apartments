@@ -11,22 +11,29 @@ import { scrollTop } from "../../utils/scrollTop";
 
 function CardDetail() {
   const { id } = useParams();
-  const { apartment, getApartment } = useGetAnApartment(id);
-  
-  useState(()=>{
+  const { getApartment } = useGetAnApartment();
+  const [apartment, setApartment] = useState(null)
+
+ 
+  console.log("🚀 ~ CardDetail ~ apartment:", apartment)
+
+  useEffect(() => {
     scrollTop()
-    getApartment()
-  },[])
+    getApartment(id)
+      .then(apart => setApartment(apart))
+      .then(()=> console.log(apartment))
+  }, [])
+
   return (
     <>
       <TransitionPage />
-      <Header main={false}/>
+      <Header main={false} />
       <Transition>
-        {apartment.hasOwnProperty("data") ? (
+        {
+          apartment &&
           <Property apartment={apartment} />
-        ) : (
-          <Error404 />
-        )}
+        }
+
         <Footer />
       </Transition>
     </>

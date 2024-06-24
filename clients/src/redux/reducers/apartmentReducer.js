@@ -2,9 +2,9 @@ import { actionTypes } from "../actions/actionTypes";
 
 const initialState = {
   apartments: [],
-  filters: [],
-  cities: [],
   filters: {},
+  cities: [],
+  
 };
 
 function apartmentReducer(state = initialState, action) {

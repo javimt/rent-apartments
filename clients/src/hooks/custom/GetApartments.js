@@ -1,15 +1,10 @@
-import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getApatments, filterSelectedCity, getAllRentApartments } from "../../redux/actions/apartmentActions";
 
 function useGetApartments() {
-  const [apartments, setApartments] = useState([]);
   const dispatch = useDispatch();
-  const allApartment = useSelector((state) => state.apartment.apartments);
+  const apartments = useSelector((state) => state.apartment.apartments);
 
-  useEffect(()=>{
-    setApartments(allApartment)
-  },[allApartment])
 
   function resetApartmentsList() {
     dispatch(getApatments());
@@ -24,7 +19,7 @@ function useGetApartments() {
     dispatch(getAllRentApartments())
   }
 
-  function dispatchApartments(){
+  function getApartments(){
     dispatch(getApatments())
   }
 
@@ -42,7 +37,8 @@ function useGetApartments() {
     resetApartmentsList,
     length,
     filterByCity,
-    dispatchApartments,
+    getApartments,
+    filterByRent,
     getapartmentsToSlider
   };
 }
