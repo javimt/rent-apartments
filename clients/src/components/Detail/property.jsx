@@ -18,7 +18,7 @@ function Property({ apartment }) {
   function handleImagePos(e) {
     if (e.target.name == "next") {
 
-      if (apartment.data.images.length > imagePos + 1) {
+      if (apartment.images.length > imagePos + 1) {
         setImagePos((prev) => prev + 1);
       }
     } else {
@@ -39,7 +39,7 @@ function Property({ apartment }) {
     description,
     CityId,
     availability
-  } = apartment.data;
+  } = apartment;
 
   return (
     <main className="max-w-5xl mx-auto font-quicksand">

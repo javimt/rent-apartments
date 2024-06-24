@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { getAllRentApartments, getAnAppatment } from "../../redux/actions/apartmentActions";
 
-function useGetAnApartment(id) {
+function useGetAnApartment() {
   const [apartment, setApartment] = useState({});
   const dispatch = useDispatch();
 
@@ -10,17 +10,14 @@ function useGetAnApartment(id) {
     setApartment(getAnAppatment(id));
   }
 
-  useEffect(() => {
-    setTimeout(() => {
-      dispatch(getAllRentApartments())
-    }, 400)
-  }, [])
+  
 
-  function getApartment() {
-    fetch(`${import.meta.env.VITE_API_USER_APARTMENT}${id}`)
+  function getApartment(id) {
+    return fetch(`${import.meta.env.VITE_API_USER_APARTMENT}${id}`)
     .then(response => response.json())
-    .then(response => setApartment(response))
+    .then(response => response.data)
     .catch(error => console.error(error))
+    
   }
 
   return {

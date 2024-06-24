@@ -11,26 +11,15 @@ import Complementary from './components/complementario/complementarySection';
 import Footer from './components/footer/footer';
 import CardDetail from './components/Detail/Detail';
 import AdminPanel from './components/admin/adminPanel';
-import NavBar from './components/header/navbar';
-import useGetApartments from './hooks/custom/GetApartments';
-import useGetAllCities from './hooks/custom/getAllCities';
 import { useSelector } from 'react-redux';
 import UnautorizedAdmin from './components/admin/unautorizedAdmin';
-import { importEnvironment } from './utils/importEnvironments';
 
 // Importa el componente de ubicación de manera dinámica usando React.lazy
 const LocationMap = React.lazy(() => import('./components/location/location'));
 
 function App() {
-  const { dispatchApartments } = useGetApartments()
-  const { dispatchCities } = useGetAllCities()
-  useEffect(() => {
-    dispatchApartments()
-    dispatchCities()
-  }, [])
-
+  
   const role = useSelector(state => state.user.role)
-
   return (
     <>
       <Routes>

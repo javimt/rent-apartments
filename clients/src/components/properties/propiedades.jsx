@@ -13,11 +13,18 @@ import useCounterHouses from "../../redux/actions/counterHauses";
 import Rating from "./Rating";
 import { MdApartment } from "react-icons/md";
 import { PiBuildingApartmentFill, PiBuildingApartment } from "react-icons/pi";
+import { useEffect } from "react";
+import useGetAllCities from "../../hooks/custom/getAllCities";
 
 
 function Properties(rating) {
-  const { apartments, length } = useGetApartments();
+  const { apartments, length, getApartments } = useGetApartments();
   const { counter, handleCounter } = useCounterHouses();
+  const {dispatchCities} = useGetAllCities()
+
+  useEffect(()=>{
+    getApartments()
+  },[])
 
   return (
     <Transition
@@ -26,7 +33,7 @@ function Properties(rating) {
       }
     >
       <section className="grid grid-cols-2 gap-4 md:gap-4 md:grid-cols-3  xl:grid-cols-4 2xl:grid-cols-4">
-        {apartments &&
+        {apartments.length > 0 &&
           apartments.map(
             (
               {

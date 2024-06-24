@@ -7,7 +7,7 @@ import { FaMapMarkedAlt } from "react-icons/fa";
 function SearchLocation() {
   const { toogleOpen, openStatus } = useOpenClose(true, 8000);
   const {filterByCity} = useGetApartments();
-  const {city} = useGetAllCities();
+  const {cities} = useGetAllCities();
 
   const handleCitySelect = (cityId) => {
     filterByCity(cityId);
@@ -27,7 +27,7 @@ function SearchLocation() {
       </div>
       {openStatus ? <GrFormUp /> : <GrFormDown />}
       <div className={`${openStatus ? "absolute  z-[110]" : "hidden"}  rounded-sm  bg-white w-full left-0 top-[60px] border `}>
-        {city.map((e, i) => {
+        {cities.map((e, i) => {
           return (
                 
             <div onClick={() => handleCitySelect(e.id)}  key={i} className="p-1 hover:cursor-pointer text-start w-full  hover:bg-gray-300 text-gray-400 text-[13px] px-2 flex justify-between"> 
